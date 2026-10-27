@@ -127,6 +127,16 @@ every metric and figure, and the deployable ONNX detectors in `edge_deploy/model
   Human annotation follows [`research/annotation/PROTOCOL.md`](research/annotation/PROTOCOL.md) and is pending.
 - On-device Jetson measurements are future work; the benchmark harness is `edge_deploy/tools/bench.py`.
 
+## License
+
+This repository is released under the [GNU AGPL-3.0](LICENSE). The research code and the edge detector use
+[Ultralytics](https://github.com/ultralytics/ultralytics) (AGPL-3.0), and the ONNX detectors in
+`edge_deploy/models/` are exported from Ultralytics YOLO26n weights, so the combined work follows the same licence.
+
+Third-party components keep their own licences: RF-DETR (Apache-2.0), Qwen3-VL (Apache-2.0), llama.cpp (MIT),
+MediaMTX (MIT), ONNX Runtime (MIT), supervision (MIT), trackers (Apache-2.0). The input videos are not part of
+the release.
+
 ## Citation
 
 ```bibtex

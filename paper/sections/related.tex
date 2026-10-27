@@ -1,0 +1,43 @@
+%=====================================================================================================
+\section{Related Work}
+\textbf{Real-time detection and tracking.} One-stage YOLO detectors~\cite{redmon2016yolo} dominate embedded
+deployment; YOLOv10~\cite{wang2024yolov10} introduced consistent dual assignments for NMS-free inference and
+YOLO26~\cite{jocher2026yolo26,ultralytics} ships a one-to-one and a one-to-many head. DETR~\cite{carion2020detr}
+removed hand-crafted post-processing; RT-DETR~\cite{zhao2024rtdetr} made it real-time and
+RF-DETR~\cite{robinson2026rfdetr} adds a DINOv2~\cite{oquab2024dinov2} backbone with a native Nano resolution of
+384\,px. Evaluation follows COCO~\cite{lin2014coco} and the pedestrian log-average miss
+rate~\cite{dollar2012pedestrian,zhang2017citypersons}. SORT~\cite{bewley2016sort}, ByteTrack~\cite{zhang2022bytetrack},
+OC-SORT~\cite{cao2023ocsort}, BoT-SORT~\cite{aharon2022botsort}, C-BIoU~\cite{yang2023cbiou} and
+McByte~\cite{stanczyk2024mcbyte} are scored with HOTA~\cite{luiten2021hota}, CLEAR-MOT~\cite{bernardin2008clear} and
+IDF1~\cite{ristani2016idf1}; MOT16~\cite{milan2016mot16} defines the identity rules we adopt for human labels.
+
+\textbf{Pseudo-labels and scene adaptation.} Knowledge distillation~\cite{hinton2015distilling}, data
+distillation~\cite{radosavovic2018datadistill} and Noisy Student~\cite{xie2020noisystudent} label unlabelled data with
+teachers; we fuse two teacher families with WBF~\cite{solovyev2021wbf}. Scenes100~\cite{zhang2023scenes100} adapts a
+detector to each of 100 fixed cameras with self-generated pseudo-labels and mixes in COCO images one-to-one; it
+reports gains on the adapted camera only, not what adaptation costs on other cameras, which is our question.
+Fine-tuning can distort pretrained features and hurt out-of-distribution accuracy~\cite{kumar2022lpft}, also in
+detection backbones~\cite{saito2023mindbackbone}. Remedies include regularising towards the pretrained
+weights~\cite{li2018l2sp}, linear probing first~\cite{kumar2022lpft} and weight-space ensembling of pretrained and
+fine-tuned weights (WiSE-FT~\cite{wortsman2022wise}), which WiSE-OD~\cite{medeiros2026wiseod} extended to detectors
+including YOLOv8n; robustness is judged against the linear trend between in- and out-of-distribution
+accuracy~\cite{taori2020shift}.
+
+\textbf{Statistics for correlated evaluation data.} Bootstrap intervals over test images are standard in
+detection~\cite{everingham2015voc}, but frames of one video are dependent; block
+bootstraps~\cite{kunsch1989,politis1992cbb} resample contiguous blocks, with data-driven block
+lengths~\cite{politis2004block,patton2009correction}. Monte-Carlo $p$-values need a finite-sample
+correction~\cite{phipson2010pvalues}, and dependent test items invalidate standard tests~\cite{dror2018hitchhiker}.
+
+\textbf{VLMs, tools and agent security.} Instruction-tuned VLMs~\cite{liu2023llava} such as
+Qwen2.5-VL~\cite{bai2025qwen25vl} and Qwen3-VL~\cite{bai2025qwen3vl} answer free-form questions about images, and
+language models can call tools~\cite{schick2023toolformer,yao2023react}. Tool use opens prompt injection: AgentDojo
+measures utility, utility under attack and attack success~\cite{debenedetti2024agentdojo}, InjecAgent indirect
+injections through tool results~\cite{zhan2024injecagent}, and typographic images jailbreak open
+VLMs~\cite{gong2025figstep}. Defences that hold by construction separate the model that reads untrusted content from
+the one that acts~\cite{beurerkellner2025patterns,debenedetti2025camel} and enforce authorisation outside the
+model~\cite{owasp2025llm}. We apply these patterns to a video-analytics operator agent and measure them.
+
+\textbf{Edge deployment.} TensorRT~\cite{tensorrt} compiles ONNX graphs into FP16 engines, ONNX
+Runtime~\cite{onnxruntime} exposes TensorRT, CUDA and CPU back-ends, and llama.cpp~\cite{llamacpp} serves quantised
+VLMs on the same device; MLPerf~\cite{reddi2020mlperf} fixes how sustained edge latency is measured.

@@ -1,0 +1,130 @@
+% IEEE conference paper. Build: bash paper/build.sh  (numbers.tex and figures/ are generated from results/).
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath}
+% tectonic = XeTeX: Times via the TeX Gyre Termes OpenType files (text + math)
+\usepackage{unicode-math}
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmathfont{texgyretermes-math.otf}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{balance}
+\usepackage[hidelinks]{hyperref}
+
+\input{numbers.tex}
+
+% float placement: allow more and larger floats per page (many figures/tables)
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+\setcounter{dbltopnumber}{3}
+
+% notation
+\newcommand{\AP}{AP$_{50:95}$}
+\newcommand{\APf}{AP$_{50}$}
+\newcommand{\APs}{AP$_{75}$}
+\newcommand{\APsm}{AP$_{S}$}
+\newcommand{\yolo}{YOLO26n}
+\newcommand{\rfdetr}{RF-DETR Nano}
+\newcommand{\ci}[2]{\,[#1,\,#2]}
+% include a figure only if make_figures.py produced it
+\newcommand{\figif}[2]{\IfFileExists{figures/#1}{#2}{}}
+
+\begin{document}
+
+
+\title{Pseudo-Labels, Scene Shift and Tool-Using VLMs:\\ A Reliability Study of an Edge-Oriented Crowd-Analytics Pipeline}
+
+\author{
+\IEEEauthorblockN{Korukonda L K M Prem Chand}
+\IEEEauthorblockA{
+\textit{Department of Electrical and}\\
+\textit{Electronics Engineering}\\
+\textit{Amrita School of Engineering}\\
+Coimbatore\\
+Amrita Vishwa Vidyapeetham, India\\
+{\normalsize korukonda.lkmpremchand@gmail.com}
+}
+\and
+\IEEEauthorblockN{Patnana Tarun}
+\IEEEauthorblockA{
+\textit{Department of Electrical and}\\
+\textit{Electronics Engineering}\\
+\textit{Amrita School of Engineering}\\
+Coimbatore\\
+Amrita Vishwa Vidyapeetham, India\\
+{\normalsize tarunpatnana2006@gmail.com}
+}
+\and
+\IEEEauthorblockN{K Somasundaram$^*$}
+\IEEEauthorblockA{
+\textit{Department of Mathematics}\\
+\textit{Amrita School of Physical Sciences}\\
+Coimbatore\\
+Amrita Vishwa Vidyapeetham, India\\
+{\normalsize s\_sundaram@cb.amrita.edu}\\
+{\normalsize $^*$Corresponding author}
+}
+}
+
+\maketitle
+
+\begin{abstract}
+We study the reliability of a pipeline that turns unlabelled pedestrian video into a closed-loop crowd-analytics
+system: a teacher ensemble pseudo-labels one camera, compact students (\yolo{}, \rfdetr) are fine-tuned on it, and the
+selected detector drives a streaming runtime with ByteTrack, deterministic analytics and a Qwen3-VL-2B agent that
+reports on the scene and reconfigures the analytics through tool calls. Measured across four scenes and human-labelled
+COCO people, single-camera fine-tuning raises in-domain \AP{} (\MsPtAa{}$\rightarrow$\MsFtAa) but lowers it on every
+other camera, below the detector's own pretrained weights on a test-only video (\MsPtHo{}$\rightarrow$\MsFtHo) and
+on COCO people (\MsPtCoco{}$\rightarrow$\MsFtCoco). A size-blind label threshold that turns small people into
+background explains part of the loss and forgetting the rest. Weight-space ensembling of pretrained and fine-tuned
+weights, chosen on other cameras' validation data, keeps most of the in-domain gain (\MsSelAa) and restores the
+held-out accuracy (\MsSelHo); COCO replay and a frozen backbone help too. At matched input size the transformer
+student is as accurate and markedly more robust, so the CNN's in-domain lead was an input-size effect; its real
+advantage is cost (25--44$\times$ fewer FLOPs at equal input size). Circular-block bootstrap intervals are \TcAaRatioMin--\TcAaRatioMax$\times$ wider than
+frame-level ones; no conclusion changes. For the VLM, we show that it copies counts and accepts fabricated alerts, and
+in a 300-case adversarial suite it executes most unsafe requests, including instructions painted on a sign in the
+camera view; a deterministic policy layer (roles, validation, intent gate, confirmation, rate limits, hash-chained
+audit, isolation of tool routing from model-written text) raises unsafe-request rejection from \SfGrTestRej{} to
+\SfPoTestRej{} at unchanged task success. All timings are from a desktop GPU; on-device validation is left to future work. We release
+a blind human-annotation protocol and a reproducibility package.
+\end{abstract}
+
+\begin{IEEEkeywords}
+person detection, multi-object tracking, pseudo-labelling, domain shift, robust fine-tuning, block bootstrap,
+vision-language models, tool calling, prompt injection, edge AI
+\end{IEEEkeywords}
+
+\input{sections/intro.tex}
+\input{sections/related.tex}
+\input{sections/method.tex}
+\input{sections/exp_indomain.tex}
+\input{sections/exp_res.tex}
+\input{sections/exp_tracking.tex}
+\input{sections/exp_heldout.tex}
+\input{sections/exp_adapt.tex}
+\input{sections/exp_selection.tex}
+\input{sections/exp_edge.tex}
+\input{sections/exp_vlm.tex}
+\input{sections/discussion.tex}
+\input{sections/conclusion.tex}
+
+\appendices
+\input{sections/appendix.tex}
+\clearpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

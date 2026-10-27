@@ -1,0 +1,114 @@
+{
+  "research | YOLO26n (fine-tuned)": {
+    "full": {
+      "AP50-95": 0.4123413814833713,
+      "AP50": 0.6017007036630245,
+      "AP_small": 0.0461972926791721,
+      "F1": 0.6445056626874809,
+      "recall": 0.5356125356125356,
+      "precision": 0.8089749500537883
+    },
+    "bilinear": {
+      "AP50-95": 0.412479395803227,
+      "AP50": 0.6016830473017885,
+      "AP_small": 0.046555999890314496,
+      "F1": 0.6452245298045702,
+      "recall": 0.5358160358160358,
+      "precision": 0.8107775211701309
+    },
+    "bicubic": {
+      "AP50-95": 0.4036297090336205,
+      "AP50": 0.592704511305151,
+      "AP_small": 0.046374553797523484,
+      "F1": 0.6265376806401529,
+      "recall": 0.5337810337810338,
+      "precision": 0.7583116507661174
+    },
+    "area": {
+      "AP50-95": 0.41102576597641743,
+      "AP50": 0.598457947619196,
+      "AP_small": 0.042843949774823795,
+      "F1": 0.6451373422420194,
+      "recall": 0.5305250305250305,
+      "precision": 0.8229166666666666
+    }
+  },
+  "research | YOLO26n (pretrained)": {
+    "full": {
+      "AP50-95": 0.6838954687692191,
+      "AP50": 0.9144971894508382,
+      "AP_small": 0.35319480259697333,
+      "F1": 0.8395288710140764,
+      "recall": 0.7433862433862434,
+      "precision": 0.9642338656460341
+    },
+    "bilinear": {
+      "AP50-95": 0.6838498303065432,
+      "AP50": 0.9144869133746334,
+      "AP_small": 0.35325786057249103,
+      "F1": 0.8389358156639659,
+      "recall": 0.7427757427757428,
+      "precision": 0.9636963696369637
+    },
+    "bicubic": {
+      "AP50-95": 0.6804707028624706,
+      "AP50": 0.9142041684380551,
+      "AP_small": 0.3529034616146835,
+      "F1": 0.8372173312618677,
+      "recall": 0.7402319902319903,
+      "precision": 0.9634485498609455
+    },
+    "area": {
+      "AP50-95": 0.6849012815274492,
+      "AP50": 0.9150538990720717,
+      "AP_small": 0.3507765709057023,
+      "F1": 0.8395755663894465,
+      "recall": 0.7447089947089947,
+      "precision": 0.9621401340870251
+    }
+  },
+  "deployed ONNX 736x1280 | YOLO26n (fine-tuned)": {
+    "full": {
+      "AP50-95": 0.4078923974385358,
+      "AP50": 0.5752876374274247,
+      "AP_small": 0.012560259121887421,
+      "F1": 0.6428130021011,
+      "recall": 0.5292022792022792,
+      "precision": 0.81853950267548
+    },
+    "bilinear": {
+      "AP50-95": 0.4078923974385358,
+      "AP50": 0.5752876374274247,
+      "AP_small": 0.012560259121887421,
+      "F1": 0.6428130021011,
+      "recall": 0.5292022792022792,
+      "precision": 0.81853950267548
+    },
+    "bicubic": {
+      "AP50-95": 0.4002385302124066,
+      "AP50": 0.5713247287405052,
+      "AP_small": 0.0133006872115783,
+      "F1": 0.6356201171875,
+      "recall": 0.5298127798127799,
+      "precision": 0.7942342892007321
+    },
+    "area": {
+      "AP50-95": 0.40632216875053767,
+      "AP50": 0.57400201699332,
+      "AP_small": 0.01160582002472693,
+      "F1": 0.6423057768924303,
+      "recall": 0.5249287749287749,
+      "precision": 0.8272931366260423
+    },
+    "ffmpeg": {
+      "AP50-95": 0.39935159187689734,
+      "AP50": 0.5683941342970275,
+      "AP_small": 0.011779232102776841,
+      "F1": 0.6397879992428545,
+      "recall": 0.5158730158730159,
+      "precision": 0.8420528151469856
+    }
+  },
+  "protocol": "The deployed runtime has FFmpeg scale the stream to 1280x720 (swscale default: bicubic) before the ONNX detector,\nwhile the research path decodes at full size and downsamples on the GPU (bilinear, no antialiasing). On aa1\n(native 720p) the two paths agree; on this 1080p video they do not, so every model is re-scored on the detection\nframes after downscaling with each filter, and the boxes are mapped back to the full frame.\n  research path   YOLO26n fine-tuned / pretrained (detectors.yolo, PyTorch FP16) on frames pre-scaled by\n                  bilinear (= what the GPU path does itself), bicubic (~ FFmpeg) and area (antialiased)\n  deployed path   the edge runtime's ONNX detector (edgevision.detector, 736x1280, CPU) on the same three inputs,\n                  plus on frames scaled by FFmpeg itself (the exact deployed resampler)",
+  "note": "full = the 1920x1080 frame given to the detector, which downsamples it itself (research: GPU bilinear; ONNX: cv2 INTER_LINEAR)"
+}

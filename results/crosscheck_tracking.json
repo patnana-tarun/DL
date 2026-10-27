@@ -1,0 +1,58 @@
+[
+ {
+  "check": "T1 tracker re-run reproduces stored metrics | YOLO26n",
+  "pass": true,
+  "rerun": {
+   "HOTA": 0.7463,
+   "MOTA": 0.7699,
+   "IDF1": 0.8051
+  },
+  "stored": {
+   "HOTA": 0.7463,
+   "MOTA": 0.7699,
+   "IDF1": 0.8051
+  }
+ },
+ {
+  "check": "T2 py-motmetrics vs trackers.eval | YOLO26n",
+  "pass": true,
+  "motmetrics": {
+   "MOTA": 0.77,
+   "IDF1": 0.8051,
+   "IDSW": 41
+  },
+  "trackers_eval": {
+   "MOTA": 0.7699,
+   "IDF1": 0.8051,
+   "IDSW": 42
+  }
+ },
+ {
+  "check": "T1 tracker re-run reproduces stored metrics | RF-DETR Nano",
+  "pass": true,
+  "rerun": {
+   "HOTA": 0.7565,
+   "MOTA": 0.7875,
+   "IDF1": 0.829
+  },
+  "stored": {
+   "HOTA": 0.7565,
+   "MOTA": 0.7875,
+   "IDF1": 0.829
+  }
+ },
+ {
+  "check": "T2 py-motmetrics vs trackers.eval | RF-DETR Nano",
+  "pass": true,
+  "motmetrics": {
+   "MOTA": 0.7875,
+   "IDF1": 0.829,
+   "IDSW": 60
+  },
+  "trackers_eval": {
+   "MOTA": 0.7875,
+   "IDF1": 0.829,
+   "IDSW": 60
+  }
+ }
+]

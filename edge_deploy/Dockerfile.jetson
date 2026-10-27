@@ -1,0 +1,62 @@
+# OPTIONAL alternative to scripts/01..03: run EdgeVision in a container on a Jetson Orin with JetPack 6.x.
+# The native install (README steps 4-8) is the main, documented path; this file is a convenience and was
+# not tested on hardware by the authors.
+#
+# Base: NVIDIA's L4T JetPack container (Ubuntu 22.04, Python 3.10, CUDA 12.6, cuDNN 9, TensorRT 10).
+# r36.4.0 is the newest l4t-jetpack tag on NGC and is documented as compatible with L4T r36.4.x hosts
+# (JetPack 6.1 / 6.2). Check with `cat /etc/nv_tegra_release` on the Jetson.
+#
+# Build (on the Jetson, from the edge_deploy folder; takes a long time because llama.cpp is compiled):
+#   sudo docker build -f Dockerfile.jetson -t edgevision:jp6 .
+#   If the CUDA link step fails, set "default-runtime": "nvidia" in /etc/docker/daemon.json and restart docker.
+#
+# Run (models/ and data/ are mounted from the host, so the GGUF files and the TensorRT cache persist):
+#   sudo docker run -it --rm --runtime nvidia --network host \
+#     -v "$PWD/models:/opt/edge_deploy/models" -v "$PWD/data:/opt/edge_deploy/data" \
+#     -v "$PWD/configs:/opt/edge_deploy/configs" \
+#     --device /dev/video0 \
+#     edgevision:jp6
+#   --device /dev/video0 is for a USB camera (leave it out for RTSP / files). For a CSI camera add
+#   -v /tmp/argus_socket:/tmp/argus_socket instead.
+#   Then open http://<jetson-ip>:8000. Extra arguments are passed to edgevision, e.g.
+#     edgevision:jp6 --set source.uri=rtsp://192.168.1.64:554/stream1
+FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    PATH=/usr/local/cuda/bin:${PATH}
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ffmpeg python3-pip python3-dev v4l-utils curl ca-certificates git cmake build-essential pkg-config \
+        libssl-dev gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
+        gstreamer1.0-plugins-bad gstreamer1.0-libav \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/edge_deploy
+
+# Python dependencies (system Python 3.10 of the container; no venv needed inside a container).
+COPY requirements-jetson.txt .
+RUN python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install --no-cache-dir -r requirements-jetson.txt \
+    && python3 -m pip install --no-cache-dir --index-url https://pypi.jetson-ai-lab.io/jp6/cu126/+simple/ onnxruntime-gpu
+
+# llama.cpp with CUDA for Orin (sm_87). The CUDA driver library comes from the host at run time; at build
+# time the linker uses the toolkit's stub libcuda.so.
+ARG LLAMA_REF=master
+ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs
+RUN git clone --depth 1 --branch ${LLAMA_REF} https://github.com/ggml-org/llama.cpp third_party/llama.cpp \
+    && cmake -S third_party/llama.cpp -B third_party/llama.cpp/build -DCMAKE_BUILD_TYPE=Release \
+         -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=87 -DLLAMA_OPENSSL=ON \
+         -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF \
+    && cmake --build third_party/llama.cpp/build --config Release -j"$(nproc)" --target llama-server llama-mtmd-cli \
+    && rm -rf third_party/llama.cpp/.git
+ENV LIBRARY_PATH=
+
+# The application (see .dockerignore: no venv, no desktop binaries, no GGUF files, no TensorRT cache).
+COPY . .
+RUN chmod +x scripts/*.sh
+
+EXPOSE 8000
+# 05_run.sh starts llama-server (if the GGUF files are in models/vlm) and then the pipeline. With no venv in
+# the image it falls back to python3.
+ENTRYPOINT ["scripts/05_run.sh"]

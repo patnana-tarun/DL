@@ -1,0 +1,16 @@
+# Keep the Docker build context small and free of desktop-only or machine-specific files.
+.venv/
+**/__pycache__/
+*.pyc
+# x86 desktop binaries: they cannot run on the Jetson
+third_party/llama.cpp-vulkan-x64/
+tools/bin/mediamtx
+tools/bin/mediamtx.x86_64
+# built inside the image
+third_party/llama.cpp/
+# large / machine-specific: mounted from the host at run time (-v models, -v data)
+models/vlm/*.gguf
+models/vlm/*.part
+models/trt_cache/
+data/
+results/

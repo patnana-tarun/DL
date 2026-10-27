@@ -1,0 +1,349 @@
+{
+ "platform": {
+  "host": "smooth",
+  "machine": "x86_64",
+  "python": "3.12.3",
+  "kernel": "7.0.0-38-generic",
+  "nvpmodel": "",
+  "jetson_clocks": "",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 595.99.02",
+  "v_onnxruntime": "1.30.0",
+  "v_torch": "2.14.0+cu130",
+  "v_ultralytics": "8.4.164",
+  "v_cv2": "5.0.0"
+ },
+ "args": {
+  "config": "configs/desktop.yaml",
+  "video": "../videos/aa1.mp4",
+  "set": [
+   "detector.backend=ultralytics",
+   "detector.weights=../runs/yolo26n/weights/best.pt"
+  ],
+  "modes": "det,vlm,both",
+  "duration": 600.0,
+  "warmup": 30.0,
+  "repeats": 1,
+  "vlm_interval": 10.0,
+  "vlm_max_tokens": 128,
+  "vlm_frame": "../results/revision/bench_desktop_vlm_frame.jpg",
+  "sample_ms": 500,
+  "out": "../results/revision/bench_desktop.json"
+ },
+ "config": {
+  "source": {
+   "uri": "/home/shadows/Downloads/MINOR_DL/videos/aa1.mp4",
+   "width": 1280,
+   "height": 720,
+   "fps": 0,
+   "stride": 1,
+   "realtime": true,
+   "loop": true,
+   "rtsp_transport": "tcp",
+   "reconnect_s": 2.0,
+   "start_s": 0.0,
+   "duration_s": 0.0,
+   "hwaccel": "",
+   "decoder": "ffmpeg",
+   "gst_decoder": "nvv4l2decoder",
+   "input_args": []
+  },
+  "detector": {
+   "backend": "ultralytics",
+   "weights": "../runs/yolo26n/weights/best.pt",
+   "providers": [
+    "tensorrt",
+    "cuda",
+    "cpu"
+   ],
+   "fp16": true,
+   "conf": 0.05,
+   "iou": 0.7,
+   "max_det": 300,
+   "trt_cache": "models/trt_cache"
+  },
+  "tracker": {
+   "min_conf": 0.2,
+   "nms_iou": 0.6,
+   "track_activation_threshold": 0.7,
+   "high_conf_det_threshold": 0.4,
+   "lost_track_buffer": 30,
+   "minimum_iou_threshold": 0.4,
+   "minimum_consecutive_frames": 3
+  },
+  "analytics": {
+   "line": [
+    [
+     0.5,
+     0.0
+    ],
+    [
+     0.5,
+     1.0
+    ]
+   ],
+   "line_hysteresis": 0.3,
+   "zones": {},
+   "min_track_s": 0.25,
+   "bin_s": 1.0,
+   "history_s": 3600,
+   "heatmap_grid": [
+    32,
+    18
+   ],
+   "loiter_s": 30.0
+  },
+  "alerts": [
+   {
+    "name": "crowding",
+    "metric": "occupancy",
+    "op": ">",
+    "value": 20,
+    "for_s": 3,
+    "cooldown_s": 60
+   }
+  ],
+  "vlm": {
+   "enabled": true,
+   "endpoint": "http://127.0.0.1:8080/v1",
+   "model": "qwen3-vl-2b",
+   "api_key": "",
+   "timeout_s": 180,
+   "max_tokens": 384,
+   "temperature": 0.2,
+   "image_max_side": 896,
+   "observe_every_s": 60,
+   "verify_alerts": true,
+   "history_turns": 6,
+   "use_tools": true,
+   "image": "annotated",
+   "verify_mode": "describe"
+  },
+  "server": {
+   "enabled": true,
+   "host": "0.0.0.0",
+   "port": 8000,
+   "jpeg_quality": 80,
+   "stream_max_width": 960,
+   "token": "",
+   "users": [],
+   "anonymous_role": "operator"
+  },
+  "policy": {
+   "enabled": true,
+   "intent_gate": true,
+   "confirm_weakening": true,
+   "remove_all_admin_only": true,
+   "isolate_untrusted": true,
+   "change_per_min": 6,
+   "change_burst": 4,
+   "chat_per_min": 20,
+   "chat_burst": 6,
+   "max_queue": 8,
+   "confirm_ttl_s": 120
+  },
+  "output": {
+   "uri": "",
+   "fps": 15,
+   "bitrate": "2M"
+  },
+  "store": {
+   "path": "data/edgevision.db",
+   "retention_h": 72
+  },
+  "log_level": "INFO"
+ },
+ "runs": [
+  {
+   "repeat": 0,
+   "mode": "det",
+   "frames": {
+    "analysed": 35927,
+    "fps": 59.88,
+    "dropped_total": 141,
+    "drop_rate": 0.0037,
+    "e2e_ms": {
+     "p50": 8.6,
+     "p95": 9.73,
+     "p99": 10.65,
+     "max": 63.39
+    },
+    "loop_ms": {
+     "p50": 8.28,
+     "p95": 9.36,
+     "p99": 10.16
+    },
+    "detect_ms": {
+     "p50": 6.1,
+     "p95": 6.73,
+     "p99": 7.26
+    },
+    "deadline_ms": 16.68,
+    "deadline_miss_rate": 0.0018,
+    "stages_p50": {
+     "detect_ms": 6.14,
+     "track_ms": 0.93,
+     "analytics_ms": 0.13,
+     "annotate_ms": 1.1,
+     "loop_ms": 8.32
+    }
+   },
+   "system": {
+    "gpu_clock_mhz": {
+     "mean": 1890.0,
+     "max": 1890.0
+    },
+    "gpu_mem_mb": {
+     "mean": 3141.0,
+     "max": 3141.0
+    },
+    "gpu_util": {
+     "mean": 24.64,
+     "max": 27.0
+    },
+    "power_w": {
+     "mean": 15.05,
+     "max": 15.21
+    },
+    "ram_total_mb": {
+     "mean": 23749.0,
+     "max": 23749.0
+    },
+    "ram_used_mb": {
+     "mean": 8301.88,
+     "max": 8615.0
+    },
+    "temp_gpu_c": {
+     "mean": 53.5,
+     "max": 54.0
+    }
+   },
+   "energy_j_per_frame": 0.2513
+  },
+  {
+   "repeat": 0,
+   "mode": "vlm",
+   "vlm": {
+    "requests": 61,
+    "errors": 0,
+    "latency_s": {
+     "p50": 1.25,
+     "p95": 1.34
+    },
+    "prompt_ms_p50": 139.46,
+    "decode_tok_s_p50": 114.35,
+    "completion_tokens_p50": 127.0,
+    "max_tokens": 128,
+    "interval_s": 10.0
+   },
+   "system": {
+    "gpu_clock_mhz": {
+     "mean": 900.39,
+     "max": 2700.0
+    },
+    "gpu_mem_mb": {
+     "mean": 3173.0,
+     "max": 3173.0
+    },
+    "gpu_util": {
+     "mean": 11.41,
+     "max": 100.0
+    },
+    "power_w": {
+     "mean": 10.82,
+     "max": 46.61
+    },
+    "ram_total_mb": {
+     "mean": 23749.0,
+     "max": 23749.0
+    },
+    "ram_used_mb": {
+     "mean": 8385.06,
+     "max": 9194.0
+    },
+    "temp_gpu_c": {
+     "mean": 49.17,
+     "max": 58.0
+    }
+   }
+  },
+  {
+   "repeat": 0,
+   "mode": "both",
+   "frames": {
+    "analysed": 35901,
+    "fps": 59.84,
+    "dropped_total": 69,
+    "drop_rate": 0.0018,
+    "e2e_ms": {
+     "p50": 8.05,
+     "p95": 17.19,
+     "p99": 23.64,
+     "max": 167.91
+    },
+    "loop_ms": {
+     "p50": 7.73,
+     "p95": 16.28,
+     "p99": 17.73
+    },
+    "detect_ms": {
+     "p50": 5.67,
+     "p95": 13.74,
+     "p99": 15.39
+    },
+    "deadline_ms": 16.68,
+    "deadline_miss_rate": 0.0392,
+    "stages_p50": {
+     "detect_ms": 5.67,
+     "track_ms": 0.94,
+     "analytics_ms": 0.13,
+     "annotate_ms": 0.94,
+     "loop_ms": 7.72
+    }
+   },
+   "vlm": {
+    "requests": 61,
+    "errors": 0,
+    "latency_s": {
+     "p50": 1.76,
+     "p95": 1.78
+    },
+    "prompt_ms_p50": 452.88,
+    "decode_tok_s_p50": 105.75,
+    "completion_tokens_p50": 128.0,
+    "max_tokens": 128,
+    "interval_s": 10.0
+   },
+   "system": {
+    "gpu_clock_mhz": {
+     "mean": 2102.38,
+     "max": 2685.0
+    },
+    "gpu_mem_mb": {
+     "mean": 3180.0,
+     "max": 3180.0
+    },
+    "gpu_util": {
+     "mean": 33.56,
+     "max": 100.0
+    },
+    "power_w": {
+     "mean": 23.2,
+     "max": 56.15
+    },
+    "ram_total_mb": {
+     "mean": 23749.0,
+     "max": 23749.0
+    },
+    "ram_used_mb": {
+     "mean": 13557.21,
+     "max": 16580.0
+    },
+    "temp_gpu_c": {
+     "mean": 55.54,
+     "max": 63.0
+    }
+   },
+   "energy_j_per_frame": 0.3877
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+[
+ {
+  "wall": 1791417742.8698657,
+  "ts": 40.657830916999956,
+  "trigger": "alert:occupancy > 15",
+  "text": "A busy urban street scene at a major intersection with a large digital billboard, showing a high occupancy of people. The person detector and tracker are active, with 19 people in view, 177 unique people tracked, and 5 crossings. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.",
+  "latency_s": 1.6531577110290527
+ },
+ {
+  "wall": 1791417747.2587402,
+  "ts": 45.2629711030022,
+  "trigger": "periodic",
+  "text": "A busy urban street scene at a major intersection with a high occupancy of people, including 22 in view and 185 unique people tracked. There are 5 crossings, with 5 people crossing from right to left, and 1 person entering from the left. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.",
+  "latency_s": 1.4531347751617432
+ },
+ {
+  "wall": 1791417762.2513168,
+  "ts": 60.06060098299349,
+  "trigger": "user",
+  "text": "A busy urban street scene at a major intersection with high occupancy of people, including 20 in view and 256 unique people tracked. There are 5 crossings, with 5 people crossing from top to bottom and 1 person entering from the bottom. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.",
+  "latency_s": 1.6784427165985107
+ },
+ {
+  "wall": 1791417790.2317731,
+  "ts": 88.1223814469995,
+  "trigger": "periodic",
+  "text": "A busy urban street scene at a major intersection with high occupancy of people, including 18 in view and 409 unique people tracked. There are 5 crossings, with 5 people crossing from top to bottom and 1 person entering from the bottom. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.",
+  "latency_s": 1.6129813194274902
+ },
+ {
+  "wall": 1791417835.3097174,
+  "ts": 133.18448439700296,
+  "trigger": "periodic",
+  "text": "A busy urban street scene at a major intersection with high occupancy of people, including 17 in view and 588 unique people tracked. There are 5 crossings, with 5 people crossing from top to bottom and 1 person entering from the bottom. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.",
+  "latency_s": 1.6290206909179688
+ }
+]

@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------------------
+# Secrets: never commit (MediaMTX TLS key/cert are generated per machine)
+# ---------------------------------------------------------------------------
+*.key
+*.crt
+*.pem
+.env
+.env.*
+
+# ---------------------------------------------------------------------------
+# Python / tooling
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Editor state
+.vscode/
+.idea/
+.DS_Store
+
+# ---------------------------------------------------------------------------
+# Large inputs (see README "Data and weights")
+# ---------------------------------------------------------------------------
+videos/
+datasets/
+*.mp4
+*.avi
+*.mkv
+*.zip
+*.parquet
+
+# Weights and training runs (selected detector ships as ONNX in edge_deploy/models/)
+runs/
+weights/
+models/pretrained/
+*.pt
+*.pth
+*.safetensors
+*.engine
+*.gguf
+
+# Edge runtime: downloaded / built binaries and runtime state
+edge_deploy/models/vlm/
+edge_deploy/third_party/
+edge_deploy/tools/bin/
+edge_deploy/data/*
+!edge_deploy/data/.gitkeep
+
+# ---------------------------------------------------------------------------
+# Results: keep metrics/figures, drop bulky regenerable dumps
+# ---------------------------------------------------------------------------
+results/**/preds/
+results/**/*.npz
+results/**/*.db
+results/logs/revision/
+results/campus/*/crops/
+
+# Images of people (privacy): annotation frames
+research/annotation/tasks/*/images/
+
+# ---------------------------------------------------------------------------
+# LaTeX build artefacts (main.pdf / supplement.pdf are kept)
+# ---------------------------------------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+paper/*.log
+paper/build.log
+
+# ---------------------------------------------------------------------------
+# Private / third-party documents
+# ---------------------------------------------------------------------------
+minor_review.txt
+2609.21822.pdf

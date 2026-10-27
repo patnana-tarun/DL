@@ -1,0 +1,410 @@
+YOLO26n summary (fused): 120 layers, 2,408,932 parameters, 0 gradients, 5.5 GFLOPs
+pretrained YOLO26n: 16970 frames
+{'frames': 16970, 'duration_s': 297.5559666666667, 'mean_fps': np.float64(57.02792718322234), 'segments': 10, 'segment_s': 30.0, 'gt_tracks': {'ByteTrack-GT': 299, 'OC-SORT-GT': 189}}
+YOLO26n       default   HOTA 0.404 MOTA 0.371 IDF1 0.467 IDSW 209 IDs 138 (GT 299)
+YOLO26n       aa1_tuned HOTA 0.440 MOTA 0.463 IDF1 0.507 IDSW 168 IDs 199 (GT 299)
+RF-DETR Nano  default   HOTA 0.409 MOTA 0.419 IDF1 0.477 IDSW 811 IDs 164 (GT 299)
+RF-DETR Nano  aa1_tuned HOTA 0.496 MOTA 0.593 IDF1 0.570 IDSW 397 IDs 372 (GT 299)
+YOLO26n (pretrained) default   HOTA 0.552 MOTA 0.672 IDF1 0.609 IDSW 156 IDs 106 (GT 299)
+YOLO26n (pretrained) aa1_tuned HOTA 0.581 MOTA 0.663 IDF1 0.651 IDSW 96 IDs 152 (GT 299)
+{
+ "default HOTA": {
+  "mean_diff_first_minus_second": -0.03021233200185746,
+  "first_wins": 3,
+  "segments": 10,
+  "wilcoxon_p": 0.431640625
+ },
+ "default MOTA": {
+  "mean_diff_first_minus_second": -0.025306289921352525,
+  "first_wins": 4,
+  "segments": 10,
+  "wilcoxon_p": 0.625
+ },
+ "default IDF1": {
+  "mean_diff_first_minus_second": -0.07024982251206827,
+  "first_wins": 3,
+  "segments": 10,
+  "wilcoxon_p": 0.16015625
+ },
+ "aa1_tuned HOTA": {
+  "mean_diff_first_minus_second": -0.055305424665765976,
+  "first_wins": 2,
+  "segments": 10,
+  "wilcoxon_p": 0.009765625
+ },
+ "aa1_tuned MOTA": {
+  "mean_diff_first_minus_second": -0.13527147892720418,
+  "first_wins": 1,
+  "segments": 10,
+  "wilcoxon_p": 0.00390625
+ },
+ "aa1_tuned IDF1": {
+  "mean_diff_first_minus_second": -0.08598310417194191,
+  "first_wins": 2,
+  "segments": 10,
+  "wilcoxon_p": 0.009765625
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | default HOTA": {
+  "mean_diff_first_minus_second": 0.1283579707610485,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | default MOTA": {
+  "mean_diff_first_minus_second": 0.2568981414017441,
+  "first_wins": 9,
+  "segments": 10,
+  "wilcoxon_p": 0.00390625
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | default IDF1": {
+  "mean_diff_first_minus_second": 0.1059156822100785,
+  "first_wins": 9,
+  "segments": 10,
+  "wilcoxon_p": 0.005859375
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | aa1_tuned HOTA": {
+  "mean_diff_first_minus_second": 0.09883700581780983,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | aa1_tuned MOTA": {
+  "mean_diff_first_minus_second": 0.07013894310220742,
+  "first_wins": 9,
+  "segments": 10,
+  "wilcoxon_p": 0.005859375
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano | aa1_tuned IDF1": {
+  "mean_diff_first_minus_second": 0.08665662876625765,
+  "first_wins": 9,
+  "segments": 10,
+  "wilcoxon_p": 0.00390625
+ },
+ "YOLO26n (pretrained) vs YOLO26n | default HOTA": {
+  "mean_diff_first_minus_second": 0.15857030276290596,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs YOLO26n | default MOTA": {
+  "mean_diff_first_minus_second": 0.28220443132309664,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs YOLO26n | default IDF1": {
+  "mean_diff_first_minus_second": 0.17616550472214676,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs YOLO26n | aa1_tuned HOTA": {
+  "mean_diff_first_minus_second": 0.1541424304835758,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs YOLO26n | aa1_tuned MOTA": {
+  "mean_diff_first_minus_second": 0.2054104220294116,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ },
+ "YOLO26n (pretrained) vs YOLO26n | aa1_tuned IDF1": {
+  "mean_diff_first_minus_second": 0.17263973293819956,
+  "first_wins": 10,
+  "segments": 10,
+  "wilcoxon_p": 0.001953125
+ }
+}
+{
+ "line_norm": [
+  [
+   0.25,
+   0.75
+  ],
+  [
+   0.8,
+   0.75
+  ]
+ ],
+ "match_dt_s": 1.0,
+ "GT": {
+  "unique_people": 301,
+  "crossings": {
+   "a_to_b": 5,
+   "b_to_a": 39
+  },
+  "dwell_s_median": 4.399879712678673,
+  "dwell_s_p90": 26.601890823789763,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 7.969652327637006,
+  "occupancy_max": 17,
+  "crossing_events_n": 44,
+  "crossing_events": [
+   [
+    10.6,
+    "a_to_b"
+   ],
+   [
+    24.61,
+    "b_to_a"
+   ],
+   [
+    36.16,
+    "b_to_a"
+   ],
+   [
+    41.11,
+    "b_to_a"
+   ],
+   [
+    41.66,
+    "a_to_b"
+   ],
+   [
+    53.44,
+    "b_to_a"
+   ],
+   [
+    54.49,
+    "b_to_a"
+   ],
+   [
+    54.84,
+    "a_to_b"
+   ],
+   [
+    57.2,
+    "b_to_a"
+   ],
+   [
+    57.79,
+    "b_to_a"
+   ],
+   [
+    59.9,
+    "b_to_a"
+   ],
+   [
+    67.1,
+    "b_to_a"
+   ],
+   [
+    74.98,
+    "b_to_a"
+   ],
+   [
+    75.3,
+    "b_to_a"
+   ],
+   [
+    82.73,
+    "b_to_a"
+   ],
+   [
+    84.33,
+    "b_to_a"
+   ],
+   [
+    84.86,
+    "b_to_a"
+   ],
+   [
+    85.1,
+    "b_to_a"
+   ],
+   [
+    85.83,
+    "b_to_a"
+   ],
+   [
+    86.38,
+    "a_to_b"
+   ],
+   [
+    86.83,
+    "b_to_a"
+   ],
+   [
+    86.85,
+    "a_to_b"
+   ],
+   [
+    88.78,
+    "b_to_a"
+   ],
+   [
+    94.9,
+    "b_to_a"
+   ],
+   [
+    96.81,
+    "b_to_a"
+   ],
+   [
+    97.03,
+    "b_to_a"
+   ],
+   [
+    97.11,
+    "b_to_a"
+   ],
+   [
+    97.98,
+    "b_to_a"
+   ],
+   [
+    118.32,
+    "b_to_a"
+   ],
+   [
+    196.42,
+    "b_to_a"
+   ],
+   [
+    231.18,
+    "b_to_a"
+   ],
+   [
+    231.53,
+    "b_to_a"
+   ],
+   [
+    237.21,
+    "b_to_a"
+   ],
+   [
+    240.55,
+    "b_to_a"
+   ],
+   [
+    240.83,
+    "b_to_a"
+   ],
+   [
+    266.93,
+    "b_to_a"
+   ],
+   [
+    269.17,
+    "b_to_a"
+   ],
+   [
+    272.06,
+    "b_to_a"
+   ],
+   [
+    277.3,
+    "b_to_a"
+   ],
+   [
+    281.72,
+    "b_to_a"
+   ],
+   [
+    282.76,
+    "b_to_a"
+   ],
+   [
+    282.9,
+    "b_to_a"
+   ],
+   [
+    283.96,
+    "b_to_a"
+   ],
+   [
+    292.05,
+    "b_to_a"
+   ]
+  ]
+ },
+ "YOLO26n": {
+  "unique_people": 186,
+  "crossings": {
+   "a_to_b": 2,
+   "b_to_a": 25
+  },
+  "dwell_s_median": 3.283463046012,
+  "dwell_s_p90": 21.46118526823422,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 4.1319976428992335,
+  "occupancy_max": 12,
+  "crossing_events_n": 27,
+  "occupancy_MAE": 3.839658220388922,
+  "occupancy_bias": -3.8376546847377724,
+  "unique_people_rel_err": -0.38205980066445183,
+  "crossing_match": {
+   "tp": 25,
+   "gt_events": 44,
+   "pred_events": 27,
+   "precision": 0.9259259259259259,
+   "recall": 0.5681818181818182,
+   "F1": 0.7042253521126761
+  },
+  "crossing_count_rel_err": -0.38636363636363635
+ },
+ "RF-DETR Nano": {
+  "unique_people": 304,
+  "crossings": {
+   "a_to_b": 3,
+   "b_to_a": 28
+  },
+  "dwell_s_median": 2.2503630460120094,
+  "dwell_s_p90": 17.435827490456468,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 5.241013553329405,
+  "occupancy_max": 13,
+  "crossing_events_n": 31,
+  "occupancy_MAE": 2.748438420742487,
+  "occupancy_bias": -2.7286387743076017,
+  "unique_people_rel_err": 0.009966777408637873,
+  "crossing_match": {
+   "tp": 31,
+   "gt_events": 44,
+   "pred_events": 31,
+   "precision": 1.0,
+   "recall": 0.7045454545454546,
+   "F1": 0.8266666666666667
+  },
+  "crossing_count_rel_err": -0.29545454545454547
+ },
+ "YOLO26n (pretrained)": {
+  "unique_people": 150,
+  "crossings": {
+   "a_to_b": 4,
+   "b_to_a": 35
+  },
+  "dwell_s_median": 7.090951934900896,
+  "dwell_s_p90": 27.22477971267866,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 5.5271066588096645,
+  "occupancy_max": 14,
+  "crossing_events_n": 39,
+  "occupancy_MAE": 2.4538597525044197,
+  "occupancy_bias": -2.4425456688273424,
+  "unique_people_rel_err": -0.5016611295681063,
+  "crossing_match": {
+   "tp": 37,
+   "gt_events": 44,
+   "pred_events": 39,
+   "precision": 0.9487179487179487,
+   "recall": 0.8409090909090909,
+   "F1": 0.891566265060241
+  },
+  "crossing_count_rel_err": -0.11363636363636363
+ }
+}

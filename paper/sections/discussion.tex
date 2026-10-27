@@ -1,0 +1,30 @@
+%=====================================================================================================
+\section{Discussion and Limitations}
+\label{sec:discussion}
+\textbf{What the scene study changes.} The submitted conclusion, ``fine-tuned \yolo{} is the better student'', holds
+only for one camera, one input size and one label set: at matched input size \rfdetr{} is as accurate and far more
+robust (Sec.~\ref{sec:res}); against single-teacher labels the gap shrinks (Table~\ref{tab:det}); and on every
+other camera the fine-tuned \yolo{} is worse than its own pretrained weights (Sec.~\ref{sec:adapt}). The measured
+cause is forgetting, aggravated by a label threshold that turns small people into background. Two cheap changes
+address it: a WiSE blend of pretrained and fine-tuned weights, and a selection criterion measured on validation data
+from cameras the model was not adapted to. Neither needs labels from the target camera, which is the realistic
+situation for a new installation; when a few labelled minutes from the target camera exist, multi-scene training plus
+WiSE is better still. Bootstrap intervals over the frames of one video do not cover this kind of failure; only
+additional scenes do.
+
+\input{sections/human.tex}
+
+\textbf{What a small VLM is for.} A 2B VLM must not be trusted for counts (E1) or yes/no verdicts on measured
+quantities (E5), and E6 shows it must not be trusted with authority either: without an external policy it executed
+nearly every alert-disabling, unauthorised and multi-turn request, and an instruction written on a sign reached its
+tools through the chat history. Its value is description and natural-language access, and that value is safe only
+when every action is decided outside the model: roles from authentication, validation, an intent gate on the user's
+own words, confirmation for weakening safety rules, rate limits, an audit chain, and a tool-calling stage that never
+reads model-written text. The remaining failure, silent \emph{repair} of malformed or contradictory requests into
+valid rules, calls for asking back rather than for more filtering.
+
+\input{sections/jetson.tex}
+
+\input{sections/privacy.tex}
+
+\input{sections/threats.tex}

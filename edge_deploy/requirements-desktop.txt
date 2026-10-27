@@ -1,0 +1,17 @@
+# EdgeVision on a desktop / laptop (x86_64, development and testing). Versions in comments are the ones
+# tested in the project venv (Python 3.12).
+#     python3 -m venv .venv && .venv/bin/pip install -r requirements-desktop.txt
+#
+# GPU: replace `onnxruntime` with `onnxruntime-gpu` (CUDA 12 + cuDNN 9 from NVIDIA, and TensorRT 10 for the
+# TensorRT provider). Install only ONE of the two packages: both provide the `onnxruntime` module.
+# The VLM server is not a Python package: scripts/start_vlm.sh uses the prebuilt llama.cpp in
+# third_party/llama.cpp-vulkan-x64 (or any llama-server on PATH).
+
+numpy>=2.0.2              # tested 2.3.5; >=2.0.2 is required by trackers
+opencv-python>=4.8        # tested 5.0.0.93; resize, drawing, JPEG encoding
+PyYAML>=6.0               # tested 6.0.3; configs/*.yaml
+scipy>=1.13.1             # tested 1.18.1; ByteTrack matching (trackers / supervision dependency)
+supervision==0.30.5       # tested 0.30.5; sv.Detections + NMS in edgevision/tracker.py
+trackers==2.6.1           # tested 2.6.1; ByteTrackTracker (tracker parameters were tuned with this version)
+onnxruntime>=1.20         # tested 1.30.0 (CPU); or onnxruntime-gpu for CUDA / TensorRT
+pytest>=8                 # tested 9.1.1; tests/

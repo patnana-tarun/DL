@@ -1,0 +1,7898 @@
+[
+ {
+  "wall": 1791417702.4769745,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 0, \"unique\": 1}"
+ },
+ {
+  "wall": 1791417702.4770906,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 1, \"unique\": 2}"
+ },
+ {
+  "wall": 1791417702.4771235,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 2, \"unique\": 3}"
+ },
+ {
+  "wall": 1791417702.4771454,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 3, \"unique\": 4}"
+ },
+ {
+  "wall": 1791417702.4771647,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 4, \"unique\": 5}"
+ },
+ {
+  "wall": 1791417702.4771833,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 7, \"unique\": 6}"
+ },
+ {
+  "wall": 1791417702.4772,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 8, \"unique\": 7}"
+ },
+ {
+  "wall": 1791417702.4772224,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 9, \"unique\": 8}"
+ },
+ {
+  "wall": 1791417702.4772398,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 10, \"unique\": 9}"
+ },
+ {
+  "wall": 1791417702.4772584,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 11, \"unique\": 10}"
+ },
+ {
+  "wall": 1791417702.4772773,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 12, \"unique\": 11}"
+ },
+ {
+  "wall": 1791417702.4772985,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 13, \"unique\": 12}"
+ },
+ {
+  "wall": 1791417702.4773173,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 14, \"unique\": 13}"
+ },
+ {
+  "wall": 1791417702.4773395,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 15, \"unique\": 14}"
+ },
+ {
+  "wall": 1791417702.4773588,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 16, \"unique\": 15}"
+ },
+ {
+  "wall": 1791417702.4773786,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 17, \"unique\": 16}"
+ },
+ {
+  "wall": 1791417702.4774084,
+  "ts": 1.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 5, \"unique\": 17}"
+ },
+ {
+  "wall": 1791417702.546268,
+  "ts": 2.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 18, \"unique\": 18}"
+ },
+ {
+  "wall": 1791417702.5463722,
+  "ts": 2.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 19, \"unique\": 19}"
+ },
+ {
+  "wall": 1791417702.879219,
+  "ts": 2.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 20, \"unique\": 20}"
+ },
+ {
+  "wall": 1791417703.6786814,
+  "ts": 3.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 21, \"unique\": 21}"
+ },
+ {
+  "wall": 1791417703.879437,
+  "ts": 3.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 22, \"unique\": 22}"
+ },
+ {
+  "wall": 1791417704.4122124,
+  "ts": 3.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 23, \"unique\": 23}"
+ },
+ {
+  "wall": 1791417704.546219,
+  "ts": 4.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 5, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417704.612531,
+  "ts": 4.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 4, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417704.746835,
+  "ts": 4.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 24, \"unique\": 24}"
+ },
+ {
+  "wall": 1791417705.0796998,
+  "ts": 4.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 9, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417705.0797858,
+  "ts": 4.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 11, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417705.2142155,
+  "ts": 4.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 20, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417705.346008,
+  "ts": 4.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 25, \"unique\": 25}"
+ },
+ {
+  "wall": 1791417705.8549955,
+  "ts": 5.36,
+  "kind": "person_enter",
+  "data": "{\"track\": 26, \"unique\": 26}"
+ },
+ {
+  "wall": 1791417705.8809872,
+  "ts": 5.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 27, \"unique\": 27}"
+ },
+ {
+  "wall": 1791417706.1495497,
+  "ts": 5.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 28, \"unique\": 28}"
+ },
+ {
+  "wall": 1791417706.1496587,
+  "ts": 5.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 29, \"unique\": 29}"
+ },
+ {
+  "wall": 1791417706.149691,
+  "ts": 5.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 2, \"dwell_s\": 2.0}"
+ },
+ {
+  "wall": 1791417706.2814806,
+  "ts": 5.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 30, \"unique\": 30}"
+ },
+ {
+  "wall": 1791417706.6159124,
+  "ts": 6.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 31, \"unique\": 31}"
+ },
+ {
+  "wall": 1791417706.6160283,
+  "ts": 6.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 7, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417706.8145764,
+  "ts": 6.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 32, \"unique\": 32}"
+ },
+ {
+  "wall": 1791417707.1482792,
+  "ts": 6.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 8, \"dwell_s\": 3.0}"
+ },
+ {
+  "wall": 1791417707.6152954,
+  "ts": 7.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 18, \"dwell_s\": 3.4}"
+ },
+ {
+  "wall": 1791417707.748961,
+  "ts": 7.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 33, \"unique\": 33}"
+ },
+ {
+  "wall": 1791417708.01827,
+  "ts": 7.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 22, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417708.2823832,
+  "ts": 7.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 34, \"unique\": 34}"
+ },
+ {
+  "wall": 1791417708.3489664,
+  "ts": 7.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 35, \"unique\": 35}"
+ },
+ {
+  "wall": 1791417708.8168325,
+  "ts": 8.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 30, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417709.0173984,
+  "ts": 8.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 12, \"dwell_s\": 4.87}"
+ },
+ {
+  "wall": 1791417709.0837696,
+  "ts": 8.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 13, \"dwell_s\": 4.94}"
+ },
+ {
+  "wall": 1791417709.2175467,
+  "ts": 8.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 27, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417709.3511336,
+  "ts": 8.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 36, \"unique\": 36}"
+ },
+ {
+  "wall": 1791417709.8174603,
+  "ts": 9.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 19, \"dwell_s\": 5.6}"
+ },
+ {
+  "wall": 1791417710.0850735,
+  "ts": 9.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 32, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417710.1518862,
+  "ts": 9.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 37, \"unique\": 37}"
+ },
+ {
+  "wall": 1791417710.363942,
+  "ts": 9.87,
+  "kind": "person_enter",
+  "data": "{\"track\": 38, \"unique\": 38}"
+ },
+ {
+  "wall": 1791417710.3640332,
+  "ts": 9.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 14, \"dwell_s\": 6.21}"
+ },
+ {
+  "wall": 1791417710.7631462,
+  "ts": 10.27,
+  "kind": "person_enter",
+  "data": "{\"track\": 39, \"unique\": 39}"
+ },
+ {
+  "wall": 1791417710.8588676,
+  "ts": 10.37,
+  "kind": "person_exit",
+  "data": "{\"track\": 31, \"dwell_s\": 2.54}"
+ },
+ {
+  "wall": 1791417711.0192258,
+  "ts": 10.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 41, \"unique\": 40}"
+ },
+ {
+  "wall": 1791417711.1952357,
+  "ts": 10.7,
+  "kind": "person_enter",
+  "data": "{\"track\": 42, \"unique\": 41}"
+ },
+ {
+  "wall": 1791417711.2191606,
+  "ts": 10.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 43, \"unique\": 42}"
+ },
+ {
+  "wall": 1791417711.5296478,
+  "ts": 11.04,
+  "kind": "person_exit",
+  "data": "{\"track\": 21, \"dwell_s\": 6.08}"
+ },
+ {
+  "wall": 1791417711.6464734,
+  "ts": 11.16,
+  "kind": "person_enter",
+  "data": "{\"track\": 45, \"unique\": 43}"
+ },
+ {
+  "wall": 1791417711.6465738,
+  "ts": 11.16,
+  "kind": "person_exit",
+  "data": "{\"track\": 28, \"dwell_s\": 3.83}"
+ },
+ {
+  "wall": 1791417712.0209992,
+  "ts": 11.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 25, \"dwell_s\": 5.01}"
+ },
+ {
+  "wall": 1791417712.1173468,
+  "ts": 11.62,
+  "kind": "person_exit",
+  "data": "{\"track\": 24, \"dwell_s\": 5.67}"
+ },
+ {
+  "wall": 1791417712.1650178,
+  "ts": 11.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 46, \"unique\": 44}"
+ },
+ {
+  "wall": 1791417712.165126,
+  "ts": 11.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 33, \"dwell_s\": 2.74}"
+ },
+ {
+  "wall": 1791417712.23022,
+  "ts": 11.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 47, \"unique\": 45}"
+ },
+ {
+  "wall": 1791417712.7622228,
+  "ts": 12.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 49, \"unique\": 46}"
+ },
+ {
+  "wall": 1791417712.8276947,
+  "ts": 12.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 50, \"unique\": 47}"
+ },
+ {
+  "wall": 1791417712.827802,
+  "ts": 12.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 51, \"unique\": 48}"
+ },
+ {
+  "wall": 1791417712.9644961,
+  "ts": 12.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 3, \"dwell_s\": 8.81}"
+ },
+ {
+  "wall": 1791417712.964591,
+  "ts": 12.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 16, \"dwell_s\": 8.81}"
+ },
+ {
+  "wall": 1791417713.0955522,
+  "ts": 12.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 52, \"unique\": 49}"
+ },
+ {
+  "wall": 1791417713.4297764,
+  "ts": 12.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 43, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417713.4971335,
+  "ts": 13.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 53, \"unique\": 50}"
+ },
+ {
+  "wall": 1791417713.559545,
+  "ts": 13.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 54, \"unique\": 51}"
+ },
+ {
+  "wall": 1791417713.6891983,
+  "ts": 13.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 55, \"unique\": 52}"
+ },
+ {
+  "wall": 1791417713.7577007,
+  "ts": 13.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 34, \"dwell_s\": 3.8}"
+ },
+ {
+  "wall": 1791417713.8315856,
+  "ts": 13.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 56, \"unique\": 53}"
+ },
+ {
+  "wall": 1791417713.964062,
+  "ts": 13.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 37, \"dwell_s\": 2.14}"
+ },
+ {
+  "wall": 1791417714.0305188,
+  "ts": 13.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 41, \"dwell_s\": 1.32}"
+ },
+ {
+  "wall": 1791417714.3006663,
+  "ts": 13.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 23, \"dwell_s\": 8.21}"
+ },
+ {
+  "wall": 1791417714.5625763,
+  "ts": 14.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 57, \"unique\": 54}"
+ },
+ {
+  "wall": 1791417714.628342,
+  "ts": 14.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 58, \"unique\": 55}"
+ },
+ {
+  "wall": 1791417714.628455,
+  "ts": 14.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 36, \"dwell_s\": 3.6}"
+ },
+ {
+  "wall": 1791417714.6284928,
+  "ts": 14.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 47, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417714.7636313,
+  "ts": 14.27,
+  "kind": "person_enter",
+  "data": "{\"track\": 59, \"unique\": 56}"
+ },
+ {
+  "wall": 1791417714.831328,
+  "ts": 14.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 49, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417714.9644814,
+  "ts": 14.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 60, \"unique\": 57}"
+ },
+ {
+  "wall": 1791417715.0330608,
+  "ts": 14.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 61, \"unique\": 58}"
+ },
+ {
+  "wall": 1791417715.0331674,
+  "ts": 14.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 62, \"unique\": 59}"
+ },
+ {
+  "wall": 1791417715.0332243,
+  "ts": 14.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 26, \"dwell_s\": 7.57}"
+ },
+ {
+  "wall": 1791417715.1090615,
+  "ts": 14.61,
+  "kind": "person_enter",
+  "data": "{\"track\": 63, \"unique\": 60}"
+ },
+ {
+  "wall": 1791417715.1093013,
+  "ts": 14.61,
+  "kind": "person_exit",
+  "data": "{\"track\": 52, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417715.156842,
+  "ts": 14.67,
+  "kind": "person_enter",
+  "data": "{\"track\": 64, \"unique\": 61}"
+ },
+ {
+  "wall": 1791417715.2252383,
+  "ts": 14.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 65, \"unique\": 62}"
+ },
+ {
+  "wall": 1791417715.225352,
+  "ts": 14.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 46, \"dwell_s\": 1.54}"
+ },
+ {
+  "wall": 1791417715.416593,
+  "ts": 14.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 66, \"unique\": 63}"
+ },
+ {
+  "wall": 1791417715.4166856,
+  "ts": 14.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 51, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417715.4817798,
+  "ts": 14.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 38, \"dwell_s\": 3.4}"
+ },
+ {
+  "wall": 1791417715.5478065,
+  "ts": 15.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 35, \"dwell_s\": 5.47}"
+ },
+ {
+  "wall": 1791417715.632325,
+  "ts": 15.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 53, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417715.811924,
+  "ts": 15.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 67, \"unique\": 64}"
+ },
+ {
+  "wall": 1791417715.876199,
+  "ts": 15.381935807003174,
+  "kind": "config",
+  "data": "{\"change\": \"set_alert\", \"name\": \"occupancy > 15\", \"metric\": \"occupancy\", \"op\": \">\", \"value\": 15.0, \"for_s\": 2.0, \"cooldown_s\": 60.0, \"active\": false}"
+ },
+ {
+  "wall": 1791417715.9462824,
+  "ts": 15.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 68, \"unique\": 65}"
+ },
+ {
+  "wall": 1791417716.1479897,
+  "ts": 15.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 56, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417716.6175683,
+  "ts": 16.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 70, \"unique\": 66}"
+ },
+ {
+  "wall": 1791417716.6176844,
+  "ts": 16.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 42, \"dwell_s\": 3.76}"
+ },
+ {
+  "wall": 1791417716.67831,
+  "ts": 16.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 71, \"unique\": 67}"
+ },
+ {
+  "wall": 1791417716.6784205,
+  "ts": 16.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 72, \"unique\": 68}"
+ },
+ {
+  "wall": 1791417716.6784637,
+  "ts": 16.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 54, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417716.9454699,
+  "ts": 16.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 15, \"dwell_s\": 12.75}"
+ },
+ {
+  "wall": 1791417717.0156226,
+  "ts": 16.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 74, \"unique\": 69}"
+ },
+ {
+  "wall": 1791417717.1499138,
+  "ts": 16.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 75, \"unique\": 70}"
+ },
+ {
+  "wall": 1791417717.1500142,
+  "ts": 16.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 76, \"unique\": 71}"
+ },
+ {
+  "wall": 1791417717.1500561,
+  "ts": 16.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 57, \"dwell_s\": 0.88}"
+ },
+ {
+  "wall": 1791417717.1500785,
+  "ts": 16.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 58, \"dwell_s\": 0.81}"
+ },
+ {
+  "wall": 1791417717.1500955,
+  "ts": 16.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 62, \"dwell_s\": 0.41}"
+ },
+ {
+  "wall": 1791417717.2751112,
+  "ts": 16.78,
+  "kind": "person_exit",
+  "data": "{\"track\": 45, \"dwell_s\": 3.94}"
+ },
+ {
+  "wall": 1791417717.2752042,
+  "ts": 16.78,
+  "kind": "person_exit",
+  "data": "{\"track\": 59, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417717.3422542,
+  "ts": 16.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 73, \"unique\": 72}"
+ },
+ {
+  "wall": 1791417717.3423529,
+  "ts": 16.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 77, \"unique\": 73}"
+ },
+ {
+  "wall": 1791417717.3423977,
+  "ts": 16.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 60, \"dwell_s\": 0.71}"
+ },
+ {
+  "wall": 1791417717.4099383,
+  "ts": 16.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 65, \"dwell_s\": 0.52}"
+ },
+ {
+  "wall": 1791417717.475443,
+  "ts": 16.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 78, \"unique\": 74}"
+ },
+ {
+  "wall": 1791417717.5423768,
+  "ts": 17.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 66, \"dwell_s\": 0.45}"
+ },
+ {
+  "wall": 1791417717.8098135,
+  "ts": 17.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 67, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417717.875689,
+  "ts": 17.38,
+  "kind": "person_enter",
+  "data": "{\"track\": 79, \"unique\": 75}"
+ },
+ {
+  "wall": 1791417718.0758562,
+  "ts": 17.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 80, \"unique\": 76}"
+ },
+ {
+  "wall": 1791417718.4099357,
+  "ts": 17.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 81, \"unique\": 77}"
+ },
+ {
+  "wall": 1791417718.4100401,
+  "ts": 17.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 10, \"dwell_s\": 14.26}"
+ },
+ {
+  "wall": 1791417718.6097949,
+  "ts": 18.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 82, \"unique\": 78}"
+ },
+ {
+  "wall": 1791417719.156803,
+  "ts": 18.67,
+  "kind": "person_enter",
+  "data": "{\"track\": 85, \"unique\": 79}"
+ },
+ {
+  "wall": 1791417719.3075185,
+  "ts": 18.82,
+  "kind": "person_exit",
+  "data": "{\"track\": 50, \"dwell_s\": 4.79}"
+ },
+ {
+  "wall": 1791417719.3076122,
+  "ts": 18.82,
+  "kind": "person_exit",
+  "data": "{\"track\": 64, \"dwell_s\": 2.45}"
+ },
+ {
+  "wall": 1791417719.307634,
+  "ts": 18.82,
+  "kind": "person_exit",
+  "data": "{\"track\": 72, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417719.4112377,
+  "ts": 18.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 84, \"unique\": 80}"
+ },
+ {
+  "wall": 1791417719.4113803,
+  "ts": 18.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 73, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417719.4779546,
+  "ts": 18.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 87, \"unique\": 81}"
+ },
+ {
+  "wall": 1791417719.4780567,
+  "ts": 18.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 74, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417719.6513705,
+  "ts": 19.16,
+  "kind": "person_enter",
+  "data": "{\"track\": 88, \"unique\": 82}"
+ },
+ {
+  "wall": 1791417719.812948,
+  "ts": 19.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 61, \"dwell_s\": 3.12}"
+ },
+ {
+  "wall": 1791417719.813042,
+  "ts": 19.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 78, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417719.9741366,
+  "ts": 19.48,
+  "kind": "person_enter",
+  "data": "{\"track\": 89, \"unique\": 83}"
+ },
+ {
+  "wall": 1791417719.9742296,
+  "ts": 19.48,
+  "kind": "person_enter",
+  "data": "{\"track\": 92, \"unique\": 84}"
+ },
+ {
+  "wall": 1791417720.0788145,
+  "ts": 19.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 93, \"unique\": 85}"
+ },
+ {
+  "wall": 1791417720.0789065,
+  "ts": 19.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 94, \"unique\": 86}"
+ },
+ {
+  "wall": 1791417720.0789533,
+  "ts": 19.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 55, \"dwell_s\": 4.72}"
+ },
+ {
+  "wall": 1791417720.1453776,
+  "ts": 19.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 1, \"dwell_s\": 16.0}"
+ },
+ {
+  "wall": 1791417720.212011,
+  "ts": 19.72,
+  "kind": "line_cross",
+  "data": "{\"track\": 82, \"direction\": \"a_to_b\", \"a_to_b\": 1, \"b_to_a\": 0}"
+ },
+ {
+  "wall": 1791417720.2786605,
+  "ts": 19.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 96, \"unique\": 87}"
+ },
+ {
+  "wall": 1791417720.3457255,
+  "ts": 19.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 97, \"unique\": 88}"
+ },
+ {
+  "wall": 1791417720.4795418,
+  "ts": 19.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 99, \"unique\": 89}"
+ },
+ {
+  "wall": 1791417720.4796371,
+  "ts": 19.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 76, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417720.7469916,
+  "ts": 20.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 0, \"dwell_s\": 16.6}"
+ },
+ {
+  "wall": 1791417720.8412702,
+  "ts": 20.35,
+  "kind": "person_enter",
+  "data": "{\"track\": 100, \"unique\": 90}"
+ },
+ {
+  "wall": 1791417720.8413706,
+  "ts": 20.35,
+  "kind": "person_enter",
+  "data": "{\"track\": 101, \"unique\": 91}"
+ },
+ {
+  "wall": 1791417721.0563676,
+  "ts": 20.57,
+  "kind": "person_enter",
+  "data": "{\"track\": 102, \"unique\": 92}"
+ },
+ {
+  "wall": 1791417721.056493,
+  "ts": 20.57,
+  "kind": "person_exit",
+  "data": "{\"track\": 29, \"dwell_s\": 13.24}"
+ },
+ {
+  "wall": 1791417721.0565262,
+  "ts": 20.57,
+  "kind": "person_exit",
+  "data": "{\"track\": 81, \"dwell_s\": 0.98}"
+ },
+ {
+  "wall": 1791417721.0803816,
+  "ts": 20.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 17, \"dwell_s\": 16.93}"
+ },
+ {
+  "wall": 1791417721.24149,
+  "ts": 20.75,
+  "kind": "line_cross",
+  "data": "{\"track\": 85, \"direction\": \"a_to_b\", \"a_to_b\": 2, \"b_to_a\": 0}"
+ },
+ {
+  "wall": 1791417721.241639,
+  "ts": 20.75,
+  "kind": "person_exit",
+  "data": "{\"track\": 71, \"dwell_s\": 2.87}"
+ },
+ {
+  "wall": 1791417721.241681,
+  "ts": 20.75,
+  "kind": "person_exit",
+  "data": "{\"track\": 79, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417721.5227735,
+  "ts": 21.03,
+  "kind": "person_enter",
+  "data": "{\"track\": 107, \"unique\": 93}"
+ },
+ {
+  "wall": 1791417721.5228662,
+  "ts": 21.03,
+  "kind": "person_enter",
+  "data": "{\"track\": 108, \"unique\": 94}"
+ },
+ {
+  "wall": 1791417721.5228927,
+  "ts": 21.03,
+  "kind": "person_enter",
+  "data": "{\"track\": 109, \"unique\": 95}"
+ },
+ {
+  "wall": 1791417721.52293,
+  "ts": 21.03,
+  "kind": "person_exit",
+  "data": "{\"track\": 63, \"dwell_s\": 4.72}"
+ },
+ {
+  "wall": 1791417721.6936462,
+  "ts": 21.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 105, \"unique\": 96}"
+ },
+ {
+  "wall": 1791417721.6937528,
+  "ts": 21.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 77, \"dwell_s\": 2.64}"
+ },
+ {
+  "wall": 1791417721.7470124,
+  "ts": 21.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 84, \"dwell_s\": 0.89}"
+ },
+ {
+  "wall": 1791417721.992338,
+  "ts": 21.5,
+  "kind": "person_enter",
+  "data": "{\"track\": 112, \"unique\": 97}"
+ },
+ {
+  "wall": 1791417722.147494,
+  "ts": 21.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 113, \"unique\": 98}"
+ },
+ {
+  "wall": 1791417722.2849684,
+  "ts": 21.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 114, \"unique\": 99}"
+ },
+ {
+  "wall": 1791417722.3467624,
+  "ts": 21.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 68, \"dwell_s\": 4.79}"
+ },
+ {
+  "wall": 1791417722.3468606,
+  "ts": 21.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 96, \"dwell_s\": 0.44}"
+ },
+ {
+  "wall": 1791417722.4567513,
+  "ts": 21.97,
+  "kind": "person_enter",
+  "data": "{\"track\": 115, \"unique\": 100}"
+ },
+ {
+  "wall": 1791417722.456847,
+  "ts": 21.97,
+  "kind": "person_exit",
+  "data": "{\"track\": 87, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417722.4568803,
+  "ts": 21.97,
+  "kind": "person_exit",
+  "data": "{\"track\": 88, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417722.6935382,
+  "ts": 22.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 89, \"dwell_s\": 1.05}"
+ },
+ {
+  "wall": 1791417722.6936269,
+  "ts": 22.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 99, \"dwell_s\": 0.48}"
+ },
+ {
+  "wall": 1791417722.8825681,
+  "ts": 22.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 92, \"dwell_s\": 1.26}"
+ },
+ {
+  "wall": 1791417723.0137198,
+  "ts": 22.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 117, \"unique\": 101}"
+ },
+ {
+  "wall": 1791417723.283576,
+  "ts": 22.79,
+  "kind": "line_cross",
+  "data": "{\"track\": 101, \"direction\": \"a_to_b\", \"a_to_b\": 3, \"b_to_a\": 0}"
+ },
+ {
+  "wall": 1791417723.2836745,
+  "ts": 22.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 97, \"dwell_s\": 1.23}"
+ },
+ {
+  "wall": 1791417723.414834,
+  "ts": 22.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 118, \"unique\": 102}"
+ },
+ {
+  "wall": 1791417723.4814687,
+  "ts": 22.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 100, \"dwell_s\": 0.96}"
+ },
+ {
+  "wall": 1791417723.6822615,
+  "ts": 23.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 120, \"unique\": 103}"
+ },
+ {
+  "wall": 1791417723.8169498,
+  "ts": 23.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 121, \"unique\": 104}"
+ },
+ {
+  "wall": 1791417723.8170555,
+  "ts": 23.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 102, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417723.8822424,
+  "ts": 23.39,
+  "kind": "line_cross",
+  "data": "{\"track\": 108, \"direction\": \"a_to_b\", \"a_to_b\": 4, \"b_to_a\": 0}"
+ },
+ {
+  "wall": 1791417724.0149033,
+  "ts": 23.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 122, \"unique\": 105}"
+ },
+ {
+  "wall": 1791417724.01504,
+  "ts": 23.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 109, \"dwell_s\": 0.81}"
+ },
+ {
+  "wall": 1791417724.0150647,
+  "ts": 23.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 112, \"dwell_s\": 0.36}"
+ },
+ {
+  "wall": 1791417724.0819318,
+  "ts": 23.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 123, \"unique\": 106}"
+ },
+ {
+  "wall": 1791417724.147799,
+  "ts": 23.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 124, \"unique\": 107}"
+ },
+ {
+  "wall": 1791417724.147889,
+  "ts": 23.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 126, \"unique\": 108}"
+ },
+ {
+  "wall": 1791417724.1479292,
+  "ts": 23.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 125, \"unique\": 109}"
+ },
+ {
+  "wall": 1791417724.147952,
+  "ts": 23.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 80, \"dwell_s\": 4.36}"
+ },
+ {
+  "wall": 1791417724.1479747,
+  "ts": 23.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 105, \"dwell_s\": 1.29}"
+ },
+ {
+  "wall": 1791417724.147992,
+  "ts": 23.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 107, \"dwell_s\": 0.97}"
+ },
+ {
+  "wall": 1791417724.1480055,
+  "ts": 23.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 113, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417724.214843,
+  "ts": 23.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 127, \"unique\": 110}"
+ },
+ {
+  "wall": 1791417724.28515,
+  "ts": 23.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 128, \"unique\": 111}"
+ },
+ {
+  "wall": 1791417724.2852185,
+  "ts": 23.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 129, \"unique\": 112}"
+ },
+ {
+  "wall": 1791417724.3493712,
+  "ts": 23.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 119, \"unique\": 113}"
+ },
+ {
+  "wall": 1791417724.349544,
+  "ts": 23.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 70, \"dwell_s\": 6.07}"
+ },
+ {
+  "wall": 1791417724.3495798,
+  "ts": 23.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 75, \"dwell_s\": 5.54}"
+ },
+ {
+  "wall": 1791417724.4823146,
+  "ts": 23.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 93, \"dwell_s\": 2.75}"
+ },
+ {
+  "wall": 1791417724.4824104,
+  "ts": 23.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 114, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417724.616567,
+  "ts": 24.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 130, \"unique\": 114}"
+ },
+ {
+  "wall": 1791417724.7504878,
+  "ts": 24.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 39, \"dwell_s\": 12.33}"
+ },
+ {
+  "wall": 1791417724.816363,
+  "ts": 24.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 131, \"unique\": 115}"
+ },
+ {
+  "wall": 1791417725.2826812,
+  "ts": 24.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 132, \"unique\": 116}"
+ },
+ {
+  "wall": 1791417725.3497055,
+  "ts": 24.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 85, \"dwell_s\": 4.54}"
+ },
+ {
+  "wall": 1791417725.8163252,
+  "ts": 25.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 133, \"unique\": 117}"
+ },
+ {
+  "wall": 1791417725.8164432,
+  "ts": 25.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 134, \"unique\": 118}"
+ },
+ {
+  "wall": 1791417725.8842669,
+  "ts": 25.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 135, \"unique\": 119}"
+ },
+ {
+  "wall": 1791417726.1276937,
+  "ts": 25.64,
+  "kind": "person_exit",
+  "data": "{\"track\": 123, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417726.2441127,
+  "ts": 25.75,
+  "kind": "person_enter",
+  "data": "{\"track\": 136, \"unique\": 120}"
+ },
+ {
+  "wall": 1791417726.3618062,
+  "ts": 25.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 82, \"dwell_s\": 6.07}"
+ },
+ {
+  "wall": 1791417726.361903,
+  "ts": 25.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 119, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417726.361923,
+  "ts": 25.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 125, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417726.4173205,
+  "ts": 25.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 137, \"unique\": 121}"
+ },
+ {
+  "wall": 1791417726.594085,
+  "ts": 26.1,
+  "kind": "person_enter",
+  "data": "{\"track\": 138, \"unique\": 122}"
+ },
+ {
+  "wall": 1791417726.7518494,
+  "ts": 26.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 139, \"unique\": 123}"
+ },
+ {
+  "wall": 1791417726.8854003,
+  "ts": 26.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 140, \"unique\": 124}"
+ },
+ {
+  "wall": 1791417727.03154,
+  "ts": 26.54,
+  "kind": "person_exit",
+  "data": "{\"track\": 121, \"dwell_s\": 1.53}"
+ },
+ {
+  "wall": 1791417727.1525185,
+  "ts": 26.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 122, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417727.2193203,
+  "ts": 26.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 124, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417727.2849383,
+  "ts": 26.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 126, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417728.3523395,
+  "ts": 27.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 141, \"unique\": 125}"
+ },
+ {
+  "wall": 1791417728.4871826,
+  "ts": 28.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 142, \"unique\": 126}"
+ },
+ {
+  "wall": 1791417728.779832,
+  "ts": 28.29,
+  "kind": "person_exit",
+  "data": "{\"track\": 137, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417728.898395,
+  "ts": 28.41,
+  "kind": "person_enter",
+  "data": "{\"track\": 144, \"unique\": 127}"
+ },
+ {
+  "wall": 1791417728.9542644,
+  "ts": 28.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 135, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417728.9543574,
+  "ts": 28.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 139, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417728.9543777,
+  "ts": 28.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 140, \"dwell_s\": 0.42}"
+ },
+ {
+  "wall": 1791417729.0887158,
+  "ts": 28.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 145, \"unique\": 128}"
+ },
+ {
+  "wall": 1791417729.1548736,
+  "ts": 28.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 146, \"unique\": 129}"
+ },
+ {
+  "wall": 1791417729.2202091,
+  "ts": 28.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 147, \"unique\": 130}"
+ },
+ {
+  "wall": 1791417729.2872286,
+  "ts": 28.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 148, \"unique\": 131}"
+ },
+ {
+  "wall": 1791417729.4206007,
+  "ts": 28.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 127, \"dwell_s\": 3.54}"
+ },
+ {
+  "wall": 1791417729.487138,
+  "ts": 29.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 138, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417729.621343,
+  "ts": 29.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 130, \"dwell_s\": 3.34}"
+ },
+ {
+  "wall": 1791417729.8871284,
+  "ts": 29.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 149, \"unique\": 132}"
+ },
+ {
+  "wall": 1791417729.9543934,
+  "ts": 29.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 134, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417730.0886624,
+  "ts": 29.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 150, \"unique\": 133}"
+ },
+ {
+  "wall": 1791417730.622884,
+  "ts": 30.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 151, \"unique\": 134}"
+ },
+ {
+  "wall": 1791417731.6224275,
+  "ts": 31.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 141, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417731.8234916,
+  "ts": 31.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 154, \"unique\": 135}"
+ },
+ {
+  "wall": 1791417732.1414807,
+  "ts": 31.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 136, \"dwell_s\": 4.2}"
+ },
+ {
+  "wall": 1791417732.2743292,
+  "ts": 31.78,
+  "kind": "person_exit",
+  "data": "{\"track\": 131, \"dwell_s\": 5.74}"
+ },
+ {
+  "wall": 1791417732.340725,
+  "ts": 31.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 156, \"unique\": 136}"
+ },
+ {
+  "wall": 1791417732.340844,
+  "ts": 31.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 118, \"dwell_s\": 7.22}"
+ },
+ {
+  "wall": 1791417732.3409004,
+  "ts": 31.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 145, \"dwell_s\": 1.55}"
+ },
+ {
+  "wall": 1791417732.474732,
+  "ts": 31.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 157, \"unique\": 137}"
+ },
+ {
+  "wall": 1791417732.4748487,
+  "ts": 31.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 146, \"dwell_s\": 1.59}"
+ },
+ {
+  "wall": 1791417732.54168,
+  "ts": 32.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 158, \"unique\": 138}"
+ },
+ {
+  "wall": 1791417732.5417728,
+  "ts": 32.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 147, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417732.5417986,
+  "ts": 32.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 150, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417732.6177132,
+  "ts": 32.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 148, \"dwell_s\": 1.63}"
+ },
+ {
+  "wall": 1791417733.0092416,
+  "ts": 32.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 128, \"dwell_s\": 7.01}"
+ },
+ {
+  "wall": 1791417733.1683726,
+  "ts": 32.68,
+  "kind": "person_exit",
+  "data": "{\"track\": 144, \"dwell_s\": 2.6}"
+ },
+ {
+  "wall": 1791417733.3422961,
+  "ts": 32.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 159, \"unique\": 139}"
+ },
+ {
+  "wall": 1791417733.6758635,
+  "ts": 33.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 162, \"unique\": 140}"
+ },
+ {
+  "wall": 1791417734.142956,
+  "ts": 33.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 163, \"unique\": 141}"
+ },
+ {
+  "wall": 1791417734.2089338,
+  "ts": 33.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 164, \"unique\": 142}"
+ },
+ {
+  "wall": 1791417734.3419533,
+  "ts": 33.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 166, \"unique\": 143}"
+ },
+ {
+  "wall": 1791417734.6758962,
+  "ts": 34.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 167, \"unique\": 144}"
+ },
+ {
+  "wall": 1791417734.7420356,
+  "ts": 34.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 168, \"unique\": 145}"
+ },
+ {
+  "wall": 1791417735.1432068,
+  "ts": 34.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 169, \"unique\": 146}"
+ },
+ {
+  "wall": 1791417735.4769242,
+  "ts": 34.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 115, \"dwell_s\": 11.44}"
+ },
+ {
+  "wall": 1791417735.5433102,
+  "ts": 35.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 170, \"unique\": 147}"
+ },
+ {
+  "wall": 1791417735.610956,
+  "ts": 35.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 156, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417735.9435549,
+  "ts": 35.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 171, \"unique\": 148}"
+ },
+ {
+  "wall": 1791417736.5062313,
+  "ts": 36.01,
+  "kind": "person_enter",
+  "data": "{\"track\": 172, \"unique\": 149}"
+ },
+ {
+  "wall": 1791417736.5063393,
+  "ts": 36.01,
+  "kind": "person_exit",
+  "data": "{\"track\": 94, \"dwell_s\": 14.73}"
+ },
+ {
+  "wall": 1791417736.677936,
+  "ts": 36.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 157, \"dwell_s\": 2.54}"
+ },
+ {
+  "wall": 1791417736.8543859,
+  "ts": 36.36,
+  "kind": "person_exit",
+  "data": "{\"track\": 166, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417736.9724019,
+  "ts": 36.48,
+  "kind": "person_enter",
+  "data": "{\"track\": 175, \"unique\": 150}"
+ },
+ {
+  "wall": 1791417737.0126247,
+  "ts": 36.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 158, \"dwell_s\": 2.8}"
+ },
+ {
+  "wall": 1791417737.1462681,
+  "ts": 36.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 176, \"unique\": 151}"
+ },
+ {
+  "wall": 1791417737.3567514,
+  "ts": 36.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 173, \"unique\": 152}"
+ },
+ {
+  "wall": 1791417737.4788446,
+  "ts": 36.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 177, \"unique\": 153}"
+ },
+ {
+  "wall": 1791417737.773851,
+  "ts": 37.28,
+  "kind": "person_enter",
+  "data": "{\"track\": 178, \"unique\": 154}"
+ },
+ {
+  "wall": 1791417737.773957,
+  "ts": 37.28,
+  "kind": "person_exit",
+  "data": "{\"track\": 154, \"dwell_s\": 4.25}"
+ },
+ {
+  "wall": 1791417737.8130248,
+  "ts": 37.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 159, \"dwell_s\": 2.8}"
+ },
+ {
+  "wall": 1791417737.8131177,
+  "ts": 37.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 164, \"dwell_s\": 1.93}"
+ },
+ {
+  "wall": 1791417737.9466705,
+  "ts": 37.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 179, \"unique\": 155}"
+ },
+ {
+  "wall": 1791417737.9467852,
+  "ts": 37.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 163, \"dwell_s\": 2.1}"
+ },
+ {
+  "wall": 1791417738.0794988,
+  "ts": 37.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 180, \"unique\": 156}"
+ },
+ {
+  "wall": 1791417738.2564933,
+  "ts": 37.76,
+  "kind": "person_enter",
+  "data": "{\"track\": 181, \"unique\": 157}"
+ },
+ {
+  "wall": 1791417738.25663,
+  "ts": 37.76,
+  "kind": "person_exit",
+  "data": "{\"track\": 108, \"dwell_s\": 15.04}"
+ },
+ {
+  "wall": 1791417738.256661,
+  "ts": 37.76,
+  "kind": "person_exit",
+  "data": "{\"track\": 168, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417738.2793305,
+  "ts": 37.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 182, \"unique\": 158}"
+ },
+ {
+  "wall": 1791417738.2794273,
+  "ts": 37.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 183, \"unique\": 159}"
+ },
+ {
+  "wall": 1791417738.3728967,
+  "ts": 37.88,
+  "kind": "person_enter",
+  "data": "{\"track\": 184, \"unique\": 160}"
+ },
+ {
+  "wall": 1791417738.4126375,
+  "ts": 37.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 185, \"unique\": 161}"
+ },
+ {
+  "wall": 1791417738.723541,
+  "ts": 38.23,
+  "kind": "person_exit",
+  "data": "{\"track\": 167, \"dwell_s\": 2.28}"
+ },
+ {
+  "wall": 1791417738.8811476,
+  "ts": 38.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 186, \"unique\": 162}"
+ },
+ {
+  "wall": 1791417738.8812613,
+  "ts": 38.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 151, \"dwell_s\": 6.57}"
+ },
+ {
+  "wall": 1791417739.0140905,
+  "ts": 38.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 187, \"unique\": 163}"
+ },
+ {
+  "wall": 1791417739.0811994,
+  "ts": 38.59,
+  "kind": "line_cross",
+  "data": "{\"track\": 185, \"direction\": \"a_to_b\", \"a_to_b\": 5, \"b_to_a\": 0}"
+ },
+ {
+  "wall": 1791417739.190229,
+  "ts": 38.7,
+  "kind": "person_enter",
+  "data": "{\"track\": 188, \"unique\": 164}"
+ },
+ {
+  "wall": 1791417739.2140925,
+  "ts": 38.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 189, \"unique\": 165}"
+ },
+ {
+  "wall": 1791417739.3076978,
+  "ts": 38.82,
+  "kind": "person_enter",
+  "data": "{\"track\": 190, \"unique\": 166}"
+ },
+ {
+  "wall": 1791417739.4803975,
+  "ts": 38.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 191, \"unique\": 167}"
+ },
+ {
+  "wall": 1791417739.4805472,
+  "ts": 38.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 172, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417739.7483418,
+  "ts": 39.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 193, \"unique\": 168}"
+ },
+ {
+  "wall": 1791417739.7484603,
+  "ts": 39.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 194, \"unique\": 169}"
+ },
+ {
+  "wall": 1791417739.7485085,
+  "ts": 39.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 195, \"unique\": 170}"
+ },
+ {
+  "wall": 1791417739.814016,
+  "ts": 39.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 170, \"dwell_s\": 2.6}"
+ },
+ {
+  "wall": 1791417739.8141186,
+  "ts": 39.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 178, \"dwell_s\": 0.36}"
+ },
+ {
+  "wall": 1791417739.9473188,
+  "ts": 39.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 176, \"dwell_s\": 1.09}"
+ },
+ {
+  "wall": 1791417739.9474251,
+  "ts": 39.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 177, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417740.0153465,
+  "ts": 39.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 197, \"unique\": 171}"
+ },
+ {
+  "wall": 1791417740.147448,
+  "ts": 39.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 198, \"unique\": 172}"
+ },
+ {
+  "wall": 1791417740.2155511,
+  "ts": 39.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 196, \"unique\": 173}"
+ },
+ {
+  "wall": 1791417740.28123,
+  "ts": 39.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 117, \"dwell_s\": 15.57}"
+ },
+ {
+  "wall": 1791417740.3479707,
+  "ts": 39.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 199, \"unique\": 174}"
+ },
+ {
+  "wall": 1791417740.415394,
+  "ts": 39.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 200, \"unique\": 175}"
+ },
+ {
+  "wall": 1791417740.549517,
+  "ts": 40.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 120, \"dwell_s\": 15.14}"
+ },
+ {
+  "wall": 1791417740.7504349,
+  "ts": 40.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 129, \"dwell_s\": 14.77}"
+ },
+ {
+  "wall": 1791417740.8833086,
+  "ts": 40.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 133, \"dwell_s\": 13.36}"
+ },
+ {
+  "wall": 1791417740.9916003,
+  "ts": 40.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 101, \"dwell_s\": 18.47}"
+ },
+ {
+  "wall": 1791417740.991697,
+  "ts": 40.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 183, \"dwell_s\": 1.01}"
+ },
+ {
+  "wall": 1791417741.0160513,
+  "ts": 40.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 173, \"dwell_s\": 2.67}"
+ },
+ {
+  "wall": 1791417741.0161602,
+  "ts": 40.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 186, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417741.082443,
+  "ts": 40.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 201, \"unique\": 176}"
+ },
+ {
+  "wall": 1791417741.1490436,
+  "ts": 40.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 202, \"unique\": 177}"
+ },
+ {
+  "wall": 1791417741.2160478,
+  "ts": 40.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 142, \"dwell_s\": 11.04}"
+ },
+ {
+  "wall": 1791417741.216152,
+  "ts": 40.72,
+  "kind": "alert",
+  "data": "{\"rule\": \"occupancy > 15\", \"metric\": \"occupancy\", \"value\": 19, \"threshold\": 15.0, \"op\": \">\"}"
+ },
+ {
+  "wall": 1791417741.3502262,
+  "ts": 40.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 162, \"dwell_s\": 6.0}"
+ },
+ {
+  "wall": 1791417741.3503835,
+  "ts": 40.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 171, \"dwell_s\": 3.74}"
+ },
+ {
+  "wall": 1791417741.627114,
+  "ts": 41.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 203, \"unique\": 178}"
+ },
+ {
+  "wall": 1791417741.7580414,
+  "ts": 41.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 132, \"dwell_s\": 14.8}"
+ },
+ {
+  "wall": 1791417742.0247288,
+  "ts": 41.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 195, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417742.1556425,
+  "ts": 41.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 204, \"unique\": 179}"
+ },
+ {
+  "wall": 1791417742.6234143,
+  "ts": 42.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 169, \"dwell_s\": 5.81}"
+ },
+ {
+  "wall": 1791417742.824866,
+  "ts": 42.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 205, \"unique\": 180}"
+ },
+ {
+  "wall": 1791417742.8249714,
+  "ts": 42.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 206, \"unique\": 181}"
+ },
+ {
+  "wall": 1791417742.869969,
+  "ts": 42.326241243004915,
+  "kind": "alert_context",
+  "data": "{\"rule\": \"occupancy > 15\", \"summary\": \"A busy urban street scene at a major intersection with a large digital billboard, showing a high occupancy of people. The person detector and tracker are active, with 19 people in view, 177 unique people tracked, and 5 crossings. The scene is active with people moving in various directions, and there are no visible physical dangers or risks.\", \"anomalies\": [], \"latency_s\": 1.648}"
+ },
+ {
+  "wall": 1791417743.0849245,
+  "ts": 42.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 181, \"dwell_s\": 3.2}"
+ },
+ {
+  "wall": 1791417743.0850232,
+  "ts": 42.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 191, \"dwell_s\": 1.93}"
+ },
+ {
+  "wall": 1791417743.7612658,
+  "ts": 43.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 193, \"dwell_s\": 2.34}"
+ },
+ {
+  "wall": 1791417743.8940485,
+  "ts": 43.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 207, \"unique\": 182}"
+ },
+ {
+  "wall": 1791417743.8941557,
+  "ts": 43.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 198, \"dwell_s\": 2.07}"
+ },
+ {
+  "wall": 1791417743.9521916,
+  "ts": 43.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 182, \"dwell_s\": 4.0}"
+ },
+ {
+  "wall": 1791417744.423066,
+  "ts": 43.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 208, \"unique\": 183}"
+ },
+ {
+  "wall": 1791417744.620582,
+  "ts": 44.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 210, \"unique\": 184}"
+ },
+ {
+  "wall": 1791417744.7648184,
+  "ts": 44.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 202, \"dwell_s\": 1.93}"
+ },
+ {
+  "wall": 1791417745.0294604,
+  "ts": 44.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 206, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417745.0898361,
+  "ts": 44.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 211, \"unique\": 185}"
+ },
+ {
+  "wall": 1791417745.4267979,
+  "ts": 44.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 199, \"dwell_s\": 3.4}"
+ },
+ {
+  "wall": 1791417745.8203225,
+  "ts": 45.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 212, \"unique\": 186}"
+ },
+ {
+  "wall": 1791417745.9625468,
+  "ts": 45.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 213, \"unique\": 187}"
+ },
+ {
+  "wall": 1791417745.9626484,
+  "ts": 45.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 214, \"unique\": 188}"
+ },
+ {
+  "wall": 1791417745.9626796,
+  "ts": 45.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 215, \"unique\": 189}"
+ },
+ {
+  "wall": 1791417746.495883,
+  "ts": 46.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 216, \"unique\": 190}"
+ },
+ {
+  "wall": 1791417746.628643,
+  "ts": 46.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 210, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417746.7377148,
+  "ts": 46.24,
+  "kind": "person_exit",
+  "data": "{\"track\": 203, \"dwell_s\": 3.4}"
+ },
+ {
+  "wall": 1791417746.7621634,
+  "ts": 46.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 217, \"unique\": 191}"
+ },
+ {
+  "wall": 1791417746.854815,
+  "ts": 46.36,
+  "kind": "person_exit",
+  "data": "{\"track\": 149, \"dwell_s\": 15.27}"
+ },
+ {
+  "wall": 1791417746.8549168,
+  "ts": 46.36,
+  "kind": "person_exit",
+  "data": "{\"track\": 175, \"dwell_s\": 8.21}"
+ },
+ {
+  "wall": 1791417747.2296557,
+  "ts": 46.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 218, \"unique\": 192}"
+ },
+ {
+  "wall": 1791417747.624199,
+  "ts": 47.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 219, \"unique\": 193}"
+ },
+ {
+  "wall": 1791417747.8242164,
+  "ts": 47.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 189, \"dwell_s\": 6.93}"
+ },
+ {
+  "wall": 1791417747.8971531,
+  "ts": 47.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 220, \"unique\": 194}"
+ },
+ {
+  "wall": 1791417748.0307088,
+  "ts": 47.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 221, \"unique\": 195}"
+ },
+ {
+  "wall": 1791417748.096774,
+  "ts": 47.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 222, \"unique\": 196}"
+ },
+ {
+  "wall": 1791417748.0968993,
+  "ts": 47.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 197, \"dwell_s\": 6.37}"
+ },
+ {
+  "wall": 1791417748.164913,
+  "ts": 47.67,
+  "kind": "person_enter",
+  "data": "{\"track\": 223, \"unique\": 197}"
+ },
+ {
+  "wall": 1791417748.2316082,
+  "ts": 47.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 224, \"unique\": 198}"
+ },
+ {
+  "wall": 1791417748.3651814,
+  "ts": 47.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 214, \"dwell_s\": 0.68}"
+ },
+ {
+  "wall": 1791417748.3652782,
+  "ts": 47.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 215, \"dwell_s\": 0.68}"
+ },
+ {
+  "wall": 1791417748.5594122,
+  "ts": 48.07,
+  "kind": "person_exit",
+  "data": "{\"track\": 204, \"dwell_s\": 4.74}"
+ },
+ {
+  "wall": 1791417748.5595257,
+  "ts": 48.07,
+  "kind": "person_exit",
+  "data": "{\"track\": 213, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417748.7481222,
+  "ts": 48.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 190, \"dwell_s\": 7.78}"
+ },
+ {
+  "wall": 1791417748.8805876,
+  "ts": 48.38,
+  "kind": "person_enter",
+  "data": "{\"track\": 226, \"unique\": 199}"
+ },
+ {
+  "wall": 1791417748.9465485,
+  "ts": 48.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 227, \"unique\": 200}"
+ },
+ {
+  "wall": 1791417748.9466672,
+  "ts": 48.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 225, \"unique\": 201}"
+ },
+ {
+  "wall": 1791417748.9467015,
+  "ts": 48.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 196, \"dwell_s\": 7.41}"
+ },
+ {
+  "wall": 1791417748.9467328,
+  "ts": 48.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 211, \"dwell_s\": 2.13}"
+ },
+ {
+  "wall": 1791417748.9467518,
+  "ts": 48.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 212, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417749.1281931,
+  "ts": 48.58233007400122,
+  "kind": "config",
+  "data": "{\"change\": \"set_counting_line\", \"line\": [[0.0, 0.5], [1.0, 0.5]]}"
+ },
+ {
+  "wall": 1791417749.139676,
+  "ts": 48.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 217, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417749.3496988,
+  "ts": 48.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 208, \"dwell_s\": 3.2}"
+ },
+ {
+  "wall": 1791417749.483657,
+  "ts": 48.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 229, \"unique\": 202}"
+ },
+ {
+  "wall": 1791417749.6828165,
+  "ts": 49.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 228, \"unique\": 203}"
+ },
+ {
+  "wall": 1791417749.7498565,
+  "ts": 49.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 200, \"dwell_s\": 7.61}"
+ },
+ {
+  "wall": 1791417749.9465141,
+  "ts": 49.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 231, \"unique\": 204}"
+ },
+ {
+  "wall": 1791417750.1480544,
+  "ts": 49.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 221, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417750.2812865,
+  "ts": 49.78,
+  "kind": "person_enter",
+  "data": "{\"track\": 233, \"unique\": 205}"
+ },
+ {
+  "wall": 1791417750.4151092,
+  "ts": 49.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 234, \"unique\": 206}"
+ },
+ {
+  "wall": 1791417750.4152176,
+  "ts": 49.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 235, \"unique\": 207}"
+ },
+ {
+  "wall": 1791417750.5489872,
+  "ts": 50.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 222, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417750.875785,
+  "ts": 50.38,
+  "kind": "person_enter",
+  "data": "{\"track\": 236, \"unique\": 208}"
+ },
+ {
+  "wall": 1791417751.00943,
+  "ts": 50.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 218, \"dwell_s\": 2.11}"
+ },
+ {
+  "wall": 1791417751.1314547,
+  "ts": 50.64,
+  "kind": "person_exit",
+  "data": "{\"track\": 225, \"dwell_s\": 0.92}"
+ },
+ {
+  "wall": 1791417751.277254,
+  "ts": 50.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 237, \"unique\": 209}"
+ },
+ {
+  "wall": 1791417751.4879403,
+  "ts": 51.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 238, \"unique\": 210}"
+ },
+ {
+  "wall": 1791417751.4880462,
+  "ts": 51.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 239, \"unique\": 211}"
+ },
+ {
+  "wall": 1791417751.5433629,
+  "ts": 51.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 240, \"unique\": 212}"
+ },
+ {
+  "wall": 1791417751.611134,
+  "ts": 51.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 180, \"dwell_s\": 11.9}"
+ },
+ {
+  "wall": 1791417751.6112323,
+  "ts": 51.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 205, \"dwell_s\": 7.12}"
+ },
+ {
+  "wall": 1791417751.7204106,
+  "ts": 51.23,
+  "kind": "person_enter",
+  "data": "{\"track\": 241, \"unique\": 213}"
+ },
+ {
+  "wall": 1791417751.7439182,
+  "ts": 51.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 242, \"unique\": 214}"
+ },
+ {
+  "wall": 1791417752.0100455,
+  "ts": 51.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 244, \"unique\": 215}"
+ },
+ {
+  "wall": 1791417752.0101395,
+  "ts": 51.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 246, \"unique\": 216}"
+ },
+ {
+  "wall": 1791417752.0101743,
+  "ts": 51.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 247, \"unique\": 217}"
+ },
+ {
+  "wall": 1791417752.0102262,
+  "ts": 51.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 245, \"unique\": 218}"
+ },
+ {
+  "wall": 1791417752.0102513,
+  "ts": 51.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 201, \"dwell_s\": 9.26}"
+ },
+ {
+  "wall": 1791417752.0102808,
+  "ts": 51.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 231, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417752.1448755,
+  "ts": 51.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 228, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417752.210677,
+  "ts": 51.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 248, \"unique\": 219}"
+ },
+ {
+  "wall": 1791417752.2107751,
+  "ts": 51.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 249, \"unique\": 220}"
+ },
+ {
+  "wall": 1791417752.2108004,
+  "ts": 51.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 250, \"unique\": 221}"
+ },
+ {
+  "wall": 1791417752.3435986,
+  "ts": 51.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 227, \"dwell_s\": 1.72}"
+ },
+ {
+  "wall": 1791417752.410264,
+  "ts": 51.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 234, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417752.8777735,
+  "ts": 52.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 235, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417752.94426,
+  "ts": 52.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 220, \"dwell_s\": 3.39}"
+ },
+ {
+  "wall": 1791417753.0109677,
+  "ts": 52.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 179, \"dwell_s\": 13.4}"
+ },
+ {
+  "wall": 1791417753.0784352,
+  "ts": 52.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 251, \"unique\": 222}"
+ },
+ {
+  "wall": 1791417753.4107873,
+  "ts": 52.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 184, \"dwell_s\": 13.4}"
+ },
+ {
+  "wall": 1791417753.5033295,
+  "ts": 52.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 223, \"dwell_s\": 3.55}"
+ },
+ {
+  "wall": 1791417753.5454118,
+  "ts": 53.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 229, \"dwell_s\": 2.35}"
+ },
+ {
+  "wall": 1791417753.5454986,
+  "ts": 53.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 238, \"dwell_s\": 0.39}"
+ },
+ {
+  "wall": 1791417753.6778467,
+  "ts": 53.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 252, \"unique\": 223}"
+ },
+ {
+  "wall": 1791417753.7441168,
+  "ts": 53.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 239, \"dwell_s\": 0.62}"
+ },
+ {
+  "wall": 1791417754.011849,
+  "ts": 53.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 233, \"dwell_s\": 2.01}"
+ },
+ {
+  "wall": 1791417754.0119328,
+  "ts": 53.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 237, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417754.2786384,
+  "ts": 53.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 253, \"unique\": 224}"
+ },
+ {
+  "wall": 1791417754.479285,
+  "ts": 53.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 254, \"unique\": 225}"
+ },
+ {
+  "wall": 1791417754.7461953,
+  "ts": 54.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 256, \"unique\": 226}"
+ },
+ {
+  "wall": 1791417754.7462938,
+  "ts": 54.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 224, \"dwell_s\": 4.85}"
+ },
+ {
+  "wall": 1791417754.8119996,
+  "ts": 54.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 257, \"unique\": 227}"
+ },
+ {
+  "wall": 1791417754.8792024,
+  "ts": 54.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 240, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417755.0140743,
+  "ts": 54.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 258, \"unique\": 228}"
+ },
+ {
+  "wall": 1791417755.0791073,
+  "ts": 54.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 259, \"unique\": 229}"
+ },
+ {
+  "wall": 1791417755.2793777,
+  "ts": 54.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 245, \"dwell_s\": 1.62}"
+ },
+ {
+  "wall": 1791417755.3464286,
+  "ts": 54.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 261, \"unique\": 230}"
+ },
+ {
+  "wall": 1791417755.3465185,
+  "ts": 54.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 248, \"dwell_s\": 1.51}"
+ },
+ {
+  "wall": 1791417755.547094,
+  "ts": 55.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 251, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417755.6800983,
+  "ts": 55.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 207, \"dwell_s\": 10.13}"
+ },
+ {
+  "wall": 1791417755.94802,
+  "ts": 55.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 262, \"unique\": 231}"
+ },
+ {
+  "wall": 1791417755.9481034,
+  "ts": 55.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 263, \"unique\": 232}"
+ },
+ {
+  "wall": 1791417756.0139534,
+  "ts": 55.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 241, \"dwell_s\": 2.71}"
+ },
+ {
+  "wall": 1791417756.0801344,
+  "ts": 55.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 264, \"unique\": 233}"
+ },
+ {
+  "wall": 1791417756.0802233,
+  "ts": 55.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 185, \"dwell_s\": 16.0}"
+ },
+ {
+  "wall": 1791417756.0802546,
+  "ts": 55.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 236, \"dwell_s\": 3.54}"
+ },
+ {
+  "wall": 1791417756.2017229,
+  "ts": 55.71,
+  "kind": "person_exit",
+  "data": "{\"track\": 247, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417756.3253307,
+  "ts": 55.83,
+  "kind": "person_enter",
+  "data": "{\"track\": 265, \"unique\": 234}"
+ },
+ {
+  "wall": 1791417756.481924,
+  "ts": 55.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 253, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417756.7502854,
+  "ts": 56.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 246, \"dwell_s\": 3.03}"
+ },
+ {
+  "wall": 1791417756.8809347,
+  "ts": 56.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 266, \"unique\": 235}"
+ },
+ {
+  "wall": 1791417756.8810365,
+  "ts": 56.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 267, \"unique\": 236}"
+ },
+ {
+  "wall": 1791417756.9478908,
+  "ts": 56.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 268, \"unique\": 237}"
+ },
+ {
+  "wall": 1791417757.0817785,
+  "ts": 56.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 269, \"unique\": 238}"
+ },
+ {
+  "wall": 1791417757.0818663,
+  "ts": 56.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 270, \"unique\": 239}"
+ },
+ {
+  "wall": 1791417757.2161777,
+  "ts": 56.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 271, \"unique\": 240}"
+ },
+ {
+  "wall": 1791417757.2162821,
+  "ts": 56.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 256, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417757.5485623,
+  "ts": 57.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 273, \"unique\": 241}"
+ },
+ {
+  "wall": 1791417757.5486512,
+  "ts": 57.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 226, \"dwell_s\": 7.06}"
+ },
+ {
+  "wall": 1791417757.8151176,
+  "ts": 57.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 194, \"dwell_s\": 16.4}"
+ },
+ {
+  "wall": 1791417757.8828657,
+  "ts": 57.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 274, \"unique\": 242}"
+ },
+ {
+  "wall": 1791417757.8829572,
+  "ts": 57.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 275, \"unique\": 243}"
+ },
+ {
+  "wall": 1791417757.8829916,
+  "ts": 57.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 261, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417758.0168655,
+  "ts": 57.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 276, \"unique\": 244}"
+ },
+ {
+  "wall": 1791417758.2161605,
+  "ts": 57.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 254, \"dwell_s\": 2.07}"
+ },
+ {
+  "wall": 1791417758.3500087,
+  "ts": 57.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 242, \"dwell_s\": 4.9}"
+ },
+ {
+  "wall": 1791417758.4160774,
+  "ts": 57.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 277, \"unique\": 245}"
+ },
+ {
+  "wall": 1791417758.4830956,
+  "ts": 57.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 249, \"dwell_s\": 4.6}"
+ },
+ {
+  "wall": 1791417758.5502808,
+  "ts": 58.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 281, \"unique\": 246}"
+ },
+ {
+  "wall": 1791417758.5503914,
+  "ts": 58.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 280, \"unique\": 247}"
+ },
+ {
+  "wall": 1791417758.6174607,
+  "ts": 58.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 257, \"dwell_s\": 2.13}"
+ },
+ {
+  "wall": 1791417758.6830595,
+  "ts": 58.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 282, \"unique\": 248}"
+ },
+ {
+  "wall": 1791417758.9501755,
+  "ts": 58.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 284, \"unique\": 249}"
+ },
+ {
+  "wall": 1791417758.9502826,
+  "ts": 58.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 259, \"dwell_s\": 2.2}"
+ },
+ {
+  "wall": 1791417759.0849454,
+  "ts": 58.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 285, \"unique\": 250}"
+ },
+ {
+  "wall": 1791417759.085043,
+  "ts": 58.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 265, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417759.1504743,
+  "ts": 58.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 286, \"unique\": 251}"
+ },
+ {
+  "wall": 1791417759.5507212,
+  "ts": 59.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 288, \"unique\": 252}"
+ },
+ {
+  "wall": 1791417759.6170752,
+  "ts": 59.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 273, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417759.6848063,
+  "ts": 59.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 289, \"unique\": 253}"
+ },
+ {
+  "wall": 1791417759.7520046,
+  "ts": 59.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 290, \"unique\": 254}"
+ },
+ {
+  "wall": 1791417759.752105,
+  "ts": 59.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 271, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417759.8180668,
+  "ts": 59.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 263, \"dwell_s\": 2.2}"
+ },
+ {
+  "wall": 1791417759.8181622,
+  "ts": 59.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 267, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417759.8845763,
+  "ts": 59.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 291, \"unique\": 255}"
+ },
+ {
+  "wall": 1791417759.9510257,
+  "ts": 59.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 292, \"unique\": 256}"
+ },
+ {
+  "wall": 1791417760.0186086,
+  "ts": 59.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 274, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417760.219529,
+  "ts": 59.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 262, \"dwell_s\": 2.6}"
+ },
+ {
+  "wall": 1791417760.2196193,
+  "ts": 59.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 270, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417760.4850788,
+  "ts": 59.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 258, \"dwell_s\": 3.84}"
+ },
+ {
+  "wall": 1791417760.6186316,
+  "ts": 60.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 280, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417760.6885695,
+  "ts": 60.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 275, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417760.7624,
+  "ts": 60.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 293, \"unique\": 257}"
+ },
+ {
+  "wall": 1791417760.7624986,
+  "ts": 60.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 294, \"unique\": 258}"
+ },
+ {
+  "wall": 1791417761.2775013,
+  "ts": 60.78,
+  "kind": "person_enter",
+  "data": "{\"track\": 296, \"unique\": 259}"
+ },
+ {
+  "wall": 1791417761.2965467,
+  "ts": 60.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 268, \"dwell_s\": 2.67}"
+ },
+ {
+  "wall": 1791417761.55926,
+  "ts": 61.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 297, \"unique\": 260}"
+ },
+ {
+  "wall": 1791417761.559358,
+  "ts": 61.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 298, \"unique\": 261}"
+ },
+ {
+  "wall": 1791417761.823754,
+  "ts": 61.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 299, \"unique\": 262}"
+ },
+ {
+  "wall": 1791417761.8944838,
+  "ts": 61.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 300, \"unique\": 263}"
+ },
+ {
+  "wall": 1791417761.8945832,
+  "ts": 61.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 301, \"unique\": 264}"
+ },
+ {
+  "wall": 1791417761.9595165,
+  "ts": 61.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 302, \"unique\": 265}"
+ },
+ {
+  "wall": 1791417761.959611,
+  "ts": 61.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 289, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417762.026372,
+  "ts": 61.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 252, \"dwell_s\": 6.67}"
+ },
+ {
+  "wall": 1791417762.289077,
+  "ts": 61.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 244, \"dwell_s\": 8.63}"
+ },
+ {
+  "wall": 1791417762.4886246,
+  "ts": 62.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 276, \"dwell_s\": 2.8}"
+ },
+ {
+  "wall": 1791417762.629314,
+  "ts": 62.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 303, \"unique\": 266}"
+ },
+ {
+  "wall": 1791417762.6294355,
+  "ts": 62.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 284, \"dwell_s\": 2.0}"
+ },
+ {
+  "wall": 1791417762.8871863,
+  "ts": 62.32891594299872,
+  "kind": "config",
+  "data": "{\"change\": \"remove_alert\", \"name\": \"all\", \"removed\": 1}"
+ },
+ {
+  "wall": 1791417762.89146,
+  "ts": 62.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 282, \"dwell_s\": 2.54}"
+ },
+ {
+  "wall": 1791417763.2329187,
+  "ts": 62.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 305, \"unique\": 267}"
+ },
+ {
+  "wall": 1791417763.2330313,
+  "ts": 62.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 306, \"unique\": 268}"
+ },
+ {
+  "wall": 1791417763.2969463,
+  "ts": 62.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 296, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417763.431137,
+  "ts": 62.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 307, \"unique\": 269}"
+ },
+ {
+  "wall": 1791417763.4312584,
+  "ts": 62.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 293, \"dwell_s\": 0.94}"
+ },
+ {
+  "wall": 1791417763.5617557,
+  "ts": 63.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 298, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417763.6964505,
+  "ts": 63.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 308, \"unique\": 270}"
+ },
+ {
+  "wall": 1791417763.6965508,
+  "ts": 63.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 288, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417763.761454,
+  "ts": 63.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 309, \"unique\": 271}"
+ },
+ {
+  "wall": 1791417763.820989,
+  "ts": 63.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 290, \"dwell_s\": 2.4}"
+ },
+ {
+  "wall": 1791417764.0227754,
+  "ts": 63.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 291, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417764.2221367,
+  "ts": 63.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 301, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417764.422194,
+  "ts": 63.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 310, \"unique\": 272}"
+ },
+ {
+  "wall": 1791417764.4223108,
+  "ts": 63.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 294, \"dwell_s\": 2.0}"
+ },
+ {
+  "wall": 1791417764.489532,
+  "ts": 64.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 311, \"unique\": 273}"
+ },
+ {
+  "wall": 1791417764.6245663,
+  "ts": 64.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 312, \"unique\": 274}"
+ },
+ {
+  "wall": 1791417764.6901236,
+  "ts": 64.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 313, \"unique\": 275}"
+ },
+ {
+  "wall": 1791417764.7566123,
+  "ts": 64.27,
+  "kind": "person_exit",
+  "data": "{\"track\": 299, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417764.8226047,
+  "ts": 64.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 281, \"dwell_s\": 4.6}"
+ },
+ {
+  "wall": 1791417764.8226914,
+  "ts": 64.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 286, \"dwell_s\": 4.0}"
+ },
+ {
+  "wall": 1791417765.0235462,
+  "ts": 64.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 264, \"dwell_s\": 7.27}"
+ },
+ {
+  "wall": 1791417765.0909317,
+  "ts": 64.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 315, \"unique\": 276}"
+ },
+ {
+  "wall": 1791417765.156159,
+  "ts": 64.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 303, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417765.2907088,
+  "ts": 64.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 302, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417765.4072516,
+  "ts": 64.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 316, \"unique\": 277}"
+ },
+ {
+  "wall": 1791417765.4073658,
+  "ts": 64.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 317, \"unique\": 278}"
+ },
+ {
+  "wall": 1791417765.5404258,
+  "ts": 65.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 319, \"unique\": 279}"
+ },
+ {
+  "wall": 1791417765.8069744,
+  "ts": 65.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 306, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417765.9401631,
+  "ts": 65.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 321, \"unique\": 280}"
+ },
+ {
+  "wall": 1791417765.9402504,
+  "ts": 65.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 219, \"dwell_s\": 16.6}"
+ },
+ {
+  "wall": 1791417766.0073364,
+  "ts": 65.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 320, \"unique\": 281}"
+ },
+ {
+  "wall": 1791417766.2765684,
+  "ts": 65.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 216, \"dwell_s\": 18.11}"
+ },
+ {
+  "wall": 1791417766.4073596,
+  "ts": 65.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 322, \"unique\": 282}"
+ },
+ {
+  "wall": 1791417766.4074562,
+  "ts": 65.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 323, \"unique\": 283}"
+ },
+ {
+  "wall": 1791417766.4748688,
+  "ts": 65.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 324, \"unique\": 284}"
+ },
+ {
+  "wall": 1791417766.4749703,
+  "ts": 65.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 292, \"dwell_s\": 4.8}"
+ },
+ {
+  "wall": 1791417766.608979,
+  "ts": 66.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 305, \"dwell_s\": 1.67}"
+ },
+ {
+  "wall": 1791417766.6090677,
+  "ts": 66.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 311, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417766.7017515,
+  "ts": 66.21,
+  "kind": "person_enter",
+  "data": "{\"track\": 325, \"unique\": 285}"
+ },
+ {
+  "wall": 1791417767.0087907,
+  "ts": 66.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 326, \"unique\": 286}"
+ },
+ {
+  "wall": 1791417767.0748389,
+  "ts": 66.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 328, \"unique\": 287}"
+ },
+ {
+  "wall": 1791417767.074926,
+  "ts": 66.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 309, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417767.4759727,
+  "ts": 66.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 329, \"unique\": 288}"
+ },
+ {
+  "wall": 1791417767.4760604,
+  "ts": 66.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 330, \"unique\": 289}"
+ },
+ {
+  "wall": 1791417767.4761066,
+  "ts": 66.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 315, \"dwell_s\": 0.72}"
+ },
+ {
+  "wall": 1791417767.5423396,
+  "ts": 67.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 327, \"unique\": 290}"
+ },
+ {
+  "wall": 1791417767.6093757,
+  "ts": 67.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 331, \"unique\": 291}"
+ },
+ {
+  "wall": 1791417767.6765215,
+  "ts": 67.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 319, \"dwell_s\": 0.45}"
+ },
+ {
+  "wall": 1791417767.7433045,
+  "ts": 67.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 332, \"unique\": 292}"
+ },
+ {
+  "wall": 1791417767.8764362,
+  "ts": 67.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 266, \"dwell_s\": 9.33}"
+ },
+ {
+  "wall": 1791417767.9444585,
+  "ts": 67.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 334, \"unique\": 293}"
+ },
+ {
+  "wall": 1791417767.9445534,
+  "ts": 67.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 313, \"dwell_s\": 1.58}"
+ },
+ {
+  "wall": 1791417768.0758047,
+  "ts": 67.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 316, \"dwell_s\": 0.99}"
+ },
+ {
+  "wall": 1791417768.1430314,
+  "ts": 67.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 335, \"unique\": 294}"
+ },
+ {
+  "wall": 1791417768.3426836,
+  "ts": 67.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 336, \"unique\": 295}"
+ },
+ {
+  "wall": 1791417768.3427851,
+  "ts": 67.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 300, \"dwell_s\": 4.72}"
+ },
+ {
+  "wall": 1791417768.4108753,
+  "ts": 67.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 338, \"unique\": 296}"
+ },
+ {
+  "wall": 1791417768.4109643,
+  "ts": 67.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 337, \"unique\": 297}"
+ },
+ {
+  "wall": 1791417768.4762437,
+  "ts": 67.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 320, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417768.5440006,
+  "ts": 68.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 339, \"unique\": 298}"
+ },
+ {
+  "wall": 1791417768.544113,
+  "ts": 68.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 307, \"dwell_s\": 3.45}"
+ },
+ {
+  "wall": 1791417768.5441403,
+  "ts": 68.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 323, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417768.6092775,
+  "ts": 68.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 321, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417768.7435362,
+  "ts": 68.25,
+  "kind": "loitering",
+  "data": "{\"track\": 187, \"dwell_s\": 30.0}"
+ },
+ {
+  "wall": 1791417768.810435,
+  "ts": 68.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 341, \"unique\": 299}"
+ },
+ {
+  "wall": 1791417768.810533,
+  "ts": 68.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 342, \"unique\": 300}"
+ },
+ {
+  "wall": 1791417768.8105867,
+  "ts": 68.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 340, \"unique\": 301}"
+ },
+ {
+  "wall": 1791417768.8778365,
+  "ts": 68.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 343, \"unique\": 302}"
+ },
+ {
+  "wall": 1791417768.8779304,
+  "ts": 68.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 297, \"dwell_s\": 5.6}"
+ },
+ {
+  "wall": 1791417768.9429448,
+  "ts": 68.45,
+  "kind": "loitering",
+  "data": "{\"track\": 188, \"dwell_s\": 30.1}"
+ },
+ {
+  "wall": 1791417769.2100818,
+  "ts": 68.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 344, \"unique\": 303}"
+ },
+ {
+  "wall": 1791417769.2766576,
+  "ts": 68.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 345, \"unique\": 304}"
+ },
+ {
+  "wall": 1791417769.5441234,
+  "ts": 69.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 346, \"unique\": 305}"
+ },
+ {
+  "wall": 1791417769.54423,
+  "ts": 69.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 324, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417769.6776798,
+  "ts": 69.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 331, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417769.8112097,
+  "ts": 69.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 322, \"dwell_s\": 1.73}"
+ },
+ {
+  "wall": 1791417769.8786714,
+  "ts": 69.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 347, \"unique\": 306}"
+ },
+ {
+  "wall": 1791417769.8787787,
+  "ts": 69.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 330, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417770.0102003,
+  "ts": 69.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 326, \"dwell_s\": 1.37}"
+ },
+ {
+  "wall": 1791417770.0781546,
+  "ts": 69.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 269, \"dwell_s\": 11.33}"
+ },
+ {
+  "wall": 1791417770.0782435,
+  "ts": 69.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 327, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417770.144369,
+  "ts": 69.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 325, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417770.2117703,
+  "ts": 69.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 348, \"unique\": 307}"
+ },
+ {
+  "wall": 1791417770.2118704,
+  "ts": 69.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 349, \"unique\": 308}"
+ },
+ {
+  "wall": 1791417770.3460178,
+  "ts": 69.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 350, \"unique\": 309}"
+ },
+ {
+  "wall": 1791417770.41139,
+  "ts": 69.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 334, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417770.478116,
+  "ts": 69.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 351, \"unique\": 310}"
+ },
+ {
+  "wall": 1791417770.478231,
+  "ts": 69.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 317, \"dwell_s\": 3.39}"
+ },
+ {
+  "wall": 1791417770.5441654,
+  "ts": 70.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 352, \"unique\": 311}"
+ },
+ {
+  "wall": 1791417770.6123033,
+  "ts": 70.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 328, \"dwell_s\": 1.86}"
+ },
+ {
+  "wall": 1791417770.8139648,
+  "ts": 70.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 353, \"unique\": 312}"
+ },
+ {
+  "wall": 1791417770.8790681,
+  "ts": 70.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 336, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417770.879149,
+  "ts": 70.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 342, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417771.0121887,
+  "ts": 70.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 355, \"unique\": 313}"
+ },
+ {
+  "wall": 1791417771.0790656,
+  "ts": 70.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 308, \"dwell_s\": 5.72}"
+ },
+ {
+  "wall": 1791417771.2114565,
+  "ts": 70.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 356, \"unique\": 314}"
+ },
+ {
+  "wall": 1791417771.420865,
+  "ts": 70.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 357, \"unique\": 315}"
+ },
+ {
+  "wall": 1791417771.4209518,
+  "ts": 70.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 358, \"unique\": 316}"
+ },
+ {
+  "wall": 1791417771.4790936,
+  "ts": 70.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 341, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417771.679885,
+  "ts": 71.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 344, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417771.7462013,
+  "ts": 71.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 359, \"unique\": 317}"
+ },
+ {
+  "wall": 1791417771.8565085,
+  "ts": 71.37,
+  "kind": "person_exit",
+  "data": "{\"track\": 329, \"dwell_s\": 2.67}"
+ },
+ {
+  "wall": 1791417771.9465516,
+  "ts": 71.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 360, \"unique\": 318}"
+ },
+ {
+  "wall": 1791417772.0131273,
+  "ts": 71.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 338, \"dwell_s\": 1.93}"
+ },
+ {
+  "wall": 1791417772.1463583,
+  "ts": 71.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 361, \"unique\": 319}"
+ },
+ {
+  "wall": 1791417772.2131329,
+  "ts": 71.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 349, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417772.2810493,
+  "ts": 71.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 362, \"unique\": 320}"
+ },
+ {
+  "wall": 1791417772.4805162,
+  "ts": 71.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 345, \"dwell_s\": 1.53}"
+ },
+ {
+  "wall": 1791417772.7496977,
+  "ts": 72.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 364, \"unique\": 321}"
+ },
+ {
+  "wall": 1791417772.7498045,
+  "ts": 72.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 348, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417772.8147054,
+  "ts": 72.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 365, \"unique\": 322}"
+ },
+ {
+  "wall": 1791417772.8809645,
+  "ts": 72.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 366, \"unique\": 323}"
+ },
+ {
+  "wall": 1791417772.8810778,
+  "ts": 72.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 335, \"dwell_s\": 3.07}"
+ },
+ {
+  "wall": 1791417772.9478064,
+  "ts": 72.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 346, \"dwell_s\": 1.73}"
+ },
+ {
+  "wall": 1791417773.1481028,
+  "ts": 72.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 367, \"unique\": 324}"
+ },
+ {
+  "wall": 1791417773.148187,
+  "ts": 72.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 368, \"unique\": 325}"
+ },
+ {
+  "wall": 1791417773.1482248,
+  "ts": 72.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 347, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417773.2819793,
+  "ts": 72.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 339, \"dwell_s\": 3.07}"
+ },
+ {
+  "wall": 1791417773.3481858,
+  "ts": 72.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 369, \"unique\": 326}"
+ },
+ {
+  "wall": 1791417773.348271,
+  "ts": 72.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 277, \"dwell_s\": 13.26}"
+ },
+ {
+  "wall": 1791417773.3483002,
+  "ts": 72.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 350, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417773.6832561,
+  "ts": 73.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 352, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417773.8157325,
+  "ts": 73.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 370, \"unique\": 327}"
+ },
+ {
+  "wall": 1791417773.8823912,
+  "ts": 73.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 359, \"dwell_s\": 0.5}"
+ },
+ {
+  "wall": 1791417774.0828583,
+  "ts": 73.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 357, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417774.281983,
+  "ts": 73.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 371, \"unique\": 328}"
+ },
+ {
+  "wall": 1791417774.4830527,
+  "ts": 73.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 372, \"unique\": 329}"
+ },
+ {
+  "wall": 1791417774.4831448,
+  "ts": 73.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 373, \"unique\": 330}"
+ },
+ {
+  "wall": 1791417774.5495782,
+  "ts": 74.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 355, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417774.6171148,
+  "ts": 74.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 374, \"unique\": 331}"
+ },
+ {
+  "wall": 1791417774.6172063,
+  "ts": 74.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 375, \"unique\": 332}"
+ },
+ {
+  "wall": 1791417774.8837469,
+  "ts": 74.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 377, \"unique\": 333}"
+ },
+ {
+  "wall": 1791417774.8838687,
+  "ts": 74.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 332, \"dwell_s\": 5.47}"
+ },
+ {
+  "wall": 1791417774.8839169,
+  "ts": 74.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 364, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417775.083133,
+  "ts": 74.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 378, \"unique\": 334}"
+ },
+ {
+  "wall": 1791417775.1505344,
+  "ts": 74.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 379, \"unique\": 335}"
+ },
+ {
+  "wall": 1791417775.1506405,
+  "ts": 74.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 365, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417775.326845,
+  "ts": 74.84,
+  "kind": "person_exit",
+  "data": "{\"track\": 362, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417775.4157484,
+  "ts": 74.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 380, \"unique\": 336}"
+ },
+ {
+  "wall": 1791417775.4158564,
+  "ts": 74.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 367, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417775.4830685,
+  "ts": 74.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 381, \"unique\": 337}"
+ },
+ {
+  "wall": 1791417775.617101,
+  "ts": 75.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 376, \"unique\": 338}"
+ },
+ {
+  "wall": 1791417775.6172113,
+  "ts": 75.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 382, \"unique\": 339}"
+ },
+ {
+  "wall": 1791417775.7515702,
+  "ts": 75.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 356, \"dwell_s\": 2.87}"
+ },
+ {
+  "wall": 1791417775.8171859,
+  "ts": 75.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 383, \"unique\": 340}"
+ },
+ {
+  "wall": 1791417775.8831315,
+  "ts": 75.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 351, \"dwell_s\": 3.74}"
+ },
+ {
+  "wall": 1791417776.084771,
+  "ts": 75.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 384, \"unique\": 341}"
+ },
+ {
+  "wall": 1791417776.2183826,
+  "ts": 75.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 385, \"unique\": 342}"
+ },
+ {
+  "wall": 1791417776.28476,
+  "ts": 75.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 370, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417776.3517377,
+  "ts": 75.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 386, \"unique\": 343}"
+ },
+ {
+  "wall": 1791417776.351827,
+  "ts": 75.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 340, \"dwell_s\": 6.01}"
+ },
+ {
+  "wall": 1791417776.5517502,
+  "ts": 76.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 387, \"unique\": 344}"
+ },
+ {
+  "wall": 1791417776.6190226,
+  "ts": 76.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 366, \"dwell_s\": 2.07}"
+ },
+ {
+  "wall": 1791417776.6863918,
+  "ts": 76.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 361, \"dwell_s\": 2.89}"
+ },
+ {
+  "wall": 1791417776.6865056,
+  "ts": 76.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 372, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417776.9520864,
+  "ts": 76.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 388, \"unique\": 345}"
+ },
+ {
+  "wall": 1791417777.018377,
+  "ts": 76.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 389, \"unique\": 346}"
+ },
+ {
+  "wall": 1791417777.0184686,
+  "ts": 76.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 390, \"unique\": 347}"
+ },
+ {
+  "wall": 1791417777.0185075,
+  "ts": 76.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 368, \"dwell_s\": 2.2}"
+ },
+ {
+  "wall": 1791417777.1534204,
+  "ts": 76.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 391, \"unique\": 348}"
+ },
+ {
+  "wall": 1791417777.3518853,
+  "ts": 76.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 374, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417777.3519714,
+  "ts": 76.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 378, \"dwell_s\": 0.58}"
+ },
+ {
+  "wall": 1791417777.5518692,
+  "ts": 77.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 393, \"unique\": 349}"
+ },
+ {
+  "wall": 1791417777.6189983,
+  "ts": 77.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 373, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417777.6861825,
+  "ts": 77.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 353, \"dwell_s\": 5.21}"
+ },
+ {
+  "wall": 1791417777.7514892,
+  "ts": 77.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 337, \"dwell_s\": 7.68}"
+ },
+ {
+  "wall": 1791417777.8185143,
+  "ts": 77.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 379, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417778.0188286,
+  "ts": 77.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 394, \"unique\": 350}"
+ },
+ {
+  "wall": 1791417778.0849733,
+  "ts": 77.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 395, \"unique\": 351}"
+ },
+ {
+  "wall": 1791417778.0850759,
+  "ts": 77.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 383, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417778.2863076,
+  "ts": 77.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 396, \"unique\": 352}"
+ },
+ {
+  "wall": 1791417778.3538628,
+  "ts": 77.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 397, \"unique\": 353}"
+ },
+ {
+  "wall": 1791417778.4203267,
+  "ts": 77.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 384, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417778.4204085,
+  "ts": 77.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 386, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417778.4866836,
+  "ts": 78.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 398, \"unique\": 354}"
+ },
+ {
+  "wall": 1791417778.553615,
+  "ts": 78.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 375, \"dwell_s\": 2.21}"
+ },
+ {
+  "wall": 1791417778.622535,
+  "ts": 78.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 371, \"dwell_s\": 2.67}"
+ },
+ {
+  "wall": 1791417778.6876626,
+  "ts": 78.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 399, \"unique\": 355}"
+ },
+ {
+  "wall": 1791417778.7539713,
+  "ts": 78.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 343, \"dwell_s\": 8.21}"
+ },
+ {
+  "wall": 1791417778.887021,
+  "ts": 78.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 401, \"unique\": 356}"
+ },
+ {
+  "wall": 1791417778.9533494,
+  "ts": 78.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 402, \"unique\": 357}"
+ },
+ {
+  "wall": 1791417779.2869883,
+  "ts": 78.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 376, \"dwell_s\": 2.74}"
+ },
+ {
+  "wall": 1791417779.2870715,
+  "ts": 78.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 381, \"dwell_s\": 2.13}"
+ },
+ {
+  "wall": 1791417779.2870932,
+  "ts": 78.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 382, \"dwell_s\": 1.96}"
+ },
+ {
+  "wall": 1791417779.3540757,
+  "ts": 78.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 403, \"unique\": 358}"
+ },
+ {
+  "wall": 1791417779.5553262,
+  "ts": 79.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 369, \"dwell_s\": 4.54}"
+ },
+ {
+  "wall": 1791417779.7539585,
+  "ts": 79.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 405, \"unique\": 359}"
+ },
+ {
+  "wall": 1791417779.7540457,
+  "ts": 79.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 406, \"unique\": 360}"
+ },
+ {
+  "wall": 1791417779.7540812,
+  "ts": 79.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 387, \"dwell_s\": 1.53}"
+ },
+ {
+  "wall": 1791417779.8215017,
+  "ts": 79.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 385, \"dwell_s\": 1.93}"
+ },
+ {
+  "wall": 1791417780.0221348,
+  "ts": 79.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 407, \"unique\": 361}"
+ },
+ {
+  "wall": 1791417780.2216885,
+  "ts": 79.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 408, \"unique\": 362}"
+ },
+ {
+  "wall": 1791417780.3560631,
+  "ts": 79.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 395, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417780.4891922,
+  "ts": 80.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 409, \"unique\": 363}"
+ },
+ {
+  "wall": 1791417780.5560727,
+  "ts": 80.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 390, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417780.622123,
+  "ts": 80.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 410, \"unique\": 364}"
+ },
+ {
+  "wall": 1791417780.6222396,
+  "ts": 80.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 393, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417780.6883566,
+  "ts": 80.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 411, \"unique\": 365}"
+ },
+ {
+  "wall": 1791417780.7558162,
+  "ts": 80.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 412, \"unique\": 366}"
+ },
+ {
+  "wall": 1791417780.8213449,
+  "ts": 80.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 377, \"dwell_s\": 4.27}"
+ },
+ {
+  "wall": 1791417780.9561062,
+  "ts": 80.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 358, \"dwell_s\": 7.87}"
+ },
+ {
+  "wall": 1791417781.089155,
+  "ts": 80.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 414, \"unique\": 367}"
+ },
+ {
+  "wall": 1791417781.0892415,
+  "ts": 80.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 415, \"unique\": 368}"
+ },
+ {
+  "wall": 1791417781.1550725,
+  "ts": 80.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 416, \"unique\": 369}"
+ },
+ {
+  "wall": 1791417781.2221956,
+  "ts": 80.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 417, \"unique\": 370}"
+ },
+ {
+  "wall": 1791417781.2222896,
+  "ts": 80.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 312, \"dwell_s\": 14.93}"
+ },
+ {
+  "wall": 1791417781.3565915,
+  "ts": 80.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 418, \"unique\": 371}"
+ },
+ {
+  "wall": 1791417781.8228312,
+  "ts": 81.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 419, \"unique\": 372}"
+ },
+ {
+  "wall": 1791417781.8899775,
+  "ts": 81.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 403, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417781.8900669,
+  "ts": 81.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 406, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417781.957221,
+  "ts": 81.47,
+  "kind": "person_enter",
+  "data": "{\"track\": 420, \"unique\": 373}"
+ },
+ {
+  "wall": 1791417782.0243917,
+  "ts": 81.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 421, \"unique\": 374}"
+ },
+ {
+  "wall": 1791417782.0245125,
+  "ts": 81.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 401, \"dwell_s\": 1.53}"
+ },
+ {
+  "wall": 1791417782.1403103,
+  "ts": 81.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 422, \"unique\": 375}"
+ },
+ {
+  "wall": 1791417782.1403954,
+  "ts": 81.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 423, \"unique\": 376}"
+ },
+ {
+  "wall": 1791417782.3420355,
+  "ts": 81.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 250, \"dwell_s\": 28.4}"
+ },
+ {
+  "wall": 1791417782.3421235,
+  "ts": 81.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 398, \"dwell_s\": 2.14}"
+ },
+ {
+  "wall": 1791417782.4081414,
+  "ts": 81.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 397, \"dwell_s\": 2.34}"
+ },
+ {
+  "wall": 1791417782.54174,
+  "ts": 82.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 425, \"unique\": 377}"
+ },
+ {
+  "wall": 1791417782.809665,
+  "ts": 82.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 405, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417782.87465,
+  "ts": 82.38,
+  "kind": "person_enter",
+  "data": "{\"track\": 426, \"unique\": 378}"
+ },
+ {
+  "wall": 1791417782.942002,
+  "ts": 82.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 285, \"dwell_s\": 22.14}"
+ },
+ {
+  "wall": 1791417783.0086167,
+  "ts": 82.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 427, \"unique\": 379}"
+ },
+ {
+  "wall": 1791417783.0751636,
+  "ts": 82.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 424, \"unique\": 380}"
+ },
+ {
+  "wall": 1791417783.0752704,
+  "ts": 82.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 428, \"unique\": 381}"
+ },
+ {
+  "wall": 1791417783.1427414,
+  "ts": 82.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 360, \"dwell_s\": 9.5}"
+ },
+ {
+  "wall": 1791417783.1428416,
+  "ts": 82.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 399, \"dwell_s\": 2.74}"
+ },
+ {
+  "wall": 1791417783.3423228,
+  "ts": 82.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 429, \"unique\": 382}"
+ },
+ {
+  "wall": 1791417783.6085603,
+  "ts": 83.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 414, \"dwell_s\": 0.81}"
+ },
+ {
+  "wall": 1791417783.6086555,
+  "ts": 83.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 418, \"dwell_s\": 0.54}"
+ },
+ {
+  "wall": 1791417783.6762652,
+  "ts": 83.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 431, \"unique\": 383}"
+ },
+ {
+  "wall": 1791417783.6763787,
+  "ts": 83.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 412, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417783.676403,
+  "ts": 83.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 415, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417783.7431164,
+  "ts": 83.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 380, \"dwell_s\": 6.61}"
+ },
+ {
+  "wall": 1791417783.8088531,
+  "ts": 83.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 432, \"unique\": 384}"
+ },
+ {
+  "wall": 1791417783.8089523,
+  "ts": 83.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 409, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417784.075454,
+  "ts": 83.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 433, \"unique\": 385}"
+ },
+ {
+  "wall": 1791417784.0755575,
+  "ts": 83.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 417, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417784.075582,
+  "ts": 83.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 421, \"dwell_s\": 0.38}"
+ },
+ {
+  "wall": 1791417784.1429842,
+  "ts": 83.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 434, \"unique\": 386}"
+ },
+ {
+  "wall": 1791417784.3430767,
+  "ts": 83.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 435, \"unique\": 387}"
+ },
+ {
+  "wall": 1791417784.609568,
+  "ts": 84.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 436, \"unique\": 388}"
+ },
+ {
+  "wall": 1791417784.6096752,
+  "ts": 84.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 437, \"unique\": 389}"
+ },
+ {
+  "wall": 1791417784.6763952,
+  "ts": 84.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 438, \"unique\": 390}"
+ },
+ {
+  "wall": 1791417784.8775783,
+  "ts": 84.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 439, \"unique\": 391}"
+ },
+ {
+  "wall": 1791417785.0762045,
+  "ts": 84.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 411, \"dwell_s\": 2.72}"
+ },
+ {
+  "wall": 1791417785.2770493,
+  "ts": 84.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 407, \"dwell_s\": 3.59}"
+ },
+ {
+  "wall": 1791417785.277138,
+  "ts": 84.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 416, \"dwell_s\": 2.45}"
+ },
+ {
+  "wall": 1791417785.3455606,
+  "ts": 84.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 424, \"dwell_s\": 1.38}"
+ },
+ {
+  "wall": 1791417785.4107404,
+  "ts": 84.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 426, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417785.5438857,
+  "ts": 85.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 441, \"unique\": 392}"
+ },
+ {
+  "wall": 1791417785.5439868,
+  "ts": 85.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 427, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417785.6105711,
+  "ts": 85.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 442, \"unique\": 393}"
+ },
+ {
+  "wall": 1791417785.7439756,
+  "ts": 85.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 443, \"unique\": 394}"
+ },
+ {
+  "wall": 1791417785.7440798,
+  "ts": 85.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 391, \"dwell_s\": 6.96}"
+ },
+ {
+  "wall": 1791417785.9444337,
+  "ts": 85.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 444, \"unique\": 395}"
+ },
+ {
+  "wall": 1791417786.144748,
+  "ts": 85.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 402, \"dwell_s\": 5.52}"
+ },
+ {
+  "wall": 1791417786.1448452,
+  "ts": 85.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 428, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417786.21209,
+  "ts": 85.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 445, \"unique\": 396}"
+ },
+ {
+  "wall": 1791417786.2788754,
+  "ts": 85.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 446, \"unique\": 397}"
+ },
+ {
+  "wall": 1791417786.2789972,
+  "ts": 85.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 422, \"dwell_s\": 2.52}"
+ },
+ {
+  "wall": 1791417786.412029,
+  "ts": 85.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 431, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417786.636326,
+  "ts": 86.15,
+  "kind": "person_enter",
+  "data": "{\"track\": 447, \"unique\": 398}"
+ },
+ {
+  "wall": 1791417786.67896,
+  "ts": 86.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 410, \"dwell_s\": 4.39}"
+ },
+ {
+  "wall": 1791417787.0130446,
+  "ts": 86.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 448, \"unique\": 399}"
+ },
+ {
+  "wall": 1791417787.0131342,
+  "ts": 86.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 449, \"unique\": 400}"
+ },
+ {
+  "wall": 1791417787.1064563,
+  "ts": 86.61,
+  "kind": "person_exit",
+  "data": "{\"track\": 423, \"dwell_s\": 3.25}"
+ },
+ {
+  "wall": 1791417787.1065452,
+  "ts": 86.61,
+  "kind": "person_exit",
+  "data": "{\"track\": 438, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417787.2787578,
+  "ts": 86.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 450, \"unique\": 401}"
+ },
+ {
+  "wall": 1791417787.3460128,
+  "ts": 86.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 439, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417787.4556623,
+  "ts": 86.96,
+  "kind": "person_enter",
+  "data": "{\"track\": 451, \"unique\": 402}"
+ },
+ {
+  "wall": 1791417787.4557536,
+  "ts": 86.96,
+  "kind": "person_enter",
+  "data": "{\"track\": 452, \"unique\": 403}"
+ },
+ {
+  "wall": 1791417787.479774,
+  "ts": 86.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 432, \"dwell_s\": 2.0}"
+ },
+ {
+  "wall": 1791417787.613783,
+  "ts": 87.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 453, \"unique\": 404}"
+ },
+ {
+  "wall": 1791417787.8798535,
+  "ts": 87.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 454, \"unique\": 405}"
+ },
+ {
+  "wall": 1791417787.879939,
+  "ts": 87.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 455, \"unique\": 406}"
+ },
+ {
+  "wall": 1791417788.0134423,
+  "ts": 87.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 456, \"unique\": 407}"
+ },
+ {
+  "wall": 1791417788.0135422,
+  "ts": 87.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 310, \"dwell_s\": 21.92}"
+ },
+ {
+  "wall": 1791417788.0797555,
+  "ts": 87.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 394, \"dwell_s\": 8.39}"
+ },
+ {
+  "wall": 1791417788.2789845,
+  "ts": 87.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 457, \"unique\": 408}"
+ },
+ {
+  "wall": 1791417788.2790768,
+  "ts": 87.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 434, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417788.4145124,
+  "ts": 87.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 458, \"unique\": 409}"
+ },
+ {
+  "wall": 1791417788.4146054,
+  "ts": 87.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 445, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417788.4800684,
+  "ts": 87.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 388, \"dwell_s\": 9.86}"
+ },
+ {
+  "wall": 1791417788.8248777,
+  "ts": 88.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 459, \"unique\": 410}"
+ },
+ {
+  "wall": 1791417788.8249733,
+  "ts": 88.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 443, \"dwell_s\": 1.35}"
+ },
+ {
+  "wall": 1791417788.8249984,
+  "ts": 88.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 447, \"dwell_s\": 0.55}"
+ },
+ {
+  "wall": 1791417789.022365,
+  "ts": 88.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 442, \"dwell_s\": 1.71}"
+ },
+ {
+  "wall": 1791417789.1537235,
+  "ts": 88.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 396, \"dwell_s\": 9.15}"
+ },
+ {
+  "wall": 1791417789.1538255,
+  "ts": 88.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 448, \"dwell_s\": 0.45}"
+ },
+ {
+  "wall": 1791417789.2872531,
+  "ts": 88.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 435, \"dwell_s\": 3.27}"
+ },
+ {
+  "wall": 1791417789.3561385,
+  "ts": 88.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 425, \"dwell_s\": 5.14}"
+ },
+ {
+  "wall": 1791417789.5536737,
+  "ts": 89.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 460, \"unique\": 411}"
+ },
+ {
+  "wall": 1791417789.5537891,
+  "ts": 89.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 461, \"unique\": 412}"
+ },
+ {
+  "wall": 1791417789.5538461,
+  "ts": 89.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 451, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417789.6875334,
+  "ts": 89.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 463, \"unique\": 413}"
+ },
+ {
+  "wall": 1791417789.7517135,
+  "ts": 89.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 464, \"unique\": 414}"
+ },
+ {
+  "wall": 1791417789.7518344,
+  "ts": 89.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 446, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417789.887444,
+  "ts": 89.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 465, \"unique\": 415}"
+ },
+ {
+  "wall": 1791417790.0224452,
+  "ts": 89.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 452, \"dwell_s\": 0.91}"
+ },
+ {
+  "wall": 1791417790.1557214,
+  "ts": 89.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 419, \"dwell_s\": 6.65}"
+ },
+ {
+  "wall": 1791417790.1558187,
+  "ts": 89.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 454, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417790.481095,
+  "ts": 89.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 466, \"unique\": 416}"
+ },
+ {
+  "wall": 1791417790.4812114,
+  "ts": 89.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 458, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417790.5491128,
+  "ts": 90.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 467, \"unique\": 417}"
+ },
+ {
+  "wall": 1791417790.7489593,
+  "ts": 90.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 468, \"unique\": 418}"
+ },
+ {
+  "wall": 1791417790.7490687,
+  "ts": 90.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 408, \"dwell_s\": 8.86}"
+ },
+ {
+  "wall": 1791417790.7490983,
+  "ts": 90.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 457, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417790.8817806,
+  "ts": 90.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 469, \"unique\": 419}"
+ },
+ {
+  "wall": 1791417791.081934,
+  "ts": 90.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 470, \"unique\": 420}"
+ },
+ {
+  "wall": 1791417791.1481833,
+  "ts": 90.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 471, \"unique\": 421}"
+ },
+ {
+  "wall": 1791417791.2154799,
+  "ts": 90.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 472, \"unique\": 422}"
+ },
+ {
+  "wall": 1791417791.2827535,
+  "ts": 90.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 473, \"unique\": 423}"
+ },
+ {
+  "wall": 1791417791.4161747,
+  "ts": 90.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 475, \"unique\": 424}"
+ },
+ {
+  "wall": 1791417791.5497918,
+  "ts": 91.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 456, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417791.5498953,
+  "ts": 91.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 460, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417791.5499246,
+  "ts": 91.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 461, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417791.7493522,
+  "ts": 91.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 436, \"dwell_s\": 5.47}"
+ },
+ {
+  "wall": 1791417791.8161225,
+  "ts": 91.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 476, \"unique\": 425}"
+ },
+ {
+  "wall": 1791417791.8162389,
+  "ts": 91.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 474, \"unique\": 426}"
+ },
+ {
+  "wall": 1791417791.8162675,
+  "ts": 91.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 389, \"dwell_s\": 13.13}"
+ },
+ {
+  "wall": 1791417791.949935,
+  "ts": 91.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 455, \"dwell_s\": 2.4}"
+ },
+ {
+  "wall": 1791417792.017439,
+  "ts": 91.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 477, \"unique\": 427}"
+ },
+ {
+  "wall": 1791417792.0175295,
+  "ts": 91.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 478, \"unique\": 428}"
+ },
+ {
+  "wall": 1791417792.0829866,
+  "ts": 91.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 459, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417792.2839255,
+  "ts": 91.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 480, \"unique\": 429}"
+ },
+ {
+  "wall": 1791417792.4858427,
+  "ts": 91.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 464, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417792.5511081,
+  "ts": 92.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 463, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417792.7511148,
+  "ts": 92.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 481, \"unique\": 430}"
+ },
+ {
+  "wall": 1791417792.751252,
+  "ts": 92.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 441, \"dwell_s\": 5.54}"
+ },
+ {
+  "wall": 1791417792.8175821,
+  "ts": 92.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 482, \"unique\": 431}"
+ },
+ {
+  "wall": 1791417792.8843842,
+  "ts": 92.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 483, \"unique\": 432}"
+ },
+ {
+  "wall": 1791417792.8845317,
+  "ts": 92.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 467, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417793.083745,
+  "ts": 92.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 485, \"unique\": 433}"
+ },
+ {
+  "wall": 1791417793.1506824,
+  "ts": 92.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 486, \"unique\": 434}"
+ },
+ {
+  "wall": 1791417793.150775,
+  "ts": 92.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 465, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417793.351814,
+  "ts": 92.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 473, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417793.4851,
+  "ts": 92.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 471, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417793.551787,
+  "ts": 93.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 487, \"unique\": 435}"
+ },
+ {
+  "wall": 1791417793.818056,
+  "ts": 93.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 474, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417793.8849587,
+  "ts": 93.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 472, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417793.9510446,
+  "ts": 93.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 470, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417794.0855675,
+  "ts": 93.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 489, \"unique\": 436}"
+ },
+ {
+  "wall": 1791417794.2858906,
+  "ts": 93.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 468, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417794.4192944,
+  "ts": 93.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 478, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417794.4193757,
+  "ts": 93.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 480, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417794.4857569,
+  "ts": 93.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 433, \"dwell_s\": 8.74}"
+ },
+ {
+  "wall": 1791417794.6187987,
+  "ts": 94.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 475, \"dwell_s\": 1.54}"
+ },
+ {
+  "wall": 1791417794.6864245,
+  "ts": 94.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 490, \"unique\": 437}"
+ },
+ {
+  "wall": 1791417794.8199008,
+  "ts": 94.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 449, \"dwell_s\": 6.13}"
+ },
+ {
+  "wall": 1791417795.0867429,
+  "ts": 94.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 481, \"dwell_s\": 0.66}"
+ },
+ {
+  "wall": 1791417795.2867908,
+  "ts": 94.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 450, \"dwell_s\": 6.34}"
+ },
+ {
+  "wall": 1791417795.4876418,
+  "ts": 95.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 492, \"unique\": 438}"
+ },
+ {
+  "wall": 1791417795.5538647,
+  "ts": 95.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 493, \"unique\": 439}"
+ },
+ {
+  "wall": 1791417796.2871025,
+  "ts": 95.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 495, \"unique\": 440}"
+ },
+ {
+  "wall": 1791417796.2871983,
+  "ts": 95.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 453, \"dwell_s\": 7.01}"
+ },
+ {
+  "wall": 1791417796.3538234,
+  "ts": 95.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 494, \"unique\": 441}"
+ },
+ {
+  "wall": 1791417796.4200695,
+  "ts": 95.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 496, \"unique\": 442}"
+ },
+ {
+  "wall": 1791417796.4201674,
+  "ts": 95.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 429, \"dwell_s\": 11.41}"
+ },
+ {
+  "wall": 1791417796.62018,
+  "ts": 96.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 497, \"unique\": 443}"
+ },
+ {
+  "wall": 1791417796.9548383,
+  "ts": 96.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 490, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417797.0215251,
+  "ts": 96.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 477, \"dwell_s\": 3.38}"
+ },
+ {
+  "wall": 1791417797.221487,
+  "ts": 96.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 498, \"unique\": 444}"
+ },
+ {
+  "wall": 1791417797.4879422,
+  "ts": 97.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 469, \"dwell_s\": 4.94}"
+ },
+ {
+  "wall": 1791417797.622092,
+  "ts": 97.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 476, \"dwell_s\": 4.14}"
+ },
+ {
+  "wall": 1791417797.688198,
+  "ts": 97.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 499, \"unique\": 445}"
+ },
+ {
+  "wall": 1791417797.8238401,
+  "ts": 97.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 492, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417798.0905821,
+  "ts": 97.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 437, \"dwell_s\": 11.75}"
+ },
+ {
+  "wall": 1791417798.1570714,
+  "ts": 97.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 500, \"unique\": 446}"
+ },
+ {
+  "wall": 1791417798.357175,
+  "ts": 97.87,
+  "kind": "person_enter",
+  "data": "{\"track\": 501, \"unique\": 447}"
+ },
+ {
+  "wall": 1791417798.3572702,
+  "ts": 97.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 494, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417798.4231586,
+  "ts": 97.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 502, \"unique\": 448}"
+ },
+ {
+  "wall": 1791417798.6229136,
+  "ts": 98.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 493, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417798.7398477,
+  "ts": 98.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 503, \"unique\": 449}"
+ },
+ {
+  "wall": 1791417799.0735867,
+  "ts": 98.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 496, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417799.2069554,
+  "ts": 98.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 504, \"unique\": 450}"
+ },
+ {
+  "wall": 1791417799.4737842,
+  "ts": 98.98,
+  "kind": "person_enter",
+  "data": "{\"track\": 505, \"unique\": 451}"
+ },
+ {
+  "wall": 1791417799.6067176,
+  "ts": 99.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 507, \"unique\": 452}"
+ },
+ {
+  "wall": 1791417799.6068094,
+  "ts": 99.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 506, \"unique\": 453}"
+ },
+ {
+  "wall": 1791417799.7404962,
+  "ts": 99.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 508, \"unique\": 454}"
+ },
+ {
+  "wall": 1791417799.9412796,
+  "ts": 99.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 487, \"dwell_s\": 4.67}"
+ },
+ {
+  "wall": 1791417800.2081344,
+  "ts": 99.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 498, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417800.3410196,
+  "ts": 99.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 444, \"dwell_s\": 12.68}"
+ },
+ {
+  "wall": 1791417800.6749053,
+  "ts": 100.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 509, \"unique\": 455}"
+ },
+ {
+  "wall": 1791417800.808578,
+  "ts": 100.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 503, \"dwell_s\": 0.38}"
+ },
+ {
+  "wall": 1791417801.0090022,
+  "ts": 100.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 502, \"dwell_s\": 0.92}"
+ },
+ {
+  "wall": 1791417801.0750785,
+  "ts": 100.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 510, \"unique\": 456}"
+ },
+ {
+  "wall": 1791417801.0751808,
+  "ts": 100.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 420, \"dwell_s\": 17.45}"
+ },
+ {
+  "wall": 1791417801.1419923,
+  "ts": 100.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 511, \"unique\": 457}"
+ },
+ {
+  "wall": 1791417801.5425177,
+  "ts": 101.05,
+  "kind": "person_exit",
+  "data": "{\"track\": 482, \"dwell_s\": 7.06}"
+ },
+ {
+  "wall": 1791417801.7427187,
+  "ts": 101.25,
+  "kind": "person_enter",
+  "data": "{\"track\": 512, \"unique\": 458}"
+ },
+ {
+  "wall": 1791417801.7428179,
+  "ts": 101.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 466, \"dwell_s\": 9.59}"
+ },
+ {
+  "wall": 1791417801.7428467,
+  "ts": 101.25,
+  "kind": "person_exit",
+  "data": "{\"track\": 483, \"dwell_s\": 7.19}"
+ },
+ {
+  "wall": 1791417801.876191,
+  "ts": 101.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 513, \"unique\": 459}"
+ },
+ {
+  "wall": 1791417802.0098586,
+  "ts": 101.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 506, \"dwell_s\": 0.74}"
+ },
+ {
+  "wall": 1791417802.3431756,
+  "ts": 101.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 514, \"unique\": 460}"
+ },
+ {
+  "wall": 1791417802.6111429,
+  "ts": 102.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 515, \"unique\": 461}"
+ },
+ {
+  "wall": 1791417802.81113,
+  "ts": 102.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 504, \"dwell_s\": 1.94}"
+ },
+ {
+  "wall": 1791417802.8770528,
+  "ts": 102.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 516, \"unique\": 462}"
+ },
+ {
+  "wall": 1791417802.8771524,
+  "ts": 102.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 486, \"dwell_s\": 8.06}"
+ },
+ {
+  "wall": 1791417802.9450347,
+  "ts": 102.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 517, \"unique\": 463}"
+ },
+ {
+  "wall": 1791417802.9451416,
+  "ts": 102.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 505, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417803.0763898,
+  "ts": 102.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 518, \"unique\": 464}"
+ },
+ {
+  "wall": 1791417803.2112317,
+  "ts": 102.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 519, \"unique\": 465}"
+ },
+ {
+  "wall": 1791417803.6109552,
+  "ts": 103.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 520, \"unique\": 466}"
+ },
+ {
+  "wall": 1791417803.6778743,
+  "ts": 103.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 521, \"unique\": 467}"
+ },
+ {
+  "wall": 1791417803.6779716,
+  "ts": 103.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 510, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417803.8793504,
+  "ts": 103.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 497, \"dwell_s\": 5.56}"
+ },
+ {
+  "wall": 1791417804.0120258,
+  "ts": 103.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 513, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417804.1456954,
+  "ts": 103.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 522, \"unique\": 468}"
+ },
+ {
+  "wall": 1791417804.2791772,
+  "ts": 103.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 523, \"unique\": 469}"
+ },
+ {
+  "wall": 1791417804.2792754,
+  "ts": 103.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 501, \"dwell_s\": 4.23}"
+ },
+ {
+  "wall": 1791417805.0134735,
+  "ts": 104.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 525, \"unique\": 470}"
+ },
+ {
+  "wall": 1791417805.2131264,
+  "ts": 104.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 495, \"dwell_s\": 7.25}"
+ },
+ {
+  "wall": 1791417805.2132218,
+  "ts": 104.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 507, \"dwell_s\": 3.94}"
+ },
+ {
+  "wall": 1791417805.279853,
+  "ts": 104.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 526, \"unique\": 471}"
+ },
+ {
+  "wall": 1791417805.27994,
+  "ts": 104.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 527, \"unique\": 472}"
+ },
+ {
+  "wall": 1791417805.4797878,
+  "ts": 104.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 515, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417805.9467287,
+  "ts": 105.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 514, \"dwell_s\": 1.94}"
+ },
+ {
+  "wall": 1791417806.0129435,
+  "ts": 105.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 485, \"dwell_s\": 11.26}"
+ },
+ {
+  "wall": 1791417806.0798135,
+  "ts": 105.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 528, \"unique\": 473}"
+ },
+ {
+  "wall": 1791417806.1466439,
+  "ts": 105.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 529, \"unique\": 474}"
+ },
+ {
+  "wall": 1791417806.2151794,
+  "ts": 105.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 520, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417806.3478575,
+  "ts": 105.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 530, \"unique\": 475}"
+ },
+ {
+  "wall": 1791417806.6813626,
+  "ts": 106.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 516, \"dwell_s\": 2.14}"
+ },
+ {
+  "wall": 1791417806.8148534,
+  "ts": 106.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 508, \"dwell_s\": 5.4}"
+ },
+ {
+  "wall": 1791417807.0814328,
+  "ts": 106.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 518, \"dwell_s\": 2.34}"
+ },
+ {
+  "wall": 1791417807.2150986,
+  "ts": 106.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 531, \"unique\": 476}"
+ },
+ {
+  "wall": 1791417807.349627,
+  "ts": 106.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 532, \"unique\": 477}"
+ },
+ {
+  "wall": 1791417807.4831328,
+  "ts": 106.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 533, \"unique\": 478}"
+ },
+ {
+  "wall": 1791417807.48323,
+  "ts": 106.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 509, \"dwell_s\": 5.14}"
+ },
+ {
+  "wall": 1791417807.6826236,
+  "ts": 107.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 534, \"unique\": 479}"
+ },
+ {
+  "wall": 1791417807.6827345,
+  "ts": 107.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 517, \"dwell_s\": 3.07}"
+ },
+ {
+  "wall": 1791417807.8180335,
+  "ts": 107.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 535, \"unique\": 480}"
+ },
+ {
+  "wall": 1791417808.1490653,
+  "ts": 107.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 536, \"unique\": 481}"
+ },
+ {
+  "wall": 1791417808.284164,
+  "ts": 107.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 537, \"unique\": 482}"
+ },
+ {
+  "wall": 1791417808.416728,
+  "ts": 107.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 522, \"dwell_s\": 2.6}"
+ },
+ {
+  "wall": 1791417808.550045,
+  "ts": 108.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 526, \"dwell_s\": 1.6}"
+ },
+ {
+  "wall": 1791417808.6831567,
+  "ts": 108.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 511, \"dwell_s\": 5.87}"
+ },
+ {
+  "wall": 1791417809.0159743,
+  "ts": 108.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 538, \"unique\": 483}"
+ },
+ {
+  "wall": 1791417809.2178118,
+  "ts": 108.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 529, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417809.283707,
+  "ts": 108.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 531, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417809.4174435,
+  "ts": 108.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 539, \"unique\": 484}"
+ },
+ {
+  "wall": 1791417809.4837537,
+  "ts": 108.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 499, \"dwell_s\": 10.13}"
+ },
+ {
+  "wall": 1791417809.9516451,
+  "ts": 109.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 540, \"unique\": 485}"
+ },
+ {
+  "wall": 1791417810.618463,
+  "ts": 110.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 542, \"unique\": 486}"
+ },
+ {
+  "wall": 1791417810.685627,
+  "ts": 110.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 521, \"dwell_s\": 5.34}"
+ },
+ {
+  "wall": 1791417810.7531776,
+  "ts": 110.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 537, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417810.886239,
+  "ts": 110.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 543, \"unique\": 487}"
+ },
+ {
+  "wall": 1791417811.0625105,
+  "ts": 110.57,
+  "kind": "person_exit",
+  "data": "{\"track\": 528, \"dwell_s\": 3.27}"
+ },
+ {
+  "wall": 1791417811.0862107,
+  "ts": 110.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 489, \"dwell_s\": 15.33}"
+ },
+ {
+  "wall": 1791417811.0862992,
+  "ts": 110.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 532, \"dwell_s\": 2.11}"
+ },
+ {
+  "wall": 1791417811.1520903,
+  "ts": 110.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 534, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417811.2978182,
+  "ts": 110.81,
+  "kind": "person_exit",
+  "data": "{\"track\": 535, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417811.353214,
+  "ts": 110.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 544, \"unique\": 488}"
+ },
+ {
+  "wall": 1791417811.61935,
+  "ts": 111.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 545, \"unique\": 489}"
+ },
+ {
+  "wall": 1791417811.7642927,
+  "ts": 111.27,
+  "kind": "person_exit",
+  "data": "{\"track\": 188, \"dwell_s\": 70.94}"
+ },
+ {
+  "wall": 1791417811.820034,
+  "ts": 111.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 536, \"dwell_s\": 2.0}"
+ },
+ {
+  "wall": 1791417811.9932697,
+  "ts": 111.5,
+  "kind": "person_enter",
+  "data": "{\"track\": 547, \"unique\": 490}"
+ },
+ {
+  "wall": 1791417811.993388,
+  "ts": 111.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 525, \"dwell_s\": 5.22}"
+ },
+ {
+  "wall": 1791417812.0213158,
+  "ts": 111.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 549, \"unique\": 491}"
+ },
+ {
+  "wall": 1791417812.153864,
+  "ts": 111.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 550, \"unique\": 492}"
+ },
+ {
+  "wall": 1791417812.286871,
+  "ts": 111.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 548, \"unique\": 493}"
+ },
+ {
+  "wall": 1791417812.4629242,
+  "ts": 111.97,
+  "kind": "person_exit",
+  "data": "{\"track\": 512, \"dwell_s\": 8.95}"
+ },
+ {
+  "wall": 1791417812.6200318,
+  "ts": 112.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 552, \"unique\": 494}"
+ },
+ {
+  "wall": 1791417812.6990325,
+  "ts": 112.21,
+  "kind": "person_enter",
+  "data": "{\"track\": 551, \"unique\": 495}"
+ },
+ {
+  "wall": 1791417812.7557423,
+  "ts": 112.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 553, \"unique\": 496}"
+ },
+ {
+  "wall": 1791417812.930142,
+  "ts": 112.44,
+  "kind": "person_enter",
+  "data": "{\"track\": 554, \"unique\": 497}"
+ },
+ {
+  "wall": 1791417813.050707,
+  "ts": 112.56,
+  "kind": "person_exit",
+  "data": "{\"track\": 542, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417813.0878754,
+  "ts": 112.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 555, \"unique\": 498}"
+ },
+ {
+  "wall": 1791417813.8638668,
+  "ts": 113.37,
+  "kind": "person_enter",
+  "data": "{\"track\": 556, \"unique\": 499}"
+ },
+ {
+  "wall": 1791417813.863953,
+  "ts": 113.37,
+  "kind": "person_enter",
+  "data": "{\"track\": 557, \"unique\": 500}"
+ },
+ {
+  "wall": 1791417814.0504565,
+  "ts": 113.56,
+  "kind": "person_exit",
+  "data": "{\"track\": 523, \"dwell_s\": 8.08}"
+ },
+ {
+  "wall": 1791417814.156087,
+  "ts": 113.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 533, \"dwell_s\": 4.97}"
+ },
+ {
+  "wall": 1791417814.3971403,
+  "ts": 113.91,
+  "kind": "person_enter",
+  "data": "{\"track\": 558, \"unique\": 501}"
+ },
+ {
+  "wall": 1791417814.4218912,
+  "ts": 113.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 559, \"unique\": 502}"
+ },
+ {
+  "wall": 1791417814.5151572,
+  "ts": 114.02,
+  "kind": "person_exit",
+  "data": "{\"track\": 550, \"dwell_s\": 0.64}"
+ },
+ {
+  "wall": 1791417814.6220822,
+  "ts": 114.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 187, \"dwell_s\": 73.92}"
+ },
+ {
+  "wall": 1791417814.6221738,
+  "ts": 114.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 530, \"dwell_s\": 6.61}"
+ },
+ {
+  "wall": 1791417814.7016935,
+  "ts": 114.21,
+  "kind": "person_enter",
+  "data": "{\"track\": 560, \"unique\": 503}"
+ },
+ {
+  "wall": 1791417814.8218899,
+  "ts": 114.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 547, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417814.9561694,
+  "ts": 114.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 543, \"dwell_s\": 2.38}"
+ },
+ {
+  "wall": 1791417814.9562535,
+  "ts": 114.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 553, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417815.0892742,
+  "ts": 114.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 561, \"unique\": 504}"
+ },
+ {
+  "wall": 1791417815.0893776,
+  "ts": 114.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 552, \"dwell_s\": 0.76}"
+ },
+ {
+  "wall": 1791417815.2897925,
+  "ts": 114.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 549, \"dwell_s\": 1.59}"
+ },
+ {
+  "wall": 1791417815.3567402,
+  "ts": 114.87,
+  "kind": "person_enter",
+  "data": "{\"track\": 563, \"unique\": 505}"
+ },
+ {
+  "wall": 1791417815.6060882,
+  "ts": 115.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 564, \"unique\": 506}"
+ },
+ {
+  "wall": 1791417815.6728768,
+  "ts": 115.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 565, \"unique\": 507}"
+ },
+ {
+  "wall": 1791417815.8743355,
+  "ts": 115.38,
+  "kind": "person_exit",
+  "data": "{\"track\": 527, \"dwell_s\": 8.92}"
+ },
+ {
+  "wall": 1791417815.9410868,
+  "ts": 115.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 548, \"dwell_s\": 2.19}"
+ },
+ {
+  "wall": 1791417815.9411736,
+  "ts": 115.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 554, \"dwell_s\": 1.38}"
+ },
+ {
+  "wall": 1791417816.007706,
+  "ts": 115.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 551, \"dwell_s\": 1.79}"
+ },
+ {
+  "wall": 1791417816.0730364,
+  "ts": 115.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 500, \"dwell_s\": 16.23}"
+ },
+ {
+  "wall": 1791417816.1407764,
+  "ts": 115.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 519, \"dwell_s\": 11.21}"
+ },
+ {
+  "wall": 1791417816.2068586,
+  "ts": 115.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 557, \"dwell_s\": 0.67}"
+ },
+ {
+  "wall": 1791417816.6748755,
+  "ts": 116.18,
+  "kind": "person_enter",
+  "data": "{\"track\": 567, \"unique\": 508}"
+ },
+ {
+  "wall": 1791417816.8084607,
+  "ts": 116.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 568, \"unique\": 509}"
+ },
+ {
+  "wall": 1791417816.8085513,
+  "ts": 116.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 569, \"unique\": 510}"
+ },
+ {
+  "wall": 1791417816.8085845,
+  "ts": 116.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 560, \"dwell_s\": 0.43}"
+ },
+ {
+  "wall": 1791417817.06192,
+  "ts": 116.57,
+  "kind": "person_enter",
+  "data": "{\"track\": 570, \"unique\": 511}"
+ },
+ {
+  "wall": 1791417817.4870868,
+  "ts": 117.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 572, \"unique\": 512}"
+ },
+ {
+  "wall": 1791417817.9419587,
+  "ts": 117.45,
+  "kind": "person_enter",
+  "data": "{\"track\": 573, \"unique\": 513}"
+ },
+ {
+  "wall": 1791417818.0090823,
+  "ts": 117.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 574, \"unique\": 514}"
+ },
+ {
+  "wall": 1791417818.142695,
+  "ts": 117.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 575, \"unique\": 515}"
+ },
+ {
+  "wall": 1791417818.2087927,
+  "ts": 117.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 576, \"unique\": 516}"
+ },
+ {
+  "wall": 1791417818.5724692,
+  "ts": 118.08,
+  "kind": "person_exit",
+  "data": "{\"track\": 561, \"dwell_s\": 1.79}"
+ },
+ {
+  "wall": 1791417818.8767064,
+  "ts": 118.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 564, \"dwell_s\": 1.65}"
+ },
+ {
+  "wall": 1791417818.9864442,
+  "ts": 118.5,
+  "kind": "person_enter",
+  "data": "{\"track\": 577, \"unique\": 517}"
+ },
+ {
+  "wall": 1791417818.9865415,
+  "ts": 118.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 565, \"dwell_s\": 1.59}"
+ },
+ {
+  "wall": 1791417819.2211683,
+  "ts": 118.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 570, \"dwell_s\": 0.51}"
+ },
+ {
+  "wall": 1791417819.4779441,
+  "ts": 118.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 578, \"unique\": 518}"
+ },
+ {
+  "wall": 1791417819.610164,
+  "ts": 119.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 569, \"dwell_s\": 1.14}"
+ },
+ {
+  "wall": 1791417819.9206681,
+  "ts": 119.43,
+  "kind": "person_enter",
+  "data": "{\"track\": 579, \"unique\": 519}"
+ },
+ {
+  "wall": 1791417820.0778053,
+  "ts": 119.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 563, \"dwell_s\": 3.05}"
+ },
+ {
+  "wall": 1791417820.1451986,
+  "ts": 119.65,
+  "kind": "person_exit",
+  "data": "{\"track\": 574, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417820.878753,
+  "ts": 120.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 582, \"unique\": 520}"
+ },
+ {
+  "wall": 1791417820.8788488,
+  "ts": 120.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 580, \"unique\": 521}"
+ },
+ {
+  "wall": 1791417821.0787644,
+  "ts": 120.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 583, \"unique\": 522}"
+ },
+ {
+  "wall": 1791417821.0788524,
+  "ts": 120.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 584, \"unique\": 523}"
+ },
+ {
+  "wall": 1791417821.4842923,
+  "ts": 120.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 585, \"unique\": 524}"
+ },
+ {
+  "wall": 1791417821.7471378,
+  "ts": 121.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 578, \"dwell_s\": 0.59}"
+ },
+ {
+  "wall": 1791417821.946768,
+  "ts": 121.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 587, \"unique\": 525}"
+ },
+ {
+  "wall": 1791417821.9468539,
+  "ts": 121.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 588, \"unique\": 526}"
+ },
+ {
+  "wall": 1791417822.0134344,
+  "ts": 121.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 575, \"dwell_s\": 2.2}"
+ },
+ {
+  "wall": 1791417822.0135179,
+  "ts": 121.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 576, \"dwell_s\": 2.14}"
+ },
+ {
+  "wall": 1791417822.131195,
+  "ts": 121.64,
+  "kind": "person_enter",
+  "data": "{\"track\": 590, \"unique\": 527}"
+ },
+ {
+  "wall": 1791417822.1312988,
+  "ts": 121.64,
+  "kind": "person_enter",
+  "data": "{\"track\": 586, \"unique\": 528}"
+ },
+ {
+  "wall": 1791417822.2140536,
+  "ts": 121.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 591, \"unique\": 529}"
+ },
+ {
+  "wall": 1791417822.2803028,
+  "ts": 121.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 592, \"unique\": 530}"
+ },
+ {
+  "wall": 1791417822.4136727,
+  "ts": 121.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 579, \"dwell_s\": 0.84}"
+ },
+ {
+  "wall": 1791417822.7233434,
+  "ts": 122.23,
+  "kind": "person_enter",
+  "data": "{\"track\": 593, \"unique\": 531}"
+ },
+ {
+  "wall": 1791417822.8137338,
+  "ts": 122.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 572, \"dwell_s\": 3.7}"
+ },
+ {
+  "wall": 1791417822.9479256,
+  "ts": 122.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 580, \"dwell_s\": 0.39}"
+ },
+ {
+  "wall": 1791417823.0137918,
+  "ts": 122.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 595, \"unique\": 532}"
+ },
+ {
+  "wall": 1791417823.2140663,
+  "ts": 122.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 573, \"dwell_s\": 3.6}"
+ },
+ {
+  "wall": 1791417823.2809954,
+  "ts": 122.79,
+  "kind": "person_exit",
+  "data": "{\"track\": 582, \"dwell_s\": 0.72}"
+ },
+ {
+  "wall": 1791417823.347494,
+  "ts": 122.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 596, \"unique\": 533}"
+ },
+ {
+  "wall": 1791417823.4257247,
+  "ts": 122.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 597, \"unique\": 534}"
+ },
+ {
+  "wall": 1791417823.948996,
+  "ts": 123.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 598, \"unique\": 535}"
+ },
+ {
+  "wall": 1791417823.9490888,
+  "ts": 123.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 599, \"unique\": 536}"
+ },
+ {
+  "wall": 1791417823.949128,
+  "ts": 123.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 567, \"dwell_s\": 5.6}"
+ },
+ {
+  "wall": 1791417824.0156784,
+  "ts": 123.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 583, \"dwell_s\": 1.27}"
+ },
+ {
+  "wall": 1791417824.0839813,
+  "ts": 123.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 600, \"unique\": 537}"
+ },
+ {
+  "wall": 1791417824.0840776,
+  "ts": 123.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 601, \"unique\": 538}"
+ },
+ {
+  "wall": 1791417824.5758336,
+  "ts": 124.08,
+  "kind": "person_exit",
+  "data": "{\"track\": 588, \"dwell_s\": 0.88}"
+ },
+ {
+  "wall": 1791417824.575927,
+  "ts": 124.08,
+  "kind": "person_exit",
+  "data": "{\"track\": 590, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417824.7499704,
+  "ts": 124.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 602, \"unique\": 539}"
+ },
+ {
+  "wall": 1791417824.7500567,
+  "ts": 124.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 603, \"unique\": 540}"
+ },
+ {
+  "wall": 1791417824.9255702,
+  "ts": 124.43,
+  "kind": "person_enter",
+  "data": "{\"track\": 604, \"unique\": 541}"
+ },
+ {
+  "wall": 1791417825.0165489,
+  "ts": 124.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 606, \"unique\": 542}"
+ },
+ {
+  "wall": 1791417825.0166607,
+  "ts": 124.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 577, \"dwell_s\": 4.39}"
+ },
+ {
+  "wall": 1791417825.016689,
+  "ts": 124.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 584, \"dwell_s\": 2.27}"
+ },
+ {
+  "wall": 1791417825.0844116,
+  "ts": 124.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 591, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417825.150175,
+  "ts": 124.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 545, \"dwell_s\": 11.86}"
+ },
+ {
+  "wall": 1791417825.2160614,
+  "ts": 124.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 607, \"unique\": 543}"
+ },
+ {
+  "wall": 1791417825.21616,
+  "ts": 124.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 608, \"unique\": 544}"
+ },
+ {
+  "wall": 1791417825.3518338,
+  "ts": 124.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 568, \"dwell_s\": 6.87}"
+ },
+ {
+  "wall": 1791417825.5509884,
+  "ts": 125.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 609, \"unique\": 545}"
+ },
+ {
+  "wall": 1791417825.628,
+  "ts": 125.14,
+  "kind": "person_enter",
+  "data": "{\"track\": 610, \"unique\": 546}"
+ },
+ {
+  "wall": 1791417825.6836174,
+  "ts": 125.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 595, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417825.6836972,
+  "ts": 125.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 597, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417825.8180478,
+  "ts": 125.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 611, \"unique\": 547}"
+ },
+ {
+  "wall": 1791417825.8181448,
+  "ts": 125.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 593, \"dwell_s\": 1.43}"
+ },
+ {
+  "wall": 1791417826.0172684,
+  "ts": 125.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 612, \"unique\": 548}"
+ },
+ {
+  "wall": 1791417826.0173738,
+  "ts": 125.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 592, \"dwell_s\": 2.07}"
+ },
+ {
+  "wall": 1791417826.0174062,
+  "ts": 125.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 596, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417826.1498897,
+  "ts": 125.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 586, \"dwell_s\": 2.94}"
+ },
+ {
+  "wall": 1791417826.2170568,
+  "ts": 125.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 599, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417826.2848537,
+  "ts": 125.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 613, \"unique\": 549}"
+ },
+ {
+  "wall": 1791417826.4846106,
+  "ts": 125.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 601, \"dwell_s\": 0.71}"
+ },
+ {
+  "wall": 1791417826.618244,
+  "ts": 126.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 587, \"dwell_s\": 2.96}"
+ },
+ {
+  "wall": 1791417826.7931867,
+  "ts": 126.3,
+  "kind": "person_enter",
+  "data": "{\"track\": 615, \"unique\": 550}"
+ },
+ {
+  "wall": 1791417826.7932878,
+  "ts": 126.3,
+  "kind": "person_exit",
+  "data": "{\"track\": 598, \"dwell_s\": 1.16}"
+ },
+ {
+  "wall": 1791417826.817865,
+  "ts": 126.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 616, \"unique\": 551}"
+ },
+ {
+  "wall": 1791417826.9514291,
+  "ts": 126.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 617, \"unique\": 552}"
+ },
+ {
+  "wall": 1791417827.2000864,
+  "ts": 126.71,
+  "kind": "person_exit",
+  "data": "{\"track\": 544, \"dwell_s\": 14.15}"
+ },
+ {
+  "wall": 1791417827.2182224,
+  "ts": 126.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 619, \"unique\": 553}"
+ },
+ {
+  "wall": 1791417827.394123,
+  "ts": 126.9,
+  "kind": "person_enter",
+  "data": "{\"track\": 621, \"unique\": 554}"
+ },
+ {
+  "wall": 1791417827.4852715,
+  "ts": 126.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 622, \"unique\": 555}"
+ },
+ {
+  "wall": 1791417827.4853702,
+  "ts": 126.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 585, \"dwell_s\": 4.34}"
+ },
+ {
+  "wall": 1791417827.6867068,
+  "ts": 127.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 623, \"unique\": 556}"
+ },
+ {
+  "wall": 1791417827.686805,
+  "ts": 127.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 559, \"dwell_s\": 11.59}"
+ },
+ {
+  "wall": 1791417827.886239,
+  "ts": 127.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 624, \"unique\": 557}"
+ },
+ {
+  "wall": 1791417827.8863275,
+  "ts": 127.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 625, \"unique\": 558}"
+ },
+ {
+  "wall": 1791417827.9938076,
+  "ts": 127.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 604, \"dwell_s\": 1.42}"
+ },
+ {
+  "wall": 1791417827.9938936,
+  "ts": 127.5,
+  "kind": "person_exit",
+  "data": "{\"track\": 608, \"dwell_s\": 1.12}"
+ },
+ {
+  "wall": 1791417828.0196524,
+  "ts": 127.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 602, \"dwell_s\": 1.63}"
+ },
+ {
+  "wall": 1791417828.1949325,
+  "ts": 127.7,
+  "kind": "person_enter",
+  "data": "{\"track\": 627, \"unique\": 559}"
+ },
+ {
+  "wall": 1791417828.1950433,
+  "ts": 127.7,
+  "kind": "person_exit",
+  "data": "{\"track\": 555, \"dwell_s\": 13.34}"
+ },
+ {
+  "wall": 1791417828.2200952,
+  "ts": 127.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 607, \"dwell_s\": 1.36}"
+ },
+ {
+  "wall": 1791417828.2968752,
+  "ts": 127.81,
+  "kind": "person_enter",
+  "data": "{\"track\": 628, \"unique\": 560}"
+ },
+ {
+  "wall": 1791417828.29698,
+  "ts": 127.81,
+  "kind": "person_exit",
+  "data": "{\"track\": 611, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417828.4875956,
+  "ts": 128.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 629, \"unique\": 561}"
+ },
+ {
+  "wall": 1791417828.4876857,
+  "ts": 128.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 630, \"unique\": 562}"
+ },
+ {
+  "wall": 1791417828.487713,
+  "ts": 128.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 612, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417828.5550845,
+  "ts": 128.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 631, \"unique\": 563}"
+ },
+ {
+  "wall": 1791417828.6876917,
+  "ts": 128.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 610, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417828.966261,
+  "ts": 128.47,
+  "kind": "person_enter",
+  "data": "{\"track\": 632, \"unique\": 564}"
+ },
+ {
+  "wall": 1791417828.966347,
+  "ts": 128.47,
+  "kind": "person_enter",
+  "data": "{\"track\": 633, \"unique\": 565}"
+ },
+ {
+  "wall": 1791417828.9663708,
+  "ts": 128.47,
+  "kind": "person_enter",
+  "data": "{\"track\": 634, \"unique\": 566}"
+ },
+ {
+  "wall": 1791417829.0868413,
+  "ts": 128.6,
+  "kind": "person_exit",
+  "data": "{\"track\": 613, \"dwell_s\": 1.17}"
+ },
+ {
+  "wall": 1791417829.3533323,
+  "ts": 128.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 637, \"unique\": 567}"
+ },
+ {
+  "wall": 1791417829.4208543,
+  "ts": 128.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 621, \"dwell_s\": 0.38}"
+ },
+ {
+  "wall": 1791417829.554259,
+  "ts": 129.06,
+  "kind": "person_enter",
+  "data": "{\"track\": 638, \"unique\": 568}"
+ },
+ {
+  "wall": 1791417829.6884713,
+  "ts": 129.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 622, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417829.754554,
+  "ts": 129.26,
+  "kind": "person_enter",
+  "data": "{\"track\": 639, \"unique\": 569}"
+ },
+ {
+  "wall": 1791417829.8214517,
+  "ts": 129.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 619, \"dwell_s\": 0.88}"
+ },
+ {
+  "wall": 1791417829.8884268,
+  "ts": 129.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 624, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417830.0893047,
+  "ts": 129.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 640, \"unique\": 570}"
+ },
+ {
+  "wall": 1791417830.1541011,
+  "ts": 129.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 641, \"unique\": 571}"
+ },
+ {
+  "wall": 1791417830.154191,
+  "ts": 129.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 642, \"unique\": 572}"
+ },
+ {
+  "wall": 1791417830.2214978,
+  "ts": 129.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 623, \"dwell_s\": 0.84}"
+ },
+ {
+  "wall": 1791417830.2880428,
+  "ts": 129.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 643, \"unique\": 573}"
+ },
+ {
+  "wall": 1791417830.3543098,
+  "ts": 129.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 628, \"dwell_s\": 0.34}"
+ },
+ {
+  "wall": 1791417830.6218154,
+  "ts": 130.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 644, \"unique\": 574}"
+ },
+ {
+  "wall": 1791417830.6894016,
+  "ts": 130.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 629, \"dwell_s\": 0.52}"
+ },
+ {
+  "wall": 1791417830.8236523,
+  "ts": 130.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 645, \"unique\": 575}"
+ },
+ {
+  "wall": 1791417830.8237386,
+  "ts": 130.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 646, \"unique\": 576}"
+ },
+ {
+  "wall": 1791417830.8237746,
+  "ts": 130.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 630, \"dwell_s\": 0.61}"
+ },
+ {
+  "wall": 1791417830.889052,
+  "ts": 130.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 540, \"dwell_s\": 19.27}"
+ },
+ {
+  "wall": 1791417831.0893822,
+  "ts": 130.6,
+  "kind": "person_enter",
+  "data": "{\"track\": 647, \"unique\": 577}"
+ },
+ {
+  "wall": 1791417831.22311,
+  "ts": 130.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 606, \"dwell_s\": 4.54}"
+ },
+ {
+  "wall": 1791417831.622983,
+  "ts": 131.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 648, \"unique\": 578}"
+ },
+ {
+  "wall": 1791417831.6231005,
+  "ts": 131.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 627, \"dwell_s\": 1.8}"
+ },
+ {
+  "wall": 1791417831.6903071,
+  "ts": 131.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 649, \"unique\": 579}"
+ },
+ {
+  "wall": 1791417831.7570896,
+  "ts": 131.27,
+  "kind": "person_exit",
+  "data": "{\"track\": 638, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417831.8229332,
+  "ts": 131.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 650, \"unique\": 580}"
+ },
+ {
+  "wall": 1791417831.8904905,
+  "ts": 131.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 651, \"unique\": 581}"
+ },
+ {
+  "wall": 1791417832.0240793,
+  "ts": 131.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 652, \"unique\": 582}"
+ },
+ {
+  "wall": 1791417832.206601,
+  "ts": 131.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 653, \"unique\": 583}"
+ },
+ {
+  "wall": 1791417832.4077816,
+  "ts": 131.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 654, \"unique\": 584}"
+ },
+ {
+  "wall": 1791417832.4756825,
+  "ts": 131.98,
+  "kind": "person_exit",
+  "data": "{\"track\": 538, \"dwell_s\": 21.74}"
+ },
+ {
+  "wall": 1791417832.6750739,
+  "ts": 132.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 642, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417832.8743305,
+  "ts": 132.38,
+  "kind": "person_enter",
+  "data": "{\"track\": 655, \"unique\": 585}"
+ },
+ {
+  "wall": 1791417833.074882,
+  "ts": 132.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 616, \"dwell_s\": 4.53}"
+ },
+ {
+  "wall": 1791417833.0749748,
+  "ts": 132.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 643, \"dwell_s\": 1.07}"
+ },
+ {
+  "wall": 1791417833.2079372,
+  "ts": 132.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 539, \"dwell_s\": 22.07}"
+ },
+ {
+  "wall": 1791417833.2746322,
+  "ts": 132.78,
+  "kind": "person_enter",
+  "data": "{\"track\": 656, \"unique\": 586}"
+ },
+ {
+  "wall": 1791417833.3412204,
+  "ts": 132.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 657, \"unique\": 587}"
+ },
+ {
+  "wall": 1791417833.3413224,
+  "ts": 132.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 633, \"dwell_s\": 2.71}"
+ },
+ {
+  "wall": 1791417833.409759,
+  "ts": 132.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 658, \"unique\": 588}"
+ },
+ {
+  "wall": 1791417833.6755698,
+  "ts": 133.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 615, \"dwell_s\": 5.2}"
+ },
+ {
+  "wall": 1791417833.8100364,
+  "ts": 133.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 631, \"dwell_s\": 3.53}"
+ },
+ {
+  "wall": 1791417833.810139,
+  "ts": 133.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 637, \"dwell_s\": 2.74}"
+ },
+ {
+  "wall": 1791417834.0182326,
+  "ts": 133.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 649, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417834.0774028,
+  "ts": 133.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 659, \"unique\": 589}"
+ },
+ {
+  "wall": 1791417834.0775528,
+  "ts": 133.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 645, \"dwell_s\": 1.54}"
+ },
+ {
+  "wall": 1791417834.1525664,
+  "ts": 133.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 660, \"unique\": 590}"
+ },
+ {
+  "wall": 1791417834.6159725,
+  "ts": 134.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 647, \"dwell_s\": 1.85}"
+ },
+ {
+  "wall": 1791417834.684321,
+  "ts": 134.18,
+  "kind": "person_exit",
+  "data": "{\"track\": 652, \"dwell_s\": 0.98}"
+ },
+ {
+  "wall": 1791417834.8803778,
+  "ts": 134.38,
+  "kind": "person_exit",
+  "data": "{\"track\": 651, \"dwell_s\": 1.32}"
+ },
+ {
+  "wall": 1791417835.0807402,
+  "ts": 134.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 661, \"unique\": 591}"
+ },
+ {
+  "wall": 1791417835.080832,
+  "ts": 134.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 663, \"unique\": 592}"
+ },
+ {
+  "wall": 1791417835.080856,
+  "ts": 134.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 664, \"unique\": 593}"
+ },
+ {
+  "wall": 1791417835.0808747,
+  "ts": 134.58,
+  "kind": "person_enter",
+  "data": "{\"track\": 665, \"unique\": 594}"
+ },
+ {
+  "wall": 1791417835.0809095,
+  "ts": 134.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 639, \"dwell_s\": 3.65}"
+ },
+ {
+  "wall": 1791417835.0809324,
+  "ts": 134.58,
+  "kind": "person_exit",
+  "data": "{\"track\": 650, \"dwell_s\": 1.58}"
+ },
+ {
+  "wall": 1791417835.1516342,
+  "ts": 134.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 666, \"unique\": 595}"
+ },
+ {
+  "wall": 1791417835.2171388,
+  "ts": 134.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 662, \"unique\": 596}"
+ },
+ {
+  "wall": 1791417835.410494,
+  "ts": 134.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 648, \"dwell_s\": 2.12}"
+ },
+ {
+  "wall": 1791417835.6103334,
+  "ts": 135.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 653, \"dwell_s\": 1.72}"
+ },
+ {
+  "wall": 1791417835.8102577,
+  "ts": 135.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 656, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417835.9437459,
+  "ts": 135.45,
+  "kind": "person_exit",
+  "data": "{\"track\": 654, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417836.0769339,
+  "ts": 135.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 668, \"unique\": 597}"
+ },
+ {
+  "wall": 1791417836.1439145,
+  "ts": 135.65,
+  "kind": "person_enter",
+  "data": "{\"track\": 669, \"unique\": 598}"
+ },
+ {
+  "wall": 1791417836.2120664,
+  "ts": 135.72,
+  "kind": "person_enter",
+  "data": "{\"track\": 670, \"unique\": 599}"
+ },
+ {
+  "wall": 1791417836.4778166,
+  "ts": 135.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 658, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417836.5439844,
+  "ts": 136.05,
+  "kind": "person_enter",
+  "data": "{\"track\": 671, \"unique\": 600}"
+ },
+ {
+  "wall": 1791417836.679212,
+  "ts": 136.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 672, \"unique\": 601}"
+ },
+ {
+  "wall": 1791417836.6793165,
+  "ts": 136.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 556, \"dwell_s\": 21.19}"
+ },
+ {
+  "wall": 1791417836.6793468,
+  "ts": 136.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 655, \"dwell_s\": 2.13}"
+ },
+ {
+  "wall": 1791417836.8111997,
+  "ts": 136.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 673, \"unique\": 602}"
+ },
+ {
+  "wall": 1791417836.8112888,
+  "ts": 136.32,
+  "kind": "person_enter",
+  "data": "{\"track\": 674, \"unique\": 603}"
+ },
+ {
+  "wall": 1791417836.8779635,
+  "ts": 136.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 675, \"unique\": 604}"
+ },
+ {
+  "wall": 1791417837.0107582,
+  "ts": 136.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 660, \"dwell_s\": 1.2}"
+ },
+ {
+  "wall": 1791417837.0780923,
+  "ts": 136.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 641, \"dwell_s\": 5.25}"
+ },
+ {
+  "wall": 1791417837.3531692,
+  "ts": 136.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 661, \"dwell_s\": 0.58}"
+ },
+ {
+  "wall": 1791417837.479835,
+  "ts": 136.99,
+  "kind": "person_exit",
+  "data": "{\"track\": 662, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417837.589206,
+  "ts": 137.1,
+  "kind": "person_enter",
+  "data": "{\"track\": 677, \"unique\": 605}"
+ },
+ {
+  "wall": 1791417837.5892942,
+  "ts": 137.1,
+  "kind": "person_enter",
+  "data": "{\"track\": 678, \"unique\": 606}"
+ },
+ {
+  "wall": 1791417837.6137388,
+  "ts": 137.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 676, \"unique\": 607}"
+ },
+ {
+  "wall": 1791417837.6138337,
+  "ts": 137.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 680, \"unique\": 608}"
+ },
+ {
+  "wall": 1791417837.879686,
+  "ts": 137.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 665, \"dwell_s\": 1.13}"
+ },
+ {
+  "wall": 1791417838.0568118,
+  "ts": 137.56,
+  "kind": "person_enter",
+  "data": "{\"track\": 681, \"unique\": 609}"
+ },
+ {
+  "wall": 1791417838.0801165,
+  "ts": 137.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 664, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417838.080198,
+  "ts": 137.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 668, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417838.3458645,
+  "ts": 137.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 682, \"unique\": 610}"
+ },
+ {
+  "wall": 1791417838.345973,
+  "ts": 137.85,
+  "kind": "person_enter",
+  "data": "{\"track\": 683, \"unique\": 611}"
+ },
+ {
+  "wall": 1791417838.3460295,
+  "ts": 137.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 659, \"dwell_s\": 2.6}"
+ },
+ {
+  "wall": 1791417838.3460546,
+  "ts": 137.85,
+  "kind": "person_exit",
+  "data": "{\"track\": 666, \"dwell_s\": 1.54}"
+ },
+ {
+  "wall": 1791417838.6129048,
+  "ts": 138.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 685, \"unique\": 612}"
+ },
+ {
+  "wall": 1791417838.812916,
+  "ts": 138.32,
+  "kind": "person_exit",
+  "data": "{\"track\": 673, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417838.9470701,
+  "ts": 138.46,
+  "kind": "person_enter",
+  "data": "{\"track\": 686, \"unique\": 613}"
+ },
+ {
+  "wall": 1791417838.947166,
+  "ts": 138.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 671, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417839.0128887,
+  "ts": 138.52,
+  "kind": "person_exit",
+  "data": "{\"track\": 663, \"dwell_s\": 2.27}"
+ },
+ {
+  "wall": 1791417839.1469588,
+  "ts": 138.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 687, \"unique\": 614}"
+ },
+ {
+  "wall": 1791417839.1470478,
+  "ts": 138.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 603, \"dwell_s\": 12.73}"
+ },
+ {
+  "wall": 1791417839.2145154,
+  "ts": 138.72,
+  "kind": "person_exit",
+  "data": "{\"track\": 669, \"dwell_s\": 1.4}"
+ },
+ {
+  "wall": 1791417839.6141627,
+  "ts": 139.12,
+  "kind": "person_enter",
+  "data": "{\"track\": 689, \"unique\": 615}"
+ },
+ {
+  "wall": 1791417839.6142497,
+  "ts": 139.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 672, \"dwell_s\": 1.24}"
+ },
+ {
+  "wall": 1791417839.9479911,
+  "ts": 139.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 674, \"dwell_s\": 1.47}"
+ },
+ {
+  "wall": 1791417840.0142882,
+  "ts": 139.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 690, \"unique\": 616}"
+ },
+ {
+  "wall": 1791417840.0143812,
+  "ts": 139.52,
+  "kind": "person_enter",
+  "data": "{\"track\": 691, \"unique\": 617}"
+ },
+ {
+  "wall": 1791417840.0814755,
+  "ts": 139.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 692, \"unique\": 618}"
+ },
+ {
+  "wall": 1791417840.081582,
+  "ts": 139.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 670, \"dwell_s\": 2.2}"
+ },
+ {
+  "wall": 1791417840.3489833,
+  "ts": 139.86,
+  "kind": "person_exit",
+  "data": "{\"track\": 682, \"dwell_s\": 0.36}"
+ },
+ {
+  "wall": 1791417840.414511,
+  "ts": 139.92,
+  "kind": "person_exit",
+  "data": "{\"track\": 675, \"dwell_s\": 1.87}"
+ },
+ {
+  "wall": 1791417840.481108,
+  "ts": 139.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 694, \"unique\": 619}"
+ },
+ {
+  "wall": 1791417840.5495033,
+  "ts": 140.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 683, \"dwell_s\": 0.53}"
+ },
+ {
+  "wall": 1791417840.6159306,
+  "ts": 140.12,
+  "kind": "person_exit",
+  "data": "{\"track\": 680, \"dwell_s\": 1.33}"
+ },
+ {
+  "wall": 1791417840.6824481,
+  "ts": 140.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 695, \"unique\": 620}"
+ },
+ {
+  "wall": 1791417840.682562,
+  "ts": 140.19,
+  "kind": "person_exit",
+  "data": "{\"track\": 646, \"dwell_s\": 8.19}"
+ },
+ {
+  "wall": 1791417840.8165684,
+  "ts": 140.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 696, \"unique\": 621}"
+ },
+ {
+  "wall": 1791417840.882057,
+  "ts": 140.39,
+  "kind": "person_enter",
+  "data": "{\"track\": 697, \"unique\": 622}"
+ },
+ {
+  "wall": 1791417840.9483187,
+  "ts": 140.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 686, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417841.0820966,
+  "ts": 140.59,
+  "kind": "person_exit",
+  "data": "{\"track\": 685, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417841.1482546,
+  "ts": 140.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 687, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417841.3496838,
+  "ts": 140.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 699, \"unique\": 623}"
+ },
+ {
+  "wall": 1791417841.4164982,
+  "ts": 140.92,
+  "kind": "person_enter",
+  "data": "{\"track\": 698, \"unique\": 624}"
+ },
+ {
+  "wall": 1791417841.6836607,
+  "ts": 141.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 700, \"unique\": 625}"
+ },
+ {
+  "wall": 1791417841.883223,
+  "ts": 141.39,
+  "kind": "person_exit",
+  "data": "{\"track\": 676, \"dwell_s\": 2.94}"
+ },
+ {
+  "wall": 1791417842.1494823,
+  "ts": 141.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 692, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417842.4830751,
+  "ts": 141.99,
+  "kind": "person_enter",
+  "data": "{\"track\": 701, \"unique\": 626}"
+ },
+ {
+  "wall": 1791417842.5499904,
+  "ts": 142.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 690, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417842.6187146,
+  "ts": 142.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 657, \"dwell_s\": 7.61}"
+ },
+ {
+  "wall": 1791417842.8174582,
+  "ts": 142.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 677, \"dwell_s\": 3.6}"
+ },
+ {
+  "wall": 1791417842.9508412,
+  "ts": 142.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 696, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417843.152551,
+  "ts": 142.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 703, \"unique\": 627}"
+ },
+ {
+  "wall": 1791417843.245254,
+  "ts": 142.75,
+  "kind": "person_enter",
+  "data": "{\"track\": 704, \"unique\": 628}"
+ },
+ {
+  "wall": 1791417843.4190874,
+  "ts": 142.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 706, \"unique\": 629}"
+ },
+ {
+  "wall": 1791417843.41918,
+  "ts": 142.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 707, \"unique\": 630}"
+ },
+ {
+  "wall": 1791417843.593577,
+  "ts": 143.1,
+  "kind": "person_enter",
+  "data": "{\"track\": 708, \"unique\": 631}"
+ },
+ {
+  "wall": 1791417844.085511,
+  "ts": 143.59,
+  "kind": "person_enter",
+  "data": "{\"track\": 709, \"unique\": 632}"
+ },
+ {
+  "wall": 1791417844.1786346,
+  "ts": 143.69,
+  "kind": "person_enter",
+  "data": "{\"track\": 710, \"unique\": 633}"
+ },
+ {
+  "wall": 1791417844.2185352,
+  "ts": 143.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 558, \"dwell_s\": 28.23}"
+ },
+ {
+  "wall": 1791417844.2186296,
+  "ts": 143.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 700, \"dwell_s\": 0.87}"
+ },
+ {
+  "wall": 1791417844.2854476,
+  "ts": 143.79,
+  "kind": "person_enter",
+  "data": "{\"track\": 711, \"unique\": 634}"
+ },
+ {
+  "wall": 1791417844.6853223,
+  "ts": 144.19,
+  "kind": "person_enter",
+  "data": "{\"track\": 712, \"unique\": 635}"
+ },
+ {
+  "wall": 1791417844.8192947,
+  "ts": 144.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 713, \"unique\": 636}"
+ },
+ {
+  "wall": 1791417844.8194008,
+  "ts": 144.33,
+  "kind": "person_exit",
+  "data": "{\"track\": 644, \"dwell_s\": 12.53}"
+ },
+ {
+  "wall": 1791417844.8862386,
+  "ts": 144.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 714, \"unique\": 637}"
+ },
+ {
+  "wall": 1791417844.9541721,
+  "ts": 144.46,
+  "kind": "person_exit",
+  "data": "{\"track\": 701, \"dwell_s\": 0.74}"
+ },
+ {
+  "wall": 1791417845.2873318,
+  "ts": 144.8,
+  "kind": "person_exit",
+  "data": "{\"track\": 600, \"dwell_s\": 19.54}"
+ },
+ {
+  "wall": 1791417845.4213018,
+  "ts": 144.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 716, \"unique\": 638}"
+ },
+ {
+  "wall": 1791417845.4214284,
+  "ts": 144.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 617, \"dwell_s\": 16.8}"
+ },
+ {
+  "wall": 1791417845.42148,
+  "ts": 144.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 694, \"dwell_s\": 3.22}"
+ },
+ {
+  "wall": 1791417845.6200218,
+  "ts": 145.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 717, \"unique\": 639}"
+ },
+ {
+  "wall": 1791417845.6201167,
+  "ts": 145.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 718, \"unique\": 640}"
+ },
+ {
+  "wall": 1791417845.6201706,
+  "ts": 145.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 609, \"dwell_s\": 18.38}"
+ },
+ {
+  "wall": 1791417845.7532938,
+  "ts": 145.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 698, \"dwell_s\": 2.74}"
+ },
+ {
+  "wall": 1791417845.7608132,
+  "ts": 145.26,
+  "kind": "person_exit",
+  "data": "{\"track\": 704, \"dwell_s\": 0.83}"
+ },
+ {
+  "wall": 1791417845.8199441,
+  "ts": 145.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 719, \"unique\": 641}"
+ },
+ {
+  "wall": 1791417845.8880975,
+  "ts": 145.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 720, \"unique\": 642}"
+ },
+ {
+  "wall": 1791417845.8881838,
+  "ts": 145.4,
+  "kind": "person_enter",
+  "data": "{\"track\": 721, \"unique\": 643}"
+ },
+ {
+  "wall": 1791417845.8882225,
+  "ts": 145.4,
+  "kind": "person_exit",
+  "data": "{\"track\": 699, \"dwell_s\": 2.81}"
+ },
+ {
+  "wall": 1791417846.1537457,
+  "ts": 145.66,
+  "kind": "person_enter",
+  "data": "{\"track\": 722, \"unique\": 644}"
+ },
+ {
+  "wall": 1791417846.2209167,
+  "ts": 145.73,
+  "kind": "person_exit",
+  "data": "{\"track\": 703, \"dwell_s\": 1.39}"
+ },
+ {
+  "wall": 1791417846.28822,
+  "ts": 145.8,
+  "kind": "person_enter",
+  "data": "{\"track\": 723, \"unique\": 645}"
+ },
+ {
+  "wall": 1791417846.3551857,
+  "ts": 145.86,
+  "kind": "person_enter",
+  "data": "{\"track\": 725, \"unique\": 646}"
+ },
+ {
+  "wall": 1791417846.420503,
+  "ts": 145.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 726, \"unique\": 647}"
+ },
+ {
+  "wall": 1791417846.487542,
+  "ts": 146.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 728, \"unique\": 648}"
+ },
+ {
+  "wall": 1791417846.5547245,
+  "ts": 146.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 632, \"dwell_s\": 15.97}"
+ },
+ {
+  "wall": 1791417846.621583,
+  "ts": 146.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 729, \"unique\": 649}"
+ },
+ {
+  "wall": 1791417846.6887817,
+  "ts": 146.2,
+  "kind": "person_exit",
+  "data": "{\"track\": 711, \"dwell_s\": 0.73}"
+ },
+ {
+  "wall": 1791417846.8223286,
+  "ts": 146.33,
+  "kind": "person_enter",
+  "data": "{\"track\": 730, \"unique\": 650}"
+ },
+ {
+  "wall": 1791417846.9311996,
+  "ts": 146.44,
+  "kind": "person_enter",
+  "data": "{\"track\": 732, \"unique\": 651}"
+ },
+ {
+  "wall": 1791417847.1318738,
+  "ts": 146.64,
+  "kind": "person_enter",
+  "data": "{\"track\": 734, \"unique\": 652}"
+ },
+ {
+  "wall": 1791417847.1319938,
+  "ts": 146.64,
+  "kind": "person_exit",
+  "data": "{\"track\": 713, \"dwell_s\": 0.6}"
+ },
+ {
+  "wall": 1791417847.155803,
+  "ts": 146.66,
+  "kind": "person_exit",
+  "data": "{\"track\": 625, \"dwell_s\": 17.6}"
+ },
+ {
+  "wall": 1791417847.2493422,
+  "ts": 146.76,
+  "kind": "person_enter",
+  "data": "{\"track\": 735, \"unique\": 653}"
+ },
+ {
+  "wall": 1791417847.2494469,
+  "ts": 146.76,
+  "kind": "person_enter",
+  "data": "{\"track\": 736, \"unique\": 654}"
+ },
+ {
+  "wall": 1791417847.3673484,
+  "ts": 146.88,
+  "kind": "person_exit",
+  "data": "{\"track\": 712, \"dwell_s\": 1.0}"
+ },
+ {
+  "wall": 1791417847.4214735,
+  "ts": 146.93,
+  "kind": "person_enter",
+  "data": "{\"track\": 737, \"unique\": 655}"
+ },
+ {
+  "wall": 1791417847.491103,
+  "ts": 147.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 714, \"dwell_s\": 0.93}"
+ },
+ {
+  "wall": 1791417847.5549598,
+  "ts": 147.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 689, \"dwell_s\": 6.27}"
+ },
+ {
+  "wall": 1791417847.5550485,
+  "ts": 147.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 697, \"dwell_s\": 5.0}"
+ },
+ {
+  "wall": 1791417847.5550723,
+  "ts": 147.06,
+  "kind": "person_exit",
+  "data": "{\"track\": 707, \"dwell_s\": 2.47}"
+ },
+ {
+  "wall": 1791417847.6223948,
+  "ts": 147.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 738, \"unique\": 656}"
+ },
+ {
+  "wall": 1791417847.6224923,
+  "ts": 147.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 709, \"dwell_s\": 1.86}"
+ },
+ {
+  "wall": 1791417847.6225173,
+  "ts": 147.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 717, \"dwell_s\": 0.33}"
+ },
+ {
+  "wall": 1791417847.732176,
+  "ts": 147.24,
+  "kind": "person_enter",
+  "data": "{\"track\": 740, \"unique\": 657}"
+ },
+ {
+  "wall": 1791417847.732269,
+  "ts": 147.24,
+  "kind": "person_exit",
+  "data": "{\"track\": 718, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417848.023305,
+  "ts": 147.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 741, \"unique\": 658}"
+ },
+ {
+  "wall": 1791417848.0233948,
+  "ts": 147.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 743, \"unique\": 659}"
+ },
+ {
+  "wall": 1791417848.0234253,
+  "ts": 147.53,
+  "kind": "person_enter",
+  "data": "{\"track\": 744, \"unique\": 660}"
+ },
+ {
+  "wall": 1791417848.0234728,
+  "ts": 147.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 695, \"dwell_s\": 5.67}"
+ },
+ {
+  "wall": 1791417848.0235026,
+  "ts": 147.53,
+  "kind": "person_exit",
+  "data": "{\"track\": 720, \"dwell_s\": 0.47}"
+ },
+ {
+  "wall": 1791417848.200172,
+  "ts": 147.71,
+  "kind": "person_enter",
+  "data": "{\"track\": 745, \"unique\": 661}"
+ },
+ {
+  "wall": 1791417848.2002642,
+  "ts": 147.71,
+  "kind": "person_enter",
+  "data": "{\"track\": 746, \"unique\": 662}"
+ },
+ {
+  "wall": 1791417848.2242615,
+  "ts": 147.73,
+  "kind": "person_enter",
+  "data": "{\"track\": 747, \"unique\": 663}"
+ },
+ {
+  "wall": 1791417848.357069,
+  "ts": 147.87,
+  "kind": "person_enter",
+  "data": "{\"track\": 748, \"unique\": 664}"
+ },
+ {
+  "wall": 1791417848.3571825,
+  "ts": 147.87,
+  "kind": "person_enter",
+  "data": "{\"track\": 742, \"unique\": 665}"
+ },
+ {
+  "wall": 1791417848.357216,
+  "ts": 147.87,
+  "kind": "person_exit",
+  "data": "{\"track\": 721, \"dwell_s\": 0.8}"
+ },
+ {
+  "wall": 1791417848.4231114,
+  "ts": 147.93,
+  "kind": "person_exit",
+  "data": "{\"track\": 725, \"dwell_s\": 0.4}"
+ },
+ {
+  "wall": 1791417848.489283,
+  "ts": 148.0,
+  "kind": "person_enter",
+  "data": "{\"track\": 749, \"unique\": 666}"
+ },
+ {
+  "wall": 1791417848.4893851,
+  "ts": 148.0,
+  "kind": "person_exit",
+  "data": "{\"track\": 706, \"dwell_s\": 3.43}"
+ },
+ {
+  "wall": 1791417848.6236475,
+  "ts": 148.13,
+  "kind": "person_enter",
+  "data": "{\"track\": 752, \"unique\": 667}"
+ },
+ {
+  "wall": 1791417848.6237466,
+  "ts": 148.13,
+  "kind": "person_exit",
+  "data": "{\"track\": 710, \"dwell_s\": 2.8}"
+ },
+ {
+  "wall": 1791417848.689122,
+  "ts": 148.2,
+  "kind": "person_enter",
+  "data": "{\"track\": 753, \"unique\": 668}"
+ }
+]

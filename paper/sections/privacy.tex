@@ -1,0 +1,16 @@
+\textbf{Privacy and responsible analytics.} The deployed runtime does not identify people and does not infer
+demographic attributes: it stores track boxes, counts, crossings and dwell, and the VLM is instructed not to
+identify anyone. Video frames are processed in memory and not recorded unless an output is configured; events,
+time series, scene reports and chat are deleted after a configurable retention period (72\,h by default), while the
+audit log of configuration changes is kept for accountability. The API requires a token per user with a role, and
+the server binds to the local network by default. The campus case study (Appendix~\ref{app:campus}) is an offline
+research analysis: its gender estimate is inferred from appearance by a probe trained on labels that were
+themselves inferred from appearance, it can misclassify people and does not represent gender identity, it is
+reported only in aggregate, and it is not needed for any crowd-safety function, so it is not part of the deployed
+system. Recording people in public or institutional spaces requires notice and a lawful basis under local rules.
+\textbf{Data provenance.} The adaptation video aa1 is a publicly available pedestrian benchmark video that is
+distributed without an explicit licence; we use it for research only and do not redistribute its frames. The
+held-out video test1 was recorded by the authors on the university campus for this study.
+% AUTHORS: add the provenance of the two campus videos (video_1.mp4, video_2.mp4 = scenes 1 and 2) here.
+Only derived data (boxes, tracks and aggregate metrics) and code are released by default; frames are shared only
+where the video's licence and consent basis allow it.

@@ -1,0 +1,5 @@
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 5.3 GFLOPs
+YOLO26n (fine-tuned) {'full': np.float64(0.412), 'bilinear': np.float64(0.412), 'bicubic': np.float64(0.404), 'area': np.float64(0.411)}
+YOLO26n summary (fused): 120 layers, 2,408,932 parameters, 0 gradients, 5.5 GFLOPs
+YOLO26n (pretrained) {'full': np.float64(0.684), 'bilinear': np.float64(0.684), 'bicubic': np.float64(0.68), 'area': np.float64(0.685)}
+ONNX {'full': np.float64(0.408), 'bilinear': np.float64(0.408), 'bicubic': np.float64(0.4), 'area': np.float64(0.406), 'ffmpeg': np.float64(0.399)}

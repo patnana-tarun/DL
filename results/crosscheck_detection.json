@@ -1,0 +1,497 @@
+[
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (pretrained) | train",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.788,
+   "AP50": 0.9458,
+   "AP75": 0.8996
+  },
+  "pycocotools": {
+   "AP50-95": 0.7879,
+   "AP50": 0.9458,
+   "AP75": 0.8996
+  },
+  "max_abs_diff": 0.00017
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (pretrained) | train",
+  "pass": true,
+  "hungarian_F1": 0.8858,
+  "greedy_F1": 0.8858,
+  "conf": 0.36000000000000004
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (pretrained) | valid",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.7998,
+   "AP50": 0.9512,
+   "AP75": 0.9127
+  },
+  "pycocotools": {
+   "AP50-95": 0.7998,
+   "AP50": 0.9512,
+   "AP75": 0.9127
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (pretrained) | valid",
+  "pass": true,
+  "hungarian_F1": 0.8907,
+  "greedy_F1": 0.8907,
+  "conf": 0.36000000000000004
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (pretrained) | test",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.76,
+   "AP50": 0.9474,
+   "AP75": 0.9011
+  },
+  "pycocotools": {
+   "AP50-95": 0.7599,
+   "AP50": 0.9474,
+   "AP75": 0.9011
+  },
+  "max_abs_diff": 0.0001
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (pretrained) | test",
+  "pass": true,
+  "hungarian_F1": 0.882,
+  "greedy_F1": 0.882,
+  "conf": 0.36000000000000004
+ },
+ {
+  "check": "D3 operating threshold = best valid F1 | YOLO26n (pretrained)",
+  "pass": true,
+  "rederived": 0.36000000000000004,
+  "stored": 0.36000000000000004
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (fine-tuned) | train",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.9198,
+   "AP50": 0.9861,
+   "AP75": 0.9853
+  },
+  "pycocotools": {
+   "AP50-95": 0.9198,
+   "AP50": 0.9861,
+   "AP75": 0.9853
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (fine-tuned) | train",
+  "pass": true,
+  "hungarian_F1": 0.9468,
+  "greedy_F1": 0.9468,
+  "conf": 0.24000000000000002
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (fine-tuned) | valid",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.8542,
+   "AP50": 0.9666,
+   "AP75": 0.9484
+  },
+  "pycocotools": {
+   "AP50-95": 0.8542,
+   "AP50": 0.9666,
+   "AP75": 0.9484
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (fine-tuned) | valid",
+  "pass": true,
+  "hungarian_F1": 0.9128,
+  "greedy_F1": 0.9128,
+  "conf": 0.24000000000000002
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | YOLO26n (fine-tuned) | test",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.8254,
+   "AP50": 0.9633,
+   "AP75": 0.9386
+  },
+  "pycocotools": {
+   "AP50-95": 0.8254,
+   "AP50": 0.9633,
+   "AP75": 0.9386
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | YOLO26n (fine-tuned) | test",
+  "pass": true,
+  "hungarian_F1": 0.8914,
+  "greedy_F1": 0.8908,
+  "conf": 0.24000000000000002
+ },
+ {
+  "check": "D3 operating threshold = best valid F1 | YOLO26n (fine-tuned)",
+  "pass": true,
+  "rederived": 0.24000000000000002,
+  "stored": 0.24000000000000002
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (pretrained) | train",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.5306,
+   "AP50": 0.8172,
+   "AP75": 0.5581
+  },
+  "pycocotools": {
+   "AP50-95": 0.5306,
+   "AP50": 0.8172,
+   "AP75": 0.5581
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (pretrained) | train",
+  "pass": true,
+  "hungarian_F1": 0.7695,
+  "greedy_F1": 0.7691,
+  "conf": 0.31
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (pretrained) | valid",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.5031,
+   "AP50": 0.812,
+   "AP75": 0.5261
+  },
+  "pycocotools": {
+   "AP50-95": 0.5031,
+   "AP50": 0.812,
+   "AP75": 0.5261
+  },
+  "max_abs_diff": 0.0
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (pretrained) | valid",
+  "pass": true,
+  "hungarian_F1": 0.7743,
+  "greedy_F1": 0.7734,
+  "conf": 0.31
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (pretrained) | test",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.3828,
+   "AP50": 0.7046,
+   "AP75": 0.357
+  },
+  "pycocotools": {
+   "AP50-95": 0.3824,
+   "AP50": 0.7046,
+   "AP75": 0.357
+  },
+  "max_abs_diff": 0.00043
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (pretrained) | test",
+  "pass": true,
+  "hungarian_F1": 0.6585,
+  "greedy_F1": 0.6582,
+  "conf": 0.31
+ },
+ {
+  "check": "D3 operating threshold = best valid F1 | RF-DETR Nano (pretrained)",
+  "pass": true,
+  "rederived": 0.31,
+  "stored": 0.31
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (fine-tuned) | train",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.8474,
+   "AP50": 0.9794,
+   "AP75": 0.9456
+  },
+  "pycocotools": {
+   "AP50-95": 0.8473,
+   "AP50": 0.9794,
+   "AP75": 0.9456
+  },
+  "max_abs_diff": 0.00012
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (fine-tuned) | train",
+  "pass": true,
+  "hungarian_F1": 0.9411,
+  "greedy_F1": 0.9411,
+  "conf": 0.46
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (fine-tuned) | valid",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.8016,
+   "AP50": 0.9643,
+   "AP75": 0.9073
+  },
+  "pycocotools": {
+   "AP50-95": 0.8009,
+   "AP50": 0.9643,
+   "AP75": 0.9073
+  },
+  "max_abs_diff": 0.0007
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (fine-tuned) | valid",
+  "pass": true,
+  "hungarian_F1": 0.9041,
+  "greedy_F1": 0.9041,
+  "conf": 0.46
+ },
+ {
+  "check": "D1 AP from scratch vs pycocotools | RF-DETR Nano (fine-tuned) | test",
+  "pass": true,
+  "scratch": {
+   "AP50-95": 0.7265,
+   "AP50": 0.9432,
+   "AP75": 0.8376
+  },
+  "pycocotools": {
+   "AP50-95": 0.7252,
+   "AP50": 0.9432,
+   "AP75": 0.8376
+  },
+  "max_abs_diff": 0.00121
+ },
+ {
+  "check": "D2 F1 Hungarian vs greedy | RF-DETR Nano (fine-tuned) | test",
+  "pass": true,
+  "hungarian_F1": 0.8852,
+  "greedy_F1": 0.8852,
+  "conf": 0.46
+ },
+ {
+  "check": "D3 operating threshold = best valid F1 | RF-DETR Nano (fine-tuned)",
+  "pass": true,
+  "rederived": 0.46,
+  "stored": 0.46
+ },
+ {
+  "check": "D4 Ultralytics val vs our protocol | YOLO26n (fine-tuned) | test",
+  "pass": true,
+  "ultralytics": {
+   "AP50-95": 0.8319,
+   "AP50": 0.9679,
+   "AP75": 0.9485
+  },
+  "ours": {
+   "AP50-95": 0.8254,
+   "AP50": 0.9633,
+   "AP75": 0.9386
+  },
+  "max_abs_diff": 0.0099
+ },
+ {
+  "check": "D5 label counts | train",
+  "pass": true,
+  "coco_boxes": 12024,
+  "yolo_txt_boxes": 12024,
+  "stats_boxes": 12024,
+  "images": 720
+ },
+ {
+  "check": "D5 label counts | valid",
+  "pass": true,
+  "coco_boxes": 3371,
+  "yolo_txt_boxes": 3371,
+  "stats_boxes": 3371,
+  "images": 180
+ },
+ {
+  "check": "D5 label counts | test",
+  "pass": true,
+  "coco_boxes": 3441,
+  "yolo_txt_boxes": 3441,
+  "stats_boxes": 3441,
+  "images": 182
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (pretrained) | AP50-95",
+  "pass": true,
+  "est": 0.7599,
+  "ci": [
+   0.7511554571573473,
+   0.7685589537101853
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (pretrained) | AP50",
+  "pass": true,
+  "est": 0.9474,
+  "ci": [
+   0.9422149294523045,
+   0.9528140211112933
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (pretrained) | F1",
+  "pass": true,
+  "est": 0.882,
+  "ci": [
+   0.873754186602372,
+   0.8898928630538706
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (fine-tuned) | AP50-95",
+  "pass": true,
+  "est": 0.8254,
+  "ci": [
+   0.8178491534929132,
+   0.8337341834397173
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (fine-tuned) | AP50",
+  "pass": true,
+  "est": 0.9633,
+  "ci": [
+   0.9591614991370221,
+   0.967432623464611
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | YOLO26n (fine-tuned) | F1",
+  "pass": true,
+  "est": 0.8908,
+  "ci": [
+   0.8816397417846152,
+   0.9002940984528321
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (pretrained) | AP50-95",
+  "pass": true,
+  "est": 0.3824,
+  "ci": [
+   0.3655088222620481,
+   0.4011403639047171
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (pretrained) | AP50",
+  "pass": true,
+  "est": 0.7046,
+  "ci": [
+   0.6843885868314606,
+   0.7233413941097377
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (pretrained) | F1",
+  "pass": true,
+  "est": 0.6582,
+  "ci": [
+   0.6399566210908322,
+   0.6765411467265723
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (fine-tuned) | AP50-95",
+  "pass": true,
+  "est": 0.7252,
+  "ci": [
+   0.7144574195267683,
+   0.7384969046105008
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (fine-tuned) | AP50",
+  "pass": true,
+  "est": 0.9432,
+  "ci": [
+   0.9368876005173707,
+   0.9496717296067257
+  ]
+ },
+ {
+  "check": "D6 CI contains estimate | RF-DETR Nano (fine-tuned) | F1",
+  "pass": true,
+  "est": 0.8852,
+  "ci": [
+   0.8764044943820225,
+   0.8945471762464435
+  ]
+ },
+ {
+  "check": "D6 significance consistent with CI | YOLO26n (pretrained) vs YOLO26n (fine-tuned)",
+  "pass": true,
+  "delta": -0.0652,
+  "ci": [
+   -0.0709,
+   -0.0598
+  ],
+  "p": 0.0
+ },
+ {
+  "check": "D6 significance consistent with CI | YOLO26n (pretrained) vs RF-DETR Nano (pretrained)",
+  "pass": true,
+  "delta": 0.3772,
+  "ci": [
+   0.3627,
+   0.3917
+  ],
+  "p": 0.0
+ },
+ {
+  "check": "D6 significance consistent with CI | YOLO26n (pretrained) vs RF-DETR Nano (fine-tuned)",
+  "pass": true,
+  "delta": 0.0339,
+  "ci": [
+   0.0258,
+   0.0419
+  ],
+  "p": 0.0
+ },
+ {
+  "check": "D6 significance consistent with CI | YOLO26n (fine-tuned) vs RF-DETR Nano (pretrained)",
+  "pass": true,
+  "delta": 0.4424,
+  "ci": [
+   0.4268,
+   0.4565
+  ],
+  "p": 0.0
+ },
+ {
+  "check": "D6 significance consistent with CI | YOLO26n (fine-tuned) vs RF-DETR Nano (fine-tuned)",
+  "pass": true,
+  "delta": 0.0991,
+  "ci": [
+   0.0915,
+   0.1075
+  ],
+  "p": 0.0
+ },
+ {
+  "check": "D6 significance consistent with CI | RF-DETR Nano (pretrained) vs RF-DETR Nano (fine-tuned)",
+  "pass": true,
+  "delta": -0.3434,
+  "ci": [
+   -0.3544,
+   -0.3306
+  ],
+  "p": 0.0
+ }
+]

@@ -1,0 +1,37 @@
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 5.3 GFLOPs
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-07 23:57:40] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:57:40] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:57:41] [WARNING] rf-detr - Checkpoint has 1 classes but model is configured for 90. Using checkpoint class count (1). Pass num_classes=1 to suppress this warning.
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+detect 0/1798 {'teacher': 38, 'YOLO26n': 27, 'RF-DETR Nano': 56}
+detect 300/1798 {'teacher': 38, 'YOLO26n': 24, 'RF-DETR Nano': 47}
+detect 600/1798 {'teacher': 38, 'YOLO26n': 24, 'RF-DETR Nano': 52}
+detect 900/1798 {'teacher': 25, 'YOLO26n': 22, 'RF-DETR Nano': 39}
+detect 1200/1798 {'teacher': 32, 'YOLO26n': 17, 'RF-DETR Nano': 50}
+detect 1500/1798 {'teacher': 32, 'YOLO26n': 19, 'RF-DETR Nano': 40}
+grid 0/8688
+grid 500/8688
+grid 1000/8688
+grid 1500/8688
+grid 2000/8688
+grid 2500/8688
+grid 3000/8688
+grid 3500/8688
+grid 4000/8688
+grid 4500/8688
+grid 5000/8688
+grid 5500/8688
+grid 6000/8688
+grid 6500/8688
+grid 7000/8688
+grid 7500/8688
+grid 8000/8688
+grid 8500/8688
+YOLO26n {"HOTA": 0.7462962239946526, "DetA": 0.7365420714393205, "AssA": 0.758512947841126, "MOTA": 0.7699135899450118, "MOTP": 0.9235761075263951, "IDF1": 0.805084412262406, "IDSW": 42, "Frag": 289, "MT": 84, "ML": 9, "FP": 1419, "FN": 1468, "pred_IDs": 138, "gt_IDs": 112}
+RF-DETR Nano {"HOTA": 0.7565122875235161, "DetA": 0.7319179009498039, "AssA": 0.7859260467938864, "MOTA": 0.7875098193244304, "MOTP": 0.9125853887345268, "IDF1": 0.8289723783718203, "IDSW": 60, "Frag": 279, "MT": 80, "ML": 12, "FP": 956, "FN": 1689, "pred_IDs": 145, "gt_IDs": 112}

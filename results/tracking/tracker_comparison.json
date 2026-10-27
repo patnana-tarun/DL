@@ -1,0 +1,568 @@
+{
+  "YOLO26n | SORT": {
+    "params": {
+      "min_conf": 0.5,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.6,
+      "lost_track_buffer": 60,
+      "minimum_iou_threshold": 0.2,
+      "minimum_consecutive_frames": 3
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7494939162907018,
+        "DetA": 0.7451872380583419,
+        "AssA": 0.7561843697947713,
+        "MOTA": 0.783974862529458,
+        "MOTP": 0.9242883275088497,
+        "IDF1": 0.8076020834161663,
+        "IDSW": 39,
+        "Frag": 287,
+        "MT": 84,
+        "ML": 8,
+        "FP": 1201,
+        "FN": 1510,
+        "pred_IDs": 119,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6531728025670321,
+        "DetA": 0.7362315421179343,
+        "AssA": 0.5813273238136439,
+        "MOTA": 0.757495663665648,
+        "MOTP": 0.926621789834839,
+        "IDF1": 0.6687866927592955,
+        "IDSW": 84,
+        "Frag": 224,
+        "MT": 42,
+        "ML": 1,
+        "FP": 1583,
+        "FN": 1269,
+        "pred_IDs": 119,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "YOLO26n | ByteTrack": {
+    "params": {
+      "min_conf": 0.3,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.8,
+      "high_conf_det_threshold": 0.5,
+      "lost_track_buffer": 15,
+      "minimum_iou_threshold": 0.2,
+      "minimum_consecutive_frames": 3
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7578070036337629,
+        "DetA": 0.7392154344441415,
+        "AssA": 0.7789427934148215,
+        "MOTA": 0.7785545954438334,
+        "MOTP": 0.9246326845819774,
+        "IDF1": 0.8228649804348703,
+        "IDSW": 34,
+        "Frag": 256,
+        "MT": 82,
+        "ML": 14,
+        "FP": 1057,
+        "FN": 1728,
+        "pred_IDs": 121,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6534963065084878,
+        "DetA": 0.7337568034398828,
+        "AssA": 0.5838930688154838,
+        "MOTA": 0.7578260510448501,
+        "MOTP": 0.9270128076007901,
+        "IDF1": 0.6683770586774808,
+        "IDSW": 80,
+        "Frag": 196,
+        "MT": 43,
+        "ML": 2,
+        "FP": 1402,
+        "FN": 1450,
+        "pred_IDs": 121,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "YOLO26n | OC-SORT": {
+    "params": {
+      "min_conf": 0.5,
+      "nms_iou": 0.6,
+      "high_conf_det_threshold": 0.6,
+      "lost_track_buffer": 30,
+      "minimum_iou_threshold": 0.5,
+      "minimum_consecutive_frames": 1,
+      "direction_consistency_weight": 0.4,
+      "delta_t": 5
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7577635254954672,
+        "DetA": 0.7459980505964157,
+        "AssA": 0.7718702331094248,
+        "MOTA": 0.7871956009426552,
+        "MOTP": 0.9246977143505525,
+        "IDF1": 0.8236613400616765,
+        "IDSW": 40,
+        "Frag": 287,
+        "MT": 82,
+        "ML": 9,
+        "FP": 1089,
+        "FN": 1580,
+        "pred_IDs": 125,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6481492490307142,
+        "DetA": 0.7373692761010101,
+        "AssA": 0.5716823604607729,
+        "MOTA": 0.7614603122160734,
+        "MOTP": 0.9269868999539308,
+        "IDF1": 0.6600673621950218,
+        "IDSW": 86,
+        "Frag": 230,
+        "MT": 41,
+        "ML": 1,
+        "FP": 1467,
+        "FN": 1335,
+        "pred_IDs": 125,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "YOLO26n | C-BIoU": {
+    "params": {
+      "min_conf": 0.3,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.8,
+      "high_conf_det_threshold": 0.4,
+      "lost_track_buffer": 60,
+      "minimum_consecutive_frames": 2,
+      "buffer_ratio_first": 0.2,
+      "buffer_ratio_second": 0.7
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7377046817142364,
+        "DetA": 0.7376465942540761,
+        "AssA": 0.7401335862236987,
+        "MOTA": 0.7791044776119403,
+        "MOTP": 0.9237903829570275,
+        "IDF1": 0.7872076753947631,
+        "IDSW": 27,
+        "Frag": 253,
+        "MT": 82,
+        "ML": 14,
+        "FP": 1170,
+        "FN": 1615,
+        "pred_IDs": 88,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6591835211659294,
+        "DetA": 0.729947629211505,
+        "AssA": 0.5969648176061291,
+        "MOTA": 0.7551003551664326,
+        "MOTP": 0.9261765910213683,
+        "IDF1": 0.6947359790095113,
+        "IDSW": 61,
+        "Frag": 194,
+        "MT": 43,
+        "ML": 2,
+        "FP": 1541,
+        "FN": 1363,
+        "pred_IDs": 88,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "YOLO26n | BoT-SORT": {
+    "params": {
+      "min_conf": 0.5,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.8,
+      "high_conf_det_threshold": 0.6,
+      "lost_track_buffer": 60,
+      "minimum_iou_threshold_first_assoc": 0.2,
+      "minimum_consecutive_frames": 2
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7366290829666748,
+        "DetA": 0.7414453754240625,
+        "AssA": 0.7340678359911835,
+        "MOTA": 0.785388845247447,
+        "MOTP": 0.9251295131350984,
+        "IDF1": 0.7917393597598085,
+        "IDSW": 29,
+        "Frag": 235,
+        "MT": 78,
+        "ML": 14,
+        "FP": 945,
+        "FN": 1758,
+        "pred_IDs": 97,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6558805815857514,
+        "DetA": 0.7399549982984033,
+        "AssA": 0.5831023522541671,
+        "MOTA": 0.7688114314033204,
+        "MOTP": 0.927178543612,
+        "IDF1": 0.6806526806526807,
+        "IDSW": 67,
+        "Frag": 185,
+        "MT": 40,
+        "ML": 2,
+        "FP": 1271,
+        "FN": 1461,
+        "pred_IDs": 97,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "YOLO26n | McByte": {
+    "params": {
+      "min_conf": 0.5,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.7,
+      "high_conf_det_threshold": 0.4,
+      "lost_track_buffer": 60,
+      "minimum_iou_threshold_first_assoc": 0.3,
+      "minimum_consecutive_frames": 3
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7506616809022619,
+        "DetA": 0.741697105073143,
+        "AssA": 0.761873315247162,
+        "MOTA": 0.7846818538884525,
+        "MOTP": 0.924645573931784,
+        "IDF1": 0.8069443887574677,
+        "IDSW": 32,
+        "Frag": 271,
+        "MT": 83,
+        "ML": 10,
+        "FP": 1095,
+        "FN": 1614,
+        "pred_IDs": 111,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6607077511420776,
+        "DetA": 0.7368229295295745,
+        "AssA": 0.5941833979027278,
+        "MOTA": 0.7617906995952755,
+        "MOTP": 0.9267802184537943,
+        "IDF1": 0.6869808372399046,
+        "IDSW": 76,
+        "Frag": 213,
+        "MT": 40,
+        "ML": 1,
+        "FP": 1456,
+        "FN": 1352,
+        "pred_IDs": 111,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | SORT": {
+    "params": {
+      "min_conf": 0.4,
+      "nms_iou": 0.6,
+      "track_activation_threshold": 0.5,
+      "lost_track_buffer": 30,
+      "minimum_iou_threshold": 0.2,
+      "minimum_consecutive_frames": 5
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.734499679865338,
+        "DetA": 0.723921135084386,
+        "AssA": 0.7495054518710068,
+        "MOTA": 0.7747839748625295,
+        "MOTP": 0.910004329000877,
+        "IDF1": 0.7996231895435099,
+        "IDSW": 54,
+        "Frag": 325,
+        "MT": 86,
+        "ML": 9,
+        "FP": 1415,
+        "FN": 1398,
+        "pred_IDs": 135,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6287482788269193,
+        "DetA": 0.7110472757548009,
+        "AssA": 0.5592331720201708,
+        "MOTA": 0.7380854051375237,
+        "MOTP": 0.9133851221682209,
+        "IDF1": 0.645449424639897,
+        "IDSW": 101,
+        "Frag": 237,
+        "MT": 43,
+        "ML": 1,
+        "FP": 1855,
+        "FN": 1215,
+        "pred_IDs": 135,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | ByteTrack": {
+    "params": {
+      "min_conf": 0.4,
+      "nms_iou": 0.6,
+      "track_activation_threshold": 0.7,
+      "high_conf_det_threshold": 0.4,
+      "lost_track_buffer": 30,
+      "minimum_iou_threshold": 0.2,
+      "minimum_consecutive_frames": 1
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7385665004621562,
+        "DetA": 0.7283186829807444,
+        "AssA": 0.7531863757766095,
+        "MOTA": 0.7822466614296937,
+        "MOTP": 0.910653145822905,
+        "IDF1": 0.8037309303612362,
+        "IDSW": 46,
+        "Frag": 302,
+        "MT": 88,
+        "ML": 9,
+        "FP": 1284,
+        "FN": 1442,
+        "pred_IDs": 125,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6326379376572935,
+        "DetA": 0.7175529339625841,
+        "AssA": 0.5610020951891996,
+        "MOTA": 0.7498967539439994,
+        "MOTP": 0.9137559676102289,
+        "IDF1": 0.646784715750233,
+        "IDSW": 93,
+        "Frag": 229,
+        "MT": 41,
+        "ML": 2,
+        "FP": 1700,
+        "FN": 1235,
+        "pred_IDs": 125,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | OC-SORT": {
+    "params": {
+      "min_conf": 0.4,
+      "nms_iou": 0.6,
+      "high_conf_det_threshold": 0.5,
+      "lost_track_buffer": 15,
+      "minimum_iou_threshold": 0.4,
+      "minimum_consecutive_frames": 1,
+      "direction_consistency_weight": 0.4,
+      "delta_t": 5
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7379880713177395,
+        "DetA": 0.7302046756748364,
+        "AssA": 0.7500656998268523,
+        "MOTA": 0.778318931657502,
+        "MOTP": 0.9112932172985979,
+        "IDF1": 0.8015816528272044,
+        "IDSW": 78,
+        "Frag": 326,
+        "MT": 85,
+        "ML": 10,
+        "FP": 1287,
+        "FN": 1457,
+        "pred_IDs": 157,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6286690916908918,
+        "DetA": 0.7177438485128683,
+        "AssA": 0.5539629645966031,
+        "MOTA": 0.7472536549103824,
+        "MOTP": 0.9143616304727071,
+        "IDF1": 0.6328292860907285,
+        "IDSW": 115,
+        "Frag": 254,
+        "MT": 41,
+        "ML": 3,
+        "FP": 1699,
+        "FN": 1246,
+        "pred_IDs": 157,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | C-BIoU": {
+    "params": {
+      "min_conf": 0.5,
+      "nms_iou": 0.6,
+      "track_activation_threshold": 0.6,
+      "high_conf_det_threshold": 0.5,
+      "lost_track_buffer": 15,
+      "minimum_consecutive_frames": 3,
+      "buffer_ratio_first": 0.3,
+      "buffer_ratio_second": 0.5
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7405592909962336,
+        "DetA": 0.7338481480351166,
+        "AssA": 0.7513260006566945,
+        "MOTA": 0.7859387274155538,
+        "MOTP": 0.9120466996276119,
+        "IDF1": 0.8060671722643553,
+        "IDSW": 58,
+        "Frag": 293,
+        "MT": 80,
+        "ML": 11,
+        "FP": 1064,
+        "FN": 1603,
+        "pred_IDs": 129,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6408709628730619,
+        "DetA": 0.7239429728323238,
+        "AssA": 0.5703623633728698,
+        "MOTA": 0.7585694226480548,
+        "MOTP": 0.9149729538612122,
+        "IDF1": 0.6473783850522676,
+        "IDSW": 101,
+        "Frag": 229,
+        "MT": 40,
+        "ML": 3,
+        "FP": 1453,
+        "FN": 1369,
+        "pred_IDs": 129,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | BoT-SORT": {
+    "params": {
+      "min_conf": 0.3,
+      "nms_iou": 0.6,
+      "track_activation_threshold": 0.7,
+      "high_conf_det_threshold": 0.5,
+      "lost_track_buffer": 30,
+      "minimum_iou_threshold_first_assoc": 0.3,
+      "minimum_consecutive_frames": 2
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.7465758476825418,
+        "DetA": 0.7266981242771043,
+        "AssA": 0.7711463276140512,
+        "MOTA": 0.7794186959937156,
+        "MOTP": 0.9108351539044578,
+        "IDF1": 0.8202167207150202,
+        "IDSW": 40,
+        "Frag": 272,
+        "MT": 83,
+        "ML": 9,
+        "FP": 1297,
+        "FN": 1471,
+        "pred_IDs": 125,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.63544955858186,
+        "DetA": 0.7172891701050087,
+        "AssA": 0.5661213466216646,
+        "MOTA": 0.7498141570991989,
+        "MOTP": 0.9137846776710834,
+        "IDF1": 0.6521509954182378,
+        "IDSW": 90,
+        "Frag": 209,
+        "MT": 42,
+        "ML": 2,
+        "FP": 1694,
+        "FN": 1245,
+        "pred_IDs": 125,
+        "gt_IDs": 55
+      }
+    }
+  },
+  "RF-DETR Nano | McByte": {
+    "params": {
+      "min_conf": 0.4,
+      "nms_iou": 0.0,
+      "track_activation_threshold": 0.5,
+      "high_conf_det_threshold": 0.6,
+      "lost_track_buffer": 30,
+      "minimum_iou_threshold_first_assoc": 0.1,
+      "minimum_consecutive_frames": 3
+    },
+    "ByteTrack-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.742917961938165,
+        "DetA": 0.7355440908363118,
+        "AssA": 0.7542427123849085,
+        "MOTA": 0.7910447761194029,
+        "MOTP": 0.9115948581952317,
+        "IDF1": 0.8161158678082739,
+        "IDSW": 40,
+        "Frag": 268,
+        "MT": 83,
+        "ML": 10,
+        "FP": 1077,
+        "FN": 1543,
+        "pred_IDs": 110,
+        "gt_IDs": 112
+      }
+    },
+    "OC-SORT-GT": {
+      "heldout_15-30s": {
+        "HOTA": 0.6432078372173698,
+        "DetA": 0.7260644532989855,
+        "AssA": 0.5727703057597405,
+        "MOTA": 0.7637730238704882,
+        "MOTP": 0.9144000166350588,
+        "IDF1": 0.6582413524270649,
+        "IDSW": 85,
+        "Frag": 208,
+        "MT": 40,
+        "ML": 2,
+        "FP": 1466,
+        "FN": 1309,
+        "pred_IDs": 110,
+        "gt_IDs": 55
+      }
+    }
+  }
+}

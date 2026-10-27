@@ -1,0 +1,9 @@
+/home/shadows/Downloads/MINOR_DL/research/campus/campus_probe.py:62: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  return W.detach().numpy(), float(b)
+uniform {'features': 'dino+colour', 'lambda': 0.001, 'cv_balanced_accuracy': 0.927, 'n_tracks': 155, 'n_pos': 126, 'n_neg': 29, 'cv_by_features': {'dino': 0.885, 'dino+colour': 0.927}} {'video_1': (0.892, '33/37', 'cov 0.881'), 'video_2': (0.771, '27/35', 'cov 0.946'), 'both': (0.833, '60/72', 'cov 0.911')}
+gender {'features': 'dino', 'lambda': 0.001, 'cv_balanced_accuracy': 0.925, 'n_tracks': 159, 'n_pos': 83, 'n_neg': 76, 'cv_by_features': {'dino': 0.925, 'dino+colour': 0.925}} {'video_1': (0.829, '29/35', 'cov 0.795'), 'video_2': (0.778, '28/36', 'cov 0.973'), 'both': (0.803, '57/71', 'cov 0.877')}
+video_1 tracks labelled: 379
+video_2 tracks labelled: 582
+per person uniform {'accuracy': 0.897, 'ci95': [np.float64(0.802), np.float64(0.949)], 'correct': 61, 'answered': 68, 'labelled_people': 73, 'coverage': 0.932}
+per person gender {'accuracy': 0.866, 'ci95': [np.float64(0.764), np.float64(0.928)], 'correct': 58, 'answered': 67, 'labelled_people': 76, 'coverage': 0.882}

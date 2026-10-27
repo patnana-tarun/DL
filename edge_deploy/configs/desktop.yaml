@@ -1,0 +1,29 @@
+# EdgeVision on a desktop / laptop GPU (development and testing).
+# Every key not listed here keeps its default from edgevision/config.py.
+# Paths are relative to the edge_deploy/ folder.
+
+source:
+  uri: rtsp://127.0.0.1:8554/cam1      # started by: python tools/stream_videos.py ../videos/aa1.mp4
+  width: 1280
+  height: 720
+  fps: 0                               # analyse every frame the stream delivers
+
+detector:
+  backend: onnxruntime                 # CPU onnxruntime here; install onnxruntime-gpu for CUDA/TensorRT
+  weights: models/yolo26n_person_736x1280.onnx
+  providers: [tensorrt, cuda, cpu]
+
+vlm:
+  enabled: true
+  endpoint: http://127.0.0.1:8080/v1   # scripts/start_vlm.sh
+  model: qwen3-vl-2b
+  observe_every_s: 60
+
+alerts:
+  - {name: crowding, metric: occupancy, op: ">", value: 20, for_s: 3, cooldown_s: 60}
+
+server:
+  port: 8000
+
+store:
+  path: data/edgevision.db

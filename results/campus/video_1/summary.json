@@ -1,0 +1,49 @@
+{
+ "video": "videos/video_1.mp4",
+ "fps": 52.584504339124834,
+ "frames": 10517,
+ "seconds": 200.0,
+ "detector": "YOLO26x @1280",
+ "tracker": "BoT-SORT + ReID + GMC, then offline stitching",
+ "attribute_model": "linear probes on RF-DETR Large (DINOv2) backbone features + colour histograms, trained on 200 hand-labelled tracks; per person = mean probability over all its crops (see results/campus/validation/probe_scores.json for held-out accuracy)",
+ "raw_track_ids": 431,
+ "tracks_kept": 307,
+ "stitch_links": {
+  "motion": 50,
+  "static": 0
+ },
+ "unique_people": 257,
+ "people_with_attributes": 244,
+ "people_in_frame_mean": 8.5,
+ "people_in_frame_max": 16,
+ "time_in_view_s_median": 3.63,
+ "line_crossings": {
+  "axis": "vertical line x=W/2",
+  "line_px": 960.0,
+  "hysteresis": "0.3 body heights",
+  "left\u2192right": 2,
+  "right\u2192left": 71,
+  "total": 73
+ },
+ "gender": {
+  "female": 78,
+  "male": 143,
+  "unsure": 23
+ },
+ "dress": {
+  "uniform": 191,
+  "unsure": 15,
+  "non_uniform": 38
+ },
+ "dress_by_gender": {
+  "female/uniform": 72,
+  "male/uniform": 100,
+  "male/unsure": 11,
+  "female/non_uniform": 4,
+  "unsure/uniform": 19,
+  "male/non_uniform": 32,
+  "unsure/unsure": 2,
+  "unsure/non_uniform": 2,
+  "female/unsure": 2
+ }
+}

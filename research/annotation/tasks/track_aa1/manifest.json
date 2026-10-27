@@ -1,0 +1,383 @@
+{
+ "task": "track_aa1",
+ "kind": "track",
+ "video": "videos/aa1.mp4",
+ "fps": 5.0,
+ "items": [
+  {
+   "file": "track_aa1__0015015.jpg",
+   "scene": "aa1",
+   "t": 15.015
+  },
+  {
+   "file": "track_aa1__0015215.jpg",
+   "scene": "aa1",
+   "t": 15.215
+  },
+  {
+   "file": "track_aa1__0015415.jpg",
+   "scene": "aa1",
+   "t": 15.415
+  },
+  {
+   "file": "track_aa1__0015616.jpg",
+   "scene": "aa1",
+   "t": 15.616
+  },
+  {
+   "file": "track_aa1__0015816.jpg",
+   "scene": "aa1",
+   "t": 15.816
+  },
+  {
+   "file": "track_aa1__0016016.jpg",
+   "scene": "aa1",
+   "t": 16.016
+  },
+  {
+   "file": "track_aa1__0016216.jpg",
+   "scene": "aa1",
+   "t": 16.216
+  },
+  {
+   "file": "track_aa1__0016416.jpg",
+   "scene": "aa1",
+   "t": 16.416
+  },
+  {
+   "file": "track_aa1__0016617.jpg",
+   "scene": "aa1",
+   "t": 16.617
+  },
+  {
+   "file": "track_aa1__0016800.jpg",
+   "scene": "aa1",
+   "t": 16.8
+  },
+  {
+   "file": "track_aa1__0017000.jpg",
+   "scene": "aa1",
+   "t": 17.0
+  },
+  {
+   "file": "track_aa1__0017201.jpg",
+   "scene": "aa1",
+   "t": 17.201
+  },
+  {
+   "file": "track_aa1__0017401.jpg",
+   "scene": "aa1",
+   "t": 17.401
+  },
+  {
+   "file": "track_aa1__0017601.jpg",
+   "scene": "aa1",
+   "t": 17.601
+  },
+  {
+   "file": "track_aa1__0017801.jpg",
+   "scene": "aa1",
+   "t": 17.801
+  },
+  {
+   "file": "track_aa1__0018001.jpg",
+   "scene": "aa1",
+   "t": 18.001
+  },
+  {
+   "file": "track_aa1__0018202.jpg",
+   "scene": "aa1",
+   "t": 18.202
+  },
+  {
+   "file": "track_aa1__0018402.jpg",
+   "scene": "aa1",
+   "t": 18.402
+  },
+  {
+   "file": "track_aa1__0018602.jpg",
+   "scene": "aa1",
+   "t": 18.602
+  },
+  {
+   "file": "track_aa1__0018802.jpg",
+   "scene": "aa1",
+   "t": 18.802
+  },
+  {
+   "file": "track_aa1__0019002.jpg",
+   "scene": "aa1",
+   "t": 19.002
+  },
+  {
+   "file": "track_aa1__0019203.jpg",
+   "scene": "aa1",
+   "t": 19.203
+  },
+  {
+   "file": "track_aa1__0019403.jpg",
+   "scene": "aa1",
+   "t": 19.403
+  },
+  {
+   "file": "track_aa1__0019603.jpg",
+   "scene": "aa1",
+   "t": 19.603
+  },
+  {
+   "file": "track_aa1__0019803.jpg",
+   "scene": "aa1",
+   "t": 19.803
+  },
+  {
+   "file": "track_aa1__0020003.jpg",
+   "scene": "aa1",
+   "t": 20.003
+  },
+  {
+   "file": "track_aa1__0020204.jpg",
+   "scene": "aa1",
+   "t": 20.204
+  },
+  {
+   "file": "track_aa1__0020404.jpg",
+   "scene": "aa1",
+   "t": 20.404
+  },
+  {
+   "file": "track_aa1__0020604.jpg",
+   "scene": "aa1",
+   "t": 20.604
+  },
+  {
+   "file": "track_aa1__0020804.jpg",
+   "scene": "aa1",
+   "t": 20.804
+  },
+  {
+   "file": "track_aa1__0021004.jpg",
+   "scene": "aa1",
+   "t": 21.004
+  },
+  {
+   "file": "track_aa1__0021205.jpg",
+   "scene": "aa1",
+   "t": 21.205
+  },
+  {
+   "file": "track_aa1__0021405.jpg",
+   "scene": "aa1",
+   "t": 21.405
+  },
+  {
+   "file": "track_aa1__0021605.jpg",
+   "scene": "aa1",
+   "t": 21.605
+  },
+  {
+   "file": "track_aa1__0021805.jpg",
+   "scene": "aa1",
+   "t": 21.805
+  },
+  {
+   "file": "track_aa1__0022005.jpg",
+   "scene": "aa1",
+   "t": 22.005
+  },
+  {
+   "file": "track_aa1__0022206.jpg",
+   "scene": "aa1",
+   "t": 22.206
+  },
+  {
+   "file": "track_aa1__0022406.jpg",
+   "scene": "aa1",
+   "t": 22.406
+  },
+  {
+   "file": "track_aa1__0022606.jpg",
+   "scene": "aa1",
+   "t": 22.606
+  },
+  {
+   "file": "track_aa1__0022806.jpg",
+   "scene": "aa1",
+   "t": 22.806
+  },
+  {
+   "file": "track_aa1__0023006.jpg",
+   "scene": "aa1",
+   "t": 23.006
+  },
+  {
+   "file": "track_aa1__0023207.jpg",
+   "scene": "aa1",
+   "t": 23.207
+  },
+  {
+   "file": "track_aa1__0023407.jpg",
+   "scene": "aa1",
+   "t": 23.407
+  },
+  {
+   "file": "track_aa1__0023607.jpg",
+   "scene": "aa1",
+   "t": 23.607
+  },
+  {
+   "file": "track_aa1__0023807.jpg",
+   "scene": "aa1",
+   "t": 23.807
+  },
+  {
+   "file": "track_aa1__0024007.jpg",
+   "scene": "aa1",
+   "t": 24.007
+  },
+  {
+   "file": "track_aa1__0024208.jpg",
+   "scene": "aa1",
+   "t": 24.208
+  },
+  {
+   "file": "track_aa1__0024408.jpg",
+   "scene": "aa1",
+   "t": 24.408
+  },
+  {
+   "file": "track_aa1__0024608.jpg",
+   "scene": "aa1",
+   "t": 24.608
+  },
+  {
+   "file": "track_aa1__0024808.jpg",
+   "scene": "aa1",
+   "t": 24.808
+  },
+  {
+   "file": "track_aa1__0025008.jpg",
+   "scene": "aa1",
+   "t": 25.008
+  },
+  {
+   "file": "track_aa1__0025209.jpg",
+   "scene": "aa1",
+   "t": 25.209
+  },
+  {
+   "file": "track_aa1__0025409.jpg",
+   "scene": "aa1",
+   "t": 25.409
+  },
+  {
+   "file": "track_aa1__0025609.jpg",
+   "scene": "aa1",
+   "t": 25.609
+  },
+  {
+   "file": "track_aa1__0025809.jpg",
+   "scene": "aa1",
+   "t": 25.809
+  },
+  {
+   "file": "track_aa1__0026009.jpg",
+   "scene": "aa1",
+   "t": 26.009
+  },
+  {
+   "file": "track_aa1__0026210.jpg",
+   "scene": "aa1",
+   "t": 26.21
+  },
+  {
+   "file": "track_aa1__0026410.jpg",
+   "scene": "aa1",
+   "t": 26.41
+  },
+  {
+   "file": "track_aa1__0026610.jpg",
+   "scene": "aa1",
+   "t": 26.61
+  },
+  {
+   "file": "track_aa1__0026810.jpg",
+   "scene": "aa1",
+   "t": 26.81
+  },
+  {
+   "file": "track_aa1__0027010.jpg",
+   "scene": "aa1",
+   "t": 27.01
+  },
+  {
+   "file": "track_aa1__0027211.jpg",
+   "scene": "aa1",
+   "t": 27.211
+  },
+  {
+   "file": "track_aa1__0027411.jpg",
+   "scene": "aa1",
+   "t": 27.411
+  },
+  {
+   "file": "track_aa1__0027611.jpg",
+   "scene": "aa1",
+   "t": 27.611
+  },
+  {
+   "file": "track_aa1__0027811.jpg",
+   "scene": "aa1",
+   "t": 27.811
+  },
+  {
+   "file": "track_aa1__0028011.jpg",
+   "scene": "aa1",
+   "t": 28.011
+  },
+  {
+   "file": "track_aa1__0028212.jpg",
+   "scene": "aa1",
+   "t": 28.212
+  },
+  {
+   "file": "track_aa1__0028412.jpg",
+   "scene": "aa1",
+   "t": 28.412
+  },
+  {
+   "file": "track_aa1__0028612.jpg",
+   "scene": "aa1",
+   "t": 28.612
+  },
+  {
+   "file": "track_aa1__0028812.jpg",
+   "scene": "aa1",
+   "t": 28.812
+  },
+  {
+   "file": "track_aa1__0029012.jpg",
+   "scene": "aa1",
+   "t": 29.012
+  },
+  {
+   "file": "track_aa1__0029213.jpg",
+   "scene": "aa1",
+   "t": 29.213
+  },
+  {
+   "file": "track_aa1__0029413.jpg",
+   "scene": "aa1",
+   "t": 29.413
+  },
+  {
+   "file": "track_aa1__0029613.jpg",
+   "scene": "aa1",
+   "t": 29.613
+  },
+  {
+   "file": "track_aa1__0029813.jpg",
+   "scene": "aa1",
+   "t": 29.813
+  }
+ ]
+}

@@ -1,0 +1,268 @@
+== YOLO26n (pretrained)
+YOLO26n summary (fused): 120 layers, 2,408,932 parameters, 0 gradients, 5.5 GFLOPs
+  AP 0.6839 AP50 0.9145 F1@frozen 0.8395 (thr 0.36) oracle F1 0.8531 (thr 0.28)  LAMR 0.2994  lat 5.0 ms
+== YOLO26n (fine-tuned)
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 5.3 GFLOPs
+  AP 0.4123 AP50 0.6017 F1@frozen 0.6445 (thr 0.24) oracle F1 0.6463 (thr 0.26)  LAMR 0.5966  lat 8.7 ms
+== RF-DETR Nano (pretrained)
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-23 00:13:41] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+[2026-10-23 00:13:41] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 00:13:41] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 00:13:44] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+  AP 0.3715 AP50 0.6693 F1@frozen 0.6374 (thr 0.31) oracle F1 0.6497 (thr 0.38)  LAMR 0.6010  lat 9.4 ms
+== RF-DETR Nano (fine-tuned)
+[2026-10-23 00:14:51] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 00:14:51] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 00:14:52] [WARNING] rf-detr - Checkpoint has 1 classes but model is configured for 90. Using checkpoint class count (1). Pass num_classes=1 to suppress this warning.
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+  AP 0.5349 AP50 0.8198 F1@frozen 0.7674 (thr 0.46) oracle F1 0.7836 (thr 0.33)  LAMR 0.4456  lat 12.9 ms
+{
+ "images": 1191,
+ "boxes": 9828,
+ "period_s": 0.24990000000000023,
+ "block_frames": 40,
+ "people_per_frame_mean": 8.251889168765743,
+ "people_per_frame_max": 16,
+ "frames_without_people": 0,
+ "box_height_px_median": 98.805,
+ "box_height_px_p10_p90": [
+  47.10700000000001,
+  261.259
+ ],
+ "share_small_area_lt_32sq": 0.15598290598290598,
+ "frozen_thresholds_from_aa1_valid": {
+  "YOLO26n (pretrained)": 0.36000000000000004,
+  "YOLO26n (fine-tuned)": 0.24000000000000002,
+  "RF-DETR Nano (pretrained)": 0.31,
+  "RF-DETR Nano (fine-tuned)": 0.46
+ }
+}
+{
+ "YOLO26n (fine-tuned) vs RF-DETR Nano (fine-tuned)": {
+  "AP50-95_block": {
+   "delta": -0.12255253547334022,
+   "CI95": [
+    -0.15661557113193197,
+    -0.08723069341744448
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_block": {
+   "delta": -0.12285422451731287,
+   "CI95": [
+    -0.16138479203031406,
+    -0.0888642417903887
+   ],
+   "p_two_sided": 0.0
+  },
+  "AP50-95_iid": {
+   "delta": -0.12255253547334022,
+   "CI95": [
+    -0.1290915210211623,
+    -0.11458309729831878
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_iid": {
+   "delta": -0.12285422451731287,
+   "CI95": [
+    -0.13189423059456673,
+    -0.11420090266888588
+   ],
+   "p_two_sided": 0.0
+  }
+ },
+ "YOLO26n (fine-tuned) vs YOLO26n (pretrained)": {
+  "AP50-95_block": {
+   "delta": -0.27155408728584784,
+   "CI95": [
+    -0.3114255977251665,
+    -0.23801467681972016
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_block": {
+   "delta": -0.19502320832659548,
+   "CI95": [
+    -0.24681429506849561,
+    -0.15657425094213184
+   ],
+   "p_two_sided": 0.0
+  },
+  "AP50-95_iid": {
+   "delta": -0.27155408728584784,
+   "CI95": [
+    -0.2781440136229692,
+    -0.2637276291123158
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_iid": {
+   "delta": -0.19502320832659548,
+   "CI95": [
+    -0.2051774058201693,
+    -0.18574782950433738
+   ],
+   "p_two_sided": 0.0
+  }
+ },
+ "RF-DETR Nano (fine-tuned) vs RF-DETR Nano (pretrained)": {
+  "AP50-95_block": {
+   "delta": 0.16340545854695415,
+   "CI95": [
+    0.1478418598250341,
+    0.1780990360144745
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_block": {
+   "delta": 0.12991600022301408,
+   "CI95": [
+    0.10880882771422959,
+    0.15042777767877347
+   ],
+   "p_two_sided": 0.0
+  },
+  "AP50-95_iid": {
+   "delta": 0.16340545854695415,
+   "CI95": [
+    0.1580258916319659,
+    0.1692656908950167
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_iid": {
+   "delta": 0.12991600022301408,
+   "CI95": [
+    0.12229209824177463,
+    0.13833249549645632
+   ],
+   "p_two_sided": 0.0
+  }
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano (pretrained)": {
+  "AP50-95_block": {
+   "delta": 0.3124070103594618,
+   "CI95": [
+    0.2878074464817906,
+    0.33769185628423254
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_block": {
+   "delta": 0.2020849840322967,
+   "CI95": [
+    0.17340050058257206,
+    0.23293226573031098
+   ],
+   "p_two_sided": 0.0
+  },
+  "AP50-95_iid": {
+   "delta": 0.3124070103594618,
+   "CI95": [
+    0.3060121455214352,
+    0.3190413909788221
+   ],
+   "p_two_sided": 0.0
+  },
+  "F1_iid": {
+   "delta": 0.2020849840322967,
+   "CI95": [
+    0.19421055159005715,
+    0.21116990367267802
+   ],
+   "p_two_sided": 0.0
+  }
+ }
+}
+{
+ "label_counts": {
+  "fused": 9828,
+  "rfdetr_large": 9150,
+  "yolo26x": 12247
+ },
+ "YOLO26n (pretrained)": {
+  "fused": {
+   "AP50-95": 0.6838954687692191,
+   "AP50": 0.9144971894508382
+  },
+  "rfdetr_large": {
+   "AP50-95": 0.6210886801213468,
+   "AP50": 0.8841712390697675
+  },
+  "yolo26x": {
+   "AP50-95": 0.5936351647691963,
+   "AP50": 0.8468542324274799
+  }
+ },
+ "YOLO26n (fine-tuned)": {
+  "fused": {
+   "AP50-95": 0.4123413814833713,
+   "AP50": 0.6017007036630245
+  },
+  "rfdetr_large": {
+   "AP50-95": 0.4050359233074006,
+   "AP50": 0.6158788826482561
+  },
+  "yolo26x": {
+   "AP50-95": 0.3314274034309177,
+   "AP50": 0.49768748511646177
+  }
+ },
+ "RF-DETR Nano (pretrained)": {
+  "fused": {
+   "AP50-95": 0.37148845840975736,
+   "AP50": 0.6693418237339934
+  },
+  "rfdetr_large": {
+   "AP50-95": 0.42081812622885595,
+   "AP50": 0.7398449550425462
+  },
+  "yolo26x": {
+   "AP50-95": 0.29092819409077264,
+   "AP50": 0.5647341955562752
+  }
+ },
+ "RF-DETR Nano (fine-tuned)": {
+  "fused": {
+   "AP50-95": 0.5348939169567115,
+   "AP50": 0.8198319963408524
+  },
+  "rfdetr_large": {
+   "AP50-95": 0.5678525952477478,
+   "AP50": 0.871017462709869
+  },
+  "yolo26x": {
+   "AP50-95": 0.42718396539425085,
+   "AP50": 0.708421943350616
+  }
+ },
+ "teacher rfdetr_large vs labels yolo26x": {
+  "AP50-95": 0.5271955528028751,
+  "AP50": 0.8053137063334741
+ },
+ "teacher yolo26x vs labels rfdetr_large": {
+  "AP50-95": 0.6139963348765081,
+  "AP50": 0.8731192304653852
+ },
+ "teacher rfdetr_large vs labels fused": {
+  "AP50-95": 0.7589712682780037,
+  "AP50": 0.9248959720061612
+ },
+ "teacher yolo26x vs labels fused": {
+  "AP50-95": 0.8469213284859392,
+  "AP50": 0.975769385778366
+ }
+}

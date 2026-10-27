@@ -1,0 +1,39 @@
+# EdgeVision on an NVIDIA Jetson Orin (JetPack 6). See README.md, step 7.
+# Every key not listed here keeps its default from edgevision/config.py.
+# Paths are relative to the edge_deploy/ folder.
+
+source:
+  # Pick ONE camera:
+  uri: /dev/video0                     # USB camera (check with: v4l2-ctl --list-devices)
+  # uri: csi://0                       # CSI ribbon camera (IMX219 / IMX477) via GStreamer nvarguscamerasrc
+  # uri: rtsp://user:pass@192.168.1.64:554/stream1   # IP camera
+  width: 1280
+  height: 720
+  fps: 15                              # analysis rate: plenty for people counting, leaves GPU time for the VLM
+
+detector:
+  backend: onnxruntime                 # onnxruntime-gpu from the Jetson AI Lab index -> TensorRT FP16
+  # Orin Nano 8 GB: 544x960 (fast). Orin NX / AGX: 736x1280 (study resolution, best accuracy on small people).
+  weights: models/yolo26n_person_544x960.onnx
+  providers: [tensorrt, cuda, cpu]     # the first run builds a TensorRT engine (a few minutes), then it is cached
+  fp16: true
+  trt_cache: models/trt_cache
+
+vlm:
+  enabled: true
+  endpoint: http://127.0.0.1:8080/v1   # scripts/start_vlm.sh (llama.cpp, CUDA build from step 4)
+  model: qwen3-vl-2b                   # qwen3-vl-4b on Orin NX 16 GB / AGX Orin (VLM_SIZE=4B scripts/start_vlm.sh)
+  observe_every_s: 120
+  image_max_side: 768                  # fewer image tokens = faster answers on the Orin Nano
+  timeout_s: 240
+
+alerts:
+  - {name: crowding, metric: occupancy, op: ">", value: 20, for_s: 3, cooldown_s: 60}
+
+server:
+  host: 0.0.0.0                        # open http://<jetson-ip>:8000 from any computer on the network
+  port: 8000
+  stream_max_width: 960
+
+store:
+  path: data/edgevision.db

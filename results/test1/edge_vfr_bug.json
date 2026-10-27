@@ -1,0 +1,10 @@
+{
+ "what": "Bug found by the held-out test in edge_deploy/edgevision/stream.py (fixed 2026-10-23): at stride 1 without source.fps, FFmpeg's rawvideo output defaulted to constant frame rate and resampled the variable-frame-rate file to its nominal 60 fps (duplicated frames), and file timestamps were index / mean fps. Fix: -fps_mode passthrough whenever source.fps is 0, and media timestamps from ffprobe PTS (stream.media_ts).",
+ "source_frames": 16970,
+ "frames_delivered_before_fix": 17854,
+ "max_timestamp_error_index_over_mean_fps_s": 12.474624638392896,
+ "hota_736x1280_s1_before_fix": 0.36150155482674345,
+ "hota_736x1280_s1_after_fix": 0.430160204058701,
+ "aa1_edge_eval_unchanged": true,
+ "note": "frames_delivered_before_fix was read from the pre-fix run report (results/test1/edge_runs/736x1280_s1.json) before the re-run overwrote it; the pre-fix log is logs/heldout_edge_before_vfr_fix.log. The aa1 edge table (constant frame rate) was re-run after the fix and is bit-identical."
+}

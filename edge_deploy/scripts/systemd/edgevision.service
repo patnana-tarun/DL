@@ -1,0 +1,25 @@
+# EdgeVision pipeline: camera -> detector -> tracker -> analytics -> UI on :8000 (+ VLM via edgevision-vlm).
+# Template: scripts/install_service.sh replaces @USER@, @DIR@, @CONFIG@ and installs it to
+# /etc/systemd/system/edgevision.service. Logs: journalctl -u edgevision -f
+[Unit]
+Description=EdgeVision camera analytics pipeline
+# Start after the VLM server (Wants: starting this unit also starts the VLM; if the VLM is still loading or
+# down, the pipeline runs anyway and retries the VLM on its next job).
+After=network-online.target nvargus-daemon.service edgevision-vlm.service
+Wants=network-online.target edgevision-vlm.service
+
+[Service]
+Type=simple
+User=@USER@
+SupplementaryGroups=video
+WorkingDirectory=@DIR@
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@DIR@/.venv/bin/python -m edgevision --config @CONFIG@
+Restart=on-failure
+RestartSec=5
+# SIGTERM makes edgevision stop the decoder, the VLM worker and the web server cleanly.
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

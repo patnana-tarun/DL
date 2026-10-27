@@ -1,0 +1,24 @@
+# EdgeVision VLM server: llama.cpp llama-server with Qwen3-VL (OpenAI-compatible API on 127.0.0.1:8080).
+# Template: scripts/install_service.sh replaces @USER@, @DIR@, @VLM_SIZE@, @CTX@ and installs it to
+# /etc/systemd/system/edgevision-vlm.service. Logs: journalctl -u edgevision-vlm -f
+[Unit]
+Description=EdgeVision VLM server (llama.cpp, Qwen3-VL)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+WorkingDirectory=@DIR@
+Environment=VLM_SIZE=@VLM_SIZE@
+Environment=CTX=@CTX@
+Environment=PORT=8080
+Environment=HOST=127.0.0.1
+# start_vlm.sh execs llama-server, so systemd supervises llama-server directly.
+ExecStart=@DIR@/scripts/start_vlm.sh
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

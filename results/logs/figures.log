@@ -1,0 +1,11 @@
+wrote results/figures/01_dataset.png
+wrote results/figures/02_pr_f1_curves.png
+wrote results/figures/03_detection_metrics.png
+wrote results/figures/04_size_and_speed.png
+wrote results/figures/06_qualitative_test.png
+wrote results/figures/11_confidence_intervals.png
+wrote results/figures/09_split_generalisation.png
+wrote results/figures/10_latency_variants.png
+wrote results/figures/05_training_curves.png
+wrote results/figures/07_tracking_metrics.png
+wrote results/figures/08_bytetrack_grid.png

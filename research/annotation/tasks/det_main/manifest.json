@@ -1,0 +1,2406 @@
+{
+ "task": "det_main",
+ "kind": "det",
+ "items": [
+  {
+   "file": "aa1__f015313.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015313.jpg",
+   "t": 255.472,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015343.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015343.jpg",
+   "t": 255.973,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015358.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015358.jpg",
+   "t": 256.223,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015373.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015373.jpg",
+   "t": 256.473,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015418.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015418.jpg",
+   "t": 257.224,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015478.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015478.jpg",
+   "t": 258.225,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015523.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015523.jpg",
+   "t": 258.976,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015583.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015583.jpg",
+   "t": 259.977,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015613.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015613.jpg",
+   "t": 260.477,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015628.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015628.jpg",
+   "t": 260.727,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015643.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015643.jpg",
+   "t": 260.978,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015673.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015673.jpg",
+   "t": 261.478,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015688.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015688.jpg",
+   "t": 261.728,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015733.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015733.jpg",
+   "t": 262.479,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015763.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015763.jpg",
+   "t": 262.98,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015778.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015778.jpg",
+   "t": 263.23,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015823.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015823.jpg",
+   "t": 263.981,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015928.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015928.jpg",
+   "t": 265.732,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f015988.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f015988.jpg",
+   "t": 266.733,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016003.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016003.jpg",
+   "t": 266.984,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016048.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016048.jpg",
+   "t": 267.734,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016108.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016108.jpg",
+   "t": 268.735,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016303.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016303.jpg",
+   "t": 271.989,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016318.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016318.jpg",
+   "t": 272.239,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016333.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016333.jpg",
+   "t": 272.489,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016483.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016483.jpg",
+   "t": 274.992,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016498.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016498.jpg",
+   "t": 275.242,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016528.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016528.jpg",
+   "t": 275.742,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f016543.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016543.jpg",
+   "t": 275.993,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016558.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016558.jpg",
+   "t": 276.243,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016588.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016588.jpg",
+   "t": 276.743,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016648.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016648.jpg",
+   "t": 277.744,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016663.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016663.jpg",
+   "t": 277.995,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016678.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016678.jpg",
+   "t": 278.245,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016723.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016723.jpg",
+   "t": 278.996,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016738.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016738.jpg",
+   "t": 279.246,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016753.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016753.jpg",
+   "t": 279.496,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016783.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016783.jpg",
+   "t": 279.997,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016798.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016798.jpg",
+   "t": 280.247,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016828.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016828.jpg",
+   "t": 280.747,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f016963.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f016963.jpg",
+   "t": 283.0,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f017083.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017083.jpg",
+   "t": 285.002,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017113.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017113.jpg",
+   "t": 285.502,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017203.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017203.jpg",
+   "t": 287.004,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "aa1__f017293.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017293.jpg",
+   "t": 288.505,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017323.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017323.jpg",
+   "t": 289.006,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017353.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017353.jpg",
+   "t": 289.506,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017383.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017383.jpg",
+   "t": 290.007,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017413.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017413.jpg",
+   "t": 290.507,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017443.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017443.jpg",
+   "t": 291.008,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017473.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017473.jpg",
+   "t": 291.508,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017653.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017653.jpg",
+   "t": 294.511,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017698.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017698.jpg",
+   "t": 295.262,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017743.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017743.jpg",
+   "t": 296.013,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017803.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017803.jpg",
+   "t": 297.014,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017833.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017833.jpg",
+   "t": 297.514,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017908.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017908.jpg",
+   "t": 298.765,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017923.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017923.jpg",
+   "t": 299.016,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017983.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017983.jpg",
+   "t": 300.017,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "aa1__f017998.jpg",
+   "scene": "aa1",
+   "source": "datasets/coco/test/f017998.jpg",
+   "t": 300.267,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008308.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008308.jpg",
+   "t": 151.011,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008342.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008342.jpg",
+   "t": 151.766,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008353.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008353.jpg",
+   "t": 152.01,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008409.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008409.jpg",
+   "t": 153.254,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008477.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008477.jpg",
+   "t": 154.764,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008499.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008499.jpg",
+   "t": 155.253,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008533.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008533.jpg",
+   "t": 156.008,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008556.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008556.jpg",
+   "t": 156.519,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008567.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008567.jpg",
+   "t": 156.763,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008589.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008589.jpg",
+   "t": 157.251,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008646.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008646.jpg",
+   "t": 158.518,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008657.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008657.jpg",
+   "t": 158.762,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008679.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008679.jpg",
+   "t": 159.25,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008736.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008736.jpg",
+   "t": 160.516,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008770.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008770.jpg",
+   "t": 161.272,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008781.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008781.jpg",
+   "t": 161.516,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008792.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008792.jpg",
+   "t": 161.76,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f008882.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008882.jpg",
+   "t": 163.758,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008927.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008927.jpg",
+   "t": 164.758,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008938.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008938.jpg",
+   "t": 165.003,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008950.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008950.jpg",
+   "t": 165.269,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f008972.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f008972.jpg",
+   "t": 165.758,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009040.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009040.jpg",
+   "t": 167.267,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009051.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009051.jpg",
+   "t": 167.511,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009231.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009231.jpg",
+   "t": 171.509,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009310.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009310.jpg",
+   "t": 173.264,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009366.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009366.jpg",
+   "t": 174.508,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009467.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009467.jpg",
+   "t": 176.751,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009479.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009479.jpg",
+   "t": 177.018,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009490.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009490.jpg",
+   "t": 177.262,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009501.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009501.jpg",
+   "t": 177.506,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009569.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009569.jpg",
+   "t": 179.015,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009580.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009580.jpg",
+   "t": 179.259,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009614.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009614.jpg",
+   "t": 180.014,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009625.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009625.jpg",
+   "t": 180.259,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009693.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009693.jpg",
+   "t": 181.77,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009760.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009760.jpg",
+   "t": 183.257,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009771.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009771.jpg",
+   "t": 183.502,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009794.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009794.jpg",
+   "t": 184.012,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009805.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009805.jpg",
+   "t": 184.257,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009816.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009816.jpg",
+   "t": 184.501,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009873.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009873.jpg",
+   "t": 185.767,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009895.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009895.jpg",
+   "t": 186.256,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f009940.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009940.jpg",
+   "t": 187.256,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f009974.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f009974.jpg",
+   "t": 188.011,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010042.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010042.jpg",
+   "t": 189.522,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010053.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010053.jpg",
+   "t": 189.766,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010064.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010064.jpg",
+   "t": 190.01,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010177.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010177.jpg",
+   "t": 192.52,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010210.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010210.jpg",
+   "t": 193.253,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010222.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010222.jpg",
+   "t": 193.519,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010255.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010255.jpg",
+   "t": 194.252,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f010300.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010300.jpg",
+   "t": 195.251,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010390.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010390.jpg",
+   "t": 197.25,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010402.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010402.jpg",
+   "t": 197.517,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010413.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010413.jpg",
+   "t": 197.761,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v1__f010436.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010436.jpg",
+   "t": 198.272,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f010469.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010469.jpg",
+   "t": 199.004,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f010492.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010492.jpg",
+   "t": 199.516,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v1__f010503.jpg",
+   "scene": "scene_v1",
+   "source": "datasets/scene_v1/splits/test/f010503.jpg",
+   "t": 199.76,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007518.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007518.jpg",
+   "t": 150.507,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007552.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007552.jpg",
+   "t": 151.262,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007597.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007597.jpg",
+   "t": 152.262,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007642.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007642.jpg",
+   "t": 153.261,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007665.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007665.jpg",
+   "t": 153.772,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007687.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007687.jpg",
+   "t": 154.26,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007732.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007732.jpg",
+   "t": 155.26,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007743.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007743.jpg",
+   "t": 155.504,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007755.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007755.jpg",
+   "t": 155.771,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007766.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007766.jpg",
+   "t": 156.015,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f007777.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007777.jpg",
+   "t": 156.259,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007788.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007788.jpg",
+   "t": 156.504,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007800.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007800.jpg",
+   "t": 156.77,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f007856.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f007856.jpg",
+   "t": 158.014,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008013.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008013.jpg",
+   "t": 161.501,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008025.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008025.jpg",
+   "t": 161.767,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008047.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008047.jpg",
+   "t": 162.256,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008070.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008070.jpg",
+   "t": 162.767,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008081.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008081.jpg",
+   "t": 163.011,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008104.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008104.jpg",
+   "t": 163.522,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008227.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008227.jpg",
+   "t": 166.253,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008239.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008239.jpg",
+   "t": 166.52,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008250.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008250.jpg",
+   "t": 166.764,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008295.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008295.jpg",
+   "t": 167.764,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008306.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008306.jpg",
+   "t": 168.008,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008351.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008351.jpg",
+   "t": 169.007,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008362.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008362.jpg",
+   "t": 169.252,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008407.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008407.jpg",
+   "t": 170.251,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008430.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008430.jpg",
+   "t": 170.762,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008475.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008475.jpg",
+   "t": 171.761,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008520.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008520.jpg",
+   "t": 172.761,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008621.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008621.jpg",
+   "t": 175.004,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008644.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008644.jpg",
+   "t": 175.515,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008666.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008666.jpg",
+   "t": 176.003,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008734.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008734.jpg",
+   "t": 177.513,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008779.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008779.jpg",
+   "t": 178.513,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008801.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008801.jpg",
+   "t": 179.001,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008880.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008880.jpg",
+   "t": 180.755,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008892.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008892.jpg",
+   "t": 181.022,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f008948.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008948.jpg",
+   "t": 182.266,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008959.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008959.jpg",
+   "t": 182.51,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f008993.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f008993.jpg",
+   "t": 183.265,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009004.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009004.jpg",
+   "t": 183.509,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009038.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009038.jpg",
+   "t": 184.265,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009072.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009072.jpg",
+   "t": 185.02,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009117.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009117.jpg",
+   "t": 186.019,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009128.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009128.jpg",
+   "t": 186.264,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009139.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009139.jpg",
+   "t": 186.508,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009173.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009173.jpg",
+   "t": 187.263,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009229.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009229.jpg",
+   "t": 188.507,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009274.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009274.jpg",
+   "t": 189.506,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009387.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009387.jpg",
+   "t": 192.016,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009454.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009454.jpg",
+   "t": 193.504,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009466.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009466.jpg",
+   "t": 193.77,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009533.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009533.jpg",
+   "t": 195.258,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009556.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009556.jpg",
+   "t": 195.769,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009567.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009567.jpg",
+   "t": 196.014,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009601.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009601.jpg",
+   "t": 196.769,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "scene_v2__f009657.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009657.jpg",
+   "t": 198.012,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "scene_v2__f009736.jpg",
+   "scene": "scene_v2",
+   "source": "datasets/scene_v2/splits/test/f009736.jpg",
+   "t": 199.767,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f000031.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f000031.jpg",
+   "t": 0.516,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f000121.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f000121.jpg",
+   "t": 2.016,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f000751.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f000751.jpg",
+   "t": 12.514,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f001246.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f001246.jpg",
+   "t": 20.762,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f001291.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f001291.jpg",
+   "t": 21.512,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f001471.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f001471.jpg",
+   "t": 24.511,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f001741.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f001741.jpg",
+   "t": 29.01,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f002536.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f002536.jpg",
+   "t": 42.257,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f002611.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f002611.jpg",
+   "t": 43.507,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f002641.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f002641.jpg",
+   "t": 44.007,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f003046.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f003046.jpg",
+   "t": 50.755,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f003661.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f003661.jpg",
+   "t": 61.003,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f003961.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f003961.jpg",
+   "t": 66.002,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f004186.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f004186.jpg",
+   "t": 69.751,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f004532.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f004532.jpg",
+   "t": 75.516,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f004607.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f004607.jpg",
+   "t": 76.766,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f004742.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f004742.jpg",
+   "t": 79.016,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f004967.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f004967.jpg",
+   "t": 82.765,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f005447.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f005447.jpg",
+   "t": 90.763,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f005507.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f005507.jpg",
+   "t": 91.763,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f006002.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f006002.jpg",
+   "t": 100.011,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f006557.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f006557.jpg",
+   "t": 109.259,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f007127.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f007127.jpg",
+   "t": 118.757,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f007487.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f007487.jpg",
+   "t": 124.755,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f007652.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f007652.jpg",
+   "t": 127.505,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f007892.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f007892.jpg",
+   "t": 131.504,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f008042.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f008042.jpg",
+   "t": 134.003,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f008237.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f008237.jpg",
+   "t": 137.252,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f008252.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f008252.jpg",
+   "t": 137.502,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f008747.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f008747.jpg",
+   "t": 145.751,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f009243.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f009243.jpg",
+   "t": 154.015,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f009483.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f009483.jpg",
+   "t": 158.014,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f009588.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f009588.jpg",
+   "t": 159.764,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f010053.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f010053.jpg",
+   "t": 167.512,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f010533.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f010533.jpg",
+   "t": 175.511,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f010773.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f010773.jpg",
+   "t": 179.51,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f010908.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f010908.jpg",
+   "t": 181.759,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f011073.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f011073.jpg",
+   "t": 184.508,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f011628.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f011628.jpg",
+   "t": 193.756,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f012048.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f012048.jpg",
+   "t": 200.755,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f012123.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f012123.jpg",
+   "t": 202.005,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f012438.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f012438.jpg",
+   "t": 207.253,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f012633.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f012633.jpg",
+   "t": 210.503,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f013534.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f013534.jpg",
+   "t": 225.516,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f014333.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f014333.jpg",
+   "t": 239.013,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f014727.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f014727.jpg",
+   "t": 247.763,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f014749.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f014749.jpg",
+   "t": 248.252,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f015155.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f015155.jpg",
+   "t": 257.269,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f015369.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f015369.jpg",
+   "t": 262.021,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f015526.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f015526.jpg",
+   "t": 265.508,
+   "stratum": {
+    "density_tercile": 0,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f015774.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f015774.jpg",
+   "t": 271.016,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f015898.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f015898.jpg",
+   "t": 273.77,
+   "stratum": {
+    "density_tercile": 1,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f016066.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016066.jpg",
+   "t": 277.501,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f016123.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016123.jpg",
+   "t": 278.767,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 0
+   }
+  },
+  {
+   "file": "test1__f016303.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016303.jpg",
+   "t": 282.765,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f016325.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016325.jpg",
+   "t": 283.253,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f016415.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016415.jpg",
+   "t": 285.252,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f016539.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016539.jpg",
+   "t": 288.006,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f016573.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016573.jpg",
+   "t": 288.761,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  },
+  {
+   "file": "test1__f016933.jpg",
+   "scene": "test1",
+   "source": "datasets/test1/coco/test/f016933.jpg",
+   "t": 296.757,
+   "stratum": {
+    "density_tercile": 2,
+    "bright": 1
+   }
+  }
+ ]
+}

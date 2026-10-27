@@ -1,0 +1,758 @@
+{
+ "task": "track_test1",
+ "kind": "track",
+ "video": "videos/test1.mp4",
+ "fps": 5.0,
+ "items": [
+  {
+   "file": "track_test1__0060003.jpg",
+   "scene": "test1",
+   "t": 60.003
+  },
+  {
+   "file": "track_test1__0060203.jpg",
+   "scene": "test1",
+   "t": 60.203
+  },
+  {
+   "file": "track_test1__0060403.jpg",
+   "scene": "test1",
+   "t": 60.403
+  },
+  {
+   "file": "track_test1__0060603.jpg",
+   "scene": "test1",
+   "t": 60.603
+  },
+  {
+   "file": "track_test1__0060803.jpg",
+   "scene": "test1",
+   "t": 60.803
+  },
+  {
+   "file": "track_test1__0061003.jpg",
+   "scene": "test1",
+   "t": 61.003
+  },
+  {
+   "file": "track_test1__0061203.jpg",
+   "scene": "test1",
+   "t": 61.203
+  },
+  {
+   "file": "track_test1__0061403.jpg",
+   "scene": "test1",
+   "t": 61.403
+  },
+  {
+   "file": "track_test1__0061603.jpg",
+   "scene": "test1",
+   "t": 61.603
+  },
+  {
+   "file": "track_test1__0061803.jpg",
+   "scene": "test1",
+   "t": 61.803
+  },
+  {
+   "file": "track_test1__0062003.jpg",
+   "scene": "test1",
+   "t": 62.003
+  },
+  {
+   "file": "track_test1__0062203.jpg",
+   "scene": "test1",
+   "t": 62.203
+  },
+  {
+   "file": "track_test1__0062403.jpg",
+   "scene": "test1",
+   "t": 62.403
+  },
+  {
+   "file": "track_test1__0062603.jpg",
+   "scene": "test1",
+   "t": 62.603
+  },
+  {
+   "file": "track_test1__0062803.jpg",
+   "scene": "test1",
+   "t": 62.803
+  },
+  {
+   "file": "track_test1__0063003.jpg",
+   "scene": "test1",
+   "t": 63.003
+  },
+  {
+   "file": "track_test1__0063202.jpg",
+   "scene": "test1",
+   "t": 63.202
+  },
+  {
+   "file": "track_test1__0063402.jpg",
+   "scene": "test1",
+   "t": 63.402
+  },
+  {
+   "file": "track_test1__0063602.jpg",
+   "scene": "test1",
+   "t": 63.602
+  },
+  {
+   "file": "track_test1__0063802.jpg",
+   "scene": "test1",
+   "t": 63.802
+  },
+  {
+   "file": "track_test1__0064002.jpg",
+   "scene": "test1",
+   "t": 64.002
+  },
+  {
+   "file": "track_test1__0064202.jpg",
+   "scene": "test1",
+   "t": 64.202
+  },
+  {
+   "file": "track_test1__0064402.jpg",
+   "scene": "test1",
+   "t": 64.402
+  },
+  {
+   "file": "track_test1__0064602.jpg",
+   "scene": "test1",
+   "t": 64.602
+  },
+  {
+   "file": "track_test1__0064802.jpg",
+   "scene": "test1",
+   "t": 64.802
+  },
+  {
+   "file": "track_test1__0065002.jpg",
+   "scene": "test1",
+   "t": 65.002
+  },
+  {
+   "file": "track_test1__0065202.jpg",
+   "scene": "test1",
+   "t": 65.202
+  },
+  {
+   "file": "track_test1__0065402.jpg",
+   "scene": "test1",
+   "t": 65.402
+  },
+  {
+   "file": "track_test1__0065602.jpg",
+   "scene": "test1",
+   "t": 65.602
+  },
+  {
+   "file": "track_test1__0065802.jpg",
+   "scene": "test1",
+   "t": 65.802
+  },
+  {
+   "file": "track_test1__0066002.jpg",
+   "scene": "test1",
+   "t": 66.002
+  },
+  {
+   "file": "track_test1__0066202.jpg",
+   "scene": "test1",
+   "t": 66.202
+  },
+  {
+   "file": "track_test1__0066402.jpg",
+   "scene": "test1",
+   "t": 66.402
+  },
+  {
+   "file": "track_test1__0066602.jpg",
+   "scene": "test1",
+   "t": 66.602
+  },
+  {
+   "file": "track_test1__0066802.jpg",
+   "scene": "test1",
+   "t": 66.802
+  },
+  {
+   "file": "track_test1__0067002.jpg",
+   "scene": "test1",
+   "t": 67.002
+  },
+  {
+   "file": "track_test1__0067202.jpg",
+   "scene": "test1",
+   "t": 67.202
+  },
+  {
+   "file": "track_test1__0067402.jpg",
+   "scene": "test1",
+   "t": 67.402
+  },
+  {
+   "file": "track_test1__0067601.jpg",
+   "scene": "test1",
+   "t": 67.601
+  },
+  {
+   "file": "track_test1__0067801.jpg",
+   "scene": "test1",
+   "t": 67.801
+  },
+  {
+   "file": "track_test1__0068001.jpg",
+   "scene": "test1",
+   "t": 68.001
+  },
+  {
+   "file": "track_test1__0068201.jpg",
+   "scene": "test1",
+   "t": 68.201
+  },
+  {
+   "file": "track_test1__0068401.jpg",
+   "scene": "test1",
+   "t": 68.401
+  },
+  {
+   "file": "track_test1__0068601.jpg",
+   "scene": "test1",
+   "t": 68.601
+  },
+  {
+   "file": "track_test1__0068801.jpg",
+   "scene": "test1",
+   "t": 68.801
+  },
+  {
+   "file": "track_test1__0069001.jpg",
+   "scene": "test1",
+   "t": 69.001
+  },
+  {
+   "file": "track_test1__0069201.jpg",
+   "scene": "test1",
+   "t": 69.201
+  },
+  {
+   "file": "track_test1__0069401.jpg",
+   "scene": "test1",
+   "t": 69.401
+  },
+  {
+   "file": "track_test1__0069601.jpg",
+   "scene": "test1",
+   "t": 69.601
+  },
+  {
+   "file": "track_test1__0069801.jpg",
+   "scene": "test1",
+   "t": 69.801
+  },
+  {
+   "file": "track_test1__0070001.jpg",
+   "scene": "test1",
+   "t": 70.001
+  },
+  {
+   "file": "track_test1__0070201.jpg",
+   "scene": "test1",
+   "t": 70.201
+  },
+  {
+   "file": "track_test1__0070401.jpg",
+   "scene": "test1",
+   "t": 70.401
+  },
+  {
+   "file": "track_test1__0070601.jpg",
+   "scene": "test1",
+   "t": 70.601
+  },
+  {
+   "file": "track_test1__0070801.jpg",
+   "scene": "test1",
+   "t": 70.801
+  },
+  {
+   "file": "track_test1__0071001.jpg",
+   "scene": "test1",
+   "t": 71.001
+  },
+  {
+   "file": "track_test1__0071201.jpg",
+   "scene": "test1",
+   "t": 71.201
+  },
+  {
+   "file": "track_test1__0071401.jpg",
+   "scene": "test1",
+   "t": 71.401
+  },
+  {
+   "file": "track_test1__0071601.jpg",
+   "scene": "test1",
+   "t": 71.601
+  },
+  {
+   "file": "track_test1__0071801.jpg",
+   "scene": "test1",
+   "t": 71.801
+  },
+  {
+   "file": "track_test1__0072000.jpg",
+   "scene": "test1",
+   "t": 72.0
+  },
+  {
+   "file": "track_test1__0072200.jpg",
+   "scene": "test1",
+   "t": 72.2
+  },
+  {
+   "file": "track_test1__0072400.jpg",
+   "scene": "test1",
+   "t": 72.4
+  },
+  {
+   "file": "track_test1__0072600.jpg",
+   "scene": "test1",
+   "t": 72.6
+  },
+  {
+   "file": "track_test1__0072800.jpg",
+   "scene": "test1",
+   "t": 72.8
+  },
+  {
+   "file": "track_test1__0073000.jpg",
+   "scene": "test1",
+   "t": 73.0
+  },
+  {
+   "file": "track_test1__0073200.jpg",
+   "scene": "test1",
+   "t": 73.2
+  },
+  {
+   "file": "track_test1__0073400.jpg",
+   "scene": "test1",
+   "t": 73.4
+  },
+  {
+   "file": "track_test1__0073600.jpg",
+   "scene": "test1",
+   "t": 73.6
+  },
+  {
+   "file": "track_test1__0073800.jpg",
+   "scene": "test1",
+   "t": 73.8
+  },
+  {
+   "file": "track_test1__0074000.jpg",
+   "scene": "test1",
+   "t": 74.0
+  },
+  {
+   "file": "track_test1__0074200.jpg",
+   "scene": "test1",
+   "t": 74.2
+  },
+  {
+   "file": "track_test1__0074417.jpg",
+   "scene": "test1",
+   "t": 74.417
+  },
+  {
+   "file": "track_test1__0074617.jpg",
+   "scene": "test1",
+   "t": 74.617
+  },
+  {
+   "file": "track_test1__0074817.jpg",
+   "scene": "test1",
+   "t": 74.817
+  },
+  {
+   "file": "track_test1__0075016.jpg",
+   "scene": "test1",
+   "t": 75.016
+  },
+  {
+   "file": "track_test1__0075216.jpg",
+   "scene": "test1",
+   "t": 75.216
+  },
+  {
+   "file": "track_test1__0075416.jpg",
+   "scene": "test1",
+   "t": 75.416
+  },
+  {
+   "file": "track_test1__0075616.jpg",
+   "scene": "test1",
+   "t": 75.616
+  },
+  {
+   "file": "track_test1__0075816.jpg",
+   "scene": "test1",
+   "t": 75.816
+  },
+  {
+   "file": "track_test1__0076016.jpg",
+   "scene": "test1",
+   "t": 76.016
+  },
+  {
+   "file": "track_test1__0076216.jpg",
+   "scene": "test1",
+   "t": 76.216
+  },
+  {
+   "file": "track_test1__0076416.jpg",
+   "scene": "test1",
+   "t": 76.416
+  },
+  {
+   "file": "track_test1__0076616.jpg",
+   "scene": "test1",
+   "t": 76.616
+  },
+  {
+   "file": "track_test1__0076816.jpg",
+   "scene": "test1",
+   "t": 76.816
+  },
+  {
+   "file": "track_test1__0077016.jpg",
+   "scene": "test1",
+   "t": 77.016
+  },
+  {
+   "file": "track_test1__0077216.jpg",
+   "scene": "test1",
+   "t": 77.216
+  },
+  {
+   "file": "track_test1__0077416.jpg",
+   "scene": "test1",
+   "t": 77.416
+  },
+  {
+   "file": "track_test1__0077616.jpg",
+   "scene": "test1",
+   "t": 77.616
+  },
+  {
+   "file": "track_test1__0077816.jpg",
+   "scene": "test1",
+   "t": 77.816
+  },
+  {
+   "file": "track_test1__0078016.jpg",
+   "scene": "test1",
+   "t": 78.016
+  },
+  {
+   "file": "track_test1__0078216.jpg",
+   "scene": "test1",
+   "t": 78.216
+  },
+  {
+   "file": "track_test1__0078416.jpg",
+   "scene": "test1",
+   "t": 78.416
+  },
+  {
+   "file": "track_test1__0078616.jpg",
+   "scene": "test1",
+   "t": 78.616
+  },
+  {
+   "file": "track_test1__0078816.jpg",
+   "scene": "test1",
+   "t": 78.816
+  },
+  {
+   "file": "track_test1__0079016.jpg",
+   "scene": "test1",
+   "t": 79.016
+  },
+  {
+   "file": "track_test1__0079216.jpg",
+   "scene": "test1",
+   "t": 79.216
+  },
+  {
+   "file": "track_test1__0079416.jpg",
+   "scene": "test1",
+   "t": 79.416
+  },
+  {
+   "file": "track_test1__0079615.jpg",
+   "scene": "test1",
+   "t": 79.615
+  },
+  {
+   "file": "track_test1__0079815.jpg",
+   "scene": "test1",
+   "t": 79.815
+  },
+  {
+   "file": "track_test1__0080015.jpg",
+   "scene": "test1",
+   "t": 80.015
+  },
+  {
+   "file": "track_test1__0080215.jpg",
+   "scene": "test1",
+   "t": 80.215
+  },
+  {
+   "file": "track_test1__0080415.jpg",
+   "scene": "test1",
+   "t": 80.415
+  },
+  {
+   "file": "track_test1__0080615.jpg",
+   "scene": "test1",
+   "t": 80.615
+  },
+  {
+   "file": "track_test1__0080815.jpg",
+   "scene": "test1",
+   "t": 80.815
+  },
+  {
+   "file": "track_test1__0081015.jpg",
+   "scene": "test1",
+   "t": 81.015
+  },
+  {
+   "file": "track_test1__0081215.jpg",
+   "scene": "test1",
+   "t": 81.215
+  },
+  {
+   "file": "track_test1__0081415.jpg",
+   "scene": "test1",
+   "t": 81.415
+  },
+  {
+   "file": "track_test1__0081615.jpg",
+   "scene": "test1",
+   "t": 81.615
+  },
+  {
+   "file": "track_test1__0081815.jpg",
+   "scene": "test1",
+   "t": 81.815
+  },
+  {
+   "file": "track_test1__0082015.jpg",
+   "scene": "test1",
+   "t": 82.015
+  },
+  {
+   "file": "track_test1__0082215.jpg",
+   "scene": "test1",
+   "t": 82.215
+  },
+  {
+   "file": "track_test1__0082415.jpg",
+   "scene": "test1",
+   "t": 82.415
+  },
+  {
+   "file": "track_test1__0082615.jpg",
+   "scene": "test1",
+   "t": 82.615
+  },
+  {
+   "file": "track_test1__0082815.jpg",
+   "scene": "test1",
+   "t": 82.815
+  },
+  {
+   "file": "track_test1__0083015.jpg",
+   "scene": "test1",
+   "t": 83.015
+  },
+  {
+   "file": "track_test1__0083215.jpg",
+   "scene": "test1",
+   "t": 83.215
+  },
+  {
+   "file": "track_test1__0083415.jpg",
+   "scene": "test1",
+   "t": 83.415
+  },
+  {
+   "file": "track_test1__0083615.jpg",
+   "scene": "test1",
+   "t": 83.615
+  },
+  {
+   "file": "track_test1__0083815.jpg",
+   "scene": "test1",
+   "t": 83.815
+  },
+  {
+   "file": "track_test1__0084014.jpg",
+   "scene": "test1",
+   "t": 84.014
+  },
+  {
+   "file": "track_test1__0084214.jpg",
+   "scene": "test1",
+   "t": 84.214
+  },
+  {
+   "file": "track_test1__0084414.jpg",
+   "scene": "test1",
+   "t": 84.414
+  },
+  {
+   "file": "track_test1__0084614.jpg",
+   "scene": "test1",
+   "t": 84.614
+  },
+  {
+   "file": "track_test1__0084814.jpg",
+   "scene": "test1",
+   "t": 84.814
+  },
+  {
+   "file": "track_test1__0085014.jpg",
+   "scene": "test1",
+   "t": 85.014
+  },
+  {
+   "file": "track_test1__0085214.jpg",
+   "scene": "test1",
+   "t": 85.214
+  },
+  {
+   "file": "track_test1__0085414.jpg",
+   "scene": "test1",
+   "t": 85.414
+  },
+  {
+   "file": "track_test1__0085614.jpg",
+   "scene": "test1",
+   "t": 85.614
+  },
+  {
+   "file": "track_test1__0085814.jpg",
+   "scene": "test1",
+   "t": 85.814
+  },
+  {
+   "file": "track_test1__0086014.jpg",
+   "scene": "test1",
+   "t": 86.014
+  },
+  {
+   "file": "track_test1__0086214.jpg",
+   "scene": "test1",
+   "t": 86.214
+  },
+  {
+   "file": "track_test1__0086414.jpg",
+   "scene": "test1",
+   "t": 86.414
+  },
+  {
+   "file": "track_test1__0086614.jpg",
+   "scene": "test1",
+   "t": 86.614
+  },
+  {
+   "file": "track_test1__0086814.jpg",
+   "scene": "test1",
+   "t": 86.814
+  },
+  {
+   "file": "track_test1__0087014.jpg",
+   "scene": "test1",
+   "t": 87.014
+  },
+  {
+   "file": "track_test1__0087214.jpg",
+   "scene": "test1",
+   "t": 87.214
+  },
+  {
+   "file": "track_test1__0087414.jpg",
+   "scene": "test1",
+   "t": 87.414
+  },
+  {
+   "file": "track_test1__0087614.jpg",
+   "scene": "test1",
+   "t": 87.614
+  },
+  {
+   "file": "track_test1__0087814.jpg",
+   "scene": "test1",
+   "t": 87.814
+  },
+  {
+   "file": "track_test1__0088014.jpg",
+   "scene": "test1",
+   "t": 88.014
+  },
+  {
+   "file": "track_test1__0088214.jpg",
+   "scene": "test1",
+   "t": 88.214
+  },
+  {
+   "file": "track_test1__0088413.jpg",
+   "scene": "test1",
+   "t": 88.413
+  },
+  {
+   "file": "track_test1__0088613.jpg",
+   "scene": "test1",
+   "t": 88.613
+  },
+  {
+   "file": "track_test1__0088813.jpg",
+   "scene": "test1",
+   "t": 88.813
+  },
+  {
+   "file": "track_test1__0089013.jpg",
+   "scene": "test1",
+   "t": 89.013
+  },
+  {
+   "file": "track_test1__0089213.jpg",
+   "scene": "test1",
+   "t": 89.213
+  },
+  {
+   "file": "track_test1__0089413.jpg",
+   "scene": "test1",
+   "t": 89.413
+  },
+  {
+   "file": "track_test1__0089613.jpg",
+   "scene": "test1",
+   "t": 89.613
+  },
+  {
+   "file": "track_test1__0089813.jpg",
+   "scene": "test1",
+   "t": 89.813
+  }
+ ]
+}

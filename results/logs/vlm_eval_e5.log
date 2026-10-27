@@ -1,0 +1,5 @@
+04:52:22 == e5
+04:53:11 E5 blind: {"n_true": 60, "n_false": 60, "sensitivity_confirm_true": 0.4167, "sensitivity_ci95": [0.301, 0.543], "specificity_reject_false": 0.1333, "specificity_ci95": [0.069, 0.242], "balanced_accuracy": 0.275, "median_latency_s": 0.382}
+04:54:23 E5 informed: {"n_true": 60, "n_false": 60, "sensitivity_confirm_true": 1.0, "sensitivity_ci95": [0.94, 1.0], "specificity_reject_false": 0.0, "specificity_ci95": [-0.0, 0.06], "balanced_accuracy": 0.5, "median_latency_s": 0.586}
+04:54:23 wrote results/vlm/e5_verify.json
+04:54:23 == e5 done in 2.0 min

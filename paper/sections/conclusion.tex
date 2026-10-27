@@ -1,0 +1,19 @@
+%=====================================================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+We studied where a pseudo-supervised, VLM-enabled crowd-analytics pipeline fails and redesigned it accordingly.
+Pseudo-label fine-tuning of a compact detector on one camera improved that camera and damaged every other one,
+including human-labelled COCO people; the apparent CNN-over-transformer advantage was an input-size effect; and
+frame-level statistics understated uncertainty by a factor of about \TcAaRatioMin--\TcAaRatioMax. A WiSE blend chosen
+on other cameras' validation data recovered held-out accuracy (\MsSelHo{} vs.\ \MsFtHo{} for the original choice) at
+no cost, and a trusted policy layer raised the rejection of unsafe VLM requests from \SfGrTestRej{} to
+\SfPoTestRej{} without hurting legitimate ones. Independent human ground truth remains open and is prepared (protocol, tool and analysis
+released).
+
+\textbf{Future work.} The most important next step is on-device validation on a Jetson Orin: end-to-end frame
+latency with its tail (p95/p99) and deadline misses, power and energy per frame, thermal drift over long runs, and the
+contention between the detector and the VLM sharing one GPU and 8\,GB of unified memory, measured with TensorRT
+engines over runs of at least ten minutes~\cite{reddi2020mlperf}. Beyond that, the policy layer should be tested
+against adaptive red-teaming, and the scene-shift study extended to more cameras, night scenes and weather. All numbers are
+generated from the result files (\texttt{paper/make\_numbers.py}); \texttt{REPRODUCE.md} maps every table and figure
+to its command, and \texttt{MANIFEST.sha256} pins every input and artifact.

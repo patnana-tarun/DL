@@ -1,0 +1,108 @@
+% IEEE conference paper. Build: bash paper/build.sh  (numbers.tex and figures/ are generated from results/).
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath}
+% tectonic = XeTeX: Times via the TeX Gyre Termes OpenType files (text + math)
+\usepackage{unicode-math}
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmathfont{texgyretermes-math.otf}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{balance}
+\usepackage[hidelinks]{hyperref}
+
+\input{numbers.tex}
+
+% float placement: allow more and larger floats per page (many figures/tables)
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+\setcounter{dbltopnumber}{3}
+
+% notation
+\newcommand{\AP}{AP$_{50:95}$}
+\newcommand{\APf}{AP$_{50}$}
+\newcommand{\APs}{AP$_{75}$}
+\newcommand{\APsm}{AP$_{S}$}
+\newcommand{\yolo}{YOLO26n}
+\newcommand{\rfdetr}{RF-DETR Nano}
+\newcommand{\ci}[2]{\,[#1,\,#2]}
+% include a figure only if make_figures.py produced it
+\newcommand{\figif}[2]{\IfFileExists{figures/#1}{#2}{}}
+
+\begin{document}
+
+
+\title{Supplementary Material:\\ Pseudo-Labels, Scene Shift and Tool-Using VLMs}
+\author{\IEEEauthorblockN{Author Name(s)}}
+\maketitle
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\Roman{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\section{Inference latency variants}
+Every inference variant is timed end to end (BGR frame in, boxes out, batch 1, desktop RTX 4060 Laptop) and
+re-scored, so speed-ups that cost accuracy are visible (PyTorch and TorchScript paths; the edge runtime uses ONNX Runtime~\cite{onnxruntime}).
+\begin{table}[t]
+\centering
+\caption{Inference variants on the \ImgsTest{} test frames ($1280{\times}720$, RTX 4060 Laptop, batch 1, pre- and
+post-processing included). Median / p90 latency in ms and test \AP{} of each variant.}
+\label{tab:lat}
+\footnotesize
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular}{lccc}
+\toprule
+Variant & Median & p90 & \AP{} \\
+\midrule
+\multicolumn{4}{l}{\emph{\yolo{}}} \\
+\quad Ultralytics predict FP32 (stock) & \LatYoloBase & \LatPnYoloBase & \LatApYoloBase \\
+\quad Ultralytics predict FP16 & \LatYoloHalf & \LatPnYoloHalf & \LatApYoloHalf \\
+\quad NMS-free head FP16 & \LatYoloNmsFree & \LatPnYoloNmsFree & \LatApYoloNmsFree \\
+\quad NMS-free + GPU pre-proc + fused FP16 & \LatYoloNmsFreeFast & \LatPnYoloNmsFreeFast & \LatApYoloNmsFreeFast \\
+\quad \textbf{GPU pre-proc + fused FP16 + GPU NMS} & \textbf{\LatYoloDep} & \LatPnYoloDep & \LatApYoloDep \\
+\multicolumn{4}{l}{\emph{\rfdetr{}}} \\
+\quad predict FP32 (stock) & \LatRfBase & \LatPnRfBase & \LatApRfBase \\
+\quad FP32 + TorchScript & \LatRfTs & \LatPnRfTs & \LatApRfTs \\
+\quad FP16 & \LatRfHalf & \LatPnRfHalf & \LatApRfHalf \\
+\quad FP16 + TorchScript & \LatRfHalfTs & \LatPnRfHalfTs & \LatApRfHalfTs \\
+\quad \textbf{FP16 + TorchScript + GPU pre-proc} & \textbf{\LatRfDep} & \LatPnRfDep & \LatApRfDep \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\figif{fig_latency.pdf}{\includegraphics[width=\columnwidth]{figures/fig_latency.pdf}}
+\caption{Latency vs.\ test \AP{} of the inference variants of Table~\ref{tab:lat} (stars: deployed paths).}
+\label{fig:lat}
+\end{figure}
+
+\figif{fig_qualitative.png}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig_qualitative.png}
+\caption{Test frames: teacher pseudo-GT (left), fine-tuned \yolo{} (centre) and fine-tuned \rfdetr{} (right) at
+their valid-optimal thresholds; titles give the number of boxes.}
+\label{fig:qual}
+\end{figure*}}
+
+\section{Campus case study (offline, teacher detector)}
+\input{sections/exp_campus.tex}
+
+\input{sections/supp_moved.tex}
+\input{sections/supp_revision.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}

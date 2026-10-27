@@ -1,0 +1,262 @@
+{
+ "video": "videos/aa1.mp4",
+ "stream": "RTSP (MediaMTX), real time, analysed at 15 fps",
+ "detector": "YOLO26n fine-tuned (Ultralytics GPU backend on the desktop)",
+ "vlm": "qwen3-vl-2b",
+ "duration_s": 150.3,
+ "pipeline": {
+  "frames": 2203,
+  "wall_s": 150.29,
+  "throughput_fps": 14.66,
+  "source": {
+   "uri": "rtsp://127.0.0.1:59079/cam1",
+   "kind": "network",
+   "live": true,
+   "fps": 15.0,
+   "arrival_fps": 14.9997030118505,
+   "dropped": 23
+  },
+  "detector": {
+   "backend": "ultralytics",
+   "weights": "/home/shadows/Downloads/MINOR_DL/runs/yolo26n/weights/best.pt",
+   "provider": "ultralytics:pt"
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 7.64,
+    "p50": 5.94,
+    "p90": 11.27,
+    "n": 2203
+   },
+   "track_ms": {
+    "mean": 1.0,
+    "p50": 0.99,
+    "p90": 1.12,
+    "n": 2203
+   },
+   "analytics_ms": {
+    "mean": 0.24,
+    "p50": 0.14,
+    "p90": 0.24,
+    "n": 2203
+   },
+   "annotate_ms": {
+    "mean": 0.78,
+    "p50": 0.77,
+    "p90": 0.89,
+    "n": 2203
+   },
+   "loop_ms": {
+    "mean": 13.81,
+    "p50": 12.06,
+    "p90": 17.88,
+    "n": 2203
+   }
+  },
+  "analytics": {
+   "t": 148.32,
+   "unique_people": 668,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 0
+   },
+   "crossing_directions": {
+    "a_to_b": "top to bottom",
+    "b_to_a": "bottom to top"
+   },
+   "dwell_finished_median_s": 1.8,
+   "dwell_finished_p90_s": 9.29
+  }
+ },
+ "tools_expected": {
+  "set_alert": 1,
+  "get_history": 1,
+  "set_counting_line": 1,
+  "remove_alert": 1
+ },
+ "tools_called": {
+  "get_history": 2,
+  "get_recent_events": 1,
+  "set_alert": 1,
+  "set_counting_line": 4,
+  "remove_alert": 1
+ },
+ "alert_fired_and_described": true,
+ "chat_latency_s": {
+  "median": 2.47,
+  "all": [
+   3.06,
+   2.14,
+   2.47,
+   4.76,
+   1.68,
+   1.56
+  ]
+ },
+ "observations": 5,
+ "events_by_kind": {
+  "person_enter": 668,
+  "person_exit": 636,
+  "config": 3,
+  "line_cross": 5,
+  "alert": 1,
+  "alert_context": 1,
+  "loitering": 2
+ },
+ "final_state": {
+  "t": 148.32,
+  "frames": 2203,
+  "occupancy": 13,
+  "crowd_level": "moderate",
+  "unique_people": 668,
+  "crossings": {
+   "a_to_b": 5,
+   "b_to_a": 0
+  },
+  "crossing_directions": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "crossings_last_min": 0,
+  "occupancy_last_1min": {
+   "mean": 15.78,
+   "max": 23
+  },
+  "occupancy_last_5min": {
+   "mean": 16.38,
+   "max": 23
+  },
+  "trend": "falling",
+  "active_tracks": 25,
+  "longest_present": [
+   {
+    "track": 634,
+    "dwell_s": 20.1
+   },
+   {
+    "track": 640,
+    "dwell_s": 19.0
+   },
+   {
+    "track": 678,
+    "dwell_s": 11.5
+   },
+   {
+    "track": 681,
+    "dwell_s": 11.1
+   },
+   {
+    "track": 691,
+    "dwell_s": 9.1
+   }
+  ],
+  "dwell_finished_median_s": 1.8,
+  "dwell_finished_p90_s": 9.29,
+  "mean_speed_px_s": 55.3,
+  "zones": {},
+  "loitering": 0,
+  "line": [
+   [
+    0.0,
+    0.5
+   ],
+   [
+    1.0,
+    0.5
+   ]
+  ],
+  "rules": [],
+  "recent_events": [
+   {
+    "ts": 147.53,
+    "kind": "person_enter",
+    "track": 744,
+    "unique": 660
+   },
+   {
+    "ts": 147.53,
+    "kind": "person_exit",
+    "track": 695,
+    "dwell_s": 5.67
+   },
+   {
+    "ts": 147.53,
+    "kind": "person_exit",
+    "track": 720,
+    "dwell_s": 0.47
+   },
+   {
+    "ts": 147.71,
+    "kind": "person_enter",
+    "track": 745,
+    "unique": 661
+   },
+   {
+    "ts": 147.71,
+    "kind": "person_enter",
+    "track": 746,
+    "unique": 662
+   },
+   {
+    "ts": 147.73,
+    "kind": "person_enter",
+    "track": 747,
+    "unique": 663
+   },
+   {
+    "ts": 147.87,
+    "kind": "person_enter",
+    "track": 748,
+    "unique": 664
+   },
+   {
+    "ts": 147.87,
+    "kind": "person_enter",
+    "track": 742,
+    "unique": 665
+   },
+   {
+    "ts": 147.87,
+    "kind": "person_exit",
+    "track": 721,
+    "dwell_s": 0.8
+   },
+   {
+    "ts": 147.93,
+    "kind": "person_exit",
+    "track": 725,
+    "dwell_s": 0.4
+   },
+   {
+    "ts": 148.0,
+    "kind": "person_enter",
+    "track": 749,
+    "unique": 666
+   },
+   {
+    "ts": 148.0,
+    "kind": "person_exit",
+    "track": 706,
+    "dwell_s": 3.43
+   },
+   {
+    "ts": 148.13,
+    "kind": "person_enter",
+    "track": 752,
+    "unique": 667
+   },
+   {
+    "ts": 148.13,
+    "kind": "person_exit",
+    "track": 710,
+    "dwell_s": 2.8
+   },
+   {
+    "ts": 148.2,
+    "kind": "person_enter",
+    "track": 753,
+    "unique": 668
+   }
+  ]
+ }
+}

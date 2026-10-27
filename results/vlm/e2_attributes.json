@@ -1,0 +1,5425 @@
+{
+ "experiment": "E2 zero-shot attributes vs linear probes",
+ "protocol": "Zero-shot attribute recognition vs the trained linear probes (campus case study).\n      Labels: results/campus/validation/video_{1,2}_labels.tsv (the 100 held-out test tracks; \"?\" = not\n      determinable, excluded). For each labelled test track the 3 best crops (highest score suffix of\n      results/campus/<video>/crops/<track>_<frame>_<score>.jpg) are sent one by one with the closed-\n      vocabulary uniform prompt of research/campus/campus_attributes.py (PROMPT, read from that file),\n      upscaled exactly like campus_attributes.load_image. A track's label = majority vote over the crops\n      ignoring \"unsure\"; a tie or no informative vote -> \"unsure\" (abstain). Scoring is campus_probe.evaluate's:\n      accuracy over answered tracks, Wilson 95% CI, coverage = answered / labelled, per video and both.\n      Probe numbers: results/campus/validation/probe_scores.json (per-track test); per-track probe outputs\n      from results/campus/<video>/attributes.json (checked to reproduce probe_scores.json) for an exact\n      McNemar test on the tracks both methods answered.",
+ "settings": {
+  "labels": [
+   "results/campus/validation/video_1_labels.tsv",
+   "results/campus/validation/video_2_labels.tsv"
+  ],
+  "max_crops_per_track": 3,
+  "crop_choice": "highest score suffix (campus_track crop quality)",
+  "upscale": "campus_attributes.load_image: height >= 448 px, longest side <= 896 px, bicubic",
+  "prompt": "This is a crop of one person from a video of an Indian university campus.\n\nThe student uniform is:\n- men: a plain white or off-white shirt with khaki / beige trousers.\n- women: a sleeveless beige / khaki overcoat (vest) worn over a white or cream kurta, with white or khaki bottoms.\nAnything else (jeans, T-shirts, coloured or printed shirts or kurtas, sarees, other outfits) is not the uniform.\n\nAnswer with only this JSON, choosing each value from the listed options:\n{\"gender\": \"male|female|unsure\",\n \"dress\": \"uniform|non_uniform|unsure\"}\nUse \"unsure\" only if the crop does not show enough.",
+  "system_prompt": null,
+  "temperature": 0.0,
+  "max_tokens": 64,
+  "vote": "majority over crops ignoring unsure; tie or no informative vote -> unsure (abstain)",
+  "probe": "campus_probe.py linear probes (DINOv2 features, mean prob over up to 6 crops, abstain when |p-0.5| < 0.15)",
+  "probe_attributes_json_reproduces_probe_scores": {
+   "gender": true,
+   "dress": true
+  },
+  "server": {
+   "endpoint": "http://127.0.0.1:8080/v1",
+   "model_alias": "qwen3-vl-2b",
+   "server_binary": "edge_deploy/third_party/llama.cpp-vulkan-x64/llama-server",
+   "server_version": [
+    "version: 0.6.0-dev (build 11476, commit 988190680)",
+    "built with GNU 11.4.0 for Linux x86_64"
+   ],
+   "build_info": "b11476-988190680",
+   "model_path_reported": "models/vlm/Qwen3VL-2B-Instruct-Q4_K_M.gguf",
+   "n_ctx": 8192,
+   "total_slots": 4,
+   "n_params": 1720574976,
+   "ftype": "Q4_K - Medium",
+   "launch": "edge_deploy/scripts/start_vlm.sh (-ngl 99 -c 8192 --jinja -fa auto, Vulkan NVIDIA device)",
+   "model_files": [
+    {
+     "file": "edge_deploy/models/vlm/Qwen3VL-2B-Instruct-Q4_K_M.gguf",
+     "bytes": 1107409952,
+     "sha256": "089d75c52f4b7ffc56ba998ffc50aae89fcafc755f9e7208aacca281dca6c2ae"
+    },
+    {
+     "file": "edge_deploy/models/vlm/mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf",
+     "bytes": 445053216,
+     "sha256": "f9a68fabba69c3b81e153367b2c7521030b0fa8bb0de400c9599c8e6725f9c82"
+    }
+   ],
+   "client": "edgevision.vlm.VLMClient (edge_deploy), temperature 0, sequential requests"
+  }
+ },
+ "results": {
+  "gender": {
+   "vlm": {
+    "video_1": {
+     "accuracy": 0.791,
+     "ci95": [
+      0.648,
+      0.886
+     ],
+     "correct": 34,
+     "answered": 43,
+     "labelled": 44,
+     "coverage": 0.977,
+     "accuracy_abstain_as_wrong": 0.773,
+     "balanced_accuracy_answered": 0.775,
+     "majority_class_baseline": 0.5227,
+     "confusion": {
+      "true=male pred=male": 23,
+      "true=female pred=male": 9,
+      "true=female pred=female": 11,
+      "true=female pred=unsure": 1
+     },
+     "errors": [
+      "video_1#77 true=female pred=male",
+      "video_1#85 true=female pred=male",
+      "video_1#126 true=female pred=male",
+      "video_1#191 true=female pred=male",
+      "video_1#196 true=female pred=male",
+      "video_1#282 true=female pred=male",
+      "video_1#289 true=female pred=male",
+      "video_1#399 true=female pred=male",
+      "video_1#440 true=female pred=male"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.784,
+     "ci95": [
+      0.628,
+      0.886
+     ],
+     "correct": 29,
+     "answered": 37,
+     "labelled": 37,
+     "coverage": 1.0,
+     "accuracy_abstain_as_wrong": 0.784,
+     "balanced_accuracy_answered": 0.6667,
+     "majority_class_baseline": 0.6757,
+     "confusion": {
+      "true=female pred=female": 4,
+      "true=male pred=male": 25,
+      "true=female pred=male": 8
+     },
+     "errors": [
+      "video_2#82 true=female pred=male",
+      "video_2#222 true=female pred=male",
+      "video_2#315 true=female pred=male",
+      "video_2#531 true=female pred=male",
+      "video_2#568 true=female pred=male",
+      "video_2#586 true=female pred=male",
+      "video_2#600 true=female pred=male",
+      "video_2#712 true=female pred=male"
+     ]
+    },
+    "both": {
+     "accuracy": 0.787,
+     "ci95": [
+      0.686,
+      0.863
+     ],
+     "correct": 63,
+     "answered": 80,
+     "labelled": 81,
+     "coverage": 0.988,
+     "accuracy_abstain_as_wrong": 0.778,
+     "balanced_accuracy_answered": 0.7344,
+     "majority_class_baseline": 0.5926,
+     "confusion": {
+      "true=male pred=male": 48,
+      "true=female pred=male": 17,
+      "true=female pred=female": 15,
+      "true=female pred=unsure": 1
+     },
+     "errors": [
+      "video_1#77 true=female pred=male",
+      "video_1#85 true=female pred=male",
+      "video_1#126 true=female pred=male",
+      "video_1#191 true=female pred=male",
+      "video_1#196 true=female pred=male",
+      "video_1#282 true=female pred=male",
+      "video_1#289 true=female pred=male",
+      "video_1#399 true=female pred=male",
+      "video_1#440 true=female pred=male",
+      "video_2#82 true=female pred=male",
+      "video_2#222 true=female pred=male",
+      "video_2#315 true=female pred=male",
+      "video_2#531 true=female pred=male",
+      "video_2#568 true=female pred=male",
+      "video_2#586 true=female pred=male",
+      "video_2#600 true=female pred=male",
+      "video_2#712 true=female pred=male"
+     ]
+    }
+   },
+   "probe_stored": {
+    "video_1": {
+     "accuracy": 0.829,
+     "ci95": [
+      0.673,
+      0.919
+     ],
+     "correct": 29,
+     "answered": 35,
+     "labelled": 44,
+     "coverage": 0.795,
+     "errors": [
+      "video_1#1 true=0 p=0.67",
+      "video_1#126 true=1 p=0.06",
+      "video_1#165 true=1 p=0.03",
+      "video_1#362 true=1 p=0.24",
+      "video_1#406 true=1 p=0.05",
+      "video_1#517 true=1 p=0.00"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.778,
+     "ci95": [
+      0.619,
+      0.883
+     ],
+     "correct": 28,
+     "answered": 36,
+     "labelled": 37,
+     "coverage": 0.973,
+     "errors": [
+      "video_2#77 true=0 p=0.83",
+      "video_2#318 true=0 p=0.71",
+      "video_2#557 true=0 p=0.83",
+      "video_2#617 true=0 p=0.97",
+      "video_2#685 true=0 p=0.77",
+      "video_2#768 true=0 p=0.99",
+      "video_2#799 true=0 p=0.99",
+      "video_2#937 true=0 p=0.97"
+     ]
+    },
+    "both": {
+     "accuracy": 0.803,
+     "ci95": [
+      0.696,
+      0.879
+     ],
+     "correct": 57,
+     "answered": 71,
+     "labelled": 81,
+     "coverage": 0.877,
+     "errors": [
+      "video_1#1 true=0 p=0.67",
+      "video_1#126 true=1 p=0.06",
+      "video_1#165 true=1 p=0.03",
+      "video_1#362 true=1 p=0.24",
+      "video_1#406 true=1 p=0.05",
+      "video_1#517 true=1 p=0.00",
+      "video_2#77 true=0 p=0.83",
+      "video_2#318 true=0 p=0.71",
+      "video_2#557 true=0 p=0.83",
+      "video_2#617 true=0 p=0.97",
+      "video_2#685 true=0 p=0.77",
+      "video_2#768 true=0 p=0.99",
+      "video_2#799 true=0 p=0.99",
+      "video_2#937 true=0 p=0.97"
+     ]
+    }
+   },
+   "probe_recomputed_from_attributes_json": {
+    "video_1": {
+     "accuracy": 0.829,
+     "ci95": [
+      0.673,
+      0.919
+     ],
+     "correct": 29,
+     "answered": 35,
+     "labelled": 44,
+     "coverage": 0.795,
+     "accuracy_abstain_as_wrong": 0.659,
+     "balanced_accuracy_answered": 0.7976,
+     "majority_class_baseline": 0.5227,
+     "confusion": {
+      "true=male pred=female": 1,
+      "true=male pred=male": 20,
+      "true=female pred=female": 9,
+      "true=female pred=unsure": 7,
+      "true=female pred=male": 5,
+      "true=male pred=unsure": 2
+     },
+     "errors": [
+      "video_1#1 true=male pred=female",
+      "video_1#126 true=female pred=male",
+      "video_1#165 true=female pred=male",
+      "video_1#362 true=female pred=male",
+      "video_1#406 true=female pred=male",
+      "video_1#517 true=female pred=male"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.778,
+     "ci95": [
+      0.619,
+      0.883
+     ],
+     "correct": 28,
+     "answered": 36,
+     "labelled": 37,
+     "coverage": 0.973,
+     "accuracy_abstain_as_wrong": 0.757,
+     "balanced_accuracy_answered": 0.84,
+     "majority_class_baseline": 0.6757,
+     "confusion": {
+      "true=female pred=female": 11,
+      "true=male pred=female": 8,
+      "true=male pred=male": 17,
+      "true=female pred=unsure": 1
+     },
+     "errors": [
+      "video_2#77 true=male pred=female",
+      "video_2#318 true=male pred=female",
+      "video_2#557 true=male pred=female",
+      "video_2#617 true=male pred=female",
+      "video_2#685 true=male pred=female",
+      "video_2#768 true=male pred=female",
+      "video_2#799 true=male pred=female",
+      "video_2#937 true=male pred=female"
+     ]
+    },
+    "both": {
+     "accuracy": 0.803,
+     "ci95": [
+      0.696,
+      0.879
+     ],
+     "correct": 57,
+     "answered": 71,
+     "labelled": 81,
+     "coverage": 0.877,
+     "accuracy_abstain_as_wrong": 0.704,
+     "balanced_accuracy_answered": 0.8022,
+     "majority_class_baseline": 0.5926,
+     "confusion": {
+      "true=male pred=female": 9,
+      "true=male pred=male": 37,
+      "true=female pred=female": 20,
+      "true=female pred=unsure": 8,
+      "true=female pred=male": 5,
+      "true=male pred=unsure": 2
+     },
+     "errors": [
+      "video_1#1 true=male pred=female",
+      "video_1#126 true=female pred=male",
+      "video_1#165 true=female pred=male",
+      "video_1#362 true=female pred=male",
+      "video_1#406 true=female pred=male",
+      "video_1#517 true=female pred=male",
+      "video_2#77 true=male pred=female",
+      "video_2#318 true=male pred=female",
+      "video_2#557 true=male pred=female",
+      "video_2#617 true=male pred=female",
+      "video_2#685 true=male pred=female",
+      "video_2#768 true=male pred=female",
+      "video_2#799 true=male pred=female",
+      "video_2#937 true=male pred=female"
+     ]
+    }
+   },
+   "mcnemar_both_answered": {
+    "video_1": {
+     "n_both_answered": 34,
+     "probe_accuracy_on_these": 0.8529,
+     "vlm_accuracy_on_these": 0.8529,
+     "probe_right_vlm_wrong": 4,
+     "vlm_right_probe_wrong": 4,
+     "p_exact_two_sided": 1.0
+    },
+    "video_2": {
+     "n_both_answered": 36,
+     "probe_accuracy_on_these": 0.7778,
+     "vlm_accuracy_on_these": 0.8056,
+     "probe_right_vlm_wrong": 7,
+     "vlm_right_probe_wrong": 8,
+     "p_exact_two_sided": 1.0
+    },
+    "both": {
+     "n_both_answered": 70,
+     "probe_accuracy_on_these": 0.8143,
+     "vlm_accuracy_on_these": 0.8286,
+     "probe_right_vlm_wrong": 11,
+     "vlm_right_probe_wrong": 12,
+     "p_exact_two_sided": 1.0
+    }
+   }
+  },
+  "dress": {
+   "vlm": {
+    "video_1": {
+     "accuracy": 0.905,
+     "ci95": [
+      0.779,
+      0.962
+     ],
+     "correct": 38,
+     "answered": 42,
+     "labelled": 42,
+     "coverage": 1.0,
+     "accuracy_abstain_as_wrong": 0.905,
+     "balanced_accuracy_answered": 0.7778,
+     "majority_class_baseline": 0.7857,
+     "confusion": {
+      "true=uniform pred=uniform": 33,
+      "true=non_uniform pred=uniform": 4,
+      "true=non_uniform pred=non_uniform": 5
+     },
+     "errors": [
+      "video_1#55 true=non_uniform pred=uniform",
+      "video_1#247 true=non_uniform pred=uniform",
+      "video_1#271 true=non_uniform pred=uniform",
+      "video_1#517 true=non_uniform pred=uniform"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.757,
+     "ci95": [
+      0.599,
+      0.866
+     ],
+     "correct": 28,
+     "answered": 37,
+     "labelled": 37,
+     "coverage": 1.0,
+     "accuracy_abstain_as_wrong": 0.757,
+     "balanced_accuracy_answered": 0.5,
+     "majority_class_baseline": 0.7568,
+     "confusion": {
+      "true=uniform pred=uniform": 28,
+      "true=non_uniform pred=uniform": 9
+     },
+     "errors": [
+      "video_2#79 true=non_uniform pred=uniform",
+      "video_2#318 true=non_uniform pred=uniform",
+      "video_2#437 true=non_uniform pred=uniform",
+      "video_2#557 true=non_uniform pred=uniform",
+      "video_2#617 true=non_uniform pred=uniform",
+      "video_2#685 true=non_uniform pred=uniform",
+      "video_2#768 true=non_uniform pred=uniform",
+      "video_2#799 true=non_uniform pred=uniform",
+      "video_2#937 true=non_uniform pred=uniform"
+     ]
+    },
+    "both": {
+     "accuracy": 0.835,
+     "ci95": [
+      0.739,
+      0.901
+     ],
+     "correct": 66,
+     "answered": 79,
+     "labelled": 79,
+     "coverage": 1.0,
+     "accuracy_abstain_as_wrong": 0.835,
+     "balanced_accuracy_answered": 0.6389,
+     "majority_class_baseline": 0.7722,
+     "confusion": {
+      "true=uniform pred=uniform": 61,
+      "true=non_uniform pred=uniform": 13,
+      "true=non_uniform pred=non_uniform": 5
+     },
+     "errors": [
+      "video_1#55 true=non_uniform pred=uniform",
+      "video_1#247 true=non_uniform pred=uniform",
+      "video_1#271 true=non_uniform pred=uniform",
+      "video_1#517 true=non_uniform pred=uniform",
+      "video_2#79 true=non_uniform pred=uniform",
+      "video_2#318 true=non_uniform pred=uniform",
+      "video_2#437 true=non_uniform pred=uniform",
+      "video_2#557 true=non_uniform pred=uniform",
+      "video_2#617 true=non_uniform pred=uniform",
+      "video_2#685 true=non_uniform pred=uniform",
+      "video_2#768 true=non_uniform pred=uniform",
+      "video_2#799 true=non_uniform pred=uniform",
+      "video_2#937 true=non_uniform pred=uniform"
+     ]
+    }
+   },
+   "probe_stored": {
+    "video_1": {
+     "accuracy": 0.892,
+     "ci95": [
+      0.753,
+      0.957
+     ],
+     "correct": 33,
+     "answered": 37,
+     "labelled": 42,
+     "coverage": 0.881,
+     "errors": [
+      "video_1#55 true=0 p=0.99",
+      "video_1#271 true=0 p=1.00",
+      "video_1#383 true=0 p=0.84",
+      "video_1#433 true=0 p=0.96"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.771,
+     "ci95": [
+      0.61,
+      0.879
+     ],
+     "correct": 27,
+     "answered": 35,
+     "labelled": 37,
+     "coverage": 0.946,
+     "errors": [
+      "video_2#79 true=0 p=0.90",
+      "video_2#318 true=0 p=1.00",
+      "video_2#557 true=0 p=0.96",
+      "video_2#617 true=0 p=1.00",
+      "video_2#685 true=0 p=1.00",
+      "video_2#768 true=0 p=0.96",
+      "video_2#799 true=0 p=1.00",
+      "video_2#937 true=0 p=0.96"
+     ]
+    },
+    "both": {
+     "accuracy": 0.833,
+     "ci95": [
+      0.731,
+      0.902
+     ],
+     "correct": 60,
+     "answered": 72,
+     "labelled": 79,
+     "coverage": 0.911,
+     "errors": [
+      "video_1#55 true=0 p=0.99",
+      "video_1#271 true=0 p=1.00",
+      "video_1#383 true=0 p=0.84",
+      "video_1#433 true=0 p=0.96",
+      "video_2#79 true=0 p=0.90",
+      "video_2#318 true=0 p=1.00",
+      "video_2#557 true=0 p=0.96",
+      "video_2#617 true=0 p=1.00",
+      "video_2#685 true=0 p=1.00",
+      "video_2#768 true=0 p=0.96",
+      "video_2#799 true=0 p=1.00",
+      "video_2#937 true=0 p=0.96"
+     ]
+    }
+   },
+   "probe_recomputed_from_attributes_json": {
+    "video_1": {
+     "accuracy": 0.892,
+     "ci95": [
+      0.753,
+      0.957
+     ],
+     "correct": 33,
+     "answered": 37,
+     "labelled": 42,
+     "coverage": 0.881,
+     "accuracy_abstain_as_wrong": 0.786,
+     "balanced_accuracy_answered": 0.7778,
+     "majority_class_baseline": 0.7857,
+     "confusion": {
+      "true=uniform pred=uniform": 28,
+      "true=uniform pred=unsure": 5,
+      "true=non_uniform pred=uniform": 4,
+      "true=non_uniform pred=non_uniform": 5
+     },
+     "errors": [
+      "video_1#55 true=non_uniform pred=uniform",
+      "video_1#271 true=non_uniform pred=uniform",
+      "video_1#383 true=non_uniform pred=uniform",
+      "video_1#433 true=non_uniform pred=uniform"
+     ]
+    },
+    "video_2": {
+     "accuracy": 0.771,
+     "ci95": [
+      0.61,
+      0.879
+     ],
+     "correct": 27,
+     "answered": 35,
+     "labelled": 37,
+     "coverage": 0.946,
+     "accuracy_abstain_as_wrong": 0.73,
+     "balanced_accuracy_answered": 0.5,
+     "majority_class_baseline": 0.7568,
+     "confusion": {
+      "true=uniform pred=uniform": 27,
+      "true=non_uniform pred=uniform": 8,
+      "true=uniform pred=unsure": 1,
+      "true=non_uniform pred=unsure": 1
+     },
+     "errors": [
+      "video_2#79 true=non_uniform pred=uniform",
+      "video_2#318 true=non_uniform pred=uniform",
+      "video_2#557 true=non_uniform pred=uniform",
+      "video_2#617 true=non_uniform pred=uniform",
+      "video_2#685 true=non_uniform pred=uniform",
+      "video_2#768 true=non_uniform pred=uniform",
+      "video_2#799 true=non_uniform pred=uniform",
+      "video_2#937 true=non_uniform pred=uniform"
+     ]
+    },
+    "both": {
+     "accuracy": 0.833,
+     "ci95": [
+      0.731,
+      0.902
+     ],
+     "correct": 60,
+     "answered": 72,
+     "labelled": 79,
+     "coverage": 0.911,
+     "accuracy_abstain_as_wrong": 0.759,
+     "balanced_accuracy_answered": 0.6471,
+     "majority_class_baseline": 0.7722,
+     "confusion": {
+      "true=uniform pred=uniform": 55,
+      "true=uniform pred=unsure": 6,
+      "true=non_uniform pred=uniform": 12,
+      "true=non_uniform pred=non_uniform": 5,
+      "true=non_uniform pred=unsure": 1
+     },
+     "errors": [
+      "video_1#55 true=non_uniform pred=uniform",
+      "video_1#271 true=non_uniform pred=uniform",
+      "video_1#383 true=non_uniform pred=uniform",
+      "video_1#433 true=non_uniform pred=uniform",
+      "video_2#79 true=non_uniform pred=uniform",
+      "video_2#318 true=non_uniform pred=uniform",
+      "video_2#557 true=non_uniform pred=uniform",
+      "video_2#617 true=non_uniform pred=uniform",
+      "video_2#685 true=non_uniform pred=uniform",
+      "video_2#768 true=non_uniform pred=uniform",
+      "video_2#799 true=non_uniform pred=uniform",
+      "video_2#937 true=non_uniform pred=uniform"
+     ]
+    }
+   },
+   "mcnemar_both_answered": {
+    "video_1": {
+     "n_both_answered": 37,
+     "probe_accuracy_on_these": 0.8919,
+     "vlm_accuracy_on_these": 0.8919,
+     "probe_right_vlm_wrong": 2,
+     "vlm_right_probe_wrong": 2,
+     "p_exact_two_sided": 1.0
+    },
+    "video_2": {
+     "n_both_answered": 35,
+     "probe_accuracy_on_these": 0.7714,
+     "vlm_accuracy_on_these": 0.7714,
+     "probe_right_vlm_wrong": 0,
+     "vlm_right_probe_wrong": 0,
+     "p_exact_two_sided": 1.0
+    },
+    "both": {
+     "n_both_answered": 72,
+     "probe_accuracy_on_these": 0.8333,
+     "vlm_accuracy_on_these": 0.8333,
+     "probe_right_vlm_wrong": 2,
+     "vlm_right_probe_wrong": 2,
+     "p_exact_two_sided": 1.0
+    }
+   }
+  }
+ },
+ "crop_answer_counts": {
+  "gender": {
+   "male": 202,
+   "female": 44
+  },
+  "dress": {
+   "uniform": 231,
+   "non_uniform": 15
+  }
+ },
+ "crop_valid_json_rate": 1.0,
+ "tracks": [
+  {
+   "video": "video_1",
+   "track": "1",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "?",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "8",
+   "n_crops": 2,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "36",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_1",
+   "track": "55",
+   "n_crops": 3,
+   "label_gender": "?",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "64",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_1",
+   "track": "77",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "78",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "85",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_1",
+   "track": "120",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "122",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "126",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "165",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "non_uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "non_uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "non_uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "180",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "?",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "191",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "196",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_1",
+   "track": "209",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "213",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "218",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "228",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "non_uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "non_uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "247",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "non_uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "267",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "271",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "non_uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "282",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "289",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "293",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "296",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "309",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "311",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "341",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "?",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "362",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "367",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "383",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "non_uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "399",
+   "n_crops": 2,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "406",
+   "n_crops": 2,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "unsure",
+   "vlm_gender_vote_share": 0.5,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "433",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "non_uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "non_uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "440",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "446",
+   "n_crops": 2,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "454",
+   "n_crops": 3,
+   "label_gender": "?",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "463",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_1",
+   "track": "469",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "?",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "477",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "487",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "498",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "500",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "503",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "non_uniform",
+   "vlm_dress_vote_share": 0.667,
+   "probe_dress": "non_uniform"
+  },
+  {
+   "video": "video_1",
+   "track": "517",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "non_uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 0.667,
+   "probe_dress": "non_uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "45",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "77",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "79",
+   "n_crops": 3,
+   "label_gender": "?",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "82",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "86",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "140",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "147",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "222",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "?",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "263",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "297",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "315",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "318",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "344",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "383",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_2",
+   "track": "414",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "437",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "unsure"
+  },
+  {
+   "video": "video_2",
+   "track": "458",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "478",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "526",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "531",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "538",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "557",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "561",
+   "n_crops": 2,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "female",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "568",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "unsure",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "586",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "600",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "605",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "617",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "669",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "679",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "685",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "712",
+   "n_crops": 3,
+   "label_gender": "female",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 0.667,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "768",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "799",
+   "n_crops": 2,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "891",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "914",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "930",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "male",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  },
+  {
+   "video": "video_2",
+   "track": "937",
+   "n_crops": 3,
+   "label_gender": "male",
+   "label_dress": "non_uniform",
+   "vlm_gender": "male",
+   "vlm_gender_vote_share": 1.0,
+   "probe_gender": "female",
+   "vlm_dress": "uniform",
+   "vlm_dress_vote_share": 1.0,
+   "probe_dress": "uniform"
+  }
+ ],
+ "crops": [
+  {
+   "video": "video_1",
+   "track": "1",
+   "crop": "1_231_693.jpg",
+   "sent_size_wh": [
+    556,
+    776
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.344,
+   "prompt_tokens": 567
+  },
+  {
+   "video": "video_1",
+   "track": "1",
+   "crop": "1_204_668.jpg",
+   "sent_size_wh": [
+    445,
+    738
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.284,
+   "prompt_tokens": 481
+  },
+  {
+   "video": "video_1",
+   "track": "1",
+   "crop": "1_78_493.jpg",
+   "sent_size_wh": [
+    309,
+    545
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.225,
+   "prompt_tokens": 329
+  },
+  {
+   "video": "video_1",
+   "track": "8",
+   "crop": "8_33_43.jpg",
+   "sent_size_wh": [
+    151,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "8",
+   "crop": "8_45_19.jpg",
+   "sent_size_wh": [
+    157,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.182,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "36",
+   "crop": "36_789_94.jpg",
+   "sent_size_wh": [
+    126,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.176,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "36",
+   "crop": "36_768_69.jpg",
+   "sent_size_wh": [
+    164,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "36",
+   "crop": "36_801_12.jpg",
+   "sent_size_wh": [
+    103,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.173,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "55",
+   "crop": "55_1641_60.jpg",
+   "sent_size_wh": [
+    200,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "55",
+   "crop": "55_1656_54.jpg",
+   "sent_size_wh": [
+    226,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "55",
+   "crop": "55_1674_36.jpg",
+   "sent_size_wh": [
+    224,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "64",
+   "crop": "64_1923_127.jpg",
+   "sent_size_wh": [
+    167,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "64",
+   "crop": "64_1938_101.jpg",
+   "sent_size_wh": [
+    145,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "64",
+   "crop": "64_1902_93.jpg",
+   "sent_size_wh": [
+    105,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "77",
+   "crop": "77_2790_113.jpg",
+   "sent_size_wh": [
+    160,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "77",
+   "crop": "77_2802_111.jpg",
+   "sent_size_wh": [
+    164,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.187,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "77",
+   "crop": "77_2826_109.jpg",
+   "sent_size_wh": [
+    160,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "78",
+   "crop": "78_3432_145.jpg",
+   "sent_size_wh": [
+    153,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "78",
+   "crop": "78_3456_145.jpg",
+   "sent_size_wh": [
+    162,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "78",
+   "crop": "78_3468_138.jpg",
+   "sent_size_wh": [
+    184,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "85",
+   "crop": "85_2796_96.jpg",
+   "sent_size_wh": [
+    122,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "85",
+   "crop": "85_2763_65.jpg",
+   "sent_size_wh": [
+    149,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "85",
+   "crop": "85_2808_25.jpg",
+   "sent_size_wh": [
+    159,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "120",
+   "crop": "120_3948_131.jpg",
+   "sent_size_wh": [
+    168,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "120",
+   "crop": "120_3960_94.jpg",
+   "sent_size_wh": [
+    173,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "120",
+   "crop": "120_3975_73.jpg",
+   "sent_size_wh": [
+    184,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "122",
+   "crop": "122_4401_190.jpg",
+   "sent_size_wh": [
+    163,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "122",
+   "crop": "122_4359_175.jpg",
+   "sent_size_wh": [
+    171,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "122",
+   "crop": "122_4266_168.jpg",
+   "sent_size_wh": [
+    189,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "126",
+   "crop": "126_4251_48.jpg",
+   "sent_size_wh": [
+    105,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.176,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "126",
+   "crop": "126_4263_42.jpg",
+   "sent_size_wh": [
+    103,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "126",
+   "crop": "126_4212_25.jpg",
+   "sent_size_wh": [
+    121,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.174,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "165",
+   "crop": "165_5496_112.jpg",
+   "sent_size_wh": [
+    224,
+    448
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.203,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "165",
+   "crop": "165_5379_106.jpg",
+   "sent_size_wh": [
+    180,
+    448
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "165",
+   "crop": "165_5274_103.jpg",
+   "sent_size_wh": [
+    169,
+    448
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "180",
+   "crop": "180_5607_11.jpg",
+   "sent_size_wh": [
+    105,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.177,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "180",
+   "crop": "180_5574_9.jpg",
+   "sent_size_wh": [
+    63,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.169,
+   "prompt_tokens": 187
+  },
+  {
+   "video": "video_1",
+   "track": "180",
+   "crop": "180_5625_9.jpg",
+   "sent_size_wh": [
+    115,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.178,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "191",
+   "crop": "191_5802_88.jpg",
+   "sent_size_wh": [
+    183,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "191",
+   "crop": "191_5814_77.jpg",
+   "sent_size_wh": [
+    171,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.214,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "191",
+   "crop": "191_5784_73.jpg",
+   "sent_size_wh": [
+    243,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_1",
+   "track": "196",
+   "crop": "196_5937_54.jpg",
+   "sent_size_wh": [
+    139,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.177,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "196",
+   "crop": "196_5904_41.jpg",
+   "sent_size_wh": [
+    104,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "196",
+   "crop": "196_5949_22.jpg",
+   "sent_size_wh": [
+    139,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.177,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "209",
+   "crop": "209_6126_112.jpg",
+   "sent_size_wh": [
+    195,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "209",
+   "crop": "209_6147_112.jpg",
+   "sent_size_wh": [
+    199,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "209",
+   "crop": "209_6162_106.jpg",
+   "sent_size_wh": [
+    156,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "213",
+   "crop": "213_6516_142.jpg",
+   "sent_size_wh": [
+    130,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "213",
+   "crop": "213_6492_139.jpg",
+   "sent_size_wh": [
+    146,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "213",
+   "crop": "213_6411_128.jpg",
+   "sent_size_wh": [
+    157,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.182,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "218",
+   "crop": "218_6516_463.jpg",
+   "sent_size_wh": [
+    465,
+    641
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.274,
+   "prompt_tokens": 459
+  },
+  {
+   "video": "video_1",
+   "track": "218",
+   "crop": "218_6453_424.jpg",
+   "sent_size_wh": [
+    340,
+    490
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.237,
+   "prompt_tokens": 324
+  },
+  {
+   "video": "video_1",
+   "track": "218",
+   "crop": "218_6471_423.jpg",
+   "sent_size_wh": [
+    371,
+    504
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.224,
+   "prompt_tokens": 351
+  },
+  {
+   "video": "video_1",
+   "track": "228",
+   "crop": "228_6294_70.jpg",
+   "sent_size_wh": [
+    111,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "228",
+   "crop": "228_6309_59.jpg",
+   "sent_size_wh": [
+    113,
+    447
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "228",
+   "crop": "228_6321_39.jpg",
+   "sent_size_wh": [
+    123,
+    447
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.191,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "247",
+   "crop": "247_6531_69.jpg",
+   "sent_size_wh": [
+    205,
+    494
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 249
+  },
+  {
+   "video": "video_1",
+   "track": "247",
+   "crop": "247_6513_68.jpg",
+   "sent_size_wh": [
+    124,
+    471
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 219
+  },
+  {
+   "video": "video_1",
+   "track": "247",
+   "crop": "247_6546_18.jpg",
+   "sent_size_wh": [
+    189,
+    501
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.195,
+   "prompt_tokens": 255
+  },
+  {
+   "video": "video_1",
+   "track": "267",
+   "crop": "267_6885_171.jpg",
+   "sent_size_wh": [
+    100,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "267",
+   "crop": "267_6909_21.jpg",
+   "sent_size_wh": [
+    78,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.17,
+   "prompt_tokens": 187
+  },
+  {
+   "video": "video_1",
+   "track": "267",
+   "crop": "267_6921_13.jpg",
+   "sent_size_wh": [
+    72,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.169,
+   "prompt_tokens": 187
+  },
+  {
+   "video": "video_1",
+   "track": "271",
+   "crop": "271_7638_73.jpg",
+   "sent_size_wh": [
+    154,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "271",
+   "crop": "271_7605_72.jpg",
+   "sent_size_wh": [
+    142,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.174,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "271",
+   "crop": "271_7623_71.jpg",
+   "sent_size_wh": [
+    139,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.178,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "282",
+   "crop": "282_7443_123.jpg",
+   "sent_size_wh": [
+    215,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "282",
+   "crop": "282_7470_122.jpg",
+   "sent_size_wh": [
+    183,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.191,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "282",
+   "crop": "282_7482_100.jpg",
+   "sent_size_wh": [
+    151,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "289",
+   "crop": "289_7767_182.jpg",
+   "sent_size_wh": [
+    180,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "289",
+   "crop": "289_7785_182.jpg",
+   "sent_size_wh": [
+    152,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "289",
+   "crop": "289_7746_170.jpg",
+   "sent_size_wh": [
+    180,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "293",
+   "crop": "293_7677_150.jpg",
+   "sent_size_wh": [
+    124,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "293",
+   "crop": "293_7650_125.jpg",
+   "sent_size_wh": [
+    99,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.173,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "293",
+   "crop": "293_7608_59.jpg",
+   "sent_size_wh": [
+    136,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "296",
+   "crop": "296_7899_149.jpg",
+   "sent_size_wh": [
+    170,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.182,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "296",
+   "crop": "296_7911_140.jpg",
+   "sent_size_wh": [
+    228,
+    447
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.2,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "296",
+   "crop": "296_7806_137.jpg",
+   "sent_size_wh": [
+    185,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "309",
+   "crop": "309_8028_59.jpg",
+   "sent_size_wh": [
+    145,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "309",
+   "crop": "309_8049_58.jpg",
+   "sent_size_wh": [
+    132,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.176,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "309",
+   "crop": "309_7995_55.jpg",
+   "sent_size_wh": [
+    122,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "311",
+   "crop": "311_8373_189.jpg",
+   "sent_size_wh": [
+    168,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "311",
+   "crop": "311_8187_169.jpg",
+   "sent_size_wh": [
+    207,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "311",
+   "crop": "311_8172_167.jpg",
+   "sent_size_wh": [
+    185,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "341",
+   "crop": "341_8817_513.jpg",
+   "sent_size_wh": [
+    405,
+    577
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.245,
+   "prompt_tokens": 393
+  },
+  {
+   "video": "video_1",
+   "track": "341",
+   "crop": "341_8778_400.jpg",
+   "sent_size_wh": [
+    366,
+    454
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.221,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_1",
+   "track": "341",
+   "crop": "341_8766_391.jpg",
+   "sent_size_wh": [
+    274,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.196,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_1",
+   "track": "362",
+   "crop": "362_8673_56.jpg",
+   "sent_size_wh": [
+    176,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "362",
+   "crop": "362_8685_25.jpg",
+   "sent_size_wh": [
+    165,
+    447
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.182,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "362",
+   "crop": "362_8697_6.jpg",
+   "sent_size_wh": [
+    120,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "367",
+   "crop": "367_8955_313.jpg",
+   "sent_size_wh": [
+    175,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "367",
+   "crop": "367_9072_295.jpg",
+   "sent_size_wh": [
+    210,
+    479
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 264
+  },
+  {
+   "video": "video_1",
+   "track": "367",
+   "crop": "367_9084_283.jpg",
+   "sent_size_wh": [
+    232,
+    495
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.195,
+   "prompt_tokens": 264
+  },
+  {
+   "video": "video_1",
+   "track": "383",
+   "crop": "383_9492_383.jpg",
+   "sent_size_wh": [
+    290,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.205,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_1",
+   "track": "383",
+   "crop": "383_9462_357.jpg",
+   "sent_size_wh": [
+    264,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.205,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_1",
+   "track": "383",
+   "crop": "383_9447_349.jpg",
+   "sent_size_wh": [
+    308,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.212,
+   "prompt_tokens": 299
+  },
+  {
+   "video": "video_1",
+   "track": "399",
+   "crop": "399_9009_92.jpg",
+   "sent_size_wh": [
+    170,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "399",
+   "crop": "399_9024_22.jpg",
+   "sent_size_wh": [
+    122,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "406",
+   "crop": "406_9042_10.jpg",
+   "sent_size_wh": [
+    192,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "406",
+   "crop": "406_9057_0.jpg",
+   "sent_size_wh": [
+    121,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.177,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "433",
+   "crop": "433_9621_456.jpg",
+   "sent_size_wh": [
+    307,
+    514
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.221,
+   "prompt_tokens": 319
+  },
+  {
+   "video": "video_1",
+   "track": "433",
+   "crop": "433_9579_291.jpg",
+   "sent_size_wh": [
+    273,
+    448
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.21,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_1",
+   "track": "433",
+   "crop": "433_9594_281.jpg",
+   "sent_size_wh": [
+    294,
+    468
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.216,
+   "prompt_tokens": 294
+  },
+  {
+   "video": "video_1",
+   "track": "440",
+   "crop": "440_9381_66.jpg",
+   "sent_size_wh": [
+    163,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "440",
+   "crop": "440_9393_64.jpg",
+   "sent_size_wh": [
+    168,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "440",
+   "crop": "440_9327_52.jpg",
+   "sent_size_wh": [
+    133,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.176,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "446",
+   "crop": "446_9435_22.jpg",
+   "sent_size_wh": [
+    154,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "446",
+   "crop": "446_9453_22.jpg",
+   "sent_size_wh": [
+    95,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.173,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_1",
+   "track": "454",
+   "crop": "454_9531_74.jpg",
+   "sent_size_wh": [
+    190,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "454",
+   "crop": "454_9546_73.jpg",
+   "sent_size_wh": [
+    174,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "454",
+   "crop": "454_9519_72.jpg",
+   "sent_size_wh": [
+    161,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.191,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "463",
+   "crop": "463_9690_40.jpg",
+   "sent_size_wh": [
+    129,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "463",
+   "crop": "463_9702_16.jpg",
+   "sent_size_wh": [
+    127,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "463",
+   "crop": "463_9714_2.jpg",
+   "sent_size_wh": [
+    168,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "469",
+   "crop": "469_9768_74.jpg",
+   "sent_size_wh": [
+    167,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "469",
+   "crop": "469_9780_13.jpg",
+   "sent_size_wh": [
+    182,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.2,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "469",
+   "crop": "469_9732_9.jpg",
+   "sent_size_wh": [
+    276,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.207,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_1",
+   "track": "477",
+   "crop": "477_9852_89.jpg",
+   "sent_size_wh": [
+    157,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "477",
+   "crop": "477_9873_82.jpg",
+   "sent_size_wh": [
+    159,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "477",
+   "crop": "477_9930_78.jpg",
+   "sent_size_wh": [
+    142,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "487",
+   "crop": "487_9936_23.jpg",
+   "sent_size_wh": [
+    72,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.166,
+   "prompt_tokens": 187
+  },
+  {
+   "video": "video_1",
+   "track": "487",
+   "crop": "487_9969_17.jpg",
+   "sent_size_wh": [
+    179,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "487",
+   "crop": "487_9954_14.jpg",
+   "sent_size_wh": [
+    142,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "498",
+   "crop": "498_10323_341.jpg",
+   "sent_size_wh": [
+    177,
+    452
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_1",
+   "track": "498",
+   "crop": "498_10209_330.jpg",
+   "sent_size_wh": [
+    214,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "498",
+   "crop": "498_10416_328.jpg",
+   "sent_size_wh": [
+    298,
+    574
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.22,
+   "prompt_tokens": 321
+  },
+  {
+   "video": "video_1",
+   "track": "500",
+   "crop": "500_10371_231.jpg",
+   "sent_size_wh": [
+    173,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "500",
+   "crop": "500_10344_209.jpg",
+   "sent_size_wh": [
+    158,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "500",
+   "crop": "500_10260_199.jpg",
+   "sent_size_wh": [
+    172,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "503",
+   "crop": "503_10239_152.jpg",
+   "sent_size_wh": [
+    146,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_1",
+   "track": "503",
+   "crop": "503_10260_143.jpg",
+   "sent_size_wh": [
+    138,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "503",
+   "crop": "503_10224_122.jpg",
+   "sent_size_wh": [
+    132,
+    448
+   ],
+   "gender": "male",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_1",
+   "track": "517",
+   "crop": "517_10290_138.jpg",
+   "sent_size_wh": [
+    224,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "517",
+   "crop": "517_10275_124.jpg",
+   "sent_size_wh": [
+    220,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.191,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_1",
+   "track": "517",
+   "crop": "517_10302_123.jpg",
+   "sent_size_wh": [
+    233,
+    448
+   ],
+   "gender": "female",
+   "dress": "non_uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"non_uniform\"}",
+   "latency_s": 0.201,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "45",
+   "crop": "45_744_301.jpg",
+   "sent_size_wh": [
+    252,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "45",
+   "crop": "45_711_297.jpg",
+   "sent_size_wh": [
+    226,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.2,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "45",
+   "crop": "45_762_297.jpg",
+   "sent_size_wh": [
+    249,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "77",
+   "crop": "77_675_34.jpg",
+   "sent_size_wh": [
+    86,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.177,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "77",
+   "crop": "77_738_18.jpg",
+   "sent_size_wh": [
+    77,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.174,
+   "prompt_tokens": 187
+  },
+  {
+   "video": "video_2",
+   "track": "77",
+   "crop": "77_693_17.jpg",
+   "sent_size_wh": [
+    86,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.174,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "79",
+   "crop": "79_1293_655.jpg",
+   "sent_size_wh": [
+    761,
+    862
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.46,
+   "prompt_tokens": 807
+  },
+  {
+   "video": "video_2",
+   "track": "79",
+   "crop": "79_951_417.jpg",
+   "sent_size_wh": [
+    169,
+    491
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.215,
+   "prompt_tokens": 234
+  },
+  {
+   "video": "video_2",
+   "track": "79",
+   "crop": "79_1305_367.jpg",
+   "sent_size_wh": [
+    388,
+    868
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.281,
+   "prompt_tokens": 483
+  },
+  {
+   "video": "video_2",
+   "track": "82",
+   "crop": "82_750_81.jpg",
+   "sent_size_wh": [
+    180,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.204,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "82",
+   "crop": "82_765_12.jpg",
+   "sent_size_wh": [
+    186,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.187,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "82",
+   "crop": "82_777_0.jpg",
+   "sent_size_wh": [
+    153,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "86",
+   "crop": "86_993_697.jpg",
+   "sent_size_wh": [
+    373,
+    791
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.278,
+   "prompt_tokens": 459
+  },
+  {
+   "video": "video_2",
+   "track": "86",
+   "crop": "86_1032_677.jpg",
+   "sent_size_wh": [
+    292,
+    797
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.255,
+   "prompt_tokens": 384
+  },
+  {
+   "video": "video_2",
+   "track": "86",
+   "crop": "86_948_563.jpg",
+   "sent_size_wh": [
+    328,
+    715
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.254,
+   "prompt_tokens": 379
+  },
+  {
+   "video": "video_2",
+   "track": "140",
+   "crop": "140_1101_161.jpg",
+   "sent_size_wh": [
+    163,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "140",
+   "crop": "140_1161_117.jpg",
+   "sent_size_wh": [
+    141,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_2",
+   "track": "140",
+   "crop": "140_1143_104.jpg",
+   "sent_size_wh": [
+    172,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "147",
+   "crop": "147_1068_215.jpg",
+   "sent_size_wh": [
+    95,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.174,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "147",
+   "crop": "147_1083_192.jpg",
+   "sent_size_wh": [
+    145,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "147",
+   "crop": "147_1098_176.jpg",
+   "sent_size_wh": [
+    144,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "222",
+   "crop": "222_1533_85.jpg",
+   "sent_size_wh": [
+    155,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "222",
+   "crop": "222_1509_80.jpg",
+   "sent_size_wh": [
+    156,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "222",
+   "crop": "222_1545_26.jpg",
+   "sent_size_wh": [
+    154,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "263",
+   "crop": "263_2205_400.jpg",
+   "sent_size_wh": [
+    153,
+    479
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 234
+  },
+  {
+   "video": "video_2",
+   "track": "263",
+   "crop": "263_2175_386.jpg",
+   "sent_size_wh": [
+    167,
+    459
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "263",
+   "crop": "263_2256_364.jpg",
+   "sent_size_wh": [
+    119,
+    543
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 227
+  },
+  {
+   "video": "video_2",
+   "track": "297",
+   "crop": "297_2274_139.jpg",
+   "sent_size_wh": [
+    160,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.195,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "297",
+   "crop": "297_2286_67.jpg",
+   "sent_size_wh": [
+    211,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "297",
+   "crop": "297_2304_56.jpg",
+   "sent_size_wh": [
+    244,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.202,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "315",
+   "crop": "315_2424_134.jpg",
+   "sent_size_wh": [
+    157,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "315",
+   "crop": "315_2445_87.jpg",
+   "sent_size_wh": [
+    197,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "315",
+   "crop": "315_2463_23.jpg",
+   "sent_size_wh": [
+    222,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.203,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "318",
+   "crop": "318_2499_68.jpg",
+   "sent_size_wh": [
+    192,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "318",
+   "crop": "318_2535_66.jpg",
+   "sent_size_wh": [
+    177,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "318",
+   "crop": "318_2511_39.jpg",
+   "sent_size_wh": [
+    336,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.223,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "344",
+   "crop": "344_2784_384.jpg",
+   "sent_size_wh": [
+    158,
+    471
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 234
+  },
+  {
+   "video": "video_2",
+   "track": "344",
+   "crop": "344_2826_382.jpg",
+   "sent_size_wh": [
+    156,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "344",
+   "crop": "344_2877_311.jpg",
+   "sent_size_wh": [
+    165,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "383",
+   "crop": "383_2964_128.jpg",
+   "sent_size_wh": [
+    176,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "383",
+   "crop": "383_2985_124.jpg",
+   "sent_size_wh": [
+    178,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.187,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "383",
+   "crop": "383_2997_121.jpg",
+   "sent_size_wh": [
+    179,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "414",
+   "crop": "414_3870_688.jpg",
+   "sent_size_wh": [
+    343,
+    786
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.268,
+   "prompt_tokens": 434
+  },
+  {
+   "video": "video_2",
+   "track": "414",
+   "crop": "414_3885_652.jpg",
+   "sent_size_wh": [
+    335,
+    833
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.276,
+   "prompt_tokens": 419
+  },
+  {
+   "video": "video_2",
+   "track": "414",
+   "crop": "414_3840_603.jpg",
+   "sent_size_wh": [
+    217,
+    695
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.235,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "437",
+   "crop": "437_3951_210.jpg",
+   "sent_size_wh": [
+    212,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.196,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "437",
+   "crop": "437_3966_185.jpg",
+   "sent_size_wh": [
+    240,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "437",
+   "crop": "437_3993_183.jpg",
+   "sent_size_wh": [
+    254,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.206,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "458",
+   "crop": "458_5295_690.jpg",
+   "sent_size_wh": [
+    372,
+    796
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.283,
+   "prompt_tokens": 459
+  },
+  {
+   "video": "video_2",
+   "track": "458",
+   "crop": "458_5253_642.jpg",
+   "sent_size_wh": [
+    285,
+    734
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.255,
+   "prompt_tokens": 366
+  },
+  {
+   "video": "video_2",
+   "track": "458",
+   "crop": "458_5160_488.jpg",
+   "sent_size_wh": [
+    270,
+    564
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.222,
+   "prompt_tokens": 303
+  },
+  {
+   "video": "video_2",
+   "track": "478",
+   "crop": "478_4473_183.jpg",
+   "sent_size_wh": [
+    224,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "478",
+   "crop": "478_4455_151.jpg",
+   "sent_size_wh": [
+    169,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.183,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "478",
+   "crop": "478_4440_139.jpg",
+   "sent_size_wh": [
+    178,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "526",
+   "crop": "526_4965_310.jpg",
+   "sent_size_wh": [
+    169,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "526",
+   "crop": "526_4977_298.jpg",
+   "sent_size_wh": [
+    225,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "526",
+   "crop": "526_4995_287.jpg",
+   "sent_size_wh": [
+    215,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.196,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "531",
+   "crop": "531_5256_286.jpg",
+   "sent_size_wh": [
+    165,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.185,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "531",
+   "crop": "531_5283_266.jpg",
+   "sent_size_wh": [
+    142,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.196,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_2",
+   "track": "531",
+   "crop": "531_5148_257.jpg",
+   "sent_size_wh": [
+    179,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.192,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "538",
+   "crop": "538_5274_401.jpg",
+   "sent_size_wh": [
+    217,
+    476
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.205,
+   "prompt_tokens": 264
+  },
+  {
+   "video": "video_2",
+   "track": "538",
+   "crop": "538_5370_390.jpg",
+   "sent_size_wh": [
+    146,
+    473
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 234
+  },
+  {
+   "video": "video_2",
+   "track": "538",
+   "crop": "538_5286_389.jpg",
+   "sent_size_wh": [
+    170,
+    479
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 234
+  },
+  {
+   "video": "video_2",
+   "track": "557",
+   "crop": "557_5661_84.jpg",
+   "sent_size_wh": [
+    270,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 271
+  },
+  {
+   "video": "video_2",
+   "track": "557",
+   "crop": "557_5565_83.jpg",
+   "sent_size_wh": [
+    293,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.199,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "557",
+   "crop": "557_5577_83.jpg",
+   "sent_size_wh": [
+    288,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.205,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "561",
+   "crop": "561_5568_75.jpg",
+   "sent_size_wh": [
+    128,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.179,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_2",
+   "track": "561",
+   "crop": "561_5553_0.jpg",
+   "sent_size_wh": [
+    157,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "568",
+   "crop": "568_5610_34.jpg",
+   "sent_size_wh": [
+    139,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_2",
+   "track": "568",
+   "crop": "568_5622_7.jpg",
+   "sent_size_wh": [
+    146,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.182,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "568",
+   "crop": "568_5634_0.jpg",
+   "sent_size_wh": [
+    164,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.181,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "586",
+   "crop": "586_5919_161.jpg",
+   "sent_size_wh": [
+    208,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "586",
+   "crop": "586_5892_101.jpg",
+   "sent_size_wh": [
+    209,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.195,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "586",
+   "crop": "586_5823_77.jpg",
+   "sent_size_wh": [
+    164,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "600",
+   "crop": "600_6237_161.jpg",
+   "sent_size_wh": [
+    236,
+    447
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "600",
+   "crop": "600_6249_154.jpg",
+   "sent_size_wh": [
+    210,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "600",
+   "crop": "600_6183_148.jpg",
+   "sent_size_wh": [
+    209,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "605",
+   "crop": "605_6096_344.jpg",
+   "sent_size_wh": [
+    198,
+    453
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.193,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "605",
+   "crop": "605_6129_338.jpg",
+   "sent_size_wh": [
+    217,
+    476
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 264
+  },
+  {
+   "video": "video_2",
+   "track": "605",
+   "crop": "605_6027_335.jpg",
+   "sent_size_wh": [
+    200,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.195,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "617",
+   "crop": "617_6363_87.jpg",
+   "sent_size_wh": [
+    360,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.212,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "617",
+   "crop": "617_6375_84.jpg",
+   "sent_size_wh": [
+    339,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.226,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "617",
+   "crop": "617_6327_65.jpg",
+   "sent_size_wh": [
+    183,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "669",
+   "crop": "669_6702_729.jpg",
+   "sent_size_wh": [
+    260,
+    816
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.242,
+   "prompt_tokens": 367
+  },
+  {
+   "video": "video_2",
+   "track": "669",
+   "crop": "669_6666_598.jpg",
+   "sent_size_wh": [
+    234,
+    697
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.222,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "669",
+   "crop": "669_6615_484.jpg",
+   "sent_size_wh": [
+    188,
+    561
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 267
+  },
+  {
+   "video": "video_2",
+   "track": "679",
+   "crop": "679_6780_681.jpg",
+   "sent_size_wh": [
+    398,
+    853
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.282,
+   "prompt_tokens": 483
+  },
+  {
+   "video": "video_2",
+   "track": "679",
+   "crop": "679_6714_534.jpg",
+   "sent_size_wh": [
+    259,
+    636
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.233,
+   "prompt_tokens": 319
+  },
+  {
+   "video": "video_2",
+   "track": "679",
+   "crop": "679_6726_469.jpg",
+   "sent_size_wh": [
+    295,
+    678
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.224,
+   "prompt_tokens": 348
+  },
+  {
+   "video": "video_2",
+   "track": "685",
+   "crop": "685_6531_84.jpg",
+   "sent_size_wh": [
+    345,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.223,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "685",
+   "crop": "685_6546_83.jpg",
+   "sent_size_wh": [
+    336,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.215,
+   "prompt_tokens": 313
+  },
+  {
+   "video": "video_2",
+   "track": "685",
+   "crop": "685_6558_59.jpg",
+   "sent_size_wh": [
+    293,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.201,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "712",
+   "crop": "712_6915_204.jpg",
+   "sent_size_wh": [
+    128,
+    448
+   ],
+   "gender": "female",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"female\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 215
+  },
+  {
+   "video": "video_2",
+   "track": "712",
+   "crop": "712_6927_138.jpg",
+   "sent_size_wh": [
+    155,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.186,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "712",
+   "crop": "712_6750_134.jpg",
+   "sent_size_wh": [
+    105,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.175,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "768",
+   "crop": "768_7755_73.jpg",
+   "sent_size_wh": [
+    287,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.198,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "768",
+   "crop": "768_7680_69.jpg",
+   "sent_size_wh": [
+    291,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.201,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "768",
+   "crop": "768_7779_68.jpg",
+   "sent_size_wh": [
+    285,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.197,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "799",
+   "crop": "799_8493_78.jpg",
+   "sent_size_wh": [
+    273,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.199,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "799",
+   "crop": "799_8505_55.jpg",
+   "sent_size_wh": [
+    288,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.202,
+   "prompt_tokens": 285
+  },
+  {
+   "video": "video_2",
+   "track": "891",
+   "crop": "891_9321_354.jpg",
+   "sent_size_wh": [
+    187,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.194,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "891",
+   "crop": "891_9333_323.jpg",
+   "sent_size_wh": [
+    216,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.202,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "891",
+   "crop": "891_9345_318.jpg",
+   "sent_size_wh": [
+    182,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.184,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "914",
+   "crop": "914_9699_185.jpg",
+   "sent_size_wh": [
+    167,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.188,
+   "prompt_tokens": 229
+  },
+  {
+   "video": "video_2",
+   "track": "914",
+   "crop": "914_9648_166.jpg",
+   "sent_size_wh": [
+    214,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 257
+  },
+  {
+   "video": "video_2",
+   "track": "914",
+   "crop": "914_9678_145.jpg",
+   "sent_size_wh": [
+    191,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.19,
+   "prompt_tokens": 243
+  },
+  {
+   "video": "video_2",
+   "track": "930",
+   "crop": "930_9624_128.jpg",
+   "sent_size_wh": [
+    111,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.18,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "930",
+   "crop": "930_9684_125.jpg",
+   "sent_size_wh": [
+    106,
+    448
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.173,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "930",
+   "crop": "930_9660_110.jpg",
+   "sent_size_wh": [
+    111,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.189,
+   "prompt_tokens": 201
+  },
+  {
+   "video": "video_2",
+   "track": "937",
+   "crop": "937_9690_80.jpg",
+   "sent_size_wh": [
+    314,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.221,
+   "prompt_tokens": 299
+  },
+  {
+   "video": "video_2",
+   "track": "937",
+   "crop": "937_9702_71.jpg",
+   "sent_size_wh": [
+    314,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.218,
+   "prompt_tokens": 299
+  },
+  {
+   "video": "video_2",
+   "track": "937",
+   "crop": "937_9717_47.jpg",
+   "sent_size_wh": [
+    314,
+    447
+   ],
+   "gender": "male",
+   "dress": "uniform",
+   "valid_json": true,
+   "text": "{\"gender\": \"male\", \"dress\": \"uniform\"}",
+   "latency_s": 0.216,
+   "prompt_tokens": 299
+  }
+ ]
+}

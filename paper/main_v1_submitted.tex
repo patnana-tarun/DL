@@ -1,0 +1,793 @@
+% IEEE conference paper. Build: bash paper/build.sh  (numbers.tex and figures/ are generated from results/).
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath}
+% tectonic = XeTeX: Times via the TeX Gyre Termes OpenType files (text + math)
+\usepackage{unicode-math}
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmathfont{texgyretermes-math.otf}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{balance}
+\usepackage[hidelinks]{hyperref}
+
+\input{numbers.tex}
+
+% float placement: allow more and larger floats per page (many figures/tables)
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+\setcounter{dbltopnumber}{3}
+
+% notation
+\newcommand{\AP}{AP$_{50:95}$}
+\newcommand{\APf}{AP$_{50}$}
+\newcommand{\APs}{AP$_{75}$}
+\newcommand{\APsm}{AP$_{S}$}
+\newcommand{\yolo}{YOLO26n}
+\newcommand{\rfdetr}{RF-DETR Nano}
+\newcommand{\ci}[2]{\,[#1,\,#2]}
+% include a figure only if make_figures.py produced it
+\newcommand{\figif}[2]{\IfFileExists{figures/#1}{#2}{}}
+
+\begin{document}
+
+\title{From Pseudo-Labels to the Edge: A Closed-Loop Detector--Tracker--VLM Pipeline for Crowd Analytics on NVIDIA Jetson}
+
+\author{\IEEEauthorblockN{Author Name(s)}
+\IEEEauthorblockA{Department, Institution \\ email}}
+
+\maketitle
+
+\begin{abstract}
+We present a reproducible pipeline that turns an unlabelled pedestrian video into a deployable crowd-analytics
+system with a vision-language model (VLM) in the loop. A teacher ensemble (RF-DETR-L and YOLO26x, fused by weighted
+boxes fusion) pseudo-labels \BoxesTotal{} person boxes; two real-time students, \yolo{} and \rfdetr{}, are
+fine-tuned on temporally disjoint splits and compared with bootstrap confidence intervals, a label-bias check and
+an independent re-implementation of every metric. Fine-tuned \yolo{} reaches \AP{}~\ApYoloFt{} vs.\ \ApRfFt{}
+(paired $\Delta$\,=\,\DeltaFtFt, \PvalFtFt) at \LatYoloDep{} vs.\ \LatRfDep\,ms per 720p frame, but against
+single-teacher labels the gap shrinks to \TbGapRfL, so the margin is label-dependent. Across six trackers and two
+ground-truth linkings the detectors differ by at most \TcMaxGap{} HOTA. A decision matrix selects \yolo{} under
+all \MsNumAlt{} alternative weightings; it is exported to ONNX/TensorRT and runs in an FFmpeg-based streaming
+runtime with ByteTrack, online analytics, alert rules and a Qwen3-VL-2B agent that writes scene reports and
+reconfigures the analytics through tool calls. Streamed end to end, the runtime reproduces the offline held-out
+HOTA (\EdHotaHiSOne{} vs.\ \EdRefHota). Evaluating the VLM shaped its role: it counts poorly (MAE \EoMaeB{} people
+per frame from the image; with the detector count it simply adopts it), rubber-stamps fabricated alerts
+(specificity \EvSpecInformed), and calls tools spuriously when shown the frame. A two-stage agent (text-only tool
+routing, then an image answer) with deterministic guardrails raises tool selection from \EthSelFrame{} to
+\EtbSel{} and argument accuracy from \EthArgFrame{} to \EtbArg, and drives a live closed-loop session. On a second
+video used only for testing, the in-domain ranking reverses: fine-tuned \yolo{} drops to \AP{}~\HoApYoloFt, below
+fine-tuned \rfdetr{} (\HoApRfFt) and its own COCO-pretrained weights (\HoApYoloPt), mainly by losing small people;
+a visual audit of the disagreements shows this is not a pseudo-label artefact. All timings are desktop measurements;
+Jetson on-device benchmarks are future work.
+\end{abstract}
+
+\begin{IEEEkeywords}
+person detection, multi-object tracking, pseudo-labelling, edge AI, vision-language models, tool calling, Jetson
+\end{IEEEkeywords}
+
+%=====================================================================================================
+\section{Introduction}
+Counting and tracking people in public spaces is a classic computer-vision task whose practical value depends less
+on a leaderboard score than on the whole chain: data for the target scene, a detector that is fast enough for an
+embedded GPU, a tracker whose parameters suit the camera, analytics whose definitions are explicit, and an
+operator interface that can answer questions in natural language. Each link has strong components---real-time
+detectors~\cite{redmon2016yolo,wang2024yolov10,jocher2026yolo26,zhao2024rtdetr,robinson2026rfdetr},
+tracking-by-detection~\cite{bewley2016sort,zhang2022bytetrack,cao2023ocsort}, open VLMs~\cite{bai2025qwen3vl}---but
+they are rarely evaluated together, under one protocol, on the same footage, with the uncertainty of each number
+made explicit.
+
+This paper documents such a chain, built for an NVIDIA Jetson Orin~\cite{jetsonorin} and evaluated on a 5-minute
+handheld 720p video of a busy pedestrian plaza (\texttt{aa1}), a held-out 1080p campus video used only for testing,
+and two further campus videos. We make no claim of
+human-annotated ground truth: all labels come from a teacher ensemble, and we measure how much our conclusions
+depend on that choice. Our contributions are:
+\begin{itemize}
+\item a \textbf{pseudo-label study} of two real-time students (CNN \yolo{} vs.\ transformer \rfdetr{}) with temporal
+splits, a frozen operating threshold, bootstrap CIs and paired tests, an overfitting diagnosis relative to the
+pretrained model, a teacher label-bias analysis and an independent cross-check of every metric;
+\item a \textbf{test-only cross-scene evaluation} on a held-out video, with every threshold and tracker parameter
+frozen from the training scene, block-bootstrap CIs and a visual audit of the pseudo-labels, which shows that the
+in-domain winner does not transfer;
+\item a \textbf{tracking study} of six trackers with held-out tuning, scored against two differently linked
+pseudo-GTs to expose GT-linking bias, and a \textbf{decision matrix} for model selection whose winner is tested
+against alternative weightings;
+\item an \textbf{edge runtime} (FFmpeg/GStreamer stream ingest, ONNX/TensorRT detector, timestamped ByteTrack,
+online analytics with alert rules, SQLite, web UI) that reproduces the offline tracking accuracy when streamed;
+\item a \textbf{closed loop with a VLM} (Qwen3-VL-2B via llama.cpp) that receives the detector's measurements,
+writes scene reports and changes the analytics through tool calls, designed from a quantitative evaluation of
+count grounding, zero-shot attributes, tool-call reliability, alert verification and latency: the VLM
+describes and routes, while counts, alert decisions and state reports stay deterministic.
+\end{itemize}
+
+%=====================================================================================================
+\section{Related Work}
+\textbf{Real-time detection.} One-stage YOLO detectors~\cite{redmon2016yolo} dominate embedded deployment.
+YOLOv10~\cite{wang2024yolov10} introduced consistent dual assignments for NMS-free inference, and
+YOLO26~\cite{jocher2026yolo26,ultralytics} ships a dual head (one-to-one NMS-free and one-to-many with NMS).
+DETR~\cite{carion2020detr} removed hand-crafted post-processing with set prediction; RT-DETR~\cite{zhao2024rtdetr}
+made it real-time, and RF-DETR~\cite{robinson2026rfdetr} adds a DINOv2~\cite{oquab2024dinov2} backbone and
+weight-sharing architecture search for fine-tuning to target domains. Evaluation follows COCO~\cite{lin2014coco} and the pedestrian log-average miss rate~\cite{dollar2012pedestrian,zhang2017citypersons}.
+
+\textbf{Multi-object tracking.} SORT~\cite{bewley2016sort} couples a Kalman filter with IoU matching;
+ByteTrack~\cite{zhang2022bytetrack} also associates low-score boxes; OC-SORT~\cite{cao2023ocsort} corrects
+Kalman drift during occlusion; BoT-SORT~\cite{aharon2022botsort} adds camera-motion compensation;
+C-BIoU~\cite{yang2023cbiou} buffers the matching space; McByte~\cite{stanczyk2024mcbyte} adds propagated masks.
+We report HOTA~\cite{luiten2021hota}, which balances detection and association, with CLEAR-MOT
+MOTA~\cite{bernardin2008clear} and IDF1~\cite{ristani2016idf1}.
+
+\textbf{Pseudo-labels and distillation.} Knowledge distillation transfers a large model's knowledge to a small
+one~\cite{hinton2015distilling}; data distillation~\cite{radosavovic2018datadistill} and Noisy
+Student~\cite{xie2020noisystudent} label unlabelled data with (ensembles of) teachers. We fuse two teacher
+families with weighted boxes fusion (WBF)~\cite{solovyev2021wbf}, which averages rather than suppresses
+overlapping boxes.
+
+\textbf{VLMs, tools and edge.} Instruction-tuned VLMs~\cite{liu2023llava} such as
+Qwen2.5-VL~\cite{bai2025qwen25vl} and Qwen3-VL~\cite{bai2025qwen3vl} answer free-form questions about images and
+video, and language models can call external tools~\cite{schick2023toolformer,yao2023react}. We ground a small
+VLM in detector measurements and let it act only through typed tools. On the edge, TensorRT~\cite{tensorrt}
+compiles ONNX graphs into FP16 engines, ONNX Runtime~\cite{onnxruntime} exposes TensorRT, CUDA and CPU back-ends,
+and llama.cpp~\cite{llamacpp} serves quantised VLMs on the same device.
+
+%=====================================================================================================
+\section{Method}
+\figif{fig_architecture.pdf}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_architecture.pdf}
+\caption{System overview. Top: the on-device runtime; detections flow left to right, the VLM receives the live
+analytics and frame and acts back on the analytics only through typed tool calls. Bottom: the offline research
+loop that produces, evaluates, selects and exports the detector.}
+\label{fig:arch}
+\end{figure*}}
+
+\subsection{Data and pseudo-labels}
+\label{sec:data}
+From the 300\,s, 59.94\,fps, $1280{\times}720$ video we sample one frame every 0.25\,s between 30\,s and 300\,s
+(1,082 frames). Each frame is labelled by RF-DETR Large and YOLO26x (with test-time augmentation, $1280$\,px),
+both at score $\geq 0.15$; their boxes are fused by WBF (IoU 0.55, equal weights, averaged scores) and fused
+boxes with score $\geq 0.40$ are kept. The splits are contiguous in time so near-duplicate neighbouring frames
+cannot leak across them: train 30--210\,s (\ImgsTrain{} frames, \BoxesTrain{} boxes), valid 210--255\,s
+(\ImgsValid{}/\BoxesValid{}), test 255--300\,s (\ImgsTest{}/\BoxesTest{}). The first 30\,s are reserved for
+tracking and never used for training (Fig.~\ref{fig:data}). The test split contains notably smaller people than
+train (Fig.~\ref{fig:data}b), so test scores are not inflated by distribution overlap.
+
+\figif{fig_dataset.pdf}{%
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_dataset.pdf}
+\caption{(a) Temporal use of \texttt{aa1}: tracking hold-out (0--15\,s tuning, 15--30\,s evaluation) and the
+detection splits. (b) Pseudo-label box heights per split.}
+\label{fig:data}
+\end{figure}}
+
+\subsection{Student training}
+\yolo{} (COCO-pretrained, 2.5\,M parameters) is fine-tuned for 150 epochs at 1280\,px (AdamW, lr $10^{-3}$, cosine
+schedule, batch 12). \rfdetr{} is fine-tuned at 640\,px for 80 epochs with EMA, cosine schedule and effective
+batch 16 (lr $10^{-4}$, encoder $1.5{\times}10^{-4}$). An earlier 60-epoch step-schedule run reached the same
+test AP and is not used further.
+
+\subsection{Evaluation protocol}
+All four models (both students, pretrained and fine-tuned) are scored with one script on every split.
+\emph{COCO metrics}~\cite{lin2014coco}: \AP{}, \APf{}, \APs{}, AP by size, AR@300. \emph{Operating point}: the
+best-F1 confidence threshold is chosen on \emph{valid} and frozen for test; we report P/R/F1 at IoU 0.5, FPPI
+and the log-average miss rate (LAMR, FPPI $10^{-2}$--$10^{0}$)~\cite{dollar2012pedestrian}, and per-frame
+counting MAE. \emph{Uncertainty}: 95\% bootstrap CIs over test images ($B{=}1000$)~\cite{efron1993bootstrap}
+and paired bootstrap tests between models on identical resamples; with $B{=}1000$ a zero estimate is reported
+as $p<0.001$. \emph{Overfitting}: the train--test gap of a fine-tuned model minus the same gap of its pretrained
+counterpart, which saw no split and therefore measures split difficulty alone. \emph{Label bias}: test
+predictions are re-scored against each teacher's labels alone (same 0.40 cut), since a student may inherit the
+box conventions of its own family's teacher. \emph{Cross-check}: headline numbers are recomputed by code sharing
+nothing with the evaluator (from-scratch 101-point AP, Hungarian matching, Ultralytics' validator, label
+consistency, CI/test consistency; tracker re-runs and py-motmetrics).
+
+\subsection{Tracking}
+Tracking is evaluated on the unseen first 30\,s at the full frame rate (\GtFrames{} frames). Pseudo-GT tracks are
+built by linking teacher detections with ByteTrack (activation 0.40, buffer \GtBuffer{} frames) and keeping
+tracks of at least 0.25\,s (\GtTracks{} tracks). For each detector, ByteTrack parameters (score cut, NMS,
+activation and high-score thresholds, buffer, IoU, confirmation frames) are grid-searched on 0--15\,s
+(\GridSize{} configurations per detector) and reported on 15--30\,s. Because a GT linked by tracker $X$ favours
+$X$, six trackers (SORT, ByteTrack, OC-SORT, C-BIoU, BoT-SORT, McByte; \texttt{trackers}
+library~\cite{trackerslib}) are tuned by random search on 0--15\,s and scored on 15--30\,s against \emph{two}
+pseudo-GTs built from the same teacher boxes, one linked by ByteTrack and one by OC-SORT.
+
+\subsection{Model selection}
+A decision matrix scores each fine-tuned student on six criteria relative to the best candidate (1\,=\,best):
+test \AP{} under the fused labels (weight \MsWAp), the lower of its two single-teacher APs (\MsWBias), mean
+held-out HOTA over the 12 tracker$\times$GT runs (\MsWHota), deployed latency (\MsWLat), GFLOPs (\MsWGflops) and
+parameters (\MsWParams). The choice is re-checked under accuracy-only, speed-only, tracking-only, equal and
+bias-aware weightings. The winner is exported to ONNX with the one-to-many head and external NMS (the variant
+the latency study deploys) at $736{\times}1280$, $544{\times}960$ and $384{\times}640$, and each export is
+re-scored on the test split through the runtime's own detector code.
+
+\subsection{Edge system and closed loop}
+\label{sec:edge}
+\textbf{Stream ingest.} Files, RTSP/UDP/SRT/HTTP streams, V4L2 USB cameras and CSI cameras
+(GStreamer \texttt{nvarguscamerasrc}) are decoded by an external FFmpeg~\cite{ffmpeg} or GStreamer process that
+writes fixed-size BGR frames to a pipe. \emph{Live} sources keep only the newest frame (stale frames are dropped
+and counted); \emph{files} are read without dropping, so file analysis is deterministic. The analysis rate is set
+by resampling or by an exact frame stride.
+
+\textbf{Detector and tracker.} The ONNX graph runs in ONNX Runtime with the TensorRT FP16 provider (engine cached
+on disk), falling back to CUDA and CPU; no PyTorch is needed on the device. ByteTrack uses the tuned parameters
+of the offline study, with the same score cut and class-agnostic NMS pre-filter; its lost-track buffer is defined
+in seconds and the motion model uses real timestamps, so behaviour is consistent at any analysis rate and through
+dropped live frames.
+
+\textbf{Analytics and alerts.} Per frame we update occupancy, unique people (tracks $\geq$0.25\,s; an upper
+bound, since a broken track counts twice), dwell, line crossings (foot point changes side, with hysteresis),
+zones, loitering and image-plane speed. Rules such as \emph{occupancy $>$ 20 for 3\,s} fire alerts; events, 1-s
+series, VLM reports and chat are stored in SQLite and served by a dependency-free web UI.
+
+\textbf{VLM in the loop (evaluation-driven).} Qwen3-VL-2B (Q4\_K\_M GGUF) runs in a llama.cpp server with an
+OpenAI-compatible API; one worker serves jobs by priority, so the per-frame loop never waits. Its role was fixed
+by the experiments of Sec.~\ref{sec:vlm}. (i) \emph{Ask} is two-stage: stage~1 routes the question
+\emph{text-only} (question, chat history, measurements) and may call \texttt{get\_history},
+\texttt{get\_recent\_events}, \texttt{set\_alert}, \texttt{remove\_alert} or \texttt{set\_counting\_line} (up to
+three rounds); stage~2 answers with the live frame, the updated measurements and the tool results, without tools.
+A single-stage design with the frame attached produced many spurious tool calls (E3). Every change is validated,
+logged and applied on the next frame, closing the loop from language back to measurement. (ii) \emph{On alert}
+the VLM writes a scene report for the operator; the rule itself is decided by the detector numbers, because
+yes/no verification by the VLM failed (E5). (iii) \emph{Observe}: a periodic JSON scene report (summary,
+activities, anomalies and a risk level defined as visible physical danger, not crowd size). \emph{Guardrails}: a
+deterministic intent check refuses tool arguments that contradict the request (e.g.\ a non-horizontal line for
+``horizontal''); a rule-based executor performs unambiguous commands (remove all alerts, horizontal/vertical line
+at a position) when the model did not; a system-generated footer states what actually changed, whatever the model
+writes (it is not fed back into the chat history); and \texttt{/}commands give a VLM-free control path.
+On the Jetson the plan is TensorRT FP16 at $544{\times}960$ with Qwen3-VL-2B on an Orin Nano 8\,GB and
+$736{\times}1280$ with Qwen3-VL-4B on Orin NX/AGX, at a 15\,fps analysis rate.
+
+%=====================================================================================================
+\section{Experiments and Results}
+All timings in this section are from a desktop with an RTX 4060 Laptop GPU (PyTorch path unless stated);
+\ifHaveJetson the Jetson rows are marked explicitly.\else none were measured on a Jetson.\fi
+
+\subsection{Detection}
+\begin{table*}[t]
+\centering
+\caption{Detection on the test split (255--300\,s, \ImgsTest{} frames, \BoxesTest{} pseudo-GT boxes). F1 and count MAE
+at the threshold chosen on valid (in parentheses); brackets: 95\% bootstrap CI. The last two columns re-score the
+same predictions against a single teacher's labels (label-bias check; \LabelsRfL{} and \LabelsYx{} test boxes).}
+\label{tab:det}
+\footnotesize
+\setlength{\tabcolsep}{3.6pt}
+\begin{tabular}{lcccccccc|cc}
+\toprule
+ & \multicolumn{8}{c|}{Fused pseudo-labels (published)} & \multicolumn{2}{c}{\AP{} vs.\ single teacher} \\
+Model & \AP{} [95\% CI] & \APf{} & \APs{} & \APsm{} & AR@300 & F1 (thr.) & LAMR$\downarrow$ & Count MAE$\downarrow$ & RF-DETR-L & YOLO26x \\
+\midrule
+\yolo{} pretrained & \ApYoloPt\ci{\ApLoYoloPt}{\ApHiYoloPt} & \ApFiftyYoloPt & \ApSeventyFiveYoloPt & \ApSmallYoloPt & \ArYoloPt & \FoneYoloPt{} (\ConfYoloPt) & \LamrYoloPt & \CountMaeYoloPt & \TbYoloPtRfL & \TbYoloPtYx \\
+\yolo{} fine-tuned & \ApYoloFt\ci{\ApLoYoloFt}{\ApHiYoloFt} & \ApFiftyYoloFt & \ApSeventyFiveYoloFt & \ApSmallYoloFt & \ArYoloFt & \FoneYoloFt{} (\ConfYoloFt) & \LamrYoloFt & \CountMaeYoloFt & \TbYoloFtRfL & \TbYoloFtYx \\
+\rfdetr{} pretrained & \ApRfPt\ci{\ApLoRfPt}{\ApHiRfPt} & \ApFiftyRfPt & \ApSeventyFiveRfPt & \ApSmallRfPt & \ArRfPt & \FoneRfPt{} (\ConfRfPt) & \LamrRfPt & \CountMaeRfPt & \TbRfPtRfL & \TbRfPtYx \\
+\rfdetr{} fine-tuned & \ApRfFt\ci{\ApLoRfFt}{\ApHiRfFt} & \ApFiftyRfFt & \ApSeventyFiveRfFt & \ApSmallRfFt & \ArRfFt & \FoneRfFt{} (\ConfRfFt) & \LamrRfFt & \CountMaeRfFt & \TbRfFtRfL & \TbRfFtYx \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Table~\ref{tab:det} and Fig.~\ref{fig:pr} summarise detection. Fine-tuning improves both students: \yolo{} by
+\DeltaYoloFtPt{} \AP{} (CI \ci{\DeltaLoYoloFtPt}{\DeltaHiYoloFtPt}) and \rfdetr{} by \DeltaRfFtPt{}, whose
+COCO-pretrained Nano model at 640\,px misses most of the small, distant pedestrians (\APsm{}~\ApSmallRfPt).
+Fine-tuned \yolo{} leads fine-tuned \rfdetr{} by \DeltaFtFt{} \AP{} (paired CI
+\ci{\DeltaLoFtFt}{\DeltaHiFtFt}, \PvalFtFt); the gap is concentrated at strict IoU (\APs{} \ApSeventyFiveYoloFt{}
+vs.\ \ApSeventyFiveRfFt) and on small people (\APsm{} \ApSmallYoloFt{} vs.\ \ApSmallRfFt), while \APf{} is
+close (\ApFiftyYoloFt{} vs.\ \ApFiftyRfFt). Part of this is resolution: \yolo{} sees the native 1280\,px width, and it is also far smaller
+(\ParamsYoloFt\,M parameters, \GflopsYoloFt{} GFLOPs vs.\ \ParamsRfFt\,M and \GflopsRfFt{} for \rfdetr{} at its
+inference resolution).
+
+The two students fit the training frames differently. \yolo{} scores \ApTrainYoloFt{} / \ApValidYoloFt{} /
+\ApTestYoloFt{} on train / valid / test; its train--test gap (\GapYoloFt) exceeds its pretrained counterpart's (\GapPtYoloFt) by \ExcessYoloFt{}, a measurable degree of
+overfitting to the 720 training frames, yet it remains the best model on valid and test.
+\rfdetr{} shows no excess gap (\ExcessRfFt). The low valid-optimal threshold of \yolo{} (\ConfYoloFt) maximises
+F1 but over-counts (count MAE \CountMaeYoloFt{} vs.\ \CountMaeRfFt{} for \rfdetr{}); a counting deployment should
+use a higher threshold. The independent cross-check passes \XcPass/\XcTotal{} detection checks (largest AP
+deviation from pycocotools \XcApMaxDiff; Ultralytics' validator within \XcUltraDiff)\ifHaveTrackXc{} and
+\XtPass/\XtTotal{} tracking checks\fi.
+
+\begin{figure}[t]
+\centering
+\figif{fig_pr.pdf}{\includegraphics[width=\columnwidth]{figures/fig_pr.pdf}}
+\caption{Test precision--recall curves (dashed: COCO-pretrained, solid: fine-tuned); the areas are the \APf{}
+and \AP{} of Table~\ref{tab:det}.}
+\label{fig:pr}
+\end{figure}
+
+
+\textbf{Label bias.} The last columns of Table~\ref{tab:det} re-score the test predictions against each teacher alone. Each
+student scores best against its own family's teacher; under RF-DETR-Large-only labels the fine-tuned students
+differ by only \TbGapRfL{} \AP{} (vs.\ \DeltaFtFt{} under fused labels), whereas under YOLO26x-only labels the gap
+widens to \TbGapYx. The fused labels thus favour \yolo{}, and the detection ranking should be read as
+``under these pseudo-labels''.
+
+
+\textbf{Latency.} Table~\ref{tab:lat} and Fig.~\ref{fig:lat} time every inference variant end to end (BGR frame
+in, boxes out, batch 1) and re-score it, so speed-ups that cost accuracy are visible. Uploading the uint8 frame
+once and doing resize/normalisation on the GPU, a fused FP16 network and GPU NMS make \yolo{} \SpeedupYolo$\times$
+faster than the stock path with unchanged AP; FP16, TorchScript and GPU pre-processing make \rfdetr{}
+\SpeedupRf$\times$ faster. The NMS-free head of \yolo{} is the fastest variant but loses \NmsFreeApLoss{} \AP{} in
+this crowded scene, so the deployed graph keeps the one-to-many head with NMS. At deployment \rfdetr{} remains
+\LatRatio$\times$ slower.
+
+\begin{table}[t]
+\centering
+\caption{Inference variants on the \ImgsTest{} test frames ($1280{\times}720$, RTX 4060 Laptop, batch 1, pre- and
+post-processing included). Median / p90 latency in ms and test \AP{} of each variant.}
+\label{tab:lat}
+\footnotesize
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular}{lccc}
+\toprule
+Variant & Median & p90 & \AP{} \\
+\midrule
+\multicolumn{4}{l}{\emph{\yolo{}}} \\
+\quad Ultralytics predict FP32 (stock) & \LatYoloBase & \LatPnYoloBase & \LatApYoloBase \\
+\quad Ultralytics predict FP16 & \LatYoloHalf & \LatPnYoloHalf & \LatApYoloHalf \\
+\quad NMS-free head FP16 & \LatYoloNmsFree & \LatPnYoloNmsFree & \LatApYoloNmsFree \\
+\quad NMS-free + GPU pre-proc + fused FP16 & \LatYoloNmsFreeFast & \LatPnYoloNmsFreeFast & \LatApYoloNmsFreeFast \\
+\quad \textbf{GPU pre-proc + fused FP16 + GPU NMS} & \textbf{\LatYoloDep} & \LatPnYoloDep & \LatApYoloDep \\
+\multicolumn{4}{l}{\emph{\rfdetr{}}} \\
+\quad predict FP32 (stock) & \LatRfBase & \LatPnRfBase & \LatApRfBase \\
+\quad FP32 + TorchScript & \LatRfTs & \LatPnRfTs & \LatApRfTs \\
+\quad FP16 & \LatRfHalf & \LatPnRfHalf & \LatApRfHalf \\
+\quad FP16 + TorchScript & \LatRfHalfTs & \LatPnRfHalfTs & \LatApRfHalfTs \\
+\quad \textbf{FP16 + TorchScript + GPU pre-proc} & \textbf{\LatRfDep} & \LatPnRfDep & \LatApRfDep \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\figif{fig_latency.pdf}{\includegraphics[width=\columnwidth]{figures/fig_latency.pdf}}
+\caption{Latency vs.\ test \AP{} of the inference variants of Table~\ref{tab:lat} (stars: deployed paths).}
+\label{fig:lat}
+\end{figure}
+
+\figif{fig_qualitative.png}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig_qualitative.png}
+\caption{Test frames: teacher pseudo-GT (left), fine-tuned \yolo{} (centre) and fine-tuned \rfdetr{} (right) at
+their valid-optimal thresholds; titles give the number of boxes.}
+\label{fig:qual}
+\end{figure*}}
+
+\subsection{Tracking}
+Table~\ref{tab:track} reports ByteTrack on the held-out 15--30\,s with default and tuned parameters. With
+default parameters the HOTA difference (\yolo{} minus \rfdetr) is \BtDefGap; \rfdetr{} needs a higher score cut
+(\BtMinConfRf{} vs.\ \BtMinConfYolo), after which the difference is \BtTunGap{}---of the order of search
+noise. The six-tracker comparison (Fig.~\ref{fig:track}) is more informative: \yolo{} scores higher in
+\TcWinsAll{} of \TcPairs{} tracker$\times$GT combinations (\TcWinsOcGt/6 against the OC-SORT-linked GT,
+\TcWinsBtGt/6 against the ByteTrack-linked GT), but never by more than \TcMaxGap{} HOTA. Within one detector the
+six trackers span at most \TcSpreadBtGt{} (ByteTrack-GT) and \TcSpreadOcGt{} (OC-SORT-GT) HOTA, so the tracker
+choice matters little in this scene. The absolute HOTA depends strongly on how the GT was linked (mean
+\TcMeanYoloBtGt{} vs.\ \TcMeanYoloOcGt{} for \yolo), so models must only be compared under the same GT.
+
+\begin{table}[t]
+\centering
+\caption{ByteTrack on the held-out 15--30\,s (pseudo-GT linked by ByteTrack; \BtGtIds{} GT identities). Tuned
+parameters were selected on 0--15\,s.}
+\label{tab:track}
+\footnotesize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{llccccccc}
+\toprule
+Detector & Params & HOTA & MOTA & IDF1 & DetA & AssA & IDSW & IDs \\
+\midrule
+\multirow{2}{*}{\yolo} & default & \BtHotaYoloDef & \BtMotaYoloDef & \BtIdfYoloDef & \BtDetaYoloDef & \BtAssaYoloDef & \BtIdswYoloDef & \BtIdsYoloDef \\
+ & tuned & \BtHotaYoloTun & \BtMotaYoloTun & \BtIdfYoloTun & \BtDetaYoloTun & \BtAssaYoloTun & \BtIdswYoloTun & \BtIdsYoloTun \\
+\midrule
+\multirow{2}{*}{\rfdetr} & default & \BtHotaRfDef & \BtMotaRfDef & \BtIdfRfDef & \BtDetaRfDef & \BtAssaRfDef & \BtIdswRfDef & \BtIdsRfDef \\
+ & tuned & \BtHotaRfTun & \BtMotaRfTun & \BtIdfRfTun & \BtDetaRfTun & \BtAssaRfTun & \BtIdswRfTun & \BtIdsRfTun \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\figif{fig_tracking.pdf}{\includegraphics[width=\columnwidth]{figures/fig_tracking.pdf}}
+\caption{Held-out HOTA of six trackers per detector, against pseudo-GTs linked by (a) ByteTrack and (b) OC-SORT.
+Note the different x-ranges: GT linking shifts all scores.}
+\label{fig:track}
+\end{figure}
+
+\textbf{Crowd analytics.} Over the first 30\,s, tracks of at least 0.25\,s give \AnUniqueYolo{} unique IDs
+for \yolo{} (\AnOverYolo{} vs.\ \AnGtUnique{} in the pseudo-GT) and \AnUniqueRf{} for \rfdetr{}
+(\AnOverRf); without the length filter \yolo{} produces \AnRawYolo{} raw IDs. Mean / max occupancy is
+\AnMeanYolo{} / \AnMaxYolo{} and the median dwell \AnDwellMedYolo\,s. Unique IDs are an upper bound on people.
+
+\subsection{Model selection and export}
+Fig.~\ref{fig:sel} gives the decision matrix (raw values are in Tables~\ref{tab:det}, \ref{tab:lat} and
+Fig.~\ref{fig:track}). \MsWinner{} wins with a weighted score of
+\MsScoreYolo{} vs.\ \MsScoreRf; it is at least as good on \MsCritWins{} of \MsCritN{} criteria, including
+the bias-aware AP and tracking (\MsTrackWinsYolo{} tracker$\times$GT wins), and the choice holds under all \MsNumAlt{} alternative
+weightings (\rfdetr{} scores \MsAltAccRf{} accuracy-only, \MsAltSpeedRf{} speed-only, \MsAltTrackRf{}
+tracking-only, \MsAltEqualRf{} equal, \MsAltBiasRf{} bias-aware, with \yolo{} at \MsScoreYolo). Re-scored on the test split through the runtime's own ONNX
+detector, the $736{\times}1280$ export matches the PyTorch reference (\OnnxParityPt) within \OnnxParityDiff{}
+\AP; the smaller Jetson inputs reach \OnnxMidAp{} ($544{\times}960$) and \OnnxLoAp{} ($384{\times}640$), losing
+mainly small people (\APsm{} \OnnxHiApSmall, \OnnxMidApSmall, \OnnxLoApSmall\ifHaveEdge; Table~\ref{tab:edge}\fi).
+
+
+\begin{figure}[t]
+\centering
+\figif{fig_selection.pdf}{\includegraphics[width=\columnwidth]{figures/fig_selection.pdf}}
+\caption{Normalised decision criteria (1 = best candidate) and weighted score.}
+\label{fig:sel}
+\end{figure}
+
+
+%-----------------------------------------------------------------------------------------------------
+\ifHaveEdge
+\subsection{Streamed end-to-end pipeline}
+We run the deployed runtime itself (FFmpeg decoder process $\rightarrow$ ONNX Runtime detector $\rightarrow$
+ByteTrack $\rightarrow$ online analytics) on the tracking hold-out and score its tracks against the same
+pseudo-GT (Table~\ref{tab:edge}, Fig.~\ref{fig:edge}). At the full frame rate the streamed pipeline reaches
+held-out HOTA \EdHotaHiSOne{} (offline PyTorch study: \EdRefHota), confirming that export,
+decoding and the online tracker reproduce the research result. Analysing every second or fourth frame (30 or
+15\,fps, as planned for the Jetson) costs little HOTA (\EdHotaHiSTwo{} and \EdHotaHiSFour), because the tracker
+uses real time steps; the smaller inputs cost more (\EdHotaMidSFour{} and \EdHotaLoSFour{} at 15\,fps),
+mostly through missed small people (fewer unique IDs). These runs used the \texttt{\EdProvider} back-end of ONNX
+Runtime on the desktop CPU, so their latencies characterise the software path, not TensorRT on a Jetson;
+tracking and analytics together cost about \EdTrkMsHiSOne{} and \EdAnaMsHiSOne\,ms per frame.
+\ifHaveEdgeLive
+Read as a real-time RTSP camera at full rate (GPU PyTorch back-end), the runtime analysed
+\EdLiveFrames{} of about \EdLivePublished{} frames at \EdLiveFps\,fps, dropping stale ones by design.
+\fi
+
+\begin{table}[t]
+\centering
+\caption{Deployed runtime per ONNX input size. \AP: export re-scored on the detection test split. Tracking on
+the 15--30\,s hold-out (file source); ``Unique'' = tracks $\geq$0.25\,s over 0--30\,s (pseudo-GT in parentheses).
+Latency: median ms per frame, ONNX Runtime \texttt{\EdProvider} on the desktop.}
+\label{tab:edge}
+\footnotesize
+\setlength{\tabcolsep}{2.3pt}
+\begin{tabular}{lccccccc}
+\toprule
+Input $H$, rate & \AP & HOTA & MOTA & IDF1 & Unique (GT) & Det. & Loop \\
+\midrule
+736, \EdFpsHiSOne\,fps & \OnnxHiAp & \EdHotaHiSOne & \EdMotaHiSOne & \EdIdfHiSOne & \EdUniqueHiSOne{} (\EdGtUniqueHiSOne) & \EdDetMsHiSOne & \EdLoopMsHiSOne \\
+736, \EdFpsHiSTwo\,fps & \OnnxHiAp & \EdHotaHiSTwo & \EdMotaHiSTwo & \EdIdfHiSTwo & \EdUniqueHiSTwo{} (\EdGtUniqueHiSTwo) & \EdDetMsHiSTwo & \EdLoopMsHiSTwo \\
+736, \EdFpsHiSFour\,fps & \OnnxHiAp & \EdHotaHiSFour & \EdMotaHiSFour & \EdIdfHiSFour & \EdUniqueHiSFour{} (\EdGtUniqueHiSFour) & \EdDetMsHiSFour & \EdLoopMsHiSFour \\
+544, \EdFpsMidSFour\,fps & \OnnxMidAp & \EdHotaMidSFour & \EdMotaMidSFour & \EdIdfMidSFour & \EdUniqueMidSFour{} (\EdGtUniqueMidSFour) & \EdDetMsMidSFour & \EdLoopMsMidSFour \\
+384, \EdFpsLoSFour\,fps & \OnnxLoAp & \EdHotaLoSFour & \EdMotaLoSFour & \EdIdfLoSFour & \EdUniqueLoSFour{} (\EdGtUniqueLoSFour) & \EdDetMsLoSFour & \EdLoopMsLoSFour \\
+\midrule
+Offline study & \OnnxParityPt & \EdRefHota & \multicolumn{5}{l}{(PyTorch FP16, every frame)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\figif{fig_edge.pdf}{\includegraphics[width=\columnwidth]{figures/fig_edge.pdf}}
+\caption{Deployed runtime: (a) held-out HOTA vs.\ analysis rate and input size; (b) median per-stage latency
+(desktop CPU ONNX Runtime, not TensorRT).}
+\label{fig:edge}
+\end{figure}
+\fi
+
+%-----------------------------------------------------------------------------------------------------
+\ifHaveVLM
+\subsection{VLM in the loop}
+\label{sec:vlm}
+\ifHaveVLMEOne
+\textbf{E1: count grounding.} On the \EoFrames{} test frames (pseudo-GT counts \EoGtMin--\EoGtMax{} people), we
+compare the detector alone (ONNX, valid-optimal threshold) with the VLM under four prompts
+(Fig.~\ref{fig:vlmcount}). From the image alone Qwen3-VL-2B undercounts severely
+(MAE \EoMaeB, bias \EoBiasB). Adding the deployed system prompt already helps (\EoMaeBsys), and with the detector
+count in the context its error falls to \EoMaeC{} (paired bootstrap, image-only minus grounded: \EoDeltaBC,
+CI \ci{\EoDeltaLoBC}{\EoDeltaHiBC}, \EoPvalBC). However, the grounded VLM returns the detector's number in a
+fraction \EoCopyC{} of frames, and the text-only control behaves identically: grounding \emph{transfers} the
+detector's accuracy (and its bias, \EoBiasA) rather than improving on it, so counts are always taken from the
+analytics.
+\fi
+
+\ifHaveVLMETwo
+\textbf{E2: zero-shot attributes.} On the held-out campus test tracks, the VLM's zero-shot uniform/gender votes
+(three crops per track) are compared with the trained linear probes of Sec.~\ref{sec:campus}. Per track,
+dress accuracy is \EtVlmAccUni{} \ci{\EtVlmLoUni}{\EtVlmHiUni} (Wilson CI~\cite{wilson1927}) for the VLM vs.\ \EtProbeAccUni{} for the probe
+(coverage \EtVlmCovUni{} vs.\ \EtProbeCovUni), and gender \EtVlmAccGen{} vs.\ \EtProbeAccGen; on the tracks both
+answered, an exact McNemar test~\cite{mcnemar1947} gives \EtMcPUni{} and \EtMcPGen. Zero-shot description is thus
+competitive with trained probes here.
+\fi
+
+\ifHaveVLMEThree
+\textbf{E3: tool-call reliability.} We send \EthNTool{} operator utterances that require exactly one tool call
+with determined arguments and \EthNNoTool{} that require none (Table~\ref{tab:tools}). In the original
+single-stage design (frame attached, tools offered) selection on tool utterances is high (\EthSelToolFrame) and
+all arguments are valid JSON, but exact arguments match in only \EthArgFrame{} of cases and the model calls tools
+on \EthFpFrame{} of the utterances that need none; text-only, that false-call rate falls to \EthFpText.
+\ifHaveVLMEThreeB
+The redesigned two-stage agent (text-only routing, a clearer \texttt{set\_alert} schema, guardrails) reaches
+selection \EtbSel, exact arguments \EtbArg{} and a false-call rate of \EtbFp{} on the same utterances, at
+\EtbReq{} requests and \EtbLat\,s median per turn. The guardrails did not fire on this set (\EtbFallback{}
+fallback actions; model-only selection \EtbMoSel, arguments \EtbMoArg), so the gain comes from routing and schema;
+because the schema also changed, the two effects are not separated.
+\fi
+\fi
+
+\ifHaveVLMEFive
+\textbf{E5: alert verification.} On \EvN{} test frames each, we pose a true occupancy alert (threshold below the
+pseudo-GT count) and a fabricated one (threshold and claimed value above it, as if the detector over-counted).
+Shown the measured value, the VLM confirms every true alert (sensitivity \EvSensInformed) but also every fabricated
+one (specificity \EvSpecInformed\ci{\EvSpecLoInformed}{\EvSpecHiInformed}); from the image alone it is below chance
+(sensitivity \EvSensBlind, specificity \EvSpecBlind, balanced accuracy \EvBalBlind). A 2B VLM cannot audit a
+count it cannot make, so the deployed default writes a scene report on alert and leaves the decision to the
+numbers.
+\fi
+
+\ifHaveVLMEFour
+\textbf{E4: latency.} On the desktop GPU (llama.cpp Vulkan, prompt cache disabled), a scene report takes a median
+of \EfEImgXs, \EfEImgM{} and \EfEImgL\,s at image sides 448, 896 and 1280\,px, a text answer \EfEText\,s and a
+tool-call turn \EfETool\,s (prompt \EfTokImgM{} tokens at 896\,px, decode \EfDecImgM{} tokens/s). VLM jobs run
+asynchronously and never block the per-frame loop.
+\fi
+
+\ifHaveVLMEOne
+\begin{figure}[t]
+\centering
+\figif{fig_vlm_counting.pdf}{\includegraphics[width=\columnwidth]{figures/fig_vlm_counting.pdf}}
+\caption{E1: counting MAE per condition (95\% bootstrap CIs over frames).}
+\label{fig:vlmcount}
+\end{figure}
+\fi
+
+\ifHaveVLMEThree
+\begin{table}[t]
+\centering
+\caption{E3: tool-call reliability of Qwen3-VL-2B (\EthNTool{} tool and \EthNNoTool{} no-tool utterances):
+single-stage agent with / without the frame vs.\ the deployed two-stage agent with guardrails (E3b).}
+\label{tab:tools}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{2}{c}{Single stage} & Two-stage \\
+Metric & with frame & text only & (deployed) \\
+\midrule
+Selection, all [95\% CI] & \EthSelFrame\ci{\EthSelLoFrame}{\EthSelHiFrame} & \EthSelText\ci{\EthSelLoText}{\EthSelHiText} & \ifHaveVLMEThreeB\EtbSel\ci{\EtbSelLo}{\EtbSelHi}\else--\fi \\
+Selection, tool utterances & \EthSelToolFrame & \EthSelToolText & \ifHaveVLMEThreeB\EtbSelTool\else--\fi \\
+Exact arguments [95\% CI] & \EthArgFrame\ci{\EthArgLoFrame}{\EthArgHiFrame} & \EthArgText\ci{\EthArgLoText}{\EthArgHiText} & \ifHaveVLMEThreeB\EtbArg\ci{\EtbArgLo}{\EtbArgHi}\else--\fi \\
+Lenient arguments & \EthArgLenFrame & \EthArgLenText & \ifHaveVLMEThreeB\EtbArgLen\else--\fi \\
+False tool calls (no-tool) & \EthFpFrame & \EthFpText & \ifHaveVLMEThreeB\EtbFp\else--\fi \\
+Missed tool calls & \EthMissFrame & \EthMissText & \ifHaveVLMEThreeB\EtbMiss\else--\fi \\
+Median latency (s) & \EthLatFrame & \EthLatText & \ifHaveVLMEThreeB\EtbLat\else--\fi \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifHaveDemo
+\textbf{Closed-loop session.} We recorded a \DmDuration\,s session on a live RTSP stream (MediaMTX, real time,
+analysed at \DmRate\,fps; \DmFrames{} frames, \DmDropped{} stale frames dropped, median loop \DmLoopMs\,ms on the
+desktop GPU), with the operator acting only through the HTTP chat API (Fig.~\ref{fig:demo}). Of \DmCtl{} control
+requests, the model executed \DmCtlModel{} itself (setting an occupancy alert, reading history, removing all
+alerts); for ``make the counting line horizontal'' it produced contradicting arguments \DmLineFails{} times, the
+intent check refused each, and the rule-based executor set the line. The alert fired (occupancy \DmAlertValue{}
+$>$ \DmAlertThr) and received a scene report after \DmAlertCtxLat\,s; the median chat latency was
+\DmChatMed\,s. The free-text answers were not always reliable (one repeated a stale count from an earlier turn),
+which is why counts are read from \texttt{/stats} or the UI and state changes from the system footer.
+\fi
+
+\ifHaveDemo
+\begin{figure}[t]
+\centering
+\figif{fig_demo.jpg}{\includegraphics[width=0.8\columnwidth]{figures/fig_demo.jpg}}
+\caption{End of the recorded closed-loop session: the counting line was made horizontal by chat (rule-based
+fallback after the model's arguments were refused); status bar shows live occupancy and unique tracks.}
+\label{fig:demo}
+\end{figure}
+\fi
+\fi
+
+%-----------------------------------------------------------------------------------------------------
+\ifHaveHeldout
+\subsection{Held-out scene: a test-only video}
+\label{sec:heldout}
+To test whether the conclusions transfer beyond \texttt{aa1}, we evaluate on a second video that is used
+\emph{only} for testing: \HoDur\,s of a tree-lined campus road filmed from a fixed position ($1920{\times}1080$,
+variable frame rate, mean \HoFps\,fps, \HoFrames{} frames). Nothing is trained, tuned or selected on it: the models are
+the aa1 checkpoints, the operating thresholds are the aa1-valid ones, and the tracker parameters are the ones
+selected on aa1. The teacher recipe of Sec.~\ref{sec:data} labels \HoImgs{} frames sampled every 0.25\,s
+(\HoBoxes{} boxes, \HoPerFrame{} people per frame, median height \HoHeightMed\,px) and, for tracking, every frame
+(\HoGtIds{} pseudo-GT identities). Frames 0.25\,s apart are strongly correlated, so CIs use a moving-block bootstrap
+with 10\,s blocks (\HoBlock{} frames); the counting line was fixed from one frame before any result was computed.
+
+\begin{table}[t]
+\centering
+\caption{Held-out video, detection (\HoImgs{} frames). $\Delta$: change from the aa1 test split (Table~\ref{tab:det}).
+$R_{32\text{--}64}$: recall of people 32--64\,px tall and F1, both at the threshold frozen from aa1-valid. Brackets:
+95\% block-bootstrap CI. Last columns: \AP{} against a single teacher's labels.}
+\label{tab:heldout}
+\footnotesize
+\setlength{\tabcolsep}{1.15pt}
+\begin{tabular}{lcccccc}
+\toprule
+Model & \AP{} [95\% CI] & $\Delta$ & $R_{32\text{--}64}$ & F1 & RF-L & Y26x \\
+\midrule
+\yolo{} pre. & \textbf{\HoApYoloPt}\ci{\HoApLoYoloPt}{\HoApHiYoloPt} & \HoDropYoloPt & \textbf{\HoRecSmallYoloPt} & \textbf{\HoFoneYoloPt} & \textbf{\HoTbRfLYoloPt} & \textbf{\HoTbYxYoloPt} \\
+\yolo{} FT & \HoApYoloFt\ci{\HoApLoYoloFt}{\HoApHiYoloFt} & \HoDropYoloFt & \HoRecSmallYoloFt & \HoFoneYoloFt & \HoTbRfLYoloFt & \HoTbYxYoloFt \\
+\rfdetr{} pre. & \HoApRfPt\ci{\HoApLoRfPt}{\HoApHiRfPt} & \HoDropRfPt & \HoRecSmallRfPt & \HoFoneRfPt & \HoTbRfLRfPt & \HoTbYxRfPt \\
+\rfdetr{} FT & \HoApRfFt\ci{\HoApLoRfFt}{\HoApHiRfFt} & \HoDropRfFt & \HoRecSmallRfFt & \HoFoneRfFt & \HoTbRfLRfFt & \HoTbYxRfFt \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Detection: the ranking reverses.} Fine-tuned \yolo{}, the aa1 winner, drops from \ApYoloFt{} to \HoApYoloFt{} \AP{}
+($\Delta$\,=\,\HoDropYoloFt) and falls \emph{below its own COCO-pretrained weights} (paired $\Delta$\,=\,\HoDeltaYoloFtPt,
+CI\ci{\HoDeltaLoYoloFtPt}{\HoDeltaHiYoloFtPt}, \HoPvalYoloFtPt) and below fine-tuned \rfdetr{} ($\Delta$\,=\,\HoDeltaFtFt,
+CI\ci{\HoDeltaLoFtFt}{\HoDeltaHiFtFt}), whose fine-tuning still helps (\HoDeltaRfFtPt{} over its pretrained model).
+The best detector on the new scene is the pretrained \yolo{} (Table~\ref{tab:heldout}, Fig.~\ref{fig:heldout}a). The
+loss is concentrated on small people: at the frozen threshold the fine-tuned \yolo{} finds \HoRecSmallYoloFt{} of the
+people 32--64\,px tall (pretrained weights: \HoRecSmallYoloPt; Fig.~\ref{fig:heldout}b) and makes
+\HoFppiYoloFt{} false positives per frame (pretrained: \HoFppiYoloPt); in the audited frames about half of them are
+bins, benches and tree trunks and most of the rest are poorly localised or duplicate boxes on people.
+This is the scene overfitting that the excess train--test gap on aa1 (\ExcessYoloFt) hinted at; \rfdetr{}, which showed
+no excess gap, transfers better. The ranking is the same under either teacher's labels alone, although the teachers
+agree less on this scene (RF-DETR-L boxes score \HoTeacherAgree{} \AP{} against YOLO26x labels).
+
+\textbf{Label audit.} Because every number here is agreement with the teachers, we inspected the disagreements on
+\HoAuFrames{} random frames (crops judged by the authors' AI assistant): \HoAuLabPerson/\HoAuLabN{} randomly drawn
+labels are people (\HoAuLabRate\ci{\HoAuLabLo}{\HoAuLabHi}), and so are \HoAuFnPerson/\HoAuFnN{} labels that a model
+missed (\HoAuFnRate), so the misses are real. Of the \HoAuFpN{} model detections far from any label,
+\HoAuFpPerson{} are people the teachers missed (\HoAuFpRate\ci{\HoAuFpLo}{\HoAuFpHi}); the rest are bins, benches and
+trees. Crediting every audited label error to the models changes no F1 by more than \HoAuMaxFoneShift, so the
+reversal is not a pseudo-label artefact.
+
+\begin{table}[t]
+\centering
+\caption{Held-out video, ByteTrack with the aa1 parameters (\HoFrames{} frames, \HoGtIds{} pseudo-GT identities;
+default ByteTrack parameters in parentheses). Crossings: events on the counting line, F1 of matching the
+\HoAnGtCross{} pseudo-GT events ($\pm$1\,s, same direction).}
+\label{tab:hotrack}
+\footnotesize
+\setlength{\tabcolsep}{1.9pt}
+\begin{tabular}{lcccccc}
+\toprule
+Detector & HOTA & MOTA & IDF1 & IDSW & Cross. & Cross. F1 \\
+\midrule
+\yolo{} FT & \HoBtHotaYoloFtTun{} (\HoBtHotaYoloFtDef) & \HoBtMotaYoloFtTun & \HoBtIdfYoloFtTun & \HoBtIdswYoloFtTun & \HoAnCrossYoloFt & \HoAnCrossFoneYoloFt \\
+\rfdetr{} FT & \HoBtHotaRfFtTun{} (\HoBtHotaRfFtDef) & \HoBtMotaRfFtTun & \HoBtIdfRfFtTun & \HoBtIdswRfFtTun & \HoAnCrossRfFt & \HoAnCrossFoneRfFt \\
+\yolo{} pre. & \textbf{\HoBtHotaYoloPtTun}{} (\HoBtHotaYoloPtDef) & \textbf{\HoBtMotaYoloPtTun} & \textbf{\HoBtIdfYoloPtTun} & \textbf{\HoBtIdswYoloPtTun} & \textbf{\HoAnCrossYoloPt} & \textbf{\HoAnCrossFoneYoloPt} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\figif{fig_heldout.pdf}{%
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_heldout.pdf}
+\caption{Held-out video (test only). (a) \AP{} on the aa1 test split (light) and on the held-out video (dark, 95\%
+block-bootstrap CI); hatched: COCO-pretrained. (b) Recall by label height at the thresholds frozen from aa1.
+(c) ByteTrack HOTA per 30\,s segment with the aa1 parameters (whole-video HOTA in the legend); the dip near 135\,s is a
+stretch with almost nobody in view.}
+\label{fig:heldout}
+\end{figure*}}
+
+\textbf{Tracking and analytics.} With the frozen parameters, fine-tuned \rfdetr{} tracks better than fine-tuned \yolo{}
+(Table~\ref{tab:hotrack}): it wins \HoSegWinsRf{} of \HoSegs{} 30\,s segments (Wilcoxon $p=\HoSegPFtFt$) and
+\HoTcWinsRf{} of \HoTcPairs{} tracker$\times$GT combinations of the six-tracker comparison, the reverse of aa1. The
+pretrained \yolo{}, never tuned for tracking, is best and wins \HoSegWinsPt/\HoSegs{} segments against \rfdetr{}
+($p=\HoSegPPtRf$). Absolute HOTA (\HoBtHotaYoloFtTun--\HoBtHotaYoloPtTun{} vs.\ \BtHotaYoloTun{} and \BtHotaRfTun{} on the aa1 hold-out) is depressed by distant people that the
+students do not detect: mean occupancy is \HoAnOccYoloFt, \HoAnOccRfFt{} and \HoAnOccYoloPt{} vs.\ \HoAnGtOcc{} in the
+pseudo-GT. Near the camera the analytics are more robust: the pretrained \yolo{} recovers the counting-line events
+with F1 \HoAnCrossFoneYoloPt{} (count error \HoAnCrossErrYoloPt). Unique-ID counts are not a usable metric here:
+\rfdetr{} reports \HoAnUniqueRfFt{} people vs.\ \HoAnGtUnique{} in the pseudo-GT only because track fragmentation
+(\HoBtIdswRfFtTun{} ID switches) and missed distant people cancel.
+\ifHaveHeldoutEdge
+The deployed runtime with the fine-tuned \yolo{} ONNX model inherits the detector's weakness: HOTA
+\HoEdHotaHiSOne{} at the full rate (offline: \HoEdRefHota), \HoEdHotaHiSFour{} at 15\,fps and \HoEdHotaMidSFour{} with
+the $544{\times}960$ Jetson input. This test also exposed a runtime bug that the constant-rate aa1 video could not:
+without an explicit output rate, FFmpeg's raw-video output resampled the variable-frame-rate file to a constant rate
+(\HoVfrDelivered{} instead of \HoVfrFrames{} frames), and file timestamps computed as index\,/\,mean fps drifted by up
+to \HoVfrTsErr\,s. Frames are now passed through unchanged and stamped with their container timestamps; this raised
+the full-rate HOTA from \HoVfrHotaBefore{} to \HoEdHotaHiSOne{} and left every aa1 number unchanged.
+\fi
+\fi
+
+%-----------------------------------------------------------------------------------------------------
+\subsection{Campus case study}
+\label{sec:campus}
+To test transfer to a new domain we analysed two $\sim$200\,s, 1080p phone videos of a university campus. Nothing
+here needs real time, so the teacher detector YOLO26x at 1280\,px is used with BoT-SORT (ReID and motion
+compensation); broken tracks are re-joined offline when motion, box size, colours and predicted attributes agree.
+Two attribute heads (uniform vs.\ non-uniform, gender) are logistic-regression probes on DINOv2 features of the
+RF-DETR-L backbone plus colour histograms, trained on 200 hand-labelled tracks and evaluated on 100 disjoint
+random tracks; they abstain when the mean probability is within 0.35--0.65. Table~\ref{tab:campus} and
+Fig.~\ref{fig:campus} summarise the outputs. Held out per person, the probes reach \PrUniAcc{}
+\ci{\PrUniLo}{\PrUniHi} accuracy for dress (\PrUniCorrect/\PrUniAnswered, coverage \PrUniCov) and \PrGenAcc{}
+\ci{\PrGenLo}{\PrGenHi} for gender (\PrGenCorrect/\PrGenAnswered, coverage \PrGenCov). The hand labels were
+produced by the authors' AI assistant from the crops, not by independent annotators, and gender is predicted from
+appearance (the uniform is gendered); it is reported only as an aggregate.
+
+\begin{table}[t]
+\centering
+\caption{Campus case study (YOLO26x + BoT-SORT + stitching; attributes over people with a usable crop).}
+\label{tab:campus}
+\footnotesize
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{lcc}
+\toprule
+ & video 1 & video 2 \\
+\midrule
+Track IDs $\rightarrow$ kept $\rightarrow$ people & \CpOneRaw{} $\rightarrow$ \CpOneKept{} $\rightarrow$ \CpOnePeople & \CpTwoRaw{} $\rightarrow$ \CpTwoKept{} $\rightarrow$ \CpTwoPeople \\
+In frame, mean / peak & \CpOneMean{} / \CpOnePeak & \CpTwoMean{} / \CpTwoPeak \\
+Crossings (R$\rightarrow$L/L$\rightarrow$R) & \CpOneCross{} (\CpOneCrossRl/\CpOneCrossLr) & \CpTwoCross{} (\CpTwoCrossRl/\CpTwoCrossLr) \\
+Median time in view (s) & \CpOneDwell & \CpTwoDwell \\
+Gender m / f / unsure & \CpOneMale{} / \CpOneFemale{} / \CpOneGUnsure & \CpTwoMale{} / \CpTwoFemale{} / \CpTwoGUnsure \\
+Dress unif. / non-u. / unsure & \CpOneUniform{} / \CpOneNonUniform{} / \CpOneDUnsure & \CpTwoUniform{} / \CpTwoNonUniform{} / \CpTwoDUnsure \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\figif{fig_campus.pdf}{\includegraphics[width=\columnwidth]{figures/fig_campus.pdf}}
+\caption{Campus case study: (a) counting funnel from raw track IDs to stitched people; (b, c) attribute shares.}
+\label{fig:campus}
+\end{figure}
+
+%=====================================================================================================
+\section{Discussion and Limitations}
+\textbf{Pseudo-GT is not human GT.} Every detection and tracking number measures agreement with a larger teacher
+ensemble. The label-bias analysis shows that the \yolo{} advantage shrinks to \TbGapRfL{} \AP{} under
+RF-DETR-Large-only labels, and the mean tracking HOTA of \yolo{} moves from \TcMeanYoloBtGt{} to \TcMeanYoloOcGt{} when only the GT
+linking changes. Relative comparisons
+under one GT are meaningful; absolute values are not accuracy against reality. A visual audit on the held-out video
+(Sec.~\ref{sec:heldout}) found the labels precise (\HoAuLabRate{} of sampled labels are people) and the
+model--label disagreements dominated by genuine model errors, but it was done by an AI assistant from crops and covers
+only \HoAuFrames{} frames.
+
+\textbf{In-domain selection does not transfer.} The students were trained on one 5-minute video, and the aa1 test
+split shares its scene. On the held-out video the selected model is the worst fine-tuned detector and is beaten by its
+own pretrained weights (Sec.~\ref{sec:heldout}), so an in-domain decision matrix only answers ``which model for
+\emph{this} camera''. The aa1 overfitting diagnosis (excess train--test gap) predicted which student transfers worse;
+we recommend adding a held-out-scene criterion to the selection, re-fine-tuning per site from teacher labels (the
+pipeline makes this cheap), or deploying the pretrained detector on cameras without site-specific labels. Two scenes
+are still few, and bootstrap CIs capture frame sampling, not scene variation. The campus case study videos were
+analysed with the teacher detector.
+
+\textbf{Image-plane analytics.} Line crossings, flow and speeds are computed in image coordinates and include
+camera motion for a handheld camera. Unique track IDs are an upper bound on unique people; the campus
+re-joining reduces but does not remove double counting.
+
+\textbf{Hand labels.} The campus attribute labels were produced by an AI assistant from crops, not by
+independent annotators.
+
+\textbf{What a small VLM is for.} A 2B VLM must not be trusted for counts (E1) or yes/no verdicts on measured
+quantities (E5), and its free text can restate stale numbers. Its value here is description (scene and alert
+reports, zero-shot attributes, E2) and natural-language control, and the latter became dependable only with
+text-only routing plus deterministic guardrails: intent checks, rule-based fallbacks, a truthful state footer
+and a VLM-free command path. Each of these was added in response to a measured or observed failure.
+
+\textbf{Jetson.} \ifHaveJetson Jetson measurements are reported where marked.\else The Jetson deployment is
+designed and packaged (three ONNX input sizes, TensorRT engine cache, CSI input, llama.cpp CUDA build, service
+files), but all timings here are desktop measurements; on-device benchmarks are future work.\fi
+
+%=====================================================================================================
+\section{Conclusion}
+We built and evaluated a complete path from an unlabelled video to a closed-loop crowd-analytics system. Under a
+protocol with CIs, paired tests, a label-bias check and independent metric re-implementations, fine-tuned \yolo{}
+is the better deployment choice than \rfdetr{} for the training scene (\ApYoloFt{} vs.\ \ApRfFt{} \AP, at least as
+good for tracking, \LatRatio$\times$ faster), although its detection margin depends partly on the teacher. A test-only
+second scene reverses this (\HoApYoloFt{} vs.\ \HoApRfFt, pretrained \yolo{} \HoApYoloPt): scene-specific
+fine-tuning of a nano model must be validated on a held-out scene before it is deployed elsewhere. The deployed runtime
+reproduces the offline tracking accuracy when streamed, and a small VLM adds scene descriptions and
+natural-language reconfiguration as a describer and router, while counts, alert decisions and the record of
+changes stay deterministic. Future work: Jetson benchmarks, human-annotated labels, more scenes, and multi-scene fine-tuning. All numbers are
+generated from the result files (\texttt{paper/make\_numbers.py}).
+
+% \balance  (columns on the last page are already nearly equal; balance overfilled the left column)
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

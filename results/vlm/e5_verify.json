@@ -1,0 +1,2480 @@
+{
+ "experiment": "E5 alert verification",
+ "protocol": "Alert verification by the VLM (SceneAgent.verify) on true vs fabricated occupancy alerts.\n    TRUE alert:  rule occupancy > GT-5, measured value GT          (the situation is real)\n    FALSE alert: rule occupancy > GT+8, claimed measured value GT+10 (as if the detector over-counted)\n    Modes: blind (image only, no measured value, no measurements context) vs informed (old prompt: measured\n    value + live measurements, whose occupancy equals the alert's measured value, as in deployment).\n    Raw frames are sent (no boxes drawn). GT = pseudo-GT person count.",
+ "note": "a 2B VLM counts crowds poorly (E1 image-only MAE ~8), so count-threshold verification from the image alone is expected to be hard; the informed prompt reveals the claimed value",
+ "settings": {
+  "frames": 60,
+  "temperature": 0.0,
+  "server": {
+   "endpoint": "http://127.0.0.1:8080/v1",
+   "model_alias": "qwen3-vl-2b",
+   "server_binary": "edge_deploy/third_party/llama.cpp-vulkan-x64/llama-server",
+   "server_version": [
+    "version: 0.6.0-dev (build 11476, commit 988190680)",
+    "built with GNU 11.4.0 for Linux x86_64"
+   ],
+   "build_info": "b11476-988190680",
+   "model_path_reported": "models/vlm/Qwen3VL-2B-Instruct-Q4_K_M.gguf",
+   "n_ctx": 8192,
+   "total_slots": 4,
+   "n_params": 1720574976,
+   "ftype": "Q4_K - Medium",
+   "launch": "edge_deploy/scripts/start_vlm.sh (-ngl 99 -c 8192 --jinja -fa auto, Vulkan NVIDIA device)",
+   "model_files": [
+    {
+     "file": "edge_deploy/models/vlm/Qwen3VL-2B-Instruct-Q4_K_M.gguf",
+     "bytes": 1107409952,
+     "sha256": "089d75c52f4b7ffc56ba998ffc50aae89fcafc755f9e7208aacca281dca6c2ae"
+    },
+    {
+     "file": "edge_deploy/models/vlm/mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf",
+     "bytes": 445053216,
+     "sha256": "f9a68fabba69c3b81e153367b2c7521030b0fa8bb0de400c9599c8e6725f9c82"
+    }
+   ],
+   "client": "edgevision.vlm.VLMClient (edge_deploy), temperature 0, sequential requests"
+  }
+ },
+ "modes": {
+  "blind": {
+   "metrics": {
+    "n_true": 60,
+    "n_false": 60,
+    "sensitivity_confirm_true": 0.4167,
+    "sensitivity_ci95": [
+     0.301,
+     0.543
+    ],
+    "specificity_reject_false": 0.1333,
+    "specificity_ci95": [
+     0.069,
+     0.242
+    ],
+    "balanced_accuracy": 0.275,
+    "median_latency_s": 0.382
+   },
+   "rows": [
+    {
+     "image": "f015298.jpg",
+     "gt": 15,
+     "alert": "true",
+     "threshold": 10,
+     "claimed_value": 15,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 10.",
+     "latency_s": 0.619
+    },
+    {
+     "image": "f015298.jpg",
+     "gt": 15,
+     "alert": "false",
+     "threshold": 23,
+     "claimed_value": 25,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 23 for the 'crowding' rule.",
+     "latency_s": 0.397
+    },
+    {
+     "image": "f015343.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the image, which is less than 12, so the rule does not indicate a situation of crowding.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f015343.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.354
+    },
+    {
+     "image": "f015388.jpg",
+     "gt": 15,
+     "alert": "true",
+     "threshold": 10,
+     "claimed_value": 15,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 10.",
+     "latency_s": 0.321
+    },
+    {
+     "image": "f015388.jpg",
+     "gt": 15,
+     "alert": "false",
+     "threshold": 23,
+     "claimed_value": 25,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 23 for the 'crowding' rule.",
+     "latency_s": 0.382
+    },
+    {
+     "image": "f015433.jpg",
+     "gt": 14,
+     "alert": "true",
+     "threshold": 9,
+     "claimed_value": 14,
+     "confirmed": false,
+     "reason": "There are multiple people in view, but the number is less than 10, so the 'crowding' condition is not met.",
+     "latency_s": 0.363
+    },
+    {
+     "image": "f015433.jpg",
+     "gt": 14,
+     "alert": "false",
+     "threshold": 22,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area to the right of the counting line, which exceeds the 22-person threshold for crowding.",
+     "latency_s": 0.385
+    },
+    {
+     "image": "f015478.jpg",
+     "gt": 13,
+     "alert": "true",
+     "threshold": 8,
+     "claimed_value": 13,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible on the sidewalk and in the vicinity of the counting line, which exceeds the 8-person threshold for crowding.",
+     "latency_s": 0.43
+    },
+    {
+     "image": "f015478.jpg",
+     "gt": 13,
+     "alert": "false",
+     "threshold": 21,
+     "claimed_value": 23,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible on the sidewalk and in the vicinity of the counting line, which exceeds the 21-person threshold for crowding.",
+     "latency_s": 0.414
+    },
+    {
+     "image": "f015523.jpg",
+     "gt": 16,
+     "alert": "true",
+     "threshold": 11,
+     "claimed_value": 16,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 11-person threshold for crowding.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f015523.jpg",
+     "gt": 16,
+     "alert": "false",
+     "threshold": 24,
+     "claimed_value": 26,
+     "confirmed": false,
+     "reason": "There are 18 people visible in the image, which is less than 24, so the rule does not indicate crowding.",
+     "latency_s": 0.326
+    },
+    {
+     "image": "f015568.jpg",
+     "gt": 14,
+     "alert": "true",
+     "threshold": 9,
+     "claimed_value": 14,
+     "confirmed": false,
+     "reason": "There are about 15 people visible in the image, which is less than 9, so the rule does not indicate a situation of crowding.",
+     "latency_s": 0.379
+    },
+    {
+     "image": "f015568.jpg",
+     "gt": 14,
+     "alert": "false",
+     "threshold": 22,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 22-person threshold for crowding.",
+     "latency_s": 0.359
+    },
+    {
+     "image": "f015613.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area to the right of the center, which exceeds the 13-person threshold for crowding.",
+     "latency_s": 0.419
+    },
+    {
+     "image": "f015613.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.381
+    },
+    {
+     "image": "f015658.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the image, which is less than the 12 threshold, so the rule does not show a situation where crowding is active.",
+     "latency_s": 0.416
+    },
+    {
+     "image": "f015658.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.354
+    },
+    {
+     "image": "f015703.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 13-person threshold for crowding.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f015703.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.384
+    },
+    {
+     "image": "f015748.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are 12 people visible in the image, which is less than 14, so the rule does not indicate a situation of crowding.",
+     "latency_s": 0.385
+    },
+    {
+     "image": "f015748.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f015793.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are 14 people in view in the image, which is less than the 12 threshold, so the rule does not show this situation.",
+     "latency_s": 0.381
+    },
+    {
+     "image": "f015793.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.353
+    },
+    {
+     "image": "f015838.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the image, which is less than the 15 threshold, so the rule does not show a situation where crowding is active.",
+     "latency_s": 0.413
+    },
+    {
+     "image": "f015838.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.357
+    },
+    {
+     "image": "f015883.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are 14 people visible in the frame, which is greater than 13, so the rule is triggered.",
+     "latency_s": 0.347
+    },
+    {
+     "image": "f015883.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are 27 people visible in the frame, which is greater than 26, so the rule is triggered.",
+     "latency_s": 0.316
+    },
+    {
+     "image": "f015928.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the frame, which is less than the 15 threshold, so the rule does not show a situation where crowding is occurring.",
+     "latency_s": 0.417
+    },
+    {
+     "image": "f015928.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the frame, which is less than the 28 threshold, so the rule does not show a situation where crowding is occurring.",
+     "latency_s": 0.381
+    },
+    {
+     "image": "f015973.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are 14 people in view in the image, which is less than the 12 threshold, so the rule does not show a situation where crowding is active.",
+     "latency_s": 0.424
+    },
+    {
+     "image": "f015973.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.354
+    },
+    {
+     "image": "f016018.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are 12 people visible in the image, which is less than 14, so the rule does not show a situation where crowding is triggered.",
+     "latency_s": 0.398
+    },
+    {
+     "image": "f016018.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.385
+    },
+    {
+     "image": "f016063.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 16-person threshold for crowding.",
+     "latency_s": 0.385
+    },
+    {
+     "image": "f016063.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 29 for the 'crowding' rule.",
+     "latency_s": 0.387
+    },
+    {
+     "image": "f016108.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are 14 or more people in view, but the rule is for people in view right now > 14. The image shows a crowd of people, but the count is not more than 14. The rule is not triggered.",
+     "latency_s": 0.529
+    },
+    {
+     "image": "f016108.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.386
+    },
+    {
+     "image": "f016153.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 15-person threshold for crowding.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f016153.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.359
+    },
+    {
+     "image": "f016198.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": false,
+     "reason": "There are 14-16 people visible in the frame, which is below the 17-person threshold for 'crowding' as defined by the rule.",
+     "latency_s": 0.41
+    },
+    {
+     "image": "f016198.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": false,
+     "reason": "There are 15-20 people visible in the frame, which is below the 30-person threshold for the 'crowding' rule, so the rule does not show a situation that is confirmed.",
+     "latency_s": 0.429
+    },
+    {
+     "image": "f016243.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are many people in the scene, but the rule's condition of 'people in view right now > 14' is not met as the count is not greater than 14. The image shows a large crowd, but the number of people tracked is not exceeding 14.",
+     "latency_s": 0.575
+    },
+    {
+     "image": "f016243.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 27-person threshold for crowding.",
+     "latency_s": 0.352
+    },
+    {
+     "image": "f016288.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": false,
+     "reason": "```json\n{\"confirmed\": false, \"reason\": \"There are 14 people visible in the image, which is greater than 13, but the rule is for 'crowding' which is defined as people in view right now > 13. The image shows 14 people in view, so the rule is triggered. However, the rule is not based on the image alone",
+     "latency_s": 0.956
+    },
+    {
+     "image": "f016288.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 26-person threshold for crowding.",
+     "latency_s": 0.351
+    },
+    {
+     "image": "f016333.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are many people in the scene, but the rule's condition of 'people in view right now > 14' is not met as the number of people tracked is less than 15.",
+     "latency_s": 0.451
+    },
+    {
+     "image": "f016333.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 27-person threshold for crowding.",
+     "latency_s": 0.35
+    },
+    {
+     "image": "f016378.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 15-person threshold for crowding.",
+     "latency_s": 0.381
+    },
+    {
+     "image": "f016378.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.348
+    },
+    {
+     "image": "f016423.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 13-person threshold for crowding.",
+     "latency_s": 0.404
+    },
+    {
+     "image": "f016423.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 26-person threshold for crowding.",
+     "latency_s": 0.342
+    },
+    {
+     "image": "f016468.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 17-person threshold for crowding.",
+     "latency_s": 0.387
+    },
+    {
+     "image": "f016468.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 30-person threshold for crowding.",
+     "latency_s": 0.352
+    },
+    {
+     "image": "f016513.jpg",
+     "gt": 24,
+     "alert": "true",
+     "threshold": 19,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 19-person threshold for crowding.",
+     "latency_s": 0.383
+    },
+    {
+     "image": "f016513.jpg",
+     "gt": 24,
+     "alert": "false",
+     "threshold": 32,
+     "claimed_value": 34,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 32-person threshold for crowding.",
+     "latency_s": 0.349
+    },
+    {
+     "image": "f016558.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 12, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.426
+    },
+    {
+     "image": "f016558.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 25, which triggers the 'crowding' rule.",
+     "latency_s": 0.349
+    },
+    {
+     "image": "f016603.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "```json\n{\"confirmed\": false, \"reason\": \"There are more than 12 people visible in the frame, but the rule is for 'crowding' which is defined as people in view right now > 12. The image shows a large crowd, but the count is not more than 12. The number of people in view is greater than 12, so the rule",
+     "latency_s": 0.966
+    },
+    {
+     "image": "f016603.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.352
+    },
+    {
+     "image": "f016648.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 12, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.443
+    },
+    {
+     "image": "f016648.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.356
+    },
+    {
+     "image": "f016693.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area, which exceeds the 15-person threshold for crowding.",
+     "latency_s": 0.391
+    },
+    {
+     "image": "f016693.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.342
+    },
+    {
+     "image": "f016738.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area to the right of the counting line, which exceeds the 13-person threshold for crowding.",
+     "latency_s": 0.431
+    },
+    {
+     "image": "f016738.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 26-person threshold for crowding.",
+     "latency_s": 0.353
+    },
+    {
+     "image": "f016783.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 12, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.419
+    },
+    {
+     "image": "f016783.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.352
+    },
+    {
+     "image": "f016828.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 16-person threshold for crowding.",
+     "latency_s": 0.385
+    },
+    {
+     "image": "f016828.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 29, indicating a crowded situation.",
+     "latency_s": 0.32
+    },
+    {
+     "image": "f016873.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 17, which triggers the 'crowding' rule.",
+     "latency_s": 0.402
+    },
+    {
+     "image": "f016873.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 30, so the rule does not indicate a situation of crowding.",
+     "latency_s": 0.377
+    },
+    {
+     "image": "f016918.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 15-person threshold for crowding.",
+     "latency_s": 0.402
+    },
+    {
+     "image": "f016918.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.348
+    },
+    {
+     "image": "f016963.jpg",
+     "gt": 23,
+     "alert": "true",
+     "threshold": 18,
+     "claimed_value": 23,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 18, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.44
+    },
+    {
+     "image": "f016963.jpg",
+     "gt": 23,
+     "alert": "false",
+     "threshold": 31,
+     "claimed_value": 33,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 31 for the 'crowding' rule.",
+     "latency_s": 0.391
+    },
+    {
+     "image": "f017008.jpg",
+     "gt": 23,
+     "alert": "true",
+     "threshold": 18,
+     "claimed_value": 23,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 18, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.413
+    },
+    {
+     "image": "f017008.jpg",
+     "gt": 23,
+     "alert": "false",
+     "threshold": 31,
+     "claimed_value": 33,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 31, indicating a crowded situation.",
+     "latency_s": 0.325
+    },
+    {
+     "image": "f017053.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number visible in the frame, which exceeds the 15-person threshold for crowding.",
+     "latency_s": 0.372
+    },
+    {
+     "image": "f017053.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 28-person threshold for crowding.",
+     "latency_s": 0.353
+    },
+    {
+     "image": "f017098.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 12, so the rule does not indicate a situation that is confirmed by the image.",
+     "latency_s": 0.425
+    },
+    {
+     "image": "f017098.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.35
+    },
+    {
+     "image": "f017143.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, with a significant number visible in the area, which exceeds the 13-person threshold for crowding.",
+     "latency_s": 0.369
+    },
+    {
+     "image": "f017143.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the area, with a significant number of individuals visible in the frame, which exceeds the 26-person threshold for crowding.",
+     "latency_s": 0.354
+    },
+    {
+     "image": "f017188.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 14, so the rule does not indicate a situation that is confirmed by the image.",
+     "latency_s": 0.421
+    },
+    {
+     "image": "f017188.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 27-person threshold for crowding.",
+     "latency_s": 0.354
+    },
+    {
+     "image": "f017233.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 15, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.434
+    },
+    {
+     "image": "f017233.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 28, which triggers the 'crowding' rule.",
+     "latency_s": 0.353
+    },
+    {
+     "image": "f017278.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 15, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.457
+    },
+    {
+     "image": "f017278.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 28, which triggers the rule.",
+     "latency_s": 0.33
+    },
+    {
+     "image": "f017323.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 14, so the rule does not indicate a situation that is confirmed by the image.",
+     "latency_s": 0.451
+    },
+    {
+     "image": "f017323.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.38
+    },
+    {
+     "image": "f017368.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 15, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.441
+    },
+    {
+     "image": "f017368.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 28, indicating a crowded situation.",
+     "latency_s": 0.327
+    },
+    {
+     "image": "f017413.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 16-person threshold for crowding.",
+     "latency_s": 0.401
+    },
+    {
+     "image": "f017413.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 29-person threshold for crowding.",
+     "latency_s": 0.35
+    },
+    {
+     "image": "f017458.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": false,
+     "reason": "There are multiple people visible in the scene, but the number of people in view is less than 14, so the rule does not indicate a situation that is confirmed by the image.",
+     "latency_s": 0.453
+    },
+    {
+     "image": "f017458.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the image, which is less than the 27 threshold, so the rule does not show this situation.",
+     "latency_s": 0.349
+    },
+    {
+     "image": "f017503.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 17, indicating a crowded situation.",
+     "latency_s": 0.355
+    },
+    {
+     "image": "f017503.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": false,
+     "reason": "There are 20-25 people visible in the frame, which is below the 30-person threshold for the 'crowding' rule, so the rule does not show a situation that is confirmed.",
+     "latency_s": 0.441
+    },
+    {
+     "image": "f017548.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 17, indicating a crowded situation.",
+     "latency_s": 0.361
+    },
+    {
+     "image": "f017548.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": false,
+     "reason": "There are 15-20 people visible in the frame, which is below the 30-person threshold for 'crowding' as defined by the rule.",
+     "latency_s": 0.381
+    },
+    {
+     "image": "f017593.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "```json\n{\"confirmed\": false, \"reason\": \"There are more than 12 people visible in the image, but the rule is for 'crowding' which is defined as people in view right now > 12. The image shows a large crowd, but the count is not more than 12. The number of people in view is greater than 12, so the rule",
+     "latency_s": 0.978
+    },
+    {
+     "image": "f017593.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.356
+    },
+    {
+     "image": "f017638.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are 12 people in view, which is less than 15, so the rule does not trigger.",
+     "latency_s": 0.332
+    },
+    {
+     "image": "f017638.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 28, indicating a crowded situation.",
+     "latency_s": 0.328
+    },
+    {
+     "image": "f017683.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": false,
+     "reason": "There are 14 people visible in the frame, which is just above the 13 threshold, so the rule does not show a situation that is confirmed.",
+     "latency_s": 0.407
+    },
+    {
+     "image": "f017683.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 26-person threshold for crowding.",
+     "latency_s": 0.352
+    },
+    {
+     "image": "f017728.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area to the right of the counting line, which exceeds the 16-person threshold for crowding.",
+     "latency_s": 0.438
+    },
+    {
+     "image": "f017728.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number visible in the area to the right of the center, which exceeds the 29-person threshold for crowding.",
+     "latency_s": 0.38
+    },
+    {
+     "image": "f017773.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "```json\n{\"confirmed\": false, \"reason\": \"There are more than 12 people visible in the frame, but the rule is for 'crowding' which is defined as people in view right now > 12. The image shows a large crowd, but the count is not more than 12. The actual number of people in view is greater than 12, so t",
+     "latency_s": 0.988
+    },
+    {
+     "image": "f017773.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.361
+    },
+    {
+     "image": "f017818.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": false,
+     "reason": "There are multiple people in the scene, but the number of people in view is less than 15, so the rule does not indicate a situation where crowding is occurring.",
+     "latency_s": 0.434
+    },
+    {
+     "image": "f017818.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 28, indicating a crowded situation.",
+     "latency_s": 0.319
+    },
+    {
+     "image": "f017863.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 17-person threshold for crowding.",
+     "latency_s": 0.382
+    },
+    {
+     "image": "f017863.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": false,
+     "reason": "There are 20-25 people visible in the frame, which is below the 30-person threshold for 'crowding' as defined by the rule.",
+     "latency_s": 0.368
+    },
+    {
+     "image": "f017908.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": false,
+     "reason": "There are many people in the scene, but the rule for 'crowding' requires more than 12 people in view. The image shows a large crowd, but the count is not sufficient to trigger the rule as it is not clearly over 12.",
+     "latency_s": 0.535
+    },
+    {
+     "image": "f017908.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "There are many people in the scene, with a significant number of individuals visible in the area, which exceeds the 25-person threshold for crowding.",
+     "latency_s": 0.35
+    },
+    {
+     "image": "f017953.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": false,
+     "reason": "```json\n{\"confirmed\": false, \"reason\": \"There are about 15 people visible in the frame, which is more than 13, but the rule is for 'crowding' which is defined as people in view right now > 13. The image shows a crowd of people, so the rule is triggered. However, the rule is not for 'crowding' but fo",
+     "latency_s": 0.968
+    },
+    {
+     "image": "f017953.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "There are multiple people in the scene, and the count of people in view is greater than 26, indicating a crowded situation.",
+     "latency_s": 0.325
+    }
+   ]
+  },
+  "informed": {
+   "metrics": {
+    "n_true": 60,
+    "n_false": 60,
+    "sensitivity_confirm_true": 1.0,
+    "sensitivity_ci95": [
+     0.94,
+     1.0
+    ],
+    "specificity_reject_false": 0.0,
+    "specificity_ci95": [
+     -0.0,
+     0.06
+    ],
+    "balanced_accuracy": 0.5,
+    "median_latency_s": 0.586
+   },
+   "rows": [
+    {
+     "image": "f015298.jpg",
+     "gt": 15,
+     "alert": "true",
+     "threshold": 10,
+     "claimed_value": 15,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 15, which is above the threshold of 10, and the rule is active.",
+     "latency_s": 0.669
+    },
+    {
+     "image": "f015298.jpg",
+     "gt": 15,
+     "alert": "false",
+     "threshold": 23,
+     "claimed_value": 25,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 25, which is above the threshold of 23 for the 'crowding' rule.",
+     "latency_s": 0.669
+    },
+    {
+     "image": "f015343.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.61
+    },
+    {
+     "image": "f015343.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.678
+    },
+    {
+     "image": "f015388.jpg",
+     "gt": 15,
+     "alert": "true",
+     "threshold": 10,
+     "claimed_value": 15,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 15, which exceeds the rule's threshold of 10.",
+     "latency_s": 0.551
+    },
+    {
+     "image": "f015388.jpg",
+     "gt": 15,
+     "alert": "false",
+     "threshold": 23,
+     "claimed_value": 25,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 25, which exceeds the threshold of 23 for the 'crowding' rule.",
+     "latency_s": 0.586
+    },
+    {
+     "image": "f015433.jpg",
+     "gt": 14,
+     "alert": "true",
+     "threshold": 9,
+     "claimed_value": 14,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 14, which exceeds the rule's threshold of 9.",
+     "latency_s": 0.613
+    },
+    {
+     "image": "f015433.jpg",
+     "gt": 14,
+     "alert": "false",
+     "threshold": 22,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 24, which exceeds the threshold of 22 for the 'crowding' rule.",
+     "latency_s": 0.682
+    },
+    {
+     "image": "f015478.jpg",
+     "gt": 13,
+     "alert": "true",
+     "threshold": 8,
+     "claimed_value": 13,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 13, which is above the threshold of 8, and the rule is active.",
+     "latency_s": 0.645
+    },
+    {
+     "image": "f015478.jpg",
+     "gt": 13,
+     "alert": "false",
+     "threshold": 21,
+     "claimed_value": 23,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 23, which exceeds the threshold of 21 for the 'crowding' rule.",
+     "latency_s": 0.664
+    },
+    {
+     "image": "f015523.jpg",
+     "gt": 16,
+     "alert": "true",
+     "threshold": 11,
+     "claimed_value": 16,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 16, which is above the threshold of 11, and the rule is active.",
+     "latency_s": 0.676
+    },
+    {
+     "image": "f015523.jpg",
+     "gt": 16,
+     "alert": "false",
+     "threshold": 24,
+     "claimed_value": 26,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 26, which exceeds the threshold of 24 for the 'crowding' rule.",
+     "latency_s": 0.684
+    },
+    {
+     "image": "f015568.jpg",
+     "gt": 14,
+     "alert": "true",
+     "threshold": 9,
+     "claimed_value": 14,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 14, which is above the threshold of 9 for the 'crowding' rule.",
+     "latency_s": 0.589
+    },
+    {
+     "image": "f015568.jpg",
+     "gt": 14,
+     "alert": "false",
+     "threshold": 22,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 24, which exceeds the rule's threshold of 22.",
+     "latency_s": 0.586
+    },
+    {
+     "image": "f015613.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.612
+    },
+    {
+     "image": "f015613.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.682
+    },
+    {
+     "image": "f015658.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.577
+    },
+    {
+     "image": "f015658.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.627
+    },
+    {
+     "image": "f015703.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.551
+    },
+    {
+     "image": "f015703.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.622
+    },
+    {
+     "image": "f015748.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.646
+    },
+    {
+     "image": "f015748.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.642
+    },
+    {
+     "image": "f015793.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.552
+    },
+    {
+     "image": "f015793.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.605
+    },
+    {
+     "image": "f015838.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 20, which is greater than 15, and the rule is triggered.",
+     "latency_s": 0.622
+    },
+    {
+     "image": "f015838.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.636
+    },
+    {
+     "image": "f015883.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.555
+    },
+    {
+     "image": "f015883.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.615
+    },
+    {
+     "image": "f015928.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.583
+    },
+    {
+     "image": "f015928.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.554
+    },
+    {
+     "image": "f015973.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.553
+    },
+    {
+     "image": "f015973.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 27, which exceeds the rule's threshold of 25.",
+     "latency_s": 0.585
+    },
+    {
+     "image": "f016018.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.548
+    },
+    {
+     "image": "f016018.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.587
+    },
+    {
+     "image": "f016063.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 21, which exceeds the threshold of 16 for the 'crowding' rule.",
+     "latency_s": 0.658
+    },
+    {
+     "image": "f016063.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 31, which exceeds the threshold of 29 for the 'crowding' rule.",
+     "latency_s": 0.678
+    },
+    {
+     "image": "f016108.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.539
+    },
+    {
+     "image": "f016108.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.585
+    },
+    {
+     "image": "f016153.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which is above the threshold of 15 for the 'crowding' rule.",
+     "latency_s": 0.603
+    },
+    {
+     "image": "f016153.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.556
+    },
+    {
+     "image": "f016198.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 22, which is above the threshold of 17 for the 'crowding' rule.",
+     "latency_s": 0.669
+    },
+    {
+     "image": "f016198.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.617
+    },
+    {
+     "image": "f016243.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the threshold of 14, and the rule is active.",
+     "latency_s": 0.585
+    },
+    {
+     "image": "f016243.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.61
+    },
+    {
+     "image": "f016288.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.554
+    },
+    {
+     "image": "f016288.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.595
+    },
+    {
+     "image": "f016333.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.579
+    },
+    {
+     "image": "f016333.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.608
+    },
+    {
+     "image": "f016378.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.553
+    },
+    {
+     "image": "f016378.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 30, which exceeds the threshold of 28 for the 'crowding' rule.",
+     "latency_s": 0.59
+    },
+    {
+     "image": "f016423.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.544
+    },
+    {
+     "image": "f016423.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.604
+    },
+    {
+     "image": "f016468.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 22, which is above the threshold of 17, and the rule is active.",
+     "latency_s": 0.616
+    },
+    {
+     "image": "f016468.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.559
+    },
+    {
+     "image": "f016513.jpg",
+     "gt": 24,
+     "alert": "true",
+     "threshold": 19,
+     "claimed_value": 24,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 24, which exceeds the threshold of 19.",
+     "latency_s": 0.541
+    },
+    {
+     "image": "f016513.jpg",
+     "gt": 24,
+     "alert": "false",
+     "threshold": 32,
+     "claimed_value": 34,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 34, which exceeds the rule's threshold of 32.",
+     "latency_s": 0.622
+    },
+    {
+     "image": "f016558.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.567
+    },
+    {
+     "image": "f016558.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.602
+    },
+    {
+     "image": "f016603.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.566
+    },
+    {
+     "image": "f016603.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 27, which exceeds the rule's threshold of 25.",
+     "latency_s": 0.6
+    },
+    {
+     "image": "f016648.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.556
+    },
+    {
+     "image": "f016648.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.62
+    },
+    {
+     "image": "f016693.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 20, which is greater than 15, and the rule is triggered.",
+     "latency_s": 0.577
+    },
+    {
+     "image": "f016693.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.554
+    },
+    {
+     "image": "f016738.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.541
+    },
+    {
+     "image": "f016738.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.586
+    },
+    {
+     "image": "f016783.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.586
+    },
+    {
+     "image": "f016783.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.613
+    },
+    {
+     "image": "f016828.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 21, which exceeds the threshold of 16 for the 'crowding' rule.",
+     "latency_s": 0.594
+    },
+    {
+     "image": "f016828.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 31, which exceeds the threshold of 29 for the 'crowding' rule.",
+     "latency_s": 0.603
+    },
+    {
+     "image": "f016873.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 22, which is above the threshold of 17, and the rule is active.",
+     "latency_s": 0.583
+    },
+    {
+     "image": "f016873.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.559
+    },
+    {
+     "image": "f016918.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.559
+    },
+    {
+     "image": "f016918.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.558
+    },
+    {
+     "image": "f016963.jpg",
+     "gt": 23,
+     "alert": "true",
+     "threshold": 18,
+     "claimed_value": 23,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 23, which exceeds the rule's threshold of 18.",
+     "latency_s": 0.56
+    },
+    {
+     "image": "f016963.jpg",
+     "gt": 23,
+     "alert": "false",
+     "threshold": 31,
+     "claimed_value": 33,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 33, which exceeds the rule's threshold of 31.",
+     "latency_s": 0.649
+    },
+    {
+     "image": "f017008.jpg",
+     "gt": 23,
+     "alert": "true",
+     "threshold": 18,
+     "claimed_value": 23,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 23, which exceeds the rule's threshold of 18.",
+     "latency_s": 0.565
+    },
+    {
+     "image": "f017008.jpg",
+     "gt": 23,
+     "alert": "false",
+     "threshold": 31,
+     "claimed_value": 33,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 33, which exceeds the rule's threshold of 31.",
+     "latency_s": 0.58
+    },
+    {
+     "image": "f017053.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 20, which exceeds the threshold of 15 for the 'crowding' rule.",
+     "latency_s": 0.577
+    },
+    {
+     "image": "f017053.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 30, which exceeds the threshold of 28 for the 'crowding' rule.",
+     "latency_s": 0.581
+    },
+    {
+     "image": "f017098.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.575
+    },
+    {
+     "image": "f017098.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.581
+    },
+    {
+     "image": "f017143.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.546
+    },
+    {
+     "image": "f017143.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.592
+    },
+    {
+     "image": "f017188.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.586
+    },
+    {
+     "image": "f017188.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.623
+    },
+    {
+     "image": "f017233.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.552
+    },
+    {
+     "image": "f017233.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.561
+    },
+    {
+     "image": "f017278.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 20, which exceeds the threshold of 15 for the 'crowding' rule.",
+     "latency_s": 0.608
+    },
+    {
+     "image": "f017278.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.552
+    },
+    {
+     "image": "f017323.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.579
+    },
+    {
+     "image": "f017323.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.602
+    },
+    {
+     "image": "f017368.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.549
+    },
+    {
+     "image": "f017368.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.56
+    },
+    {
+     "image": "f017413.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 21, which exceeds the threshold of 16 for the 'crowding' rule.",
+     "latency_s": 0.622
+    },
+    {
+     "image": "f017413.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 31, which exceeds the threshold of 29 for the 'crowding' rule.",
+     "latency_s": 0.613
+    },
+    {
+     "image": "f017458.jpg",
+     "gt": 19,
+     "alert": "true",
+     "threshold": 14,
+     "claimed_value": 19,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 19, which exceeds the rule's threshold of 14.",
+     "latency_s": 0.551
+    },
+    {
+     "image": "f017458.jpg",
+     "gt": 19,
+     "alert": "false",
+     "threshold": 27,
+     "claimed_value": 29,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 29, which exceeds the threshold of 27 for the 'crowding' rule.",
+     "latency_s": 0.605
+    },
+    {
+     "image": "f017503.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 22, which exceeds the threshold of 17, and the rule is active.",
+     "latency_s": 0.58
+    },
+    {
+     "image": "f017503.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.561
+    },
+    {
+     "image": "f017548.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 22, which is above the threshold of 17 for the 'crowding' rule.",
+     "latency_s": 0.603
+    },
+    {
+     "image": "f017548.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.556
+    },
+    {
+     "image": "f017593.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.56
+    },
+    {
+     "image": "f017593.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.584
+    },
+    {
+     "image": "f017638.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 20, which exceeds the threshold of 15 for the 'crowding' rule.",
+     "latency_s": 0.584
+    },
+    {
+     "image": "f017638.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.547
+    },
+    {
+     "image": "f017683.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.59
+    },
+    {
+     "image": "f017683.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.584
+    },
+    {
+     "image": "f017728.jpg",
+     "gt": 21,
+     "alert": "true",
+     "threshold": 16,
+     "claimed_value": 21,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 21, which exceeds the threshold of 16 for the 'crowding' rule.",
+     "latency_s": 0.62
+    },
+    {
+     "image": "f017728.jpg",
+     "gt": 21,
+     "alert": "false",
+     "threshold": 29,
+     "claimed_value": 31,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 31, which exceeds the threshold of 29 for the 'crowding' rule.",
+     "latency_s": 0.616
+    },
+    {
+     "image": "f017773.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.56
+    },
+    {
+     "image": "f017773.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.598
+    },
+    {
+     "image": "f017818.jpg",
+     "gt": 20,
+     "alert": "true",
+     "threshold": 15,
+     "claimed_value": 20,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 20, which exceeds the rule's threshold of 15.",
+     "latency_s": 0.559
+    },
+    {
+     "image": "f017818.jpg",
+     "gt": 20,
+     "alert": "false",
+     "threshold": 28,
+     "claimed_value": 30,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 30, which exceeds the rule's threshold of 28.",
+     "latency_s": 0.562
+    },
+    {
+     "image": "f017863.jpg",
+     "gt": 22,
+     "alert": "true",
+     "threshold": 17,
+     "claimed_value": 22,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 22, which is above the threshold of 17, and the rule is active.",
+     "latency_s": 0.61
+    },
+    {
+     "image": "f017863.jpg",
+     "gt": 22,
+     "alert": "false",
+     "threshold": 30,
+     "claimed_value": 32,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy measurement is 32, which exceeds the rule's threshold of 30.",
+     "latency_s": 0.55
+    },
+    {
+     "image": "f017908.jpg",
+     "gt": 17,
+     "alert": "true",
+     "threshold": 12,
+     "claimed_value": 17,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 17, which exceeds the rule's threshold of 12.",
+     "latency_s": 0.549
+    },
+    {
+     "image": "f017908.jpg",
+     "gt": 17,
+     "alert": "false",
+     "threshold": 25,
+     "claimed_value": 27,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 27, which exceeds the threshold of 25 for the 'crowding' rule.",
+     "latency_s": 0.59
+    },
+    {
+     "image": "f017953.jpg",
+     "gt": 18,
+     "alert": "true",
+     "threshold": 13,
+     "claimed_value": 18,
+     "confirmed": true,
+     "reason": "The alert is real because the occupancy is 18, which exceeds the rule's threshold of 13.",
+     "latency_s": 0.555
+    },
+    {
+     "image": "f017953.jpg",
+     "gt": 18,
+     "alert": "false",
+     "threshold": 26,
+     "claimed_value": 28,
+     "confirmed": true,
+     "reason": "The alert is real as the occupancy is 28, which exceeds the threshold of 26 for the 'crowding' rule.",
+     "latency_s": 0.598
+    }
+   ]
+  }
+ }
+}

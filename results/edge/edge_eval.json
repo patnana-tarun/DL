@@ -1,0 +1,424 @@
+{
+ "files": {
+  "736x1280_s1": {
+   "onnx": "models/yolo26n_person_736x1280.onnx",
+   "stride": 1,
+   "analysis_fps": 59.94,
+   "frames": 1798,
+   "heldout_15-30s": {
+    "HOTA": 0.7459250829528996,
+    "DetA": 0.7305379748561727,
+    "AssA": 0.7637126002621302,
+    "MOTA": 0.7575019638648861,
+    "MOTP": 0.9247747413071452,
+    "IDF1": 0.8055089540010144,
+    "IDSW": 44,
+    "Frag": 288,
+    "MT": 86,
+    "ML": 10,
+    "FP": 1607,
+    "FN": 1436,
+    "pred_IDs": 141,
+    "gt_IDs": 112
+   },
+   "full_0-30s": {
+    "HOTA": 0.7401219844242524,
+    "DetA": 0.7358265482073716,
+    "AssA": 0.7464673747677645,
+    "MOTA": 0.7748617286628349,
+    "MOTP": 0.9197974633851806,
+    "IDF1": 0.8162157429296909,
+    "IDSW": 73,
+    "Frag": 621,
+    "MT": 131,
+    "ML": 13,
+    "FP": 3967,
+    "FN": 2188,
+    "pred_IDs": 216,
+    "gt_IDs": 169
+   },
+   "unique_people": 181,
+   "gt_unique_people": 169,
+   "pipeline_unique_people": 181,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 33.43,
+     "p50": 32.47,
+     "p90": 35.58,
+     "n": 1799
+    },
+    "track_ms": {
+     "mean": 1.0,
+     "p50": 0.97,
+     "p90": 1.2,
+     "n": 1799
+    },
+    "analytics_ms": {
+     "mean": 0.25,
+     "p50": 0.16,
+     "p90": 0.27,
+     "n": 1799
+    },
+    "loop_ms": {
+     "mean": 34.7,
+     "p50": 33.56,
+     "p90": 36.95,
+     "n": 1799
+    }
+   },
+   "provider": "CPUExecutionProvider",
+   "wall_s": 63.1
+  },
+  "736x1280_s2": {
+   "onnx": "models/yolo26n_person_736x1280.onnx",
+   "stride": 2,
+   "analysis_fps": 29.97,
+   "frames": 899,
+   "heldout_15-30s": {
+    "HOTA": 0.7432159804378117,
+    "DetA": 0.7257616354195598,
+    "AssA": 0.7630810562434217,
+    "MOTA": 0.7526340619594276,
+    "MOTP": 0.9265920602871355,
+    "IDF1": 0.8058804932026558,
+    "IDSW": 35,
+    "Frag": 160,
+    "MT": 80,
+    "ML": 12,
+    "FP": 736,
+    "FN": 802,
+    "pred_IDs": 119,
+    "gt_IDs": 112
+   },
+   "full_0-30s": {
+    "HOTA": 0.7327020675465081,
+    "DetA": 0.7314514518215754,
+    "AssA": 0.735912492800203,
+    "MOTA": 0.769914702905884,
+    "MOTP": 0.9207627438041396,
+    "IDF1": 0.804601757419628,
+    "IDSW": 58,
+    "Frag": 347,
+    "MT": 122,
+    "ML": 17,
+    "FP": 1897,
+    "FN": 1228,
+    "pred_IDs": 186,
+    "gt_IDs": 169
+   },
+   "unique_people": 164,
+   "gt_unique_people": 165,
+   "pipeline_unique_people": 167,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 33.53,
+     "p50": 32.57,
+     "p90": 36.56,
+     "n": 900
+    },
+    "track_ms": {
+     "mean": 0.99,
+     "p50": 0.94,
+     "p90": 1.28,
+     "n": 900
+    },
+    "analytics_ms": {
+     "mean": 0.24,
+     "p50": 0.16,
+     "p90": 0.31,
+     "n": 900
+    },
+    "loop_ms": {
+     "mean": 34.77,
+     "p50": 34.17,
+     "p90": 37.72,
+     "n": 900
+    }
+   },
+   "provider": "CPUExecutionProvider",
+   "wall_s": 31.7
+  },
+  "736x1280_s4": {
+   "onnx": "models/yolo26n_person_736x1280.onnx",
+   "stride": 4,
+   "analysis_fps": 14.99,
+   "frames": 450,
+   "heldout_15-30s": {
+    "HOTA": 0.7346142721835223,
+    "DetA": 0.714605925894855,
+    "AssA": 0.757124014616169,
+    "MOTA": 0.7355708908406524,
+    "MOTP": 0.9279136075373465,
+    "IDF1": 0.7957542618205211,
+    "IDSW": 21,
+    "Frag": 89,
+    "MT": 70,
+    "ML": 14,
+    "FP": 332,
+    "FN": 490,
+    "pred_IDs": 108,
+    "gt_IDs": 112
+   },
+   "full_0-30s": {
+    "HOTA": 0.7305684597438118,
+    "DetA": 0.7235101506083131,
+    "AssA": 0.739684634534403,
+    "MOTA": 0.7550961399450629,
+    "MOTP": 0.9217479017687465,
+    "IDF1": 0.806363766661889,
+    "IDSW": 48,
+    "Frag": 195,
+    "MT": 109,
+    "ML": 19,
+    "FP": 883,
+    "FN": 763,
+    "pred_IDs": 172,
+    "gt_IDs": 169
+   },
+   "unique_people": 160,
+   "gt_unique_people": 168,
+   "pipeline_unique_people": 160,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 34.63,
+     "p50": 32.97,
+     "p90": 39.94,
+     "n": 450
+    },
+    "track_ms": {
+     "mean": 0.99,
+     "p50": 0.88,
+     "p90": 1.44,
+     "n": 450
+    },
+    "analytics_ms": {
+     "mean": 0.5,
+     "p50": 0.22,
+     "p90": 0.32,
+     "n": 450
+    },
+    "loop_ms": {
+     "mean": 36.13,
+     "p50": 34.01,
+     "p90": 41.73,
+     "n": 450
+    }
+   },
+   "provider": "CPUExecutionProvider",
+   "wall_s": 16.7
+  },
+  "544x960_s4": {
+   "onnx": "models/yolo26n_person_544x960.onnx",
+   "stride": 4,
+   "analysis_fps": 14.99,
+   "frames": 450,
+   "heldout_15-30s": {
+    "HOTA": 0.7259784049784467,
+    "DetA": 0.7163095942038881,
+    "AssA": 0.7390627058711974,
+    "MOTA": 0.7543914680050188,
+    "MOTP": 0.918073713853975,
+    "IDF1": 0.7938831950544981,
+    "IDSW": 20,
+    "Frag": 97,
+    "MT": 67,
+    "ML": 16,
+    "FP": 267,
+    "FN": 496,
+    "pred_IDs": 101,
+    "gt_IDs": 112
+   },
+   "full_0-30s": {
+    "HOTA": 0.7291800765036079,
+    "DetA": 0.7222001376448252,
+    "AssA": 0.7389019962884631,
+    "MOTA": 0.7760589851091514,
+    "MOTP": 0.9106236310626963,
+    "IDF1": 0.8137218738472888,
+    "IDSW": 42,
+    "Frag": 188,
+    "MT": 98,
+    "ML": 22,
+    "FP": 614,
+    "FN": 893,
+    "pred_IDs": 163,
+    "gt_IDs": 169
+   },
+   "unique_people": 144,
+   "gt_unique_people": 168,
+   "pipeline_unique_people": 144,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 17.93,
+     "p50": 17.56,
+     "p90": 18.81,
+     "n": 450
+    },
+    "track_ms": {
+     "mean": 0.88,
+     "p50": 0.85,
+     "p90": 1.07,
+     "n": 450
+    },
+    "analytics_ms": {
+     "mean": 0.37,
+     "p50": 0.17,
+     "p90": 0.3,
+     "n": 450
+    },
+    "loop_ms": {
+     "mean": 19.19,
+     "p50": 18.59,
+     "p90": 20.13,
+     "n": 450
+    }
+   },
+   "provider": "CPUExecutionProvider",
+   "wall_s": 9.1
+  },
+  "384x640_s4": {
+   "onnx": "models/yolo26n_person_384x640.onnx",
+   "stride": 4,
+   "analysis_fps": 14.99,
+   "frames": 450,
+   "heldout_15-30s": {
+    "HOTA": 0.6991674762044251,
+    "DetA": 0.6578522830700951,
+    "AssA": 0.7477506973161122,
+    "MOTA": 0.7180050188205772,
+    "MOTP": 0.8937259747713887,
+    "IDF1": 0.7847495298341597,
+    "IDSW": 16,
+    "Frag": 59,
+    "MT": 52,
+    "ML": 27,
+    "FP": 178,
+    "FN": 705,
+    "pred_IDs": 84,
+    "gt_IDs": 112
+   },
+   "full_0-30s": {
+    "HOTA": 0.663738440655665,
+    "DetA": 0.6415372089404784,
+    "AssA": 0.6920436006766085,
+    "MOTA": 0.7097007373138644,
+    "MOTP": 0.8796215220892141,
+    "IDF1": 0.7519517662518358,
+    "IDSW": 43,
+    "Frag": 136,
+    "MT": 75,
+    "ML": 39,
+    "FP": 534,
+    "FN": 1431,
+    "pred_IDs": 137,
+    "gt_IDs": 169
+   },
+   "unique_people": 125,
+   "gt_unique_people": 168,
+   "pipeline_unique_people": 125,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 9.73,
+     "p50": 9.55,
+     "p90": 10.02,
+     "n": 450
+    },
+    "track_ms": {
+     "mean": 0.8,
+     "p50": 0.79,
+     "p90": 0.89,
+     "n": 450
+    },
+    "analytics_ms": {
+     "mean": 0.29,
+     "p50": 0.13,
+     "p90": 0.28,
+     "n": 450
+    },
+    "loop_ms": {
+     "mean": 10.83,
+     "p50": 10.52,
+     "p90": 11.1,
+     "n": 450
+    }
+   },
+   "provider": "CPUExecutionProvider",
+   "wall_s": 5.3
+  },
+  "_reference_research_offline": {
+   "what": "research/track.py, PyTorch FP16 fast path, cv2 decode, stride 1",
+   "heldout_15-30s": {
+    "HOTA": 0.7462962239946526,
+    "DetA": 0.7365420714393205,
+    "AssA": 0.758512947841126,
+    "MOTA": 0.7699135899450118,
+    "MOTP": 0.9235761075263951,
+    "IDF1": 0.805084412262406,
+    "IDSW": 42,
+    "Frag": 289,
+    "MT": 84,
+    "ML": 9,
+    "FP": 1419,
+    "FN": 1468,
+    "pred_IDs": 138,
+    "gt_IDs": 112
+   }
+  }
+ },
+ "protocol": "The pipeline is run exactly as on the device (FFmpeg decoder process -> ONNX Runtime detector -> ByteTrack ->\nonline analytics), on the tracking hold-out of aa1.mp4 (first 30 s, never used for training), and its tracks\nare scored against the same teacher pseudo-GT as research/track.py.",
+ "live": {
+  "rtsp_live_gpu_pt1280": {
+   "url": "rtsp (MediaMTX, ffmpeg -re publisher, -c copy)",
+   "wall_s": 34.0,
+   "frames_analysed": 1602,
+   "frames_dropped_stale": 197,
+   "source_frames_published_approx": 1798,
+   "throughput_fps": 47.11,
+   "latency_ms": {
+    "detect_ms": {
+     "mean": 13.22,
+     "p50": 14.08,
+     "p90": 15.33,
+     "n": 1602
+    },
+    "track_ms": {
+     "mean": 1.19,
+     "p50": 1.13,
+     "p90": 1.46,
+     "n": 1602
+    },
+    "analytics_ms": {
+     "mean": 0.16,
+     "p50": 0.14,
+     "p90": 0.24,
+     "n": 1602
+    },
+    "loop_ms": {
+     "mean": 14.58,
+     "p50": 15.34,
+     "p90": 16.74,
+     "n": 1602
+    }
+   },
+   "analytics": {
+    "t": 29.87,
+    "unique_people": 152,
+    "crossings": {
+     "a_to_b": 4,
+     "b_to_a": 0
+    },
+    "crossing_directions": {
+     "a_to_b": "right to left",
+     "b_to_a": "left to right"
+    },
+    "dwell_finished_median_s": 1.52,
+    "dwell_finished_p90_s": 6.16
+   },
+   "detector": {
+    "backend": "ultralytics",
+    "weights": "/home/shadows/Downloads/MINOR_DL/runs/yolo26n/weights/best.pt",
+    "provider": "ultralytics:pt"
+   }
+  }
+ }
+}

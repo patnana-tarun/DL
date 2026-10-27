@@ -1,0 +1,6 @@
+[PASS] T1 tracker re-run reproduces stored metrics | YOLO26n  {"rerun": {"HOTA": 0.7463, "MOTA": 0.7699, "IDF1": 0.8051}, "stored": {"HOTA": 0.7463, "MOTA": 0.7699, "IDF1": 0.8051}}
+[PASS] T2 py-motmetrics vs trackers.eval | YOLO26n  {"motmetrics": {"MOTA": 0.77, "IDF1": 0.8051, "IDSW": 41}, "trackers_eval": {"MOTA": 0.7699, "IDF1": 0.8051, "IDSW": 42}}
+[PASS] T1 tracker re-run reproduces stored metrics | RF-DETR Nano  {"rerun": {"HOTA": 0.7565, "MOTA": 0.7875, "IDF1": 0.829}, "stored": {"HOTA": 0.7565, "MOTA": 0.7875, "IDF1": 0.829}}
+[PASS] T2 py-motmetrics vs trackers.eval | RF-DETR Nano  {"motmetrics": {"MOTA": 0.7875, "IDF1": 0.829, "IDSW": 60}, "trackers_eval": {"MOTA": 0.7875, "IDF1": 0.829, "IDSW": 60}}
+
+4/4 checks passed

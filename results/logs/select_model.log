@@ -1,0 +1,122 @@
+{
+ "criteria": {
+  "YOLO26n": {
+   "test_AP50-95": 0.8254166549344669,
+   "label_bias_min_AP": 0.726436659823565,
+   "tracking_mean_HOTA": 0.7017208419169249,
+   "latency_ms": 3.6784399999305606,
+   "GFLOPs": 13.56995584,
+   "params_M": 2.50419,
+   "_tracking_wins": "10/12"
+  },
+  "RF-DETR Nano": {
+   "test_AP50-95": 0.7252479848856535,
+   "label_bias_min_AP": 0.6300559091088421,
+   "tracking_mean_HOTA": 0.6875575849257975,
+   "latency_ms": 7.89009100117255,
+   "GFLOPs": 97.274996736,
+   "params_M": 30.540292,
+   "_tracking_wins": "2/12"
+  }
+ },
+ "weighted_score": {
+  "YOLO26n": 1.0,
+  "RF-DETR Nano": 0.706571835621837
+ },
+ "winner": "YOLO26n",
+ "alternative_winners": {
+  "accuracy only": "YOLO26n",
+  "speed only": "YOLO26n",
+  "tracking only": "YOLO26n",
+  "equal": "YOLO26n",
+  "bias-aware (label-bias AP replaces fused AP)": "YOLO26n"
+ }
+}
+WARNING ⚠️ 'half' is deprecated and will be removed in the future. Use 'quantize' instead.
+Ultralytics 8.4.164 🚀 Python-3.12.3 torch-2.14.0+cu130 CPU (13th Gen Intel Core i7-13650HX)
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 12.6 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'runs/yolo26n/weights/best.pt' with input shape (1, 3, 736, 1280) BCHW and output shape(s) (1, 5, 19320) (5.2 MB)
+
+[34m[1mONNX:[0m starting export with onnx 1.23.2 opset 18...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.97...
+[34m[1mONNX:[0m export success ✅ 0.9s, saved as 'runs/yolo26n/weights/best.onnx' (9.5 MB)
+
+Export complete (1.1s)
+Results saved to [1m/home/shadows/Downloads/MINOR_DL/runs/detect/runs/yolo26n/weights/best.onnx[0m
+Predict:         yolo predict task=detect model=runs/yolo26n/weights/best.onnx imgsz=736,1280 
+Validate:        yolo val task=detect model=runs/yolo26n/weights/best.onnx imgsz=736,1280 data=datasets/yolo/data.yaml  WARNING ⚠️ non-PyTorch val requires square images, 'imgsz=[736, 1280]' will not work. Use export 'imgsz=1280' if val is required.
+Visualize:       https://netron.app
+exported /home/shadows/Downloads/MINOR_DL/edge_deploy/models/yolo26n_person_736x1280.onnx 10.0 MB
+WARNING ⚠️ 'half' is deprecated and will be removed in the future. Use 'quantize' instead.
+Ultralytics 8.4.164 🚀 Python-3.12.3 torch-2.14.0+cu130 CPU (13th Gen Intel Core i7-13650HX)
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 6.8 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'runs/yolo26n/weights/best.pt' with input shape (1, 3, 544, 960) BCHW and output shape(s) (1, 5, 10710) (5.2 MB)
+
+[34m[1mONNX:[0m starting export with onnx 1.23.2 opset 18...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.97...
+[34m[1mONNX:[0m export success ✅ 0.6s, saved as 'runs/yolo26n/weights/best.onnx' (9.4 MB)
+
+Export complete (0.7s)
+Results saved to [1m/home/shadows/Downloads/MINOR_DL/runs/detect/runs/yolo26n/weights/best.onnx[0m
+Predict:         yolo predict task=detect model=runs/yolo26n/weights/best.onnx imgsz=544,960 
+Validate:        yolo val task=detect model=runs/yolo26n/weights/best.onnx imgsz=544,960 data=datasets/yolo/data.yaml  WARNING ⚠️ non-PyTorch val requires square images, 'imgsz=[544, 960]' will not work. Use export 'imgsz=960' if val is required.
+Visualize:       https://netron.app
+exported /home/shadows/Downloads/MINOR_DL/edge_deploy/models/yolo26n_person_544x960.onnx 9.8 MB
+WARNING ⚠️ 'half' is deprecated and will be removed in the future. Use 'quantize' instead.
+Ultralytics 8.4.164 🚀 Python-3.12.3 torch-2.14.0+cu130 CPU (13th Gen Intel Core i7-13650HX)
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 3.2 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'runs/yolo26n/weights/best.pt' with input shape (1, 3, 384, 640) BCHW and output shape(s) (1, 5, 5040) (5.2 MB)
+
+[34m[1mONNX:[0m starting export with onnx 1.23.2 opset 18...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.97...
+[34m[1mONNX:[0m export success ✅ 0.7s, saved as 'runs/yolo26n/weights/best.onnx' (9.3 MB)
+
+Export complete (0.8s)
+Results saved to [1m/home/shadows/Downloads/MINOR_DL/runs/detect/runs/yolo26n/weights/best.onnx[0m
+Predict:         yolo predict task=detect model=runs/yolo26n/weights/best.onnx imgsz=384,640 
+Validate:        yolo val task=detect model=runs/yolo26n/weights/best.onnx imgsz=384,640 data=datasets/yolo/data.yaml  WARNING ⚠️ non-PyTorch val requires square images, 'imgsz=[384, 640]' will not work. Use export 'imgsz=640' if val is required.
+Visualize:       https://netron.app
+exported /home/shadows/Downloads/MINOR_DL/edge_deploy/models/yolo26n_person_384x640.onnx 9.7 MB
+736x1280: AP 0.8273 AP50 0.9630  ORT-CPU 30.9 ms
+544x960: AP 0.7943 AP50 0.9592  ORT-CPU 41.4 ms
+384x640: AP 0.6820 AP50 0.9255  ORT-CPU 19.1 ms
+{
+ "accuracy only": {
+  "scores": {
+   "YOLO26n": 1.0,
+   "RF-DETR Nano": 0.8786447190640148
+  },
+  "winner": "YOLO26n"
+ },
+ "speed only": {
+  "scores": {
+   "YOLO26n": 1.0,
+   "RF-DETR Nano": 0.46621008545831805
+  },
+  "winner": "YOLO26n"
+ },
+ "tracking only": {
+  "scores": {
+   "YOLO26n": 1.0,
+   "RF-DETR Nano": 0.9798163940058602
+  },
+  "winner": "YOLO26n"
+ },
+ "equal": {
+  "scores": {
+   "YOLO26n": 1.0,
+   "RF-DETR Nano": 0.5689153960255307
+  },
+  "winner": "YOLO26n"
+ },
+ "bias-aware (label-bias AP replaces fused AP)": {
+  "scores": {
+   "YOLO26n": 1.0,
+   "RF-DETR Nano": 0.7031756032035973
+  },
+  "winner": "YOLO26n"
+ }
+}

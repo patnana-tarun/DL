@@ -1,0 +1,189 @@
+{
+ "protocol": "Heads (binary logistic regression, class-balanced; L2 strength and feature set (backbone only, or\nbackbone + colour histograms) picked by 5-fold CV on the training tracks, grouped by track):\n  uniform   uniform vs non_uniform\n  gender    male vs female\nTrain: the 200 hand-labelled training tracks (validation/*_train_labels.tsv).\nTest : the 100 random hand-labelled tracks (validation/*_labels.tsv), never used for training or tuning.\nA track's probability = mean of its crops' probabilities; |p - 0.5| < ABSTAIN -> \"unsure\".",
+ "uniform": {
+  "train": {
+   "features": "dino+colour",
+   "lambda": 0.001,
+   "cv_balanced_accuracy": 0.927,
+   "n_tracks": 155,
+   "n_pos": 126,
+   "n_neg": 29,
+   "cv_by_features": {
+    "dino": 0.885,
+    "dino+colour": 0.927
+   }
+  },
+  "test_per_track": {
+   "video_1": {
+    "accuracy": 0.892,
+    "ci95": [
+     0.753,
+     0.957
+    ],
+    "correct": 33,
+    "answered": 37,
+    "labelled": 42,
+    "coverage": 0.881,
+    "errors": [
+     "video_1#55 true=0 p=0.99",
+     "video_1#271 true=0 p=1.00",
+     "video_1#383 true=0 p=0.84",
+     "video_1#433 true=0 p=0.96"
+    ]
+   },
+   "video_2": {
+    "accuracy": 0.771,
+    "ci95": [
+     0.61,
+     0.879
+    ],
+    "correct": 27,
+    "answered": 35,
+    "labelled": 37,
+    "coverage": 0.946,
+    "errors": [
+     "video_2#79 true=0 p=0.90",
+     "video_2#318 true=0 p=1.00",
+     "video_2#557 true=0 p=0.96",
+     "video_2#617 true=0 p=1.00",
+     "video_2#685 true=0 p=1.00",
+     "video_2#768 true=0 p=0.96",
+     "video_2#799 true=0 p=1.00",
+     "video_2#937 true=0 p=0.96"
+    ]
+   },
+   "both": {
+    "accuracy": 0.833,
+    "ci95": [
+     0.731,
+     0.902
+    ],
+    "correct": 60,
+    "answered": 72,
+    "labelled": 79,
+    "coverage": 0.911,
+    "errors": [
+     "video_1#55 true=0 p=0.99",
+     "video_1#271 true=0 p=1.00",
+     "video_1#383 true=0 p=0.84",
+     "video_1#433 true=0 p=0.96",
+     "video_2#79 true=0 p=0.90",
+     "video_2#318 true=0 p=1.00",
+     "video_2#557 true=0 p=0.96",
+     "video_2#617 true=0 p=1.00",
+     "video_2#685 true=0 p=1.00",
+     "video_2#768 true=0 p=0.96",
+     "video_2#799 true=0 p=1.00",
+     "video_2#937 true=0 p=0.96"
+    ]
+   }
+  }
+ },
+ "gender": {
+  "train": {
+   "features": "dino",
+   "lambda": 0.001,
+   "cv_balanced_accuracy": 0.925,
+   "n_tracks": 159,
+   "n_pos": 83,
+   "n_neg": 76,
+   "cv_by_features": {
+    "dino": 0.925,
+    "dino+colour": 0.925
+   }
+  },
+  "test_per_track": {
+   "video_1": {
+    "accuracy": 0.829,
+    "ci95": [
+     0.673,
+     0.919
+    ],
+    "correct": 29,
+    "answered": 35,
+    "labelled": 44,
+    "coverage": 0.795,
+    "errors": [
+     "video_1#1 true=0 p=0.67",
+     "video_1#126 true=1 p=0.06",
+     "video_1#165 true=1 p=0.03",
+     "video_1#362 true=1 p=0.24",
+     "video_1#406 true=1 p=0.05",
+     "video_1#517 true=1 p=0.00"
+    ]
+   },
+   "video_2": {
+    "accuracy": 0.778,
+    "ci95": [
+     0.619,
+     0.883
+    ],
+    "correct": 28,
+    "answered": 36,
+    "labelled": 37,
+    "coverage": 0.973,
+    "errors": [
+     "video_2#77 true=0 p=0.83",
+     "video_2#318 true=0 p=0.71",
+     "video_2#557 true=0 p=0.83",
+     "video_2#617 true=0 p=0.97",
+     "video_2#685 true=0 p=0.77",
+     "video_2#768 true=0 p=0.99",
+     "video_2#799 true=0 p=0.99",
+     "video_2#937 true=0 p=0.97"
+    ]
+   },
+   "both": {
+    "accuracy": 0.803,
+    "ci95": [
+     0.696,
+     0.879
+    ],
+    "correct": 57,
+    "answered": 71,
+    "labelled": 81,
+    "coverage": 0.877,
+    "errors": [
+     "video_1#1 true=0 p=0.67",
+     "video_1#126 true=1 p=0.06",
+     "video_1#165 true=1 p=0.03",
+     "video_1#362 true=1 p=0.24",
+     "video_1#406 true=1 p=0.05",
+     "video_1#517 true=1 p=0.00",
+     "video_2#77 true=0 p=0.83",
+     "video_2#318 true=0 p=0.71",
+     "video_2#557 true=0 p=0.83",
+     "video_2#617 true=0 p=0.97",
+     "video_2#685 true=0 p=0.77",
+     "video_2#768 true=0 p=0.99",
+     "video_2#799 true=0 p=0.99",
+     "video_2#937 true=0 p=0.97"
+    ]
+   }
+  }
+ },
+ "test_per_person": {
+  "uniform": {
+   "accuracy": 0.897,
+   "ci95": [
+    0.802,
+    0.949
+   ],
+   "correct": 61,
+   "answered": 68,
+   "labelled_people": 73,
+   "coverage": 0.932
+  },
+  "gender": {
+   "accuracy": 0.866,
+   "ci95": [
+    0.764,
+    0.928
+   ],
+   "correct": 58,
+   "answered": 67,
+   "labelled_people": 76,
+   "coverage": 0.882
+  }
+ }
+}

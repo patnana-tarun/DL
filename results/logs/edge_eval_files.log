@@ -1,0 +1,5 @@
+736x1280_s1: frames 1798  HOTA held-out 0.746 MOTA 0.758 IDF1 0.806  unique 181 (GT 169)  detect p50 32.5 ms
+736x1280_s2: frames 899  HOTA held-out 0.743 MOTA 0.753 IDF1 0.806  unique 164 (GT 165)  detect p50 32.6 ms
+736x1280_s4: frames 450  HOTA held-out 0.735 MOTA 0.736 IDF1 0.796  unique 160 (GT 168)  detect p50 33.0 ms
+544x960_s4: frames 450  HOTA held-out 0.726 MOTA 0.754 IDF1 0.794  unique 144 (GT 168)  detect p50 17.6 ms
+384x640_s4: frames 450  HOTA held-out 0.699 MOTA 0.718 IDF1 0.785  unique 125 (GT 168)  detect p50 9.6 ms

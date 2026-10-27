@@ -1,0 +1,128 @@
+{
+ "criteria": {
+  "definitions": {
+   "test_AP50-95": {
+    "higher_is_better": true,
+    "weight": 0.3
+   },
+   "label_bias_min_AP": {
+    "higher_is_better": true,
+    "weight": 0.1
+   },
+   "tracking_mean_HOTA": {
+    "higher_is_better": true,
+    "weight": 0.25
+   },
+   "latency_ms": {
+    "higher_is_better": false,
+    "weight": 0.2
+   },
+   "GFLOPs": {
+    "higher_is_better": false,
+    "weight": 0.1
+   },
+   "params_M": {
+    "higher_is_better": false,
+    "weight": 0.05
+   }
+  },
+  "values": {
+   "YOLO26n": {
+    "test_AP50-95": 0.8254166549344669,
+    "label_bias_min_AP": 0.726436659823565,
+    "tracking_mean_HOTA": 0.7017208419169249,
+    "latency_ms": 3.6784399999305606,
+    "GFLOPs": 13.56995584,
+    "params_M": 2.50419,
+    "_tracking_wins": "10/12"
+   },
+   "RF-DETR Nano": {
+    "test_AP50-95": 0.7252479848856535,
+    "label_bias_min_AP": 0.6300559091088421,
+    "tracking_mean_HOTA": 0.6875575849257975,
+    "latency_ms": 7.89009100117255,
+    "GFLOPs": 97.274996736,
+    "params_M": 30.540292,
+    "_tracking_wins": "2/12"
+   }
+  }
+ },
+ "weighted_score": {
+  "YOLO26n": 1.0,
+  "RF-DETR Nano": 0.706571835621837
+ },
+ "winner": "YOLO26n",
+ "alternative_weightings": {
+  "accuracy only": {
+   "scores": {
+    "YOLO26n": 1.0,
+    "RF-DETR Nano": 0.8786447190640148
+   },
+   "winner": "YOLO26n"
+  },
+  "speed only": {
+   "scores": {
+    "YOLO26n": 1.0,
+    "RF-DETR Nano": 0.46621008545831805
+   },
+   "winner": "YOLO26n"
+  },
+  "tracking only": {
+   "scores": {
+    "YOLO26n": 1.0,
+    "RF-DETR Nano": 0.9798163940058602
+   },
+   "winner": "YOLO26n"
+  },
+  "equal": {
+   "scores": {
+    "YOLO26n": 1.0,
+    "RF-DETR Nano": 0.5689153960255307
+   },
+   "winner": "YOLO26n"
+  },
+  "bias-aware (label-bias AP replaces fused AP)": {
+   "scores": {
+    "YOLO26n": 1.0,
+    "RF-DETR Nano": 0.7031756032035973
+   },
+   "winner": "YOLO26n"
+  }
+ },
+ "winner_robust": true,
+ "export_verification": {
+  "736x1280": {
+   "file": "edge_deploy/models/yolo26n_person_736x1280.onnx",
+   "AP50-95": 0.8272862691571691,
+   "AP50": 0.9629742655360279,
+   "AP_small": 0.5524011758916982,
+   "AR@300": 0.8772159256030225,
+   "cpu_onnxruntime_ms_p50": 30.87798849810497,
+   "provider": "CPUExecutionProvider"
+  },
+  "544x960": {
+   "file": "edge_deploy/models/yolo26n_person_544x960.onnx",
+   "AP50-95": 0.7942852401601195,
+   "AP50": 0.9591829255247816,
+   "AP_small": 0.5046105020598116,
+   "AR@300": 0.847108398721302,
+   "cpu_onnxruntime_ms_p50": 41.44852749959682,
+   "provider": "CPUExecutionProvider"
+  },
+  "384x640": {
+   "file": "edge_deploy/models/yolo26n_person_384x640.onnx",
+   "AP50-95": 0.6819827088674222,
+   "AP50": 0.925485884913037,
+   "AP_small": 0.2950295057416349,
+   "AR@300": 0.7455390874745713,
+   "cpu_onnxruntime_ms_p50": 19.12117099709576,
+   "provider": "CPUExecutionProvider"
+  },
+  "parity_vs_pytorch_1280": {
+   "pytorch_AP50-95": 0.8254166549344669,
+   "onnx_AP50-95": 0.8272862691571691,
+   "abs_diff": 0.001869614222702154,
+   "pass": 1.0
+  }
+ }
+}

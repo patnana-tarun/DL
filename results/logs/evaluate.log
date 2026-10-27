@@ -1,0 +1,111 @@
+== YOLO26n (pretrained)
+YOLO26n summary (fused): 120 layers, 2,408,932 parameters, 0 gradients, 5.5 GFLOPs
+  valid AP 0.7998  AP50 0.9512  F1 0.8907  acc 0.8030  LAMR 0.3929
+  train AP 0.7879  AP50 0.9458  F1 0.8858  acc 0.7950  LAMR 0.4382
+  test  AP 0.7599  AP50 0.9474  F1 0.8820  acc 0.7889  LAMR 0.4362
+== YOLO26n (fine-tuned)
+YOLO26n summary (fused): 120 layers, 2,375,031 parameters, 0 gradients, 5.3 GFLOPs
+  valid AP 0.8542  AP50 0.9666  F1 0.9128  acc 0.8396  LAMR 0.2778
+  train AP 0.9198  AP50 0.9861  F1 0.9468  acc 0.8990  LAMR 0.1065
+  test  AP 0.8254  AP50 0.9633  F1 0.8908  acc 0.8032  LAMR 0.3540
+== RF-DETR Nano (pretrained)
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-07 23:51:53] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+[2026-10-07 23:51:53] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:51:53] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:51:54] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+  valid AP 0.5031  AP50 0.8120  F1 0.7734  acc 0.6305  LAMR 0.5915
+  train AP 0.5306  AP50 0.8172  F1 0.7691  acc 0.6248  LAMR 0.4920
+  test  AP 0.3824  AP50 0.7046  F1 0.6582  acc 0.4906  LAMR 0.7108
+[2026-10-07 23:52:19] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+[2026-10-07 23:52:19] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:52:19] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:52:20] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-nano.pth already exists with correct MD5 hash.
+== RF-DETR Nano (fine-tuned)
+[2026-10-07 23:52:21] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:52:21] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:52:21] [WARNING] rf-detr - Checkpoint has 1 classes but model is configured for 90. Using checkpoint class count (1). Pass num_classes=1 to suppress this warning.
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+  valid AP 0.8009  AP50 0.9643  F1 0.9041  acc 0.8250  LAMR 0.2724
+  train AP 0.8473  AP50 0.9794  F1 0.9411  acc 0.8888  LAMR 0.1622
+  test  AP 0.7252  AP50 0.9432  F1 0.8852  acc 0.7941  LAMR 0.4112
+[2026-10-07 23:53:08] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:53:08] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:53:08] [WARNING] rf-detr - Checkpoint has 1 classes but model is configured for 90. Using checkpoint class count (1). Pass num_classes=1 to suppress this warning.
+{
+ "YOLO26n (pretrained)": null,
+ "YOLO26n (fine-tuned)": {
+  "train_minus_test": 0.09440046626641496,
+  "pretrained_train_minus_test": 0.027999586985967606,
+  "excess_gap_overfit": 0.06640087928044736,
+  "train_minus_valid": 0.06563701974238789
+ },
+ "RF-DETR Nano (pretrained)": null,
+ "RF-DETR Nano (fine-tuned)": {
+  "train_minus_test": 0.12205350231011414,
+  "pretrained_train_minus_test": 0.1481594837502559,
+  "excess_gap_overfit": -0.026105981440141757,
+  "train_minus_valid": 0.04637081373427765
+ }
+}
+{
+ "YOLO26n (pretrained) vs YOLO26n (fine-tuned)": {
+  "delta_AP50-95": -0.06520075174055104,
+  "CI95": [
+   -0.07090796829227881,
+   -0.05981294595006484
+  ],
+  "p_two_sided": 0.0
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano (pretrained)": {
+  "delta_AP50-95": 0.3772430151130617,
+  "CI95": [
+   0.3626745257990875,
+   0.3917186045314931
+  ],
+  "p_two_sided": 0.0
+ },
+ "YOLO26n (pretrained) vs RF-DETR Nano (fine-tuned)": {
+  "delta_AP50-95": 0.03387418952528066,
+  "CI95": [
+   0.02576438685286503,
+   0.04186221149742947
+  ],
+  "p_two_sided": 0.0
+ },
+ "YOLO26n (fine-tuned) vs RF-DETR Nano (pretrained)": {
+  "delta_AP50-95": 0.4424437668536127,
+  "CI95": [
+   0.4267797340808731,
+   0.45645890749093815
+  ],
+  "p_two_sided": 0.0
+ },
+ "YOLO26n (fine-tuned) vs RF-DETR Nano (fine-tuned)": {
+  "delta_AP50-95": 0.0990749412658317,
+  "CI95": [
+   0.09154330445474586,
+   0.10748349282511155
+  ],
+  "p_two_sided": 0.0
+ },
+ "RF-DETR Nano (pretrained) vs RF-DETR Nano (fine-tuned)": {
+  "delta_AP50-95": -0.3433688255877811,
+  "CI95": [
+   -0.35439951018315025,
+   -0.3306484821549955
+  ],
+  "p_two_sided": 0.0
+ }
+}

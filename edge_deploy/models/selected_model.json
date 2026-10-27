@@ -1,0 +1,45 @@
+{
+ "model": "YOLO26n",
+ "weights_pt": "runs/yolo26n/weights/best.pt",
+ "onnx": {
+  "736x1280": "models/yolo26n_person_736x1280.onnx",
+  "544x960": "models/yolo26n_person_544x960.onnx",
+  "384x640": "models/yolo26n_person_384x640.onnx"
+ },
+ "recommended": {
+  "desktop": "models/yolo26n_person_736x1280.onnx",
+  "jetson_orin_nano": "models/yolo26n_person_544x960.onnx",
+  "jetson_orin_nx_agx": "models/yolo26n_person_736x1280.onnx"
+ },
+ "detector": {
+  "conf": 0.05,
+  "iou": 0.7,
+  "max_det": 300
+ },
+ "tracker": {
+  "min_conf": 0.2,
+  "nms_iou": 0.6,
+  "track_activation_threshold": 0.7,
+  "high_conf_det_threshold": 0.4,
+  "lost_track_buffer": 30,
+  "minimum_iou_threshold": 0.4,
+  "minimum_consecutive_frames": 3
+ },
+ "test_metrics_onnx": {
+  "736x1280": {
+   "AP50-95": 0.8272862691571691,
+   "AP50": 0.9629742655360279,
+   "AP_small": 0.5524011758916982
+  },
+  "544x960": {
+   "AP50-95": 0.7942852401601195,
+   "AP50": 0.9591829255247816,
+   "AP_small": 0.5046105020598116
+  },
+  "384x640": {
+   "AP50-95": 0.6819827088674222,
+   "AP50": 0.925485884913037,
+   "AP_small": 0.2950295057416349
+  }
+ }
+}

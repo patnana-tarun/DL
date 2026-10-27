@@ -1,0 +1,17 @@
+{
+ "model": "YOLO26n",
+ "seconds": 29.97995,
+ "people_in_frame_mean": 16.15127919911012,
+ "people_in_frame_max": 23,
+ "unique_track_ids": 176,
+ "gt_unique_track_ids": 169,
+ "raw_track_ids_unfiltered": 209,
+ "min_track_frames": 15,
+ "dwell_s_median": 1.5181833333333334,
+ "dwell_s_p90": 6.064391666666667,
+ "line_x_px": 640.0,
+ "crossings_left_to_right": 3,
+ "crossings_right_to_left": 11,
+ "mean_image_speed_px_s": 49.859949457088284
+}
+wrote results/figures/12_crowd_analytics_YOLO26n.png

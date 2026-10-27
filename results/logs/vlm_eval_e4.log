@@ -1,0 +1,11 @@
+05:26:16 == e4
+05:26:16 E4: sizes (448, 672, 896, 1280), 10 frames each after 2 warm-up; GPU {'gpu': 'NVIDIA GeForce RTX 4060 Laptop GPU, 15 %, 3592 MiB, 8188 MiB', 'compute_apps': ['164335, third_party/llama.cpp-vulkan-x64/llama-server, 2922 MiB']}
+05:26:30   image  448: {'n': 10, 'prompt_tokens_median': 1017.0, 'completion_tokens_median': 129.0, 'prefill_ms_median': 221.6385, 'prefill_tok_s_median': 4588.5538, 'decode_tok_s_median': 139.6574, 'decode_ms_median': 905.8575, 'e2e_s_median': 1.1368, 'e2e_s_p90': 1.3067, 'encode_ms_median': 1.51}
+05:26:46   image  672: {'n': 10, 'prompt_tokens_median': 1157.0, 'completion_tokens_median': 133.5, 'prefill_ms_median': 270.407, 'prefill_tok_s_median': 4278.7446, 'decode_tok_s_median': 137.3965, 'decode_ms_median': 956.6035, 'e2e_s_median': 1.238, 'e2e_s_p90': 1.3633, 'encode_ms_median': 2.19}
+05:27:03   image  896: {'n': 10, 'prompt_tokens_median': 1353.0, 'completion_tokens_median': 139.0, 'prefill_ms_median': 345.3305, 'prefill_tok_s_median': 3917.9866, 'decode_tok_s_median': 134.5812, 'decode_ms_median': 1022.073, 'e2e_s_median': 1.4094, 'e2e_s_p90': 1.6762, 'encode_ms_median': 2.255}
+05:27:24   image 1280: {'n': 10, 'prompt_tokens_median': 1825.0, 'completion_tokens_median': 143.0, 'prefill_ms_median': 586.999, 'prefill_tok_s_median': 3109.0356, 'decode_tok_s_median': 129.3522, 'decode_ms_median': 1096.894, 'e2e_s_median': 1.7991, 'e2e_s_p90': 1.844, 'encode_ms_median': 2.25}
+05:27:28   text chat: {'n': 10, 'prompt_tokens_median': 762.0, 'completion_tokens_median': 19.0, 'prefill_ms_median': 129.9835, 'prefill_tok_s_median': 5862.2901, 'decode_tok_s_median': 140.9491, 'decode_ms_median': 127.706, 'e2e_s_median': 0.2625, 'e2e_s_p90': 0.266, 'encode_ms_median': None}
+05:27:36   tool call: {'n': 10, 'prompt_tokens_median': 1691.0, 'completion_tokens_median': 57.0, 'prefill_ms_median': 294.5275, 'prefill_tok_s_median': 5741.4294, 'decode_tok_s_median': 132.9461, 'decode_ms_median': 421.2235, 'e2e_s_median': 0.7247, 'e2e_s_p90': 0.7289, 'encode_ms_median': None}
+05:27:37 wrote results/vlm/e4_latency.json
+05:27:38 wrote results/vlm/fig_e4_latency.png
+05:27:38 == e4 done in 1.4 min

@@ -1,0 +1,50 @@
+# Minimal MediaMTX (v1.21.x) configuration for EdgeVision.
+#
+# Only the RTSP server is enabled (TCP port 8554). Any client may publish or read any path, e.g.
+#   publish:  ffmpeg -re -i video.mp4 -c copy -f rtsp -rtsp_transport tcp rtsp://HOST:8554/cam1
+#   read:     rtsp://HOST:8554/cam1      (this is what configs/*.yaml use as source.uri)
+#
+# tools/stream_videos.py starts MediaMTX with this file automatically when nothing listens on :8554.
+# Manual start:  tools/bin/mediamtx tools/mediamtx.yml
+# Keys not listed here keep their MediaMTX defaults (full reference:
+# https://github.com/bluenviron/mediamtx/blob/v1.21.1/mediamtx.yml).
+
+logLevel: info
+logDestinations: [stdout]
+
+# --- RTSP: the only protocol we need ---------------------------------------------------------------
+rtsp: true
+rtspAddress: :8554
+# TCP only: no UDP RTP/RTCP ports are opened (the UDP defaults are 8000/8001), and TCP is what
+# EdgeVision (source.rtsp_transport: tcp) and stream_videos.py use. Reliable on Wi-Fi.
+rtspTransports: [tcp]
+rtspEncryption: "no"
+
+# --- everything else off, to keep it light and to open no extra ports ------------------------------
+rtmp: false
+hls: false
+webrtc: false
+srt: false
+moq: false
+api: false
+metrics: false
+pprof: false
+playback: false
+
+# --- access: anyone on the network may publish and read (lab / LAN use) ----------------------------
+# For a real deployment, replace "any" with a user + password (see the reference file above).
+authMethod: internal
+authInternalUsers:
+  - user: any
+    pass:
+    ips: []
+    permissions:
+      - action: publish
+        path:
+      - action: read
+        path:
+
+paths:
+  # Settings under "all_others" apply to every path name (cam1, cam2, ...): each one accepts a
+  # publisher (stream_videos.py, ffmpeg, a camera pushing RTSP) and serves it to readers.
+  all_others:

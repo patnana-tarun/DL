@@ -1,0 +1,5 @@
+736x1280_s1: frames 16970/16970  HOTA 0.362 MOTA 0.289 IDF1 0.401  unique 177 (GT 299)  crossings {'a_to_b': 4, 'b_to_a': 24} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 34.3 ms
+736x1280_s2: frames 8485/8485  HOTA 0.445 MOTA 0.443 IDF1 0.518  unique 159 (GT 297)  crossings {'a_to_b': 2, 'b_to_a': 23} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 37.9 ms
+736x1280_s4: frames 4243/4243  HOTA 0.452 MOTA 0.438 IDF1 0.533  unique 143 (GT 295)  crossings {'a_to_b': 2, 'b_to_a': 24} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 37.1 ms
+544x960_s4: frames 4243/4243  HOTA 0.334 MOTA 0.145 IDF1 0.378  unique 118 (GT 295)  crossings {'a_to_b': 1, 'b_to_a': 23} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 54.5 ms
+384x640_s4: frames 4243/4243  HOTA 0.254 MOTA 0.061 IDF1 0.246  unique 72 (GT 295)  crossings {'a_to_b': 0, 'b_to_a': 19} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 29.7 ms

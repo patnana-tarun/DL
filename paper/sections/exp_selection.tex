@@ -1,0 +1,25 @@
+% from the submitted version (lines 408-425), revised
+\subsection{Model selection and export}
+Fig.~\ref{fig:sel} (Appendix~\ref{app:figs}) shows the normalised decision matrix (raw values in Table~\ref{tab:det} and
+Fig.~\ref{fig:track}). \MsWinner{} wins with a weighted score of
+\MsScoreYolo{} vs.\ \MsScoreRf; it is at least as good on \MsCritWins{} of \MsCritN{} criteria, including
+the bias-aware AP and tracking (\MsTrackWinsYolo{} tracker$\times$GT wins), and the choice holds under all \MsNumAlt{} alternative
+weightings (\rfdetr{} scores \MsAltAccRf{} accuracy-only, \MsAltSpeedRf{} speed-only, \MsAltTrackRf{}
+tracking-only, \MsAltEqualRf{} equal, \MsAltBiasRf{} bias-aware, with \yolo{} at \MsScoreYolo). Re-scored on the test split through the runtime's own ONNX
+detector, the $736{\times}1280$ export matches the PyTorch reference (\OnnxParityPt) within \OnnxParityDiff{}
+\AP; the smaller Jetson inputs reach \OnnxMidAp{} ($544{\times}960$) and \OnnxLoAp{} ($384{\times}640$), losing
+mainly small people (\APsm{} \OnnxHiApSmall, \OnnxMidApSmall, \OnnxLoApSmall\ifHaveEdge; Table~\ref{tab:edge}\fi).
+
+
+
+
+\ifHaveRobustSel
+\textbf{Shift-aware selection.} The matrix above is robust to its weights but blind to shift: it selected the model
+that later failed on the held-out camera. Adding the out-of-domain validation criterion (Sec.~\ref{sec:variants},
+never test1) and widening the candidates to all adaptation variants and WiSE blends selects \SrWinner{}. Checked once
+on test1, it reaches \AP{}~\SrWinnerHo{} (rank \SrWinnerRank{} of \SrN{} candidates), against \SrOrigHo{} for the
+original choice.
+The best candidate on test1 (\MsWiFtHo, a WiSE blend with smaller $\alpha$) is only slightly better than the choice, and the pretrained \yolo{} (\MsPtHo) is close as well: without validation data from other cameras, the
+safest choice is to stay near the pretrained weights.
+\fi
+

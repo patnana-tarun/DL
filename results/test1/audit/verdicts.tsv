@@ -1,0 +1,239 @@
+id	verdict	note
+0	person	
+1	person	behind a tree
+2	person	cut by the bottom frame edge
+3	person	
+4	person	
+5	person	
+6	person	
+7	person	
+8	person	
+9	person	
+10	person	
+11	person	
+12	person	head at the frame edge
+13	person	
+14	person	
+15	person	
+16	person	
+17	person	
+18	person	
+19	person	
+20	person	
+21	person	
+22	person	
+23	person	
+24	person	
+25	person	
+26	person	
+27	person	
+28	person	
+29	not_person	green dustbin
+30	not_person	bench / lamp post
+31	person	
+32	person	
+33	person	
+34	person	
+35	not_person	green dustbin
+36	not_person	bench
+37	not_person	tree trunk / pole
+38	not_person	bushes
+39	person	
+40	person	
+41	person	
+42	not_person	label on a green dustbin
+43	not_person	bench / lamp post
+44	not_person	tree
+45	person	
+46	person	
+47	person	
+48	person	
+49	person	behind a tree
+50	not_person	green dustbin
+51	not_person	tree
+52	person	
+53	person	
+54	person	
+55	person	
+56	not_person	green dustbin
+57	not_person	short palm between people
+58	not_person	tree
+59	person	
+60	person	
+61	person	
+62	person	
+63	person	
+64	person	
+65	person	
+66	person	
+67	person	
+68	person	
+69	person	
+70	person	
+71	person	
+72	person	behind a tree
+73	person	
+74	person	behind a tree
+75	person	cyclist
+76	person	
+77	person	
+78	person	
+79	person	
+80	person	
+81	person	
+82	person	
+83	person	
+84	person	
+85	person	
+86	person	
+87	person	
+88	person	
+89	not_person	green dustbin
+90	not_person	tree / pole
+91	person	
+92	person	
+93	person	
+94	not_person	bushes / pole
+95	not_person	tree
+96	person	
+97	person	
+98	person	
+99	person	
+100	not_person	bush next to two people
+101	not_person	tree
+102	person	
+103	person	
+104	person	
+105	not_person	tree
+106	person	
+107	person	
+108	person	
+109	not_person	lamp-post base at the frame edge
+110	person	
+111	person	
+112	person	
+113	person	
+114	person	
+115	person	
+116	person	
+117	person	
+118	person	
+119	person	
+120	not_person	green dustbin
+121	not_person	bush / trunk
+122	person	
+123	person	occluded, three people side by side
+124	person	three people side by side
+125	person	occluded, three people side by side
+126	not_person	benches and flower pots
+127	person	
+128	person	
+129	person	
+130	person	
+131	person	
+132	person	
+133	person	cyclist
+134	person	
+135	person	seated on a bench
+136	person	
+137	person	
+138	person	
+139	person	
+140	person	
+141	person	
+142	person	
+143	person	seated on a bench
+144	person	
+145	person	
+146	not_person	tree trunk
+147	person	
+148	person	
+149	person	
+150	person	seated
+151	not_person	tree
+152	person	
+153	person	seated
+154	not_person	738 px box around a whole group
+155	person	
+156	person	
+157	person	
+158	person	
+159	person	
+160	person	
+161	person	
+162	person	
+163	person	
+164	person	
+165	person	
+166	person	
+167	person	
+168	person	
+169	person	
+170	person	
+171	person	
+172	person	
+173	person	
+174	person	
+175	person	
+176	person	
+177	person	
+178	person	
+179	person	
+180	person	
+181	person	
+182	not_person	label on a green dustbin
+183	person	
+184	person	
+185	person	
+186	person	
+187	person	
+188	person	
+189	person	
+190	person	
+191	person	
+192	person	
+193	person	
+194	person	
+195	person	
+196	person	
+197	person	
+198	person	
+199	person	
+200	person	
+201	person	
+202	person	
+203	person	
+204	person	
+205	person	
+206	person	
+207	person	
+208	person	
+209	person	
+210	person	
+211	person	
+212	person	
+213	person	
+214	person	
+215	person	
+216	person	
+217	person	
+218	person	
+219	person	
+220	person	
+221	person	
+222	person	
+223	person	
+224	person	
+225	person	
+226	person	
+227	person	
+228	person	
+229	person	
+230	person	
+231	person	
+232	person	
+233	person	
+234	person	
+235	person	
+236	person	
+237	person	

@@ -1,0 +1,54 @@
+% Appendices (formerly the separate supplementary material; supplement.tex is kept but no longer built)
+\section{Inference latency variants}
+\label{app:latency}
+Every inference variant is timed end to end (BGR frame in, boxes out, batch 1, desktop RTX 4060 Laptop) and
+re-scored, so speed-ups that cost accuracy are visible (PyTorch and TorchScript paths; the edge runtime uses ONNX Runtime~\cite{onnxruntime}).
+\begin{table}[!htbp]
+\centering
+\caption{Inference variants on the \ImgsTest{} test frames ($1280{\times}720$, RTX 4060 Laptop, batch 1, pre- and
+post-processing included). Median / p90 latency in ms and test \AP{} of each variant.}
+\label{tab:lat}
+\footnotesize
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular}{lccc}
+\toprule
+Variant & Median & p90 & \AP{} \\
+\midrule
+\multicolumn{4}{l}{\emph{\yolo{}}} \\
+\quad Ultralytics predict FP32 (stock) & \LatYoloBase & \LatPnYoloBase & \LatApYoloBase \\
+\quad Ultralytics predict FP16 & \LatYoloHalf & \LatPnYoloHalf & \LatApYoloHalf \\
+\quad NMS-free head FP16 & \LatYoloNmsFree & \LatPnYoloNmsFree & \LatApYoloNmsFree \\
+\quad NMS-free + GPU pre-proc + fused FP16 & \LatYoloNmsFreeFast & \LatPnYoloNmsFreeFast & \LatApYoloNmsFreeFast \\
+\quad \textbf{GPU pre-proc + fused FP16 + GPU NMS} & \textbf{\LatYoloDep} & \LatPnYoloDep & \LatApYoloDep \\
+\multicolumn{4}{l}{\emph{\rfdetr{}}} \\
+\quad predict FP32 (stock) & \LatRfBase & \LatPnRfBase & \LatApRfBase \\
+\quad FP32 + TorchScript & \LatRfTs & \LatPnRfTs & \LatApRfTs \\
+\quad FP16 & \LatRfHalf & \LatPnRfHalf & \LatApRfHalf \\
+\quad FP16 + TorchScript & \LatRfHalfTs & \LatPnRfHalfTs & \LatApRfHalfTs \\
+\quad \textbf{FP16 + TorchScript + GPU pre-proc} & \textbf{\LatRfDep} & \LatPnRfDep & \LatApRfDep \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\figif{fig_latency.pdf}{\includegraphics[width=\columnwidth]{figures/fig_latency.pdf}}
+\caption{Latency vs.\ test \AP{} of the inference variants of Table~\ref{tab:lat} (stars: deployed paths).}
+\label{fig:lat}
+\end{figure}
+
+\figif{fig_qualitative.png}{%
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig_qualitative.png}
+\caption{Test frames: teacher pseudo-GT (left), fine-tuned \yolo{} (centre) and fine-tuned \rfdetr{} (right) at
+their valid-optimal thresholds; titles give the number of boxes.}
+\label{fig:qual}
+\end{figure*}}
+
+\section{Campus case study (offline, teacher detector)}
+\label{app:campus}
+\input{sections/exp_campus.tex}
+
+\input{sections/supp_moved.tex}
+\input{sections/supp_revision.tex}

@@ -1,0 +1,49 @@
+05:20:04 == e3b
+05:20:06   notify me if over 15 people stay for 10 seconds                                  exp set_alert          got [('set_alert', 'm', True)]     sel True args True  2.05s/3 req
+05:20:07   Alert me when there are more than 25 people in view.                             exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.31s/3 req
+05:20:09   Set an alarm if occupancy reaches 30 or more.                                    exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.60s/3 req
+05:20:10   Tell me if the area stays empty for a minute.                                    exp set_alert          got []                             sel False args False  1.31s/2 req
+05:20:12   warn when someone loiters                                                        exp set_alert          got [('set_alert', 'm', True)]     sel True args False  1.59s/3 req
+05:20:14   Create an alert when anyone stays longer than 2 minutes.                         exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.84s/3 req
+05:20:15   If more than 40 people cross the line in a minute, alert me.                     exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.45s/3 req
+05:20:16   Alert if the total number of crossings goes above 500.                           exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.27s/3 req
+05:20:18   Let me know when unique visitors exceed 1000.                                    exp set_alert          got [('get_history', 'm', True)]   sel False args False  1.28s/3 req
+05:20:19   Raise an alert when fewer than 3 people are present for 30 seconds.              exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.67s/3 req
+05:20:21   Warn me if occupancy is at least 20 for 5 seconds, and call the rule crowd20.    exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.79s/3 req
+05:20:23   Ping me if someone's dwell time goes over 45 seconds.                            exp set_alert          got [('set_alert', 'm', True)]     sel True args True  2.30s/3 req
+05:20:25   Watch for crowding: more than 18 people for 15 s.                                exp set_alert          got [('set_alert', 'm', True)]     sel True args True  1.30s/3 req
+05:20:25   Remove the crowding alert.                                                       exp remove_alert       got [('remove_alert', 'm', True)]  sel True args True  0.76s/3 req
+05:20:26   Delete all alert rules.                                                          exp remove_alert       got [('remove_alert', 'm', True)]  sel True args True  1.03s/3 req
+05:20:28   Turn off the evening_quiet rule.                                                 exp remove_alert       got [('remove_alert', 'm', True)]  sel True args True  1.19s/3 req
+05:20:29   Clear every alert.                                                               exp remove_alert       got [('remove_alert', 'm', True)]  sel True args True  1.14s/3 req
+05:20:31   Put a horizontal counting line across the middle of the image.                   exp set_counting_line  got [('set_counting_line', 'm', True)] sel True args True  1.99s/3 req
+05:20:32   Move the counting line to a vertical line at one third of the width.             exp set_counting_line  got [('set_counting_line', 'm', True)] sel True args True  1.75s/3 req
+05:20:34   Make the counting line vertical through the centre.                              exp set_counting_line  got [('set_counting_line', 'm', True)] sel True args True  1.48s/3 req
+05:20:36   Set the counting line horizontally at 75% of the image height.                   exp set_counting_line  got [('set_counting_line', 'm', True)] sel True args True  1.81s/3 req
+05:20:37   Change the counting line to run from the top-left corner to the bottom-right cor exp set_counting_line  got [('set_counting_line', 'm', True)] sel True args True  1.34s/3 req
+05:20:40   how busy was it in the last 30 minutes?                                          exp get_history        got [('get_history', 'm', True)]   sel True args True  2.49s/3 req
+05:20:41   Give me occupancy statistics for the past hour.                                  exp get_history        got [('get_history', 'm', True)]   sel True args True  1.13s/3 req
+05:20:42   How did the crowd level change over the last 2 hours?                            exp get_history        got [('get_history', 'm', True)]   sel True args True  1.39s/3 req
+05:20:43   any alerts in the last 10 minutes?                                               exp get_recent_events  got [('get_recent_events', 'm', True)] sel True args True  1.14s/3 req
+05:20:44   Show me the line crossings from the last 5 minutes.                              exp get_recent_events  got [('get_recent_events', 'm', True)] sel True args False  1.14s/3 req
+05:20:46   Has anyone been loitering in the past 15 minutes?                                exp get_recent_events  got [('get_history', 'm', True)]   sel False args False  1.34s/3 req
+05:20:47   List all events from the last 20 minutes.                                        exp get_recent_events  got [('get_recent_events', 'm', True)] sel True args True  1.20s/3 req
+05:20:49   What are people doing?                                                           exp None               got []                             sel True args None  2.23s/2 req
+05:20:51   Hi there!                                                                        exp None               got []                             sel True args None  1.70s/2 req
+05:20:52   Thanks, that's all for now.                                                      exp None               got []                             sel True args None  1.30s/2 req
+05:20:53   How many people are in view right now?                                           exp None               got []                             sel True args None  0.84s/2 req
+05:20:54   How many unique people have been seen so far?                                    exp None               got []                             sel True args None  0.76s/2 req
+05:20:55   How many people have crossed the counting line?                                  exp None               got []                             sel True args None  0.91s/2 req
+05:20:56   Is the crowd getting bigger or smaller?                                          exp None               got []                             sel True args None  1.24s/2 req
+05:20:58   Describe the scene.                                                              exp None               got []                             sel True args None  2.38s/2 req
+05:20:59   Is anyone running?                                                               exp None               got []                             sel True args None  1.04s/2 req
+05:21:00   What is the weather like?                                                        exp None               got []                             sel True args None  0.87s/2 req
+05:21:02   Which alert rules are active?                                                    exp None               got [('get_recent_events', 'm', True), ('get_history', 'm', True)] sel False args None  2.04s/4 req
+05:21:03   Is it crowded here?                                                              exp None               got []                             sel True args None  0.85s/2 req
+05:21:04   What does unique_people mean?                                                    exp None               got []                             sel True args None  1.18s/2 req
+05:21:05   Are there any vehicles in the frame?                                             exp None               got []                             sel True args None  0.73s/2 req
+05:21:06   What is the median dwell time?                                                   exp None               got []                             sel True args None  0.67s/2 req
+05:21:07   Can you tell me who the man in the red shirt is?                                 exp None               got []                             sel True args None  1.05s/2 req
+05:21:08 E3b: {"n_utterances": 45, "tool_selection_accuracy_all": 0.9111, "tool_selection_accuracy_all_ci95": [0.793, 0.965], "tool_selection_accuracy_tool_utterances": 0.8966, "argument_exact_match_accuracy": 0.8276, "argument_exact_match_ci95": [0.655, 0.924], "argument_match_lenient_accuracy": 0.8966, "false_positive_tool_call_rate": 0.0625, "missed_tool_call_rate": 0.0345, "median_latency_s": 1.303, "median_latency_no_tool_s": 1.0475, "mean_requests_per_turn": 2.6667, "fallback_actions": 0, "model_only": {"tool_selection_accuracy_all": 0.9111, "argument_exact_match_accuracy": 0.8276, "argument_match_lenient_accuracy": 0.8966, "false_positive_tool_call_rate": 0.0625}}
+05:21:08 wrote results/vlm/e3b_tools_deployed.json
+05:21:08 == e3b done in 1.1 min

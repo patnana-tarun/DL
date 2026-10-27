@@ -1,0 +1,11 @@
+{
+ "imgsz": [
+  384,
+  640
+ ],
+ "classes": [
+  "person"
+ ],
+ "head": "one-to-many + NMS",
+ "source": "runs/yolo26n/weights/best.pt"
+}

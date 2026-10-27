@@ -1,0 +1,41 @@
+% Statistical protocol (review items 5 and 13): units, resampling, p-values.
+\subsection{Statistical protocol}
+\label{sec:stats}
+\textbf{Units.} We distinguish four units (Table~\ref{tab:units}). Frames 0.25\,s apart from one video are
+\emph{observations}, not independent replicates: the same people appear in neighbouring frames in nearly the same
+places. Uncertainty from frame sampling is therefore estimated by resampling contiguous \emph{blocks} of frames, and
+claims about other cameras are supported only by additional \emph{scenes}; a frame-level interval says nothing about
+scene-to-scene variation.
+
+\begin{table}[t]
+\centering
+\caption{Experimental units and how each enters the statistics.}
+\label{tab:units}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{p{0.15\columnwidth}p{0.36\columnwidth}p{0.41\columnwidth}}
+\toprule
+Unit & What it is & Used for \\
+\midrule
+Frame & one sampled image (0.25\,s apart) & observation; AP, F1, counts are pooled over frames \\
+Block & $b$ consecutive frames (2.5/5/10\,s) & resampling unit of the CIs and paired tests \\
+Track & one identity over time & HOTA/IDF1; 30\,s segments for paired tracker tests \\
+Scene & one video / camera & generalisation claims; one replicate per scene \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Resampling.} AP is not a per-frame mean, so every replicate re-pools the cached per-frame matches of the
+resampled frames and recomputes the 101-point AP (the PASCAL~VOC practice~\cite{everingham2015voc}, with blocks
+instead of images). The primary scheme, fixed before the analysis, is the paired circular block
+bootstrap~\cite{politis1992cbb} with 5\,s blocks (20 frames) and $B{=}\TcB$ replicates shared by all models;
+i.i.d.\ frames, 2.5\,s and 10\,s blocks, the moving-block bootstrap~\cite{kunsch1989} and the Politis--White
+automatic block length~\cite{politis2004block,patton2009correction} (computed on the per-frame TP and FP series)
+are sensitivity analyses. Intervals are percentile intervals.
+
+\textbf{p-values.} A paired difference $\Delta$ between two models is tested by inverting the bootstrap interval
+of $\Delta^*$: $p = \min\{1,\,2\min[(k_{\le 0}{+}1)/(B{+}1),\,(k_{\ge 0}{+}1)/(B{+}1)]\}$, where $k_{\le 0}$
+($k_{\ge 0}$) counts replicates with $\Delta^*\le 0$ ($\ge 0$). The $+1$ terms are the finite-sample
+correction~\cite{phipson2010pvalues}, so $p$ is never zero and its floor is $2/(B{+}1)$; a result at the floor is
+written $p\le 2/(B{+}1)$. Wilcoxon tests are applied only to 30\,s segments and McNemar tests only to tracks, never
+to correlated frames~\cite{dror2018hitchhiker}.

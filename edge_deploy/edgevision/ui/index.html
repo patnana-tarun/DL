@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EdgeVision Console</title>
+<style>
+:root{--bg:#f6f6f4;--surf:#fff;--ink:#16161a;--ink2:#5d5c58;--line:#e3e2de;--acc:#2a78d6;--ok:#2e9e4f;--warn:#d9822b;--bad:#c63b3b;--chip:#efeeea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111214;--surf:#1a1b1e;--ink:#ececea;--ink2:#a2a19c;--line:#2b2c30;--acc:#5b9bf0;--chip:#24252a}}
+:root[data-theme="dark"]{--bg:#111214;--surf:#1a1b1e;--ink:#ececea;--ink2:#a2a19c;--line:#2b2c30;--acc:#5b9bf0;--chip:#24252a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surf)}
+h1{font-size:17px;margin:0 8px 0 0}.pill{background:var(--chip);border-radius:99px;padding:3px 10px;font-size:12px;color:var(--ink2)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--ink2)}.on{background:var(--ok)}.busy{background:var(--warn)}.off{background:var(--bad)}
+main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,1fr);gap:14px;padding:14px 16px;max-width:1600px;margin:auto}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:12px}
+.card h2{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);margin:0 0 8px}
+#video{width:100%;border-radius:8px;background:#000;aspect-ratio:16/9;object-fit:contain;display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:12px}
+.kpi .v{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums}.kpi .l{font-size:12px;color:var(--ink2)}
+canvas{width:100%;height:150px;display:block}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.list{max-height:210px;overflow:auto;font-size:13px}.list div{padding:5px 0;border-bottom:1px solid var(--line)}
+.t{color:var(--ink2);font-variant-numeric:tabular-nums;margin-right:6px}
+#chatlog{height:300px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding-right:4px}
+.msg{padding:8px 10px;border-radius:10px;max-width:92%;white-space:pre-wrap;word-wrap:break-word}
+.user{align-self:flex-end;background:var(--acc);color:#fff}.assistant{align-self:flex-start;background:var(--chip)}
+.act{font-size:12px;color:var(--ink2);margin-top:4px}
+form{display:flex;gap:8px;margin-top:10px}input{flex:1;min-width:0;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+button{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font:inherit;cursor:pointer}
+button.primary{background:var(--acc);color:#fff;border-color:var(--acc)}.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.quick button{font-size:12px;padding:4px 9px}
+.alert{color:var(--bad);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <h1>EdgeVision</h1>
+  <span class="pill" id="src">source: -</span>
+  <span class="pill"><span class="dot" id="pdot"></span><span id="fps">- fps</span></span>
+  <span class="pill" id="lat">detect - ms</span>
+  <span class="pill"><span class="dot" id="vdot"></span><span id="vlm">VLM -</span></span>
+</header>
+<main>
+  <div class="col">
+    <div class="card">
+      <img id="video" alt="Annotated live video">
+      <div class="kpis">
+        <div class="kpi"><div class="v" id="k_occ">-</div><div class="l">people in view</div></div>
+        <div class="kpi"><div class="v" id="k_uni">-</div><div class="l">unique people (since start)</div></div>
+        <div class="kpi"><div class="v" id="k_ab">-</div><div class="l" id="l_ab">crossings</div></div>
+        <div class="kpi"><div class="v" id="k_ba">-</div><div class="l" id="l_ba">crossings</div></div>
+        <div class="kpi"><div class="v" id="k_dw">-</div><div class="l">median dwell (s)</div></div>
+        <div class="kpi"><div class="v" id="k_lv">-</div><div class="l">crowd level</div></div>
+      </div>
+    </div>
+    <div class="card"><h2>People in view, last 10 minutes</h2><canvas id="chart"></canvas></div>
+    <div class="card"><h2>Foot-traffic heatmap <button id="hm" style="float:right;font-size:12px;padding:2px 8px">refresh</button></h2>
+      <img id="heat" alt="Heatmap of where people walked" style="width:100%;border-radius:8px;display:block"></div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>Ask the camera</h2>
+      <div id="chatlog"></div>
+      <div class="quick">
+        <button data-q="What is happening in the scene right now?">What is happening?</button>
+        <button data-q="Is anything unusual or unsafe?">Anything unusual?</button>
+        <button data-q="Alert me if more than 10 people are in view for 5 seconds.">Alert &gt;10 people</button>
+        <button data-q="/stats">/stats</button><button data-q="/alerts">/alerts</button><button data-q="/help">/help</button>
+      </div>
+      <form id="f"><input id="q" placeholder="Ask about the scene, or type /help" autocomplete="off"><button class="primary">Send</button></form>
+    </div>
+    <div class="card"><h2>VLM scene reports</h2><div class="list" id="obs"></div></div>
+    <div class="card"><h2>Alert rules</h2><div class="list" id="rules"></div></div>
+    <div class="card"><h2>Events</h2><div class="list" id="events"></div></div>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const TOKEN = new URLSearchParams(location.search).get("token");
+const U = p => TOKEN ? p + (p.includes("?") ? "&" : "?") + "token=" + encodeURIComponent(TOKEN) : p;
+document.getElementById("video").src = U("/video.mjpg");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtT = w => new Date(w * 1000).toLocaleTimeString();
+function evText(e){
+  switch(e.kind){
+    case "alert": return `<span class="alert">ALERT ${esc(e.rule)}</span> (${esc(e.metric)} = ${esc(e.value)})`;
+    case "alert_context": return `VLM at alert ${esc(e.rule)}: ${esc(e.summary)}`;
+    case "alert_verified": return `VLM ${e.confirmed ? "confirmed" : "did not confirm"} ${esc(e.rule)}: ${esc(e.reason)}`;
+    case "line_cross": return `#${e.track} crossed the line (${esc(e.direction)})`;
+    case "loitering": return `#${e.track} present for ${e.dwell_s} s`;
+    case "person_enter": return `#${e.track} entered (unique ${e.unique})`;
+    case "person_exit": return `#${e.track} left after ${e.dwell_s} s`;
+    case "config": return `config: ${esc(e.change)} ${esc(e.name || JSON.stringify(e.line || ""))}`;
+    case "vlm_risk": return `<span class="alert">VLM risk ${esc(e.risk)}</span>: ${esc(e.summary)}`;
+    default: return `${esc(e.kind)} ${esc(e.zone || "")} ${e.track ? "#" + e.track : ""}`;
+  }
+}
+async function refresh(){
+  try{
+    const s = await (await fetch(U("/api/state"))).json(), m = s.measurements, p = s.pipeline;
+    $("src").textContent = "source: " + p.source; $("fps").textContent = p.fps.toFixed(1) + " fps";
+    $("pdot").className = "dot " + (p.fps > 0 ? "on" : "off");
+    $("lat").textContent = "detect " + (p.latency_ms.detect_ms ? p.latency_ms.detect_ms.p50.toFixed(1) : "-") + " ms · " + p.detector;
+    if (s.vlm){ $("vlm").textContent = `VLM ${s.vlm.model} ${s.vlm.online ? (s.vlm.busy ? "busy" : "ready") : "offline"}` + (s.vlm.last_latency_s ? ` · ${s.vlm.last_latency_s.toFixed(1)} s` : "");
+      $("vdot").className = "dot " + (!s.vlm.online ? "off" : s.vlm.busy ? "busy" : "on"); } else { $("vlm").textContent = "VLM disabled"; }
+    $("k_occ").textContent = m.occupancy; $("k_uni").textContent = m.unique_people;
+    $("k_ab").textContent = m.crossings.a_to_b; $("k_ba").textContent = m.crossings.b_to_a;
+    $("l_ab").textContent = "crossings " + m.crossing_directions.a_to_b; $("l_ba").textContent = "crossings " + m.crossing_directions.b_to_a;
+    $("k_dw").textContent = m.dwell_finished_median_s ?? "-"; $("k_lv").textContent = m.crowd_level;
+    $("rules").innerHTML = m.rules.length ? m.rules.map(r => `<div>${r.active ? '<span class="alert">●</span> ' : ""}${esc(r.name)} <span class="t">for ${r.for_s}s</span></div>`).join("") : "<div>none</div>";
+    $("events").innerHTML = m.recent_events.slice().reverse().map(e => `<div><span class="t">${e.ts.toFixed(1)}s</span>${evText(e)}</div>`).join("") || "<div>none yet</div>";
+    $("obs").innerHTML = s.observations.slice().reverse().map(o => `<div><span class="t">${fmtT(o.wall)} · ${esc(o.trigger)}</span>${esc(o.text)}</div>`).join("") || "<div>none yet</div>";
+  }catch(e){ $("pdot").className = "dot off"; }
+}
+async function chart(){
+  try{
+    const rows = await (await fetch(U("/api/series?seconds=600"))).json(), c = $("chart"), r = devicePixelRatio || 1;
+    c.width = c.clientWidth * r; c.height = c.clientHeight * r; const g = c.getContext("2d"); g.scale(r, r);
+    const W = c.clientWidth, H = c.clientHeight, pad = 26, css = getComputedStyle(document.documentElement);
+    g.clearRect(0, 0, W, H); if (!rows.length) return;
+    const ymax = Math.max(5, ...rows.map(x => x.occ_max)), t0 = rows[0].t, t1 = Math.max(rows[rows.length-1].t, t0 + 1);
+    const X = t => pad + (t - t0) / (t1 - t0) * (W - pad - 6), Y = v => H - 18 - v / ymax * (H - 28);
+    g.strokeStyle = css.getPropertyValue("--line"); g.fillStyle = css.getPropertyValue("--ink2"); g.font = "11px system-ui"; g.lineWidth = 1;
+    for (const v of [0, Math.round(ymax / 2), ymax]){ g.beginPath(); g.moveTo(pad, Y(v)); g.lineTo(W - 6, Y(v)); g.stroke(); g.fillText(v, 4, Y(v) + 4); }
+    g.fillText(`${Math.round((t1 - t0) / 60 * 10) / 10} min`, W - 50, H - 4);
+    g.strokeStyle = css.getPropertyValue("--acc"); g.lineWidth = 2; g.beginPath();
+    rows.forEach((x, i) => i ? g.lineTo(X(x.t), Y(x.occ_mean)) : g.moveTo(X(x.t), Y(x.occ_mean))); g.stroke();
+  }catch(e){}
+}
+function addMsg(role, text, actions){
+  const d = document.createElement("div"); d.className = "msg " + role; d.textContent = text;
+  if (actions && actions.length){ const a = document.createElement("div"); a.className = "act";
+    a.textContent = "actions: " + actions.map(x => x.tool + " " + JSON.stringify(x.args || x.result)).join("; "); d.appendChild(a); }
+  $("chatlog").appendChild(d); $("chatlog").scrollTop = 1e9; return d;
+}
+async function send(q){
+  if (!q.trim()) return; addMsg("user", q); const wait = addMsg("assistant", "…");
+  try{ const r = await (await fetch(U("/api/chat"), {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({message:q})})).json();
+    wait.remove(); addMsg("assistant", r.answer + (r.latency_s ? `  (${r.latency_s} s)` : ""), r.actions);
+  }catch(e){ wait.textContent = "request failed: " + e; }
+  refresh();
+}
+$("f").onsubmit = e => { e.preventDefault(); const q = $("q").value; $("q").value = ""; send(q); };
+document.querySelectorAll("[data-q]").forEach(b => b.onclick = () => send(b.dataset.q));
+fetch(U("/api/chat")).then(r => r.json()).then(log => log.slice(-12).forEach(m => addMsg(m.role, m.text))).catch(() => {});
+const heat = () => { $("heat").src = U("/heatmap.jpg") + (TOKEN ? "&" : "?") + "t=" + Date.now(); };
+$("hm").onclick = heat;
+refresh(); chart(); heat(); setInterval(refresh, 1000); setInterval(chart, 5000); setInterval(heat, 30000);
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+% from the submitted version (lines 428-476), revised
+%-----------------------------------------------------------------------------------------------------
+\ifHaveEdge
+\subsection{Streamed end-to-end pipeline}
+We run the deployed runtime itself (FFmpeg decoder process $\rightarrow$ ONNX Runtime detector $\rightarrow$
+ByteTrack $\rightarrow$ online analytics) on the tracking hold-out and score its tracks against the same
+pseudo-GT (Table~\ref{tab:edge}). At the full frame rate the streamed pipeline reaches
+held-out HOTA \EdHotaHiSOne{} (offline PyTorch study: \EdRefHota), confirming that export,
+decoding and the online tracker reproduce the research result. Analysing every second or fourth frame (30 or
+15\,fps, as planned for the Jetson) costs little HOTA (\EdHotaHiSTwo{} and \EdHotaHiSFour), because the tracker
+uses real time steps; the smaller inputs cost more (\EdHotaMidSFour{} and \EdHotaLoSFour{} at 15\,fps),
+mostly through missed small people (fewer unique IDs). These runs used the \texttt{\EdProvider} back-end of ONNX
+Runtime on the desktop CPU, so their latencies characterise the software path, not TensorRT on a Jetson;
+tracking and analytics together cost about \EdTrkMsHiSOne{} and \EdAnaMsHiSOne\,ms per frame.
+\ifHaveEdgeLive
+Read as a real-time RTSP camera at full rate (GPU PyTorch back-end), the runtime analysed
+\EdLiveFrames{} of about \EdLivePublished{} frames at \EdLiveFps\,fps, dropping stale ones by design.
+\fi
+
+\begin{table}[t]
+\centering
+\caption{Deployed runtime per ONNX input size. \AP: export re-scored on the detection test split. Tracking on
+the 15--30\,s hold-out (file source); ``Unique'' = tracks $\geq$0.25\,s over 0--30\,s (pseudo-GT in parentheses).
+Latency: median ms per frame, ONNX Runtime \texttt{\EdProvider} on the desktop.}
+\label{tab:edge}
+\footnotesize
+\setlength{\tabcolsep}{2.3pt}
+\begin{tabular}{lccccccc}
+\toprule
+Input $H$, rate & \AP & HOTA & MOTA & IDF1 & Unique (GT) & Det. & Loop \\
+\midrule
+736, \EdFpsHiSOne\,fps & \OnnxHiAp & \EdHotaHiSOne & \EdMotaHiSOne & \EdIdfHiSOne & \EdUniqueHiSOne{} (\EdGtUniqueHiSOne) & \EdDetMsHiSOne & \EdLoopMsHiSOne \\
+736, \EdFpsHiSTwo\,fps & \OnnxHiAp & \EdHotaHiSTwo & \EdMotaHiSTwo & \EdIdfHiSTwo & \EdUniqueHiSTwo{} (\EdGtUniqueHiSTwo) & \EdDetMsHiSTwo & \EdLoopMsHiSTwo \\
+736, \EdFpsHiSFour\,fps & \OnnxHiAp & \EdHotaHiSFour & \EdMotaHiSFour & \EdIdfHiSFour & \EdUniqueHiSFour{} (\EdGtUniqueHiSFour) & \EdDetMsHiSFour & \EdLoopMsHiSFour \\
+544, \EdFpsMidSFour\,fps & \OnnxMidAp & \EdHotaMidSFour & \EdMotaMidSFour & \EdIdfMidSFour & \EdUniqueMidSFour{} (\EdGtUniqueMidSFour) & \EdDetMsMidSFour & \EdLoopMsMidSFour \\
+384, \EdFpsLoSFour\,fps & \OnnxLoAp & \EdHotaLoSFour & \EdMotaLoSFour & \EdIdfLoSFour & \EdUniqueLoSFour{} (\EdGtUniqueLoSFour) & \EdDetMsLoSFour & \EdLoopMsLoSFour \\
+\midrule
+Offline study & \OnnxParityPt & \EdRefHota & \multicolumn{5}{l}{(PyTorch FP16, every frame)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi

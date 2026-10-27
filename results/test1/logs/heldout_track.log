@@ -1,0 +1,318 @@
+{'frames': 16970, 'duration_s': 297.5559666666667, 'mean_fps': np.float64(57.02792718322234), 'segments': 10, 'segment_s': 30.0, 'gt_tracks': {'ByteTrack-GT': 299, 'OC-SORT-GT': 189}}
+YOLO26n       default   HOTA 0.404 MOTA 0.371 IDF1 0.467 IDSW 209 IDs 138 (GT 299)
+YOLO26n       aa1_tuned HOTA 0.440 MOTA 0.463 IDF1 0.507 IDSW 168 IDs 199 (GT 299)
+RF-DETR Nano  default   HOTA 0.409 MOTA 0.419 IDF1 0.477 IDSW 811 IDs 164 (GT 299)
+RF-DETR Nano  aa1_tuned HOTA 0.496 MOTA 0.593 IDF1 0.570 IDSW 397 IDs 372 (GT 299)
+{
+ "default HOTA": {
+  "mean_diff_yolo_minus_rf": -0.03021233200185746,
+  "yolo_wins": 3,
+  "segments": 10,
+  "wilcoxon_p": 0.431640625
+ },
+ "default MOTA": {
+  "mean_diff_yolo_minus_rf": -0.025306289921352525,
+  "yolo_wins": 4,
+  "segments": 10,
+  "wilcoxon_p": 0.625
+ },
+ "default IDF1": {
+  "mean_diff_yolo_minus_rf": -0.07024982251206827,
+  "yolo_wins": 3,
+  "segments": 10,
+  "wilcoxon_p": 0.16015625
+ },
+ "aa1_tuned HOTA": {
+  "mean_diff_yolo_minus_rf": -0.055305424665765976,
+  "yolo_wins": 2,
+  "segments": 10,
+  "wilcoxon_p": 0.009765625
+ },
+ "aa1_tuned MOTA": {
+  "mean_diff_yolo_minus_rf": -0.13527147892720418,
+  "yolo_wins": 1,
+  "segments": 10,
+  "wilcoxon_p": 0.00390625
+ },
+ "aa1_tuned IDF1": {
+  "mean_diff_yolo_minus_rf": -0.08598310417194191,
+  "yolo_wins": 2,
+  "segments": 10,
+  "wilcoxon_p": 0.009765625
+ }
+}
+YOLO26n       SORT       HOTA 0.395 (OC-SORT-GT 0.391) IDF1 0.455
+YOLO26n       C-BIoU     HOTA 0.425 (OC-SORT-GT 0.427) IDF1 0.493
+YOLO26n       OC-SORT    HOTA 0.386 (OC-SORT-GT 0.378) IDF1 0.452
+YOLO26n       ByteTrack  HOTA 0.414 (OC-SORT-GT 0.423) IDF1 0.474
+RF-DETR Nano  ByteTrack  HOTA 0.509 (OC-SORT-GT 0.506) IDF1 0.598
+RF-DETR Nano  C-BIoU     HOTA 0.515 (OC-SORT-GT 0.506) IDF1 0.610
+RF-DETR Nano  SORT       HOTA 0.499 (OC-SORT-GT 0.499) IDF1 0.576
+RF-DETR Nano  OC-SORT    HOTA 0.509 (OC-SORT-GT 0.506) IDF1 0.590
+YOLO26n       BoT-SORT   HOTA 0.388 (OC-SORT-GT 0.396) IDF1 0.452
+YOLO26n       McByte     HOTA 0.403 (OC-SORT-GT 0.398) IDF1 0.460
+RF-DETR Nano  BoT-SORT   HOTA 0.522 (OC-SORT-GT 0.512) IDF1 0.613
+RF-DETR Nano  McByte     HOTA 0.498 (OC-SORT-GT 0.504) IDF1 0.580
+{
+ "line_norm": [
+  [
+   0.25,
+   0.75
+  ],
+  [
+   0.8,
+   0.75
+  ]
+ ],
+ "match_dt_s": 1.0,
+ "GT": {
+  "unique_people": 301,
+  "crossings": {
+   "a_to_b": 5,
+   "b_to_a": 39
+  },
+  "dwell_s_median": 4.399879712678673,
+  "dwell_s_p90": 26.601890823789763,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 7.969652327637006,
+  "occupancy_max": 17,
+  "crossing_events_n": 44,
+  "crossing_events": [
+   [
+    10.6,
+    "a_to_b"
+   ],
+   [
+    24.61,
+    "b_to_a"
+   ],
+   [
+    36.16,
+    "b_to_a"
+   ],
+   [
+    41.11,
+    "b_to_a"
+   ],
+   [
+    41.66,
+    "a_to_b"
+   ],
+   [
+    53.44,
+    "b_to_a"
+   ],
+   [
+    54.49,
+    "b_to_a"
+   ],
+   [
+    54.84,
+    "a_to_b"
+   ],
+   [
+    57.2,
+    "b_to_a"
+   ],
+   [
+    57.79,
+    "b_to_a"
+   ],
+   [
+    59.9,
+    "b_to_a"
+   ],
+   [
+    67.1,
+    "b_to_a"
+   ],
+   [
+    74.98,
+    "b_to_a"
+   ],
+   [
+    75.3,
+    "b_to_a"
+   ],
+   [
+    82.73,
+    "b_to_a"
+   ],
+   [
+    84.33,
+    "b_to_a"
+   ],
+   [
+    84.86,
+    "b_to_a"
+   ],
+   [
+    85.1,
+    "b_to_a"
+   ],
+   [
+    85.83,
+    "b_to_a"
+   ],
+   [
+    86.38,
+    "a_to_b"
+   ],
+   [
+    86.83,
+    "b_to_a"
+   ],
+   [
+    86.85,
+    "a_to_b"
+   ],
+   [
+    88.78,
+    "b_to_a"
+   ],
+   [
+    94.9,
+    "b_to_a"
+   ],
+   [
+    96.81,
+    "b_to_a"
+   ],
+   [
+    97.03,
+    "b_to_a"
+   ],
+   [
+    97.11,
+    "b_to_a"
+   ],
+   [
+    97.98,
+    "b_to_a"
+   ],
+   [
+    118.32,
+    "b_to_a"
+   ],
+   [
+    196.42,
+    "b_to_a"
+   ],
+   [
+    231.18,
+    "b_to_a"
+   ],
+   [
+    231.53,
+    "b_to_a"
+   ],
+   [
+    237.21,
+    "b_to_a"
+   ],
+   [
+    240.55,
+    "b_to_a"
+   ],
+   [
+    240.83,
+    "b_to_a"
+   ],
+   [
+    266.93,
+    "b_to_a"
+   ],
+   [
+    269.17,
+    "b_to_a"
+   ],
+   [
+    272.06,
+    "b_to_a"
+   ],
+   [
+    277.3,
+    "b_to_a"
+   ],
+   [
+    281.72,
+    "b_to_a"
+   ],
+   [
+    282.76,
+    "b_to_a"
+   ],
+   [
+    282.9,
+    "b_to_a"
+   ],
+   [
+    283.96,
+    "b_to_a"
+   ],
+   [
+    292.05,
+    "b_to_a"
+   ]
+  ]
+ },
+ "YOLO26n": {
+  "unique_people": 186,
+  "crossings": {
+   "a_to_b": 2,
+   "b_to_a": 25
+  },
+  "dwell_s_median": 3.283463046012,
+  "dwell_s_p90": 21.46118526823422,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 4.1319976428992335,
+  "occupancy_max": 12,
+  "crossing_events_n": 27,
+  "occupancy_MAE": 3.839658220388922,
+  "occupancy_bias": -3.8376546847377724,
+  "unique_people_rel_err": -0.38205980066445183,
+  "crossing_match": {
+   "tp": 25,
+   "gt_events": 44,
+   "pred_events": 27,
+   "precision": 0.9259259259259259,
+   "recall": 0.5681818181818182,
+   "F1": 0.7042253521126761
+  },
+  "crossing_count_rel_err": -0.38636363636363635
+ },
+ "RF-DETR Nano": {
+  "unique_people": 304,
+  "crossings": {
+   "a_to_b": 3,
+   "b_to_a": 28
+  },
+  "dwell_s_median": 2.2503630460120094,
+  "dwell_s_p90": 17.435827490456468,
+  "direction_labels": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "occupancy_mean": 5.241013553329405,
+  "occupancy_max": 13,
+  "crossing_events_n": 31,
+  "occupancy_MAE": 2.748438420742487,
+  "occupancy_bias": -2.7286387743076017,
+  "unique_people_rel_err": 0.009966777408637873,
+  "crossing_match": {
+   "tp": 31,
+   "gt_events": 44,
+   "pred_events": 31,
+   "precision": 1.0,
+   "recall": 0.7045454545454546,
+   "F1": 0.8266666666666667
+  },
+  "crossing_count_rel_err": -0.29545454545454547
+ }
+}

@@ -1,0 +1,3328 @@
+{
+ "frames": [
+  4,
+  20,
+  27,
+  40,
+  48,
+  88,
+  96,
+  106,
+  204,
+  208,
+  312,
+  326,
+  356,
+  357,
+  464,
+  504,
+  573,
+  587,
+  590,
+  636,
+  643,
+  653,
+  656,
+  707,
+  735,
+  739,
+  755,
+  788,
+  852,
+  862,
+  903,
+  945,
+  957,
+  980,
+  1001,
+  1010,
+  1023,
+  1062,
+  1095,
+  1132
+ ],
+ "regions": [
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    792.67,
+    593.82,
+    37.360000000000014,
+    100.70999999999992
+   ],
+   "image_id": 4,
+   "id": 0
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    724.5,
+    570.5,
+    23.5,
+    63.5
+   ],
+   "image_id": 4,
+   "id": 1
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1794.75,
+    958.5,
+    124.5,
+    133.5
+   ],
+   "image_id": 20,
+   "id": 2
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    860.11,
+    606.84,
+    42.23000000000002,
+    128.44999999999993
+   ],
+   "image_id": 20,
+   "id": 3
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    915.46,
+    554.47,
+    17.91999999999996,
+    46.16999999999996
+   ],
+   "image_id": 20,
+   "id": 4
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    812.63,
+    560.4,
+    13.649999999999977,
+    36.120000000000005
+   ],
+   "image_id": 20,
+   "id": 5
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    831.66,
+    561.51,
+    12.75,
+    33.41999999999996
+   ],
+   "image_id": 20,
+   "id": 6
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    314.98,
+    593.74,
+    23.19999999999999,
+    56.49000000000001
+   ],
+   "image_id": 20,
+   "id": 7
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    891.35,
+    609.05,
+    55.039999999999964,
+    149.71000000000004
+   ],
+   "image_id": 27,
+   "id": 8
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    924.62,
+    553.47,
+    17.090000000000032,
+    48.41999999999996
+   ],
+   "image_id": 27,
+   "id": 9
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    842.22,
+    559.84,
+    13.449999999999932,
+    34.52999999999997
+   ],
+   "image_id": 27,
+   "id": 10
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    753.43,
+    570.0,
+    24.33000000000004,
+    50.610000000000014
+   ],
+   "image_id": 27,
+   "id": 11
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1763.25,
+    921.375,
+    157.5,
+    179.25
+   ],
+   "image_id": 40,
+   "id": 12
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    815.49,
+    566.81,
+    22.059999999999945,
+    53.370000000000005
+   ],
+   "image_id": 40,
+   "id": 13
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    840.73,
+    561.32,
+    20.879999999999995,
+    56.75999999999999
+   ],
+   "image_id": 40,
+   "id": 14
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    951.3,
+    552.53,
+    19.31000000000006,
+    52.52999999999997
+   ],
+   "image_id": 40,
+   "id": 15
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    855.49,
+    561.13,
+    12.620000000000005,
+    39.120000000000005
+   ],
+   "image_id": 40,
+   "id": 16
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1036.24,
+    678.09,
+    72.73000000000002,
+    190.89
+   ],
+   "image_id": 48,
+   "id": 17
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    895.23,
+    561.93,
+    20.819999999999936,
+    56.08000000000004
+   ],
+   "image_id": 48,
+   "id": 18
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    870.21,
+    564.05,
+    24.42999999999995,
+    54.879999999999995
+   ],
+   "image_id": 48,
+   "id": 19
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    834.3,
+    560.76,
+    13.009999999999991,
+    35.690000000000055
+   ],
+   "image_id": 48,
+   "id": 20
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    969.22,
+    551.6,
+    20.029999999999973,
+    56.64999999999998
+   ],
+   "image_id": 48,
+   "id": 21
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    719.41,
+    571.79,
+    16.639999999999986,
+    45.07000000000005
+   ],
+   "image_id": 48,
+   "id": 22
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1054.18,
+    555.76,
+    21.480000000000018,
+    62.620000000000005
+   ],
+   "image_id": 88,
+   "id": 23
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1026.64,
+    558.36,
+    22.799999999999955,
+    65.09000000000003
+   ],
+   "image_id": 88,
+   "id": 24
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    854.53,
+    561.52,
+    14.800000000000068,
+    41.33000000000004
+   ],
+   "image_id": 88,
+   "id": 25
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    894.77,
+    558.83,
+    16.879999999999995,
+    44.039999999999964
+   ],
+   "image_id": 88,
+   "id": 26
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    950.36,
+    563.72,
+    26.039999999999964,
+    64.83999999999992
+   ],
+   "image_id": 88,
+   "id": 27
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    915.84,
+    560.03,
+    16.909999999999968,
+    41.32000000000005
+   ],
+   "image_id": 88,
+   "id": 28
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1118.0,
+    560.0,
+    22.0,
+    60.0
+   ],
+   "image_id": 88,
+   "id": 29
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    611.25,
+    622.3125,
+    46.5,
+    100.875
+   ],
+   "image_id": 96,
+   "id": 30
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1041.9,
+    557.77,
+    25.309999999999945,
+    64.93000000000006
+   ],
+   "image_id": 96,
+   "id": 31
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    930.0,
+    556.78,
+    15.269999999999982,
+    43.22000000000003
+   ],
+   "image_id": 96,
+   "id": 32
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    864.3,
+    562.58,
+    15.330000000000041,
+    40.26999999999998
+   ],
+   "image_id": 96,
+   "id": 33
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    717.92,
+    569.4,
+    16.270000000000095,
+    42.08000000000004
+   ],
+   "image_id": 96,
+   "id": 34
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1118.0,
+    561.0,
+    20.0,
+    58.0
+   ],
+   "image_id": 96,
+   "id": 35
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    611.0625,
+    621.0,
+    46.875,
+    102.0
+   ],
+   "image_id": 106,
+   "id": 36
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1468.125,
+    448.6875,
+    99.75,
+    205.125
+   ],
+   "image_id": 106,
+   "id": 37
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1135.125,
+    504.5625,
+    78.75,
+    120.375
+   ],
+   "image_id": 106,
+   "id": 38
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    918.86,
+    553.44,
+    17.43999999999994,
+    45.17999999999995
+   ],
+   "image_id": 106,
+   "id": 39
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    653.78,
+    592.89,
+    17.540000000000077,
+    40.75
+   ],
+   "image_id": 106,
+   "id": 40
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    941.03,
+    553.06,
+    16.610000000000014,
+    47.40000000000009
+   ],
+   "image_id": 106,
+   "id": 41
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    1115.3,
+    562.78,
+    24.049999999999955,
+    57.85000000000002
+   ],
+   "image_id": 106,
+   "id": 42
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    611.4375,
+    620.25,
+    46.125,
+    102.75
+   ],
+   "image_id": 204,
+   "id": 43
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1557.75,
+    455.25,
+    154.5,
+    246.75
+   ],
+   "image_id": 204,
+   "id": 44
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    767.2,
+    578.32,
+    34.8599999999999,
+    98.19999999999993
+   ],
+   "image_id": 204,
+   "id": 45
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1045.61,
+    548.21,
+    26.720000000000027,
+    74.15999999999997
+   ],
+   "image_id": 204,
+   "id": 46
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    953.98,
+    561.51,
+    21.659999999999968,
+    62.49000000000001
+   ],
+   "image_id": 204,
+   "id": 47
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    935.69,
+    564.01,
+    21.139999999999986,
+    59.5
+   ],
+   "image_id": 204,
+   "id": 48
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    724.5,
+    570.0,
+    21.5,
+    60.0
+   ],
+   "image_id": 204,
+   "id": 49
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1117.0,
+    558.5,
+    22.0,
+    61.0
+   ],
+   "image_id": 204,
+   "id": 50
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1558.5,
+    456.0,
+    153.0,
+    245.25
+   ],
+   "image_id": 208,
+   "id": 51
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1055.22,
+    549.33,
+    26.569999999999936,
+    74.4799999999999
+   ],
+   "image_id": 208,
+   "id": 52
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    972.41,
+    563.84,
+    19.680000000000064,
+    58.799999999999955
+   ],
+   "image_id": 208,
+   "id": 53
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    958.57,
+    562.03,
+    18.59999999999991,
+    62.76999999999998
+   ],
+   "image_id": 208,
+   "id": 54
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    717.83,
+    568.84,
+    16.709999999999923,
+    50.16999999999996
+   ],
+   "image_id": 208,
+   "id": 55
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1118.0,
+    559.5,
+    22.0,
+    60.0
+   ],
+   "image_id": 208,
+   "id": 56
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1722.75,
+    500.625,
+    106.5,
+    187.5
+   ],
+   "image_id": 312,
+   "id": 57
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1558.5,
+    454.3125,
+    135.0,
+    247.875
+   ],
+   "image_id": 312,
+   "id": 58
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    988.37,
+    556.44,
+    20.710000000000036,
+    56.32999999999993
+   ],
+   "image_id": 312,
+   "id": 59
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    647.4,
+    590.77,
+    31.420000000000073,
+    97.44000000000005
+   ],
+   "image_id": 312,
+   "id": 60
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    646.01,
+    611.76,
+    63.97000000000003,
+    156.89
+   ],
+   "image_id": 326,
+   "id": 61
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    955.11,
+    556.86,
+    18.399999999999977,
+    48.85000000000002
+   ],
+   "image_id": 326,
+   "id": 62
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    831.9,
+    599.6,
+    48.680000000000064,
+    74.17999999999995
+   ],
+   "image_id": 356,
+   "id": 63
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    882.96,
+    613.01,
+    47.809999999999945,
+    71.74000000000001
+   ],
+   "image_id": 356,
+   "id": 64
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    778.09,
+    602.51,
+    29.069999999999936,
+    59.85000000000002
+   ],
+   "image_id": 356,
+   "id": 65
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    882.39,
+    608.88,
+    55.930000000000064,
+    72.12
+   ],
+   "image_id": 357,
+   "id": 66
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    780.06,
+    605.47,
+    26.15000000000009,
+    52.01999999999998
+   ],
+   "image_id": 357,
+   "id": 67
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    696.0,
+    570.0,
+    40.5,
+    101.5
+   ],
+   "image_id": 357,
+   "id": 68
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    793.55,
+    575.11,
+    22.950000000000045,
+    75.11000000000001
+   ],
+   "image_id": 464,
+   "id": 69
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    833.0,
+    562.92,
+    12.169999999999959,
+    37.49000000000001
+   ],
+   "image_id": 464,
+   "id": 70
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    845.19,
+    563.18,
+    12.849999999999909,
+    37.67000000000007
+   ],
+   "image_id": 464,
+   "id": 71
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    712.125,
+    576.0,
+    20.25,
+    59.25
+   ],
+   "image_id": 464,
+   "id": 72
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    743.65,
+    572.47,
+    26.389999999999986,
+    81.22000000000003
+   ],
+   "image_id": 464,
+   "id": 73
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    701.0,
+    569.0,
+    25.5,
+    81.0
+   ],
+   "image_id": 464,
+   "id": 74
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    814.24,
+    562.86,
+    24.66999999999996,
+    64.65999999999997
+   ],
+   "image_id": 504,
+   "id": 75
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    883.93,
+    560.11,
+    16.350000000000023,
+    43.33000000000004
+   ],
+   "image_id": 504,
+   "id": 76
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    867.19,
+    562.75,
+    15.169999999999959,
+    42.35000000000002
+   ],
+   "image_id": 504,
+   "id": 77
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    1013.43,
+    548.69,
+    25.980000000000132,
+    67.90999999999997
+   ],
+   "image_id": 573,
+   "id": 78
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    962.92,
+    558.9,
+    22.57000000000005,
+    63.200000000000045
+   ],
+   "image_id": 573,
+   "id": 79
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    996.07,
+    555.18,
+    22.899999999999977,
+    61.3900000000001
+   ],
+   "image_id": 573,
+   "id": 80
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    991.98,
+    561.06,
+    24.460000000000036,
+    64.85000000000002
+   ],
+   "image_id": 587,
+   "id": 81
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1050.24,
+    546.58,
+    26.34999999999991,
+    74.61000000000001
+   ],
+   "image_id": 587,
+   "id": 82
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1027.57,
+    552.74,
+    22.049999999999955,
+    68.79999999999995
+   ],
+   "image_id": 587,
+   "id": 83
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    712.63,
+    565.42,
+    15.049999999999955,
+    43.710000000000036
+   ],
+   "image_id": 587,
+   "id": 84
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1056.02,
+    547.4,
+    28.90000000000009,
+    75.30000000000007
+   ],
+   "image_id": 590,
+   "id": 85
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1001.83,
+    561.87,
+    22.91999999999996,
+    66.45000000000005
+   ],
+   "image_id": 590,
+   "id": 86
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1033.46,
+    553.09,
+    21.87999999999988,
+    70.49000000000001
+   ],
+   "image_id": 590,
+   "id": 87
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    625.79,
+    571.07,
+    19.720000000000027,
+    47.51999999999998
+   ],
+   "image_id": 590,
+   "id": 88
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1118.0,
+    562.0,
+    20.0,
+    57.0
+   ],
+   "image_id": 590,
+   "id": 89
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1456.875,
+    449.8125,
+    107.25,
+    202.875
+   ],
+   "image_id": 636,
+   "id": 90
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    869.39,
+    560.72,
+    22.16999999999996,
+    50.50999999999999
+   ],
+   "image_id": 636,
+   "id": 91
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    798.14,
+    564.43,
+    20.279999999999973,
+    49.24000000000001
+   ],
+   "image_id": 636,
+   "id": 92
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    823.75,
+    563.12,
+    17.220000000000027,
+    49.450000000000045
+   ],
+   "image_id": 636,
+   "id": 93
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1329.0,
+    497.25,
+    66.0,
+    138.0
+   ],
+   "image_id": 643,
+   "id": 94
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1473.0,
+    456.0,
+    93.0,
+    198.0
+   ],
+   "image_id": 643,
+   "id": 95
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    844.05,
+    567.97,
+    22.83000000000004,
+    44.309999999999945
+   ],
+   "image_id": 643,
+   "id": 96
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    910.13,
+    553.77,
+    17.620000000000005,
+    51.07000000000005
+   ],
+   "image_id": 643,
+   "id": 97
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    876.77,
+    562.91,
+    15.82000000000005,
+    47.75
+   ],
+   "image_id": 643,
+   "id": 98
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    821.72,
+    565.1,
+    12.529999999999973,
+    28.399999999999977
+   ],
+   "image_id": 643,
+   "id": 99
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1384.125,
+    548.8125,
+    57.75,
+    90.375
+   ],
+   "image_id": 653,
+   "id": 100
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1555.5,
+    454.5,
+    162.0,
+    246.75
+   ],
+   "image_id": 653,
+   "id": 101
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    949.04,
+    552.74,
+    19.57000000000005,
+    49.58000000000004
+   ],
+   "image_id": 653,
+   "id": 102
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    832.26,
+    564.36,
+    11.919999999999959,
+    29.220000000000027
+   ],
+   "image_id": 653,
+   "id": 103
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    913.88,
+    559.33,
+    17.690000000000055,
+    45.24000000000001
+   ],
+   "image_id": 653,
+   "id": 104
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1556.25,
+    454.3125,
+    157.5,
+    243.375
+   ],
+   "image_id": 656,
+   "id": 105
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    952.71,
+    551.83,
+    19.610000000000014,
+    50.69999999999993
+   ],
+   "image_id": 656,
+   "id": 106
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    929.04,
+    555.98,
+    18.710000000000036,
+    48.309999999999945
+   ],
+   "image_id": 656,
+   "id": 107
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    835.49,
+    565.12,
+    11.569999999999936,
+    28.99000000000001
+   ],
+   "image_id": 656,
+   "id": 108
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    679.3125,
+    953.625,
+    67.875,
+    126.75
+   ],
+   "image_id": 707,
+   "id": 109
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1025.3,
+    553.77,
+    26.50999999999999,
+    64.70000000000005
+   ],
+   "image_id": 707,
+   "id": 110
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    878.7,
+    562.86,
+    14.129999999999995,
+    40.76999999999998
+   ],
+   "image_id": 707,
+   "id": 111
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    997.81,
+    558.89,
+    22.300000000000068,
+    59.680000000000064
+   ],
+   "image_id": 707,
+   "id": 112
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    908.97,
+    560.2,
+    14.0,
+    40.09999999999991
+   ],
+   "image_id": 735,
+   "id": 113
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1067.86,
+    556.83,
+    25.77000000000021,
+    73.88999999999999
+   ],
+   "image_id": 739,
+   "id": 114
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    909.57,
+    560.66,
+    14.879999999999995,
+    40.870000000000005
+   ],
+   "image_id": 739,
+   "id": 115
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    933.42,
+    557.54,
+    17.15000000000009,
+    44.930000000000064
+   ],
+   "image_id": 755,
+   "id": 116
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1008.09,
+    556.23,
+    21.16999999999996,
+    55.75999999999999
+   ],
+   "image_id": 788,
+   "id": 117
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    972.11,
+    561.95,
+    26.91999999999996,
+    71.74000000000001
+   ],
+   "image_id": 852,
+   "id": 118
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    767.46,
+    565.96,
+    10.909999999999968,
+    28.319999999999936
+   ],
+   "image_id": 852,
+   "id": 119
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    1118.0,
+    562.5,
+    19.0,
+    56.0
+   ],
+   "image_id": 852,
+   "id": 120
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1786.5,
+    582.375,
+    42.0,
+    105.0
+   ],
+   "image_id": 862,
+   "id": 121
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1003.93,
+    560.61,
+    28.139999999999986,
+    76.54999999999995
+   ],
+   "image_id": 862,
+   "id": 122
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1368.27,
+    566.01,
+    37.039999999999964,
+    113.44000000000005
+   ],
+   "image_id": 862,
+   "id": 123
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1394.88,
+    561.85,
+    50.159999999999854,
+    124.63
+   ],
+   "image_id": 862,
+   "id": 124
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1365.04,
+    549.86,
+    23.25,
+    98.92999999999995
+   ],
+   "image_id": 862,
+   "id": 125
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    43.3125,
+    615.0,
+    105.75,
+    192.0
+   ],
+   "image_id": 903,
+   "id": 126
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1166.64,
+    558.97,
+    47.08999999999992,
+    92.19999999999993
+   ],
+   "image_id": 903,
+   "id": 127
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    644.8125,
+    592.6875,
+    30.375,
+    88.125
+   ],
+   "image_id": 945,
+   "id": 128
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1028.54,
+    557.22,
+    31.829999999999927,
+    83.57999999999993
+   ],
+   "image_id": 945,
+   "id": 129
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    1000.94,
+    562.37,
+    25.36999999999989,
+    76.63999999999999
+   ],
+   "image_id": 945,
+   "id": 130
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    686.06,
+    591.12,
+    32.66000000000008,
+    90.70000000000005
+   ],
+   "image_id": 945,
+   "id": 131
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    964.91,
+    561.62,
+    25.970000000000027,
+    56.47000000000003
+   ],
+   "image_id": 957,
+   "id": 132
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    1005.16,
+    589.15,
+    48.110000000000014,
+    106.74000000000001
+   ],
+   "image_id": 957,
+   "id": 133
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    642.91,
+    590.58,
+    35.22000000000003,
+    89.5
+   ],
+   "image_id": 957,
+   "id": 134
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    619.01,
+    622.72,
+    36.34000000000003,
+    57.49000000000001
+   ],
+   "image_id": 980,
+   "id": 135
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    832.56,
+    582.94,
+    36.81000000000006,
+    96.46999999999991
+   ],
+   "image_id": 1001,
+   "id": 136
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    908.19,
+    554.42,
+    23.639999999999986,
+    59.620000000000005
+   ],
+   "image_id": 1001,
+   "id": 137
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    769.21,
+    569.66,
+    24.039999999999964,
+    76.63
+   ],
+   "image_id": 1001,
+   "id": 138
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    889.02,
+    558.37,
+    19.690000000000055,
+    55.370000000000005
+   ],
+   "image_id": 1001,
+   "id": 139
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    763.34,
+    567.8,
+    23.66999999999996,
+    71.47000000000003
+   ],
+   "image_id": 1010,
+   "id": 140
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    830.82,
+    580.76,
+    32.83999999999992,
+    86.50999999999999
+   ],
+   "image_id": 1010,
+   "id": 141
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    902.94,
+    560.84,
+    15.61999999999989,
+    49.969999999999914
+   ],
+   "image_id": 1010,
+   "id": 142
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    622.65,
+    625.94,
+    34.710000000000036,
+    58.86999999999989
+   ],
+   "image_id": 1010,
+   "id": 143
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    876.75,
+    564.9375,
+    19.5,
+    49.125
+   ],
+   "image_id": 1010,
+   "id": 144
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)"
+   ],
+   "bbox": [
+    893.09,
+    559.91,
+    19.329999999999927,
+    52.09000000000003
+   ],
+   "image_id": 1010,
+   "id": 145
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    693.5625,
+    495.1875,
+    78.375,
+    178.125
+   ],
+   "image_id": 1023,
+   "id": 146
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    753.85,
+    567.51,
+    21.709999999999923,
+    65.0
+   ],
+   "image_id": 1023,
+   "id": 147
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    876.22,
+    558.71,
+    18.43999999999994,
+    51.39999999999998
+   ],
+   "image_id": 1023,
+   "id": 148
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    857.23,
+    561.15,
+    17.279999999999973,
+    48.75999999999999
+   ],
+   "image_id": 1023,
+   "id": 149
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    618.83,
+    627.34,
+    39.09999999999991,
+    62.16999999999996
+   ],
+   "image_id": 1023,
+   "id": 150
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1494.0,
+    444.75,
+    79.5,
+    211.5
+   ],
+   "image_id": 1062,
+   "id": 151
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    757.02,
+    570.53,
+    23.31000000000006,
+    58.41000000000008
+   ],
+   "image_id": 1062,
+   "id": 152
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    620.21,
+    627.83,
+    37.75,
+    61.639999999999986
+   ],
+   "image_id": 1062,
+   "id": 153
+  },
+  {
+   "kind": "unlabelled_detection",
+   "models": [
+    "YOLO26n (fine-tuned)"
+   ],
+   "bbox": [
+    1494.375,
+    -0.375,
+    425.25,
+    738.75
+   ],
+   "image_id": 1095,
+   "id": 154
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    830.18,
+    561.75,
+    14.8900000000001,
+    36.299999999999955
+   ],
+   "image_id": 1095,
+   "id": 155
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (fine-tuned)",
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    913.22,
+    562.04,
+    16.399999999999977,
+    46.25
+   ],
+   "image_id": 1132,
+   "id": 156
+  },
+  {
+   "kind": "missed_label",
+   "models": [
+    "YOLO26n (pretrained)",
+    "RF-DETR Nano (fine-tuned)"
+   ],
+   "bbox": [
+    616.65,
+    630.23,
+    35.629999999999995,
+    59.25999999999999
+   ],
+   "image_id": 1132,
+   "id": 157
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    625.79,
+    571.07,
+    19.720000000000027,
+    47.51999999999998
+   ],
+   "image_id": 590,
+   "id": 158
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1005.72,
+    622.13,
+    51.539999999999964,
+    260.74
+   ],
+   "image_id": 357,
+   "id": 159
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1272.14,
+    558.88,
+    51.289999999999964,
+    135.39999999999998
+   ],
+   "image_id": 656,
+   "id": 160
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    731.46,
+    601.01,
+    51.860000000000014,
+    156.70000000000005
+   ],
+   "image_id": 788,
+   "id": 161
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    704.14,
+    607.79,
+    50.289999999999964,
+    145.10000000000002
+   ],
+   "image_id": 1095,
+   "id": 162
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1001.83,
+    561.87,
+    22.91999999999996,
+    66.45000000000005
+   ],
+   "image_id": 590,
+   "id": 163
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1572.04,
+    575.74,
+    81.20000000000005,
+    228.97000000000003
+   ],
+   "image_id": 862,
+   "id": 164
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    840.73,
+    561.32,
+    20.879999999999995,
+    56.75999999999999
+   ],
+   "image_id": 40,
+   "id": 165
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    918.76,
+    603.35,
+    61.440000000000055,
+    185.63
+   ],
+   "image_id": 1132,
+   "id": 166
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    762.31,
+    623.79,
+    92.90000000000009,
+    273.6500000000001
+   ],
+   "image_id": 357,
+   "id": 167
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1056.02,
+    547.4,
+    28.90000000000009,
+    75.30000000000007
+   ],
+   "image_id": 590,
+   "id": 168
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    867.66,
+    617.85,
+    120.62,
+    271.15
+   ],
+   "image_id": 1062,
+   "id": 169
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    862.29,
+    661.19,
+    107.65000000000009,
+    335.41999999999996
+   ],
+   "image_id": 1095,
+   "id": 170
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    647.4,
+    590.77,
+    31.420000000000073,
+    97.44000000000005
+   ],
+   "image_id": 312,
+   "id": 171
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1059.41,
+    781.87,
+    194.69999999999982,
+    295.67999999999995
+   ],
+   "image_id": 204,
+   "id": 172
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    646.01,
+    611.76,
+    63.97000000000003,
+    156.89
+   ],
+   "image_id": 326,
+   "id": 173
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1047.6,
+    621.49,
+    79.51999999999998,
+    217.66999999999996
+   ],
+   "image_id": 945,
+   "id": 174
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1159.05,
+    553.6,
+    34.17000000000007,
+    88.39999999999998
+   ],
+   "image_id": 755,
+   "id": 175
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1263.2,
+    542.26,
+    38.690000000000055,
+    116.39999999999998
+   ],
+   "image_id": 204,
+   "id": 176
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1090.79,
+    552.9,
+    23.430000000000064,
+    71.59000000000003
+   ],
+   "image_id": 106,
+   "id": 177
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1394.88,
+    561.85,
+    50.159999999999854,
+    124.63
+   ],
+   "image_id": 862,
+   "id": 178
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    879.47,
+    629.93,
+    97.80999999999995,
+    321.47
+   ],
+   "image_id": 356,
+   "id": 179
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1148.9,
+    611.35,
+    96.31999999999994,
+    271.99
+   ],
+   "image_id": 903,
+   "id": 180
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    909.57,
+    560.66,
+    14.879999999999995,
+    40.870000000000005
+   ],
+   "image_id": 739,
+   "id": 181
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1115.3,
+    562.78,
+    24.049999999999955,
+    57.85000000000002
+   ],
+   "image_id": 106,
+   "id": 182
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1522.34,
+    656.17,
+    152.93000000000006,
+    398.16999999999996
+   ],
+   "image_id": 1095,
+   "id": 183
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    753.43,
+    570.0,
+    24.33000000000004,
+    50.610000000000014
+   ],
+   "image_id": 27,
+   "id": 184
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1250.63,
+    552.0,
+    35.899999999999864,
+    110.01999999999998
+   ],
+   "image_id": 643,
+   "id": 185
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    812.63,
+    560.4,
+    13.649999999999977,
+    36.120000000000005
+   ],
+   "image_id": 20,
+   "id": 186
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    712.63,
+    565.42,
+    15.049999999999955,
+    43.710000000000036
+   ],
+   "image_id": 587,
+   "id": 187
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1884.96,
+    548.06,
+    34.97000000000003,
+    219.5200000000001
+   ],
+   "image_id": 312,
+   "id": 188
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1320.56,
+    547.67,
+    38.960000000000036,
+    111.53000000000009
+   ],
+   "image_id": 204,
+   "id": 189
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    793.55,
+    575.11,
+    22.950000000000045,
+    75.11000000000001
+   ],
+   "image_id": 464,
+   "id": 190
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    783.51,
+    571.64,
+    35.50999999999999,
+    92.40999999999997
+   ],
+   "image_id": 980,
+   "id": 191
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1060.57,
+    556.24,
+    26.440000000000055,
+    75.48000000000002
+   ],
+   "image_id": 735,
+   "id": 192
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1142.43,
+    589.76,
+    75.17999999999984,
+    156.32000000000005
+   ],
+   "image_id": 1132,
+   "id": 193
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    972.11,
+    561.95,
+    26.91999999999996,
+    71.74000000000001
+   ],
+   "image_id": 852,
+   "id": 194
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1069.06,
+    708.91,
+    206.04999999999995,
+    367.83000000000004
+   ],
+   "image_id": 48,
+   "id": 195
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    782.15,
+    573.23,
+    26.860000000000014,
+    86.31999999999994
+   ],
+   "image_id": 1023,
+   "id": 196
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    957.2,
+    562.88,
+    30.379999999999995,
+    84.52999999999997
+   ],
+   "image_id": 96,
+   "id": 197
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1066.5,
+    612.47,
+    85.23000000000002,
+    274.73
+   ],
+   "image_id": 903,
+   "id": 198
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1042.33,
+    642.55,
+    88.91000000000008,
+    289.71000000000004
+   ],
+   "image_id": 356,
+   "id": 199
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1299.09,
+    549.67,
+    41.8900000000001,
+    125.41000000000008
+   ],
+   "image_id": 653,
+   "id": 200
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    955.46,
+    623.17,
+    94.0,
+    312.83000000000004
+   ],
+   "image_id": 356,
+   "id": 201
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1005.16,
+    589.15,
+    48.110000000000014,
+    106.74000000000001
+   ],
+   "image_id": 957,
+   "id": 202
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1094.28,
+    551.4,
+    30.279999999999973,
+    77.92000000000007
+   ],
+   "image_id": 735,
+   "id": 203
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1679.69,
+    674.14,
+    240.14999999999986,
+    400.66999999999996
+   ],
+   "image_id": 464,
+   "id": 204
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    950.93,
+    557.72,
+    24.75,
+    64.31999999999994
+   ],
+   "image_id": 980,
+   "id": 205
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    815.49,
+    566.81,
+    22.059999999999945,
+    53.370000000000005
+   ],
+   "image_id": 40,
+   "id": 206
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1013.43,
+    548.69,
+    25.980000000000132,
+    67.90999999999997
+   ],
+   "image_id": 573,
+   "id": 207
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1055.22,
+    549.33,
+    26.569999999999936,
+    74.4799999999999
+   ],
+   "image_id": 208,
+   "id": 208
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    622.65,
+    625.94,
+    34.710000000000036,
+    58.86999999999989
+   ],
+   "image_id": 1010,
+   "id": 209
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    845.19,
+    563.18,
+    12.849999999999909,
+    37.67000000000007
+   ],
+   "image_id": 464,
+   "id": 210
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    958.57,
+    562.03,
+    18.59999999999991,
+    62.76999999999998
+   ],
+   "image_id": 208,
+   "id": 211
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    753.85,
+    567.51,
+    21.709999999999923,
+    65.0
+   ],
+   "image_id": 1023,
+   "id": 212
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    941.03,
+    553.06,
+    16.610000000000014,
+    47.40000000000009
+   ],
+   "image_id": 106,
+   "id": 213
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    767.2,
+    578.32,
+    34.8599999999999,
+    98.19999999999993
+   ],
+   "image_id": 204,
+   "id": 214
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    862.3,
+    592.34,
+    41.41000000000008,
+    124.14999999999998
+   ],
+   "image_id": 980,
+   "id": 215
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1281.83,
+    651.79,
+    129.18000000000006,
+    396.18000000000006
+   ],
+   "image_id": 1095,
+   "id": 216
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    902.94,
+    560.84,
+    15.61999999999989,
+    49.969999999999914
+   ],
+   "image_id": 1010,
+   "id": 217
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    971.86,
+    744.06,
+    187.08000000000004,
+    320.18000000000006
+   ],
+   "image_id": 208,
+   "id": 218
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    882.96,
+    613.01,
+    47.809999999999945,
+    71.74000000000001
+   ],
+   "image_id": 356,
+   "id": 219
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    972.41,
+    563.84,
+    19.680000000000064,
+    58.799999999999955
+   ],
+   "image_id": 208,
+   "id": 220
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    997.81,
+    558.89,
+    22.300000000000068,
+    59.680000000000064
+   ],
+   "image_id": 707,
+   "id": 221
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1026.64,
+    558.36,
+    22.799999999999955,
+    65.09000000000003
+   ],
+   "image_id": 88,
+   "id": 222
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    969.22,
+    551.6,
+    20.029999999999973,
+    56.64999999999998
+   ],
+   "image_id": 48,
+   "id": 223
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1220.42,
+    747.81,
+    221.13999999999987,
+    329.45000000000005
+   ],
+   "image_id": 312,
+   "id": 224
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    964.91,
+    561.62,
+    25.970000000000027,
+    56.47000000000003
+   ],
+   "image_id": 957,
+   "id": 225
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    852.32,
+    577.94,
+    42.52999999999997,
+    111.06999999999994
+   ],
+   "image_id": 957,
+   "id": 226
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1258.53,
+    561.09,
+    39.940000000000055,
+    129.25
+   ],
+   "image_id": 653,
+   "id": 227
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1189.21,
+    561.02,
+    38.17000000000007,
+    115.01999999999998
+   ],
+   "image_id": 643,
+   "id": 228
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    893.09,
+    559.91,
+    19.329999999999927,
+    52.09000000000003
+   ],
+   "image_id": 1010,
+   "id": 229
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1028.54,
+    557.22,
+    31.829999999999927,
+    83.57999999999993
+   ],
+   "image_id": 945,
+   "id": 230
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    798.31,
+    580.55,
+    27.260000000000105,
+    90.34000000000003
+   ],
+   "image_id": 1010,
+   "id": 231
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1018.9,
+    604.64,
+    56.33000000000004,
+    135.76
+   ],
+   "image_id": 1132,
+   "id": 232
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    878.7,
+    562.86,
+    14.129999999999995,
+    40.76999999999998
+   ],
+   "image_id": 707,
+   "id": 233
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1027.57,
+    552.74,
+    22.049999999999955,
+    68.79999999999995
+   ],
+   "image_id": 587,
+   "id": 234
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1570.85,
+    570.54,
+    63.5,
+    201.93000000000006
+   ],
+   "image_id": 707,
+   "id": 235
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    947.16,
+    619.23,
+    97.63,
+    310.3299999999999
+   ],
+   "image_id": 357,
+   "id": 236
+  },
+  {
+   "kind": "random_label",
+   "models": [],
+   "bbox": [
+    1819.33,
+    580.18,
+    100.41000000000008,
+    295.88
+   ],
+   "image_id": 852,
+   "id": 237
+  }
+ ]
+}

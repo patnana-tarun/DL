@@ -1,0 +1,8 @@
+decoder: [rawvideo @ 0x5de7516b64c0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 2226 >= 2226
+[rawvideo @ 0x5de7516b64c0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 6674 >= 6674
+[rawvideo @ 0x5de7516b64c0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 11112 >= 11112
+736x1280_s1: frames 16970/16970  HOTA 0.430 MOTA 0.444 IDF1 0.495  unique 184 (GT 299)  crossings {'a_to_b': 4, 'b_to_a': 24} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 34.1 ms
+736x1280_s2: frames 8485/8485  HOTA 0.445 MOTA 0.443 IDF1 0.518  unique 159 (GT 297)  crossings {'a_to_b': 2, 'b_to_a': 23} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 35.2 ms
+736x1280_s4: frames 4243/4243  HOTA 0.452 MOTA 0.438 IDF1 0.533  unique 143 (GT 295)  crossings {'a_to_b': 2, 'b_to_a': 24} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 35.4 ms
+544x960_s4: frames 4243/4243  HOTA 0.334 MOTA 0.145 IDF1 0.378  unique 118 (GT 295)  crossings {'a_to_b': 1, 'b_to_a': 23} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 19.5 ms
+384x640_s4: frames 4243/4243  HOTA 0.254 MOTA 0.061 IDF1 0.246  unique 72 (GT 295)  crossings {'a_to_b': 0, 'b_to_a': 19} (GT {'a_to_b': 5, 'b_to_a': 39})  detect p50 11.0 ms

@@ -1,0 +1,11 @@
+rtspAddress: :59079
+rtmp: no
+hls: no
+webrtc: no
+srt: no
+api: no
+metrics: no
+pprof: no
+playback: no
+paths:
+  all_others:

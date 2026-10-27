@@ -1,0 +1,58 @@
+{
+ "frames": 16970,
+ "wall_s": 590.4,
+ "throughput_fps": 28.74,
+ "source": {
+  "uri": "/home/shadows/Downloads/MINOR_DL/videos/test1.mp4",
+  "kind": "file",
+  "live": false,
+  "fps": 57.02701619887624,
+  "arrival_fps": null,
+  "dropped": 0
+ },
+ "detector": {
+  "backend": "onnxruntime",
+  "weights": "models/yolo26n_person_736x1280.onnx",
+  "provider": "CPUExecutionProvider"
+ },
+ "latency_ms": {
+  "detect_ms": {
+   "mean": 34.12,
+   "p50": 34.08,
+   "p90": 36.12,
+   "n": 16970
+  },
+  "track_ms": {
+   "mean": 0.55,
+   "p50": 0.59,
+   "p90": 0.78,
+   "n": 16970
+  },
+  "analytics_ms": {
+   "mean": 0.08,
+   "p50": 0.06,
+   "p90": 0.11,
+   "n": 16970
+  },
+  "loop_ms": {
+   "mean": 34.76,
+   "p50": 34.78,
+   "p90": 36.87,
+   "n": 16970
+  }
+ },
+ "analytics": {
+  "t": 297.56,
+  "unique_people": 184,
+  "crossings": {
+   "a_to_b": 4,
+   "b_to_a": 24
+  },
+  "crossing_directions": {
+   "a_to_b": "top to bottom",
+   "b_to_a": "bottom to top"
+  },
+  "dwell_finished_median_s": 3.18,
+  "dwell_finished_p90_s": 16.55
+ }
+}

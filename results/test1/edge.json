@@ -1,0 +1,377 @@
+{
+ "736x1280_s1": {
+  "onnx": "models/yolo26n_person_736x1280.onnx",
+  "stride": 1,
+  "analysis_fps": 57.03,
+  "frames": 16970,
+  "frames_gt": 16970,
+  "full_video": {
+   "HOTA": 0.430160204058701,
+   "DetA": 0.3993407332935324,
+   "AssA": 0.46488040961977883,
+   "MOTA": 0.44386114089245443,
+   "MOTP": 0.865421479108232,
+   "IDF1": 0.49456078929045827,
+   "IDSW": 168,
+   "Frag": 1201,
+   "MT": 36,
+   "ML": 187,
+   "FP": 3534,
+   "FN": 71513,
+   "pred_IDs": 192,
+   "gt_IDs": 299
+  },
+  "unique_people": 184,
+  "gt_unique_people": 299,
+  "pipeline_analytics": {
+   "unique_people": 184,
+   "crossings": {
+    "a_to_b": 4,
+    "b_to_a": 24
+   }
+  },
+  "gt_analytics": {
+   "unique_people": 301,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 39
+   }
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 34.12,
+    "p50": 34.08,
+    "p90": 36.12,
+    "n": 16970
+   },
+   "track_ms": {
+    "mean": 0.55,
+    "p50": 0.59,
+    "p90": 0.78,
+    "n": 16970
+   },
+   "analytics_ms": {
+    "mean": 0.08,
+    "p50": 0.06,
+    "p90": 0.11,
+    "n": 16970
+   },
+   "loop_ms": {
+    "mean": 34.76,
+    "p50": 34.78,
+    "p90": 36.87,
+    "n": 16970
+   }
+  },
+  "provider": "CPUExecutionProvider",
+  "decode_size": [
+   1280,
+   720
+  ],
+  "wall_s": 591.9
+ },
+ "736x1280_s2": {
+  "onnx": "models/yolo26n_person_736x1280.onnx",
+  "stride": 2,
+  "analysis_fps": 28.51,
+  "frames": 8485,
+  "frames_gt": 8485,
+  "full_video": {
+   "HOTA": 0.4451017484255438,
+   "DetA": 0.3986433096089105,
+   "AssA": 0.4983202499076011,
+   "MOTA": 0.4425181941896929,
+   "MOTP": 0.8654913552412796,
+   "IDF1": 0.5183674277679862,
+   "IDSW": 126,
+   "Frag": 804,
+   "MT": 35,
+   "ML": 189,
+   "FP": 1674,
+   "FN": 35888,
+   "pred_IDs": 169,
+   "gt_IDs": 299
+  },
+  "unique_people": 159,
+  "gt_unique_people": 297,
+  "pipeline_analytics": {
+   "unique_people": 163,
+   "crossings": {
+    "a_to_b": 2,
+    "b_to_a": 23
+   }
+  },
+  "gt_analytics": {
+   "unique_people": 301,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 39
+   }
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 35.12,
+    "p50": 35.2,
+    "p90": 37.17,
+    "n": 8485
+   },
+   "track_ms": {
+    "mean": 0.57,
+    "p50": 0.59,
+    "p90": 0.79,
+    "n": 8485
+   },
+   "analytics_ms": {
+    "mean": 0.08,
+    "p50": 0.06,
+    "p90": 0.11,
+    "n": 8485
+   },
+   "loop_ms": {
+    "mean": 35.8,
+    "p50": 35.84,
+    "p90": 37.92,
+    "n": 8485
+   }
+  },
+  "provider": "CPUExecutionProvider",
+  "decode_size": [
+   1280,
+   720
+  ],
+  "wall_s": 304.9
+ },
+ "736x1280_s4": {
+  "onnx": "models/yolo26n_person_736x1280.onnx",
+  "stride": 4,
+  "analysis_fps": 14.26,
+  "frames": 4243,
+  "frames_gt": 4243,
+  "full_video": {
+   "HOTA": 0.45158275694784844,
+   "DetA": 0.39399947625352577,
+   "AssA": 0.5187767060953089,
+   "MOTA": 0.43786807137995326,
+   "MOTP": 0.8650798710395651,
+   "IDF1": 0.5328827037773359,
+   "IDSW": 93,
+   "Frag": 504,
+   "MT": 35,
+   "ML": 194,
+   "FP": 810,
+   "FN": 18092,
+   "pred_IDs": 152,
+   "gt_IDs": 299
+  },
+  "unique_people": 143,
+  "gt_unique_people": 295,
+  "pipeline_analytics": {
+   "unique_people": 143,
+   "crossings": {
+    "a_to_b": 2,
+    "b_to_a": 24
+   }
+  },
+  "gt_analytics": {
+   "unique_people": 301,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 39
+   }
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 36.06,
+    "p50": 35.37,
+    "p90": 41.0,
+    "n": 4243
+   },
+   "track_ms": {
+    "mean": 0.53,
+    "p50": 0.56,
+    "p90": 0.68,
+    "n": 4243
+   },
+   "analytics_ms": {
+    "mean": 0.09,
+    "p50": 0.06,
+    "p90": 0.11,
+    "n": 4243
+   },
+   "loop_ms": {
+    "mean": 36.7,
+    "p50": 35.97,
+    "p90": 41.74,
+    "n": 4243
+   }
+  },
+  "provider": "CPUExecutionProvider",
+  "decode_size": [
+   1280,
+   720
+  ],
+  "wall_s": 156.5
+ },
+ "544x960_s4": {
+  "onnx": "models/yolo26n_person_544x960.onnx",
+  "stride": 4,
+  "analysis_fps": 14.26,
+  "frames": 4243,
+  "frames_gt": 4243,
+  "full_video": {
+   "HOTA": 0.33447975834736815,
+   "DetA": 0.25572139544425904,
+   "AssA": 0.43820629079102863,
+   "MOTA": 0.14453552721138765,
+   "MOTP": 0.8576017362208852,
+   "IDF1": 0.3778022646097728,
+   "IDSW": 73,
+   "Frag": 411,
+   "MT": 21,
+   "ML": 212,
+   "FP": 6944,
+   "FN": 21890,
+   "pred_IDs": 123,
+   "gt_IDs": 299
+  },
+  "unique_people": 118,
+  "gt_unique_people": 295,
+  "pipeline_analytics": {
+   "unique_people": 118,
+   "crossings": {
+    "a_to_b": 1,
+    "b_to_a": 23
+   }
+  },
+  "gt_analytics": {
+   "unique_people": 301,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 39
+   }
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 19.81,
+    "p50": 19.46,
+    "p90": 22.13,
+    "n": 4243
+   },
+   "track_ms": {
+    "mean": 0.66,
+    "p50": 0.62,
+    "p90": 0.86,
+    "n": 4243
+   },
+   "analytics_ms": {
+    "mean": 0.12,
+    "p50": 0.07,
+    "p90": 0.13,
+    "n": 4243
+   },
+   "loop_ms": {
+    "mean": 20.63,
+    "p50": 20.19,
+    "p90": 23.14,
+    "n": 4243
+   }
+  },
+  "provider": "CPUExecutionProvider",
+  "decode_size": [
+   1280,
+   720
+  ],
+  "wall_s": 88.5
+ },
+ "384x640_s4": {
+  "onnx": "models/yolo26n_person_384x640.onnx",
+  "stride": 4,
+  "analysis_fps": 14.26,
+  "frames": 4243,
+  "frames_gt": 4243,
+  "full_video": {
+   "HOTA": 0.25360223889483374,
+   "DetA": 0.15497325724432498,
+   "AssA": 0.4159612290462742,
+   "MOTA": 0.060874197271462815,
+   "MOTP": 0.8396625019875065,
+   "IDF1": 0.24634259361415742,
+   "IDSW": 41,
+   "Frag": 252,
+   "MT": 6,
+   "ML": 256,
+   "FP": 4715,
+   "FN": 26978,
+   "pred_IDs": 76,
+   "gt_IDs": 299
+  },
+  "unique_people": 72,
+  "gt_unique_people": 295,
+  "pipeline_analytics": {
+   "unique_people": 72,
+   "crossings": {
+    "a_to_b": 0,
+    "b_to_a": 19
+   }
+  },
+  "gt_analytics": {
+   "unique_people": 301,
+   "crossings": {
+    "a_to_b": 5,
+    "b_to_a": 39
+   }
+  },
+  "latency_ms": {
+   "detect_ms": {
+    "mean": 11.35,
+    "p50": 11.01,
+    "p90": 12.9,
+    "n": 4243
+   },
+   "track_ms": {
+    "mean": 0.6,
+    "p50": 0.57,
+    "p90": 0.82,
+    "n": 4243
+   },
+   "analytics_ms": {
+    "mean": 0.11,
+    "p50": 0.06,
+    "p90": 0.11,
+    "n": 4243
+   },
+   "loop_ms": {
+    "mean": 12.1,
+    "p50": 11.67,
+    "p90": 13.82,
+    "n": 4243
+   }
+  },
+  "provider": "CPUExecutionProvider",
+  "decode_size": [
+   1280,
+   720
+  ],
+  "wall_s": 52.2
+ },
+ "_reference_research_offline": {
+  "what": "heldout_track.py, PyTorch FP16 fast path, cv2 decode at 1920x1080, stride 1",
+  "full_video": {
+   "HOTA": 0.439902534329463,
+   "DetA": 0.412901814785298,
+   "AssA": 0.4699237850319748,
+   "MOTA": 0.46301157159229545,
+   "MOTP": 0.8590276837663333,
+   "IDF1": 0.506580965597838,
+   "IDSW": 168,
+   "Frag": 1308,
+   "MT": 40,
+   "ML": 179,
+   "FP": 3666,
+   "FN": 68791,
+   "pred_IDs": 199,
+   "gt_IDs": 299
+  }
+ },
+ "protocol": "Same protocol as research/edge_eval.py `files`, on the whole held-out video: FFmpeg decoder process (scaled to\nthe default 1280x720, as on the device) -> ONNX Runtime detector -> ByteTrack (aa1-tuned defaults) -> online\nanalytics with the counting line of heldout_track.LINE. Tracks are rescaled to the source resolution and scored\nagainst the teacher pseudo-GT (heldout_track.py), subsampled at the same frames for stride s."
+}

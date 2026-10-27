@@ -1,0 +1,50 @@
+{
+  "YOLO26n (pretrained) vs YOLO26n (fine-tuned)": {
+    "delta_AP50-95": -0.06520075174055104,
+    "CI95": [
+      -0.07090796829227881,
+      -0.05981294595006484
+    ],
+    "p_two_sided": 0.0
+  },
+  "YOLO26n (pretrained) vs RF-DETR Nano (pretrained)": {
+    "delta_AP50-95": 0.3772430151130617,
+    "CI95": [
+      0.3626745257990875,
+      0.3917186045314931
+    ],
+    "p_two_sided": 0.0
+  },
+  "YOLO26n (pretrained) vs RF-DETR Nano (fine-tuned)": {
+    "delta_AP50-95": 0.03387418952528066,
+    "CI95": [
+      0.02576438685286503,
+      0.04186221149742947
+    ],
+    "p_two_sided": 0.0
+  },
+  "YOLO26n (fine-tuned) vs RF-DETR Nano (pretrained)": {
+    "delta_AP50-95": 0.4424437668536127,
+    "CI95": [
+      0.4267797340808731,
+      0.45645890749093815
+    ],
+    "p_two_sided": 0.0
+  },
+  "YOLO26n (fine-tuned) vs RF-DETR Nano (fine-tuned)": {
+    "delta_AP50-95": 0.0990749412658317,
+    "CI95": [
+      0.09154330445474586,
+      0.10748349282511155
+    ],
+    "p_two_sided": 0.0
+  },
+  "RF-DETR Nano (pretrained) vs RF-DETR Nano (fine-tuned)": {
+    "delta_AP50-95": -0.3433688255877811,
+    "CI95": [
+      -0.35439951018315025,
+      -0.3306484821549955
+    ],
+    "p_two_sided": 0.0
+  }
+}

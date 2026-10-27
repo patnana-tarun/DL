@@ -1,0 +1,13 @@
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/shadows/Downloads/MINOR_DL/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-07 23:56:24] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-large-2026.pth already exists with correct MD5 hash.
+[2026-10-07 23:56:24] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:56:24] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-07 23:56:24] [INFO] rf-detr - File /home/shadows/.roboflow/models/rf-detr-large-2026.pth already exists with correct MD5 hash.
+[2026-10-07 23:56:25] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+RF-DETR Nano (fine-tuned) {'Fused (published labels)': np.float64(0.7252), 'RF-DETR Large only': np.float64(0.7312), 'YOLO26x only': np.float64(0.6301)}
+RF-DETR Nano (pretrained) {'Fused (published labels)': np.float64(0.3824), 'RF-DETR Large only': np.float64(0.4478), 'YOLO26x only': np.float64(0.3244)}
+YOLO26n (fine-tuned) {'Fused (published labels)': np.float64(0.8254), 'RF-DETR Large only': np.float64(0.7264), 'YOLO26x only': np.float64(0.7735)}
+YOLO26n (pretrained) {'Fused (published labels)': np.float64(0.7599), 'RF-DETR Large only': np.float64(0.6961), 'YOLO26x only': np.float64(0.7216)}

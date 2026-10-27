@@ -1,0 +1,21 @@
+00:26:51 == e2
+00:26:51 E2: 84 labelled test tracks with crops (of 100), up to 3 crops each
+00:26:52     1/84 video_1#1 label male/? vlm male/uniform probe female/uniform
+00:26:57    11/84 video_1#126 label female/uniform vlm male/uniform probe male/uniform
+00:27:03    21/84 video_1#267 label male/uniform vlm male/uniform probe male/uniform
+00:27:08    31/84 video_1#367 label male/uniform vlm male/uniform probe male/uniform
+00:27:14    41/84 video_1#477 label male/uniform vlm male/uniform probe male/uniform
+00:27:20    51/84 video_2#86 label male/uniform vlm male/uniform probe male/uniform
+00:27:26    61/84 video_2#414 label male/uniform vlm male/uniform probe male/uniform
+00:27:32    71/84 video_2#586 label female/uniform vlm male/uniform probe female/uniform
+00:27:38    81/84 video_2#891 label male/uniform vlm male/uniform probe male/uniform
+00:27:40    84/84 video_2#937 label male/non_uniform vlm male/uniform probe female/uniform
+00:27:40 wrote results/vlm/e2_attributes.json
+00:27:40   gender video_1 VLM acc 0.791 [0.648, 0.886] cov 0.977 (34/43) | probe acc 0.829 [0.673, 0.919] cov 0.795 | McNemar p 1.0
+00:27:40   gender video_2 VLM acc 0.784 [0.628, 0.886] cov 1.0 (29/37) | probe acc 0.778 [0.619, 0.883] cov 0.973 | McNemar p 1.0
+00:27:40   gender both    VLM acc 0.787 [0.686, 0.863] cov 0.988 (63/80) | probe acc 0.803 [0.696, 0.879] cov 0.877 | McNemar p 1.0
+00:27:40   dress  video_1 VLM acc 0.905 [0.779, 0.962] cov 1.0 (38/42) | probe acc 0.892 [0.753, 0.957] cov 0.881 | McNemar p 1.0
+00:27:40   dress  video_2 VLM acc 0.757 [0.599, 0.866] cov 1.0 (28/37) | probe acc 0.771 [0.61, 0.879] cov 0.946 | McNemar p 1.0
+00:27:40   dress  both    VLM acc 0.835 [0.739, 0.901] cov 1.0 (66/79) | probe acc 0.833 [0.731, 0.902] cov 0.911 | McNemar p 1.0
+00:27:40   probe attributes.json reproduces probe_scores.json: {'gender': True, 'dress': True}; crop answers {'gender': {'male': 202, 'female': 44}, 'dress': {'uniform': 231, 'non_uniform': 15}}
+00:27:40 == e2 done in 0.8 min

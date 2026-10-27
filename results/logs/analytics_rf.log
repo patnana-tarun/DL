@@ -1,0 +1,17 @@
+{
+ "model": "RF-DETR Nano",
+ "seconds": 29.97995,
+ "people_in_frame_mean": 14.701334816462737,
+ "people_in_frame_max": 20,
+ "unique_track_ids": 181,
+ "gt_unique_track_ids": 169,
+ "raw_track_ids_unfiltered": 219,
+ "min_track_frames": 15,
+ "dwell_s_median": 1.3346666666666667,
+ "dwell_s_p90": 4.921583333333333,
+ "line_x_px": 640.0,
+ "crossings_left_to_right": 1,
+ "crossings_right_to_left": 12,
+ "mean_image_speed_px_s": 56.723283965243546
+}
+wrote results/figures/12_crowd_analytics_RF-DETR_Nano.png

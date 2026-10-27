@@ -1,0 +1,101 @@
+{
+  "frames": 40,
+  "protocol": "Held-out test video, stage 5: visual audit of the pseudo-labels where the models disagree with them.",
+  "auditor": "AI model, from crops",
+  "random_label": {
+    "n": 80,
+    "person": 79,
+    "not_person": 1,
+    "duplicate": 0,
+    "unsure": 0,
+    "person_rate_decided": 0.9875,
+    "person_rate_CI95": [
+      0.9325356757603457,
+      0.9977900813816939
+    ]
+  },
+  "unlabelled_detection": {
+    "n": 36,
+    "person": 9,
+    "not_person": 27,
+    "duplicate": 0,
+    "unsure": 0,
+    "person_rate_decided": 0.25,
+    "person_rate_CI95": [
+      0.13750323839225387,
+      0.41070767683203424
+    ]
+  },
+  "missed_label": {
+    "n": 122,
+    "person": 121,
+    "not_person": 1,
+    "duplicate": 0,
+    "unsure": 0,
+    "person_rate_decided": 0.9918032786885246,
+    "person_rate_CI95": [
+      0.9550280920086621,
+      0.9985516463290577
+    ]
+  },
+  "YOLO26n (fine-tuned)": {
+    "threshold": 0.24000000000000002,
+    "detections": 178,
+    "TP": 137,
+    "FP": 41,
+    "FN": 137,
+    "precision": 0.7696629213483146,
+    "recall": 0.5,
+    "F1": 0.6061946902654867,
+    "fp_far_from_labels": 24,
+    "fp_real_person": 3,
+    "fn_far_from_detections": 113,
+    "fn_label_not_person": 1,
+    "audit_corrected": {
+      "precision": 0.7865168539325843,
+      "recall": 0.5072463768115942,
+      "F1": 0.6167400881057268,
+      "note": "recall denominator ignores people that no audited model detected"
+    }
+  },
+  "YOLO26n (pretrained)": {
+    "threshold": 0.36000000000000004,
+    "detections": 210,
+    "TP": 201,
+    "FP": 9,
+    "FN": 73,
+    "precision": 0.9571428571428572,
+    "recall": 0.7335766423357665,
+    "F1": 0.8305785123966942,
+    "fp_far_from_labels": 3,
+    "fp_real_person": 3,
+    "fn_far_from_detections": 57,
+    "fn_label_not_person": 1,
+    "audit_corrected": {
+      "precision": 0.9714285714285714,
+      "recall": 0.7391304347826086,
+      "F1": 0.8395061728395062,
+      "note": "recall denominator ignores people that no audited model detected"
+    }
+  },
+  "RF-DETR Nano (fine-tuned)": {
+    "threshold": 0.46,
+    "detections": 208,
+    "TP": 186,
+    "FP": 22,
+    "FN": 88,
+    "precision": 0.8942307692307693,
+    "recall": 0.6788321167883211,
+    "F1": 0.7717842323651453,
+    "fp_far_from_labels": 11,
+    "fp_real_person": 5,
+    "fn_far_from_detections": 60,
+    "fn_label_not_person": 0,
+    "audit_corrected": {
+      "precision": 0.9182692307692307,
+      "recall": 0.6845878136200717,
+      "F1": 0.784394250513347,
+      "note": "recall denominator ignores people that no audited model detected"
+    }
+  }
+}

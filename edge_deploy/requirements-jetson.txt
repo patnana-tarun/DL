@@ -1,0 +1,24 @@
+# EdgeVision on an NVIDIA Jetson Orin (JetPack 6.x, Ubuntu 22.04, Python 3.10, aarch64).
+# Installed into edge_deploy/.venv by scripts/01_install_deps.sh:
+#     python3 -m venv --system-site-packages .venv
+#     .venv/bin/pip install -r requirements-jetson.txt
+#
+# NOT listed here on purpose:
+#   onnxruntime-gpu  installed by scripts/01_install_deps.sh from the Jetson AI Lab index
+#                    (https://pypi.jetson-ai-lab.io/jp6/cu126/+simple/). The PyPI build has no TensorRT/CUDA
+#                    support for Jetson. Never install the plain "onnxruntime" package next to it: both provide
+#                    the same `onnxruntime` module and the CPU one can shadow the GPU one.
+#   torch / ultralytics  not needed (the detector runs from ONNX). Only for detector.backend: ultralytics.
+#
+# numpy: trackers 2.6.1 requires numpy>=2.0.2, so numpy 1.x (`numpy<2`) is NOT possible. pip installs numpy 2.x
+# inside the venv, where it shadows JetPack's apt numpy 1.21 (python3-numpy). The apt OpenCV (python3-opencv) is
+# built against numpy 1.x and would not import with numpy 2, which is why opencv-python is installed in the venv
+# too (trackers requires it anyway). EdgeVision does not need a CUDA-enabled OpenCV: decoding is done by
+# ffmpeg / GStreamer and inference by onnxruntime.
+
+numpy>=2.0.2              # arrays everywhere; >=2.0.2 is required by trackers (pip picks the newest for Python 3.10)
+opencv-python>=4.8        # cv2: letterbox resize, drawing, JPEG encoding for the UI and VLM (required by trackers)
+PyYAML>=6.0               # configs/*.yaml
+scipy>=1.13.1             # Hungarian matching inside ByteTrack (trackers / supervision dependency)
+supervision==0.30.5       # sv.Detections + NMS used by edgevision/tracker.py (version tested on the desktop)
+trackers==2.6.1           # ByteTrackTracker; the tuned tracker parameters were found with exactly this version

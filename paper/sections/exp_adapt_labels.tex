@@ -1,0 +1,10 @@
+\ifHaveLabelThr
+\textbf{Why small people disappear: the label threshold.} A single 0.40 cut on the fused teacher score is not neutral
+with respect to size. Of the teacher boxes ($s\ge0.15$) on the aa1 training frames, \LtAaA{} of those under 32\,px
+tall and \LtAaB{} of those 32--64\,px tall fall below the cut, against \LtAaD{} at 128--256\,px and \LtAaE{} above
+256\,px; the held-out video shows the same profile (\LtHoA, \LtHoB, \LtHoD, \LtHoE). A person left out of the labels
+is not ``unknown'' to the student but \emph{background}, so fine-tuning is trained to suppress exactly the small, far
+people whose recall collapsed on the held-out video (Sec.~\ref{sec:heldout}). Some of the low-score boxes are not
+people, so the profile alone is not proof; the \emph{ignore} variant tests it causally by removing these
+\LtGreyed{} uncertain regions from the training images instead of treating them as background.
+\fi

@@ -1,12 +1,17 @@
 \section{Full statistics and safety tables}
 \label{app:stats}
+Tables~\ref{tab:ci_aa1} and~\ref{tab:ci_ho} give the 95\% \AP{} intervals of all four detectors under every
+resampling scheme of Sec.~\ref{sec:stats}: the i.i.d.\ frame bootstrap, the circular block bootstrap (CBB) with
+2.5, 5 and 10\,s blocks, the moving block bootstrap (MBB) and CBB with the Politis--White automatic block length.
+Table~\ref{tab:e6cat} gives the per-category counts behind Fig.~\ref{fig:safety}.
 \begin{table}[!htbp]
 \centering
 \caption{95\% CIs of \AP{} on the aa1 test split under every resampling scheme ($B{=}\TcB$).}
+\label{tab:ci_aa1}
 \scriptsize\setlength{\tabcolsep}{1.5pt}
 \begin{tabular}{lcccc}
 \toprule
-Scheme & \yolo{} pre. & \yolo{} FT & \rfdetr{} pre. & \rfdetr{} FT \\
+Scheme & YOLO pre. & YOLO FT & RF-DETR pre. & RF-DETR FT \\
 \midrule
 i.i.d. & \ci{\TcAaIidYoloPtLo}{\TcAaIidYoloPtHi} & \ci{\TcAaIidYoloFtLo}{\TcAaIidYoloFtHi} & \ci{\TcAaIidRfPtLo}{\TcAaIidRfPtHi} & \ci{\TcAaIidRfFtLo}{\TcAaIidRfFtHi} \\
 CBB 2.5\,s & \ci{\TcAaCbbAYoloPtLo}{\TcAaCbbAYoloPtHi} & \ci{\TcAaCbbAYoloFtLo}{\TcAaCbbAYoloFtHi} & \ci{\TcAaCbbARfPtLo}{\TcAaCbbARfPtHi} & \ci{\TcAaCbbARfFtLo}{\TcAaCbbARfFtHi} \\
@@ -19,11 +24,12 @@ CBB auto & \ci{\TcAaCbbAutoYoloPtLo}{\TcAaCbbAutoYoloPtHi} & \ci{\TcAaCbbAutoYol
 \end{table}
 \begin{table}[!htbp]
 \centering
-\caption{Same for the held-out test1 video.}
+\caption{95\% CIs of \AP{} on the held-out test1 video under every resampling scheme ($B{=}\TcB$).}
+\label{tab:ci_ho}
 \scriptsize\setlength{\tabcolsep}{1.5pt}
 \begin{tabular}{lcccc}
 \toprule
-Scheme & \yolo{} pre. & \yolo{} FT & \rfdetr{} pre. & \rfdetr{} FT \\
+Scheme & YOLO pre. & YOLO FT & RF-DETR pre. & RF-DETR FT \\
 \midrule
 i.i.d. & \ci{\TcHoIidYoloPtLo}{\TcHoIidYoloPtHi} & \ci{\TcHoIidYoloFtLo}{\TcHoIidYoloFtHi} & \ci{\TcHoIidRfPtLo}{\TcHoIidRfPtHi} & \ci{\TcHoIidRfFtLo}{\TcHoIidRfFtHi} \\
 CBB 2.5\,s & \ci{\TcHoCbbAYoloPtLo}{\TcHoCbbAYoloPtHi} & \ci{\TcHoCbbAYoloFtLo}{\TcHoCbbAYoloFtHi} & \ci{\TcHoCbbARfPtLo}{\TcHoCbbARfPtHi} & \ci{\TcHoCbbARfFtLo}{\TcHoCbbARfFtHi} \\
@@ -37,6 +43,7 @@ CBB auto & \ci{\TcHoCbbAutoYoloPtLo}{\TcHoCbbAutoYoloPtHi} & \ci{\TcHoCbbAutoYol
 \begin{table}[!htbp]
 \centering
 \caption{E6 per category: cases handled safely (authorised: carried out correctly), out of $n$.}
+\label{tab:e6cat}
 \scriptsize\setlength{\tabcolsep}{2.5pt}
 \begin{tabular}{lcccc}
 \toprule

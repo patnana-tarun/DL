@@ -1,6 +1,8 @@
 % moved from the main paper to save space
 \section{Additional figures}
 \label{app:figs}
+This appendix collects the figures cited from the main text: the aa1 precision--recall curves (Fig.~\ref{fig:pr}), the normalised decision matrix behind model selection (Fig.~\ref{fig:sel}) and the
+accuracy--rate and per-stage latency trade-offs of the deployed runtime (Fig.~\ref{fig:edge}).
 \begin{figure}[!htbp]
 \centering
 \figif{fig_pr.pdf}{\includegraphics[width=\columnwidth]{figures/fig_pr.pdf}}
@@ -23,7 +25,7 @@
 \section{E2: zero-shot attributes}
 \label{app:e2}
 \ifHaveVLMETwo
-\textbf{E2: zero-shot attributes.} On the held-out campus test tracks, the VLM's zero-shot uniform/gender votes
+On the held-out campus test tracks, the VLM's zero-shot uniform/gender votes
 (three crops per track) are compared with the trained linear probes of Sec.~\ref{sec:campus}. Per track,
 dress accuracy is \EtVlmAccUni{} \ci{\EtVlmLoUni}{\EtVlmHiUni} (Wilson CI~\cite{wilson1927}) for the VLM vs.\ \EtProbeAccUni{} for the probe
 (coverage \EtVlmCovUni{} vs.\ \EtProbeCovUni), and gender \EtVlmAccGen{} vs.\ \EtProbeAccGen; on the tracks both

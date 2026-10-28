@@ -1,12 +1,14 @@
 %=====================================================================================================
 \section{Conclusion}
 \label{sec:conclusion}
-Pseudo-label fine-tuning of a compact detector on one camera improved that camera and made the detector worse than
-its pretrained weights on every other camera we tested and on COCO people. A size-blind label threshold and
-forgetting explain the loss. Averaging pretrained and fine-tuned weights, with the coefficient chosen on other
-cameras, recovered the test-only score (\MsSelHo{} against \MsFtHo{} for the model chosen on the adaptation camera)
-at no cost. The CNN student's apparent accuracy advantage came from its input size. For the VLM operator, text in the
-camera view is an attack channel, and a policy layer outside the model raised the rejection of unsafe requests from
-\SfGrTestRej{} to \SfPoTestRej{} without hurting legitimate ones. Next steps are the human ground truth, on-device
-measurements on a Jetson Orin, adaptive red-teaming of the policy, and more cameras, including night scenes. Every
-number in the paper is generated from the released result files by \texttt{paper/make\_numbers.py}.
+This paper showed that pseudo-label fine-tuning of a compact person detector on a single camera improves accuracy on
+that camera but reduces it below the pretrained baseline on every other camera tested and on COCO person images. The
+loss is attributable to a size-blind pseudo-label threshold and to forgetting. Averaging the pretrained and fine-tuned
+weights, with the coefficient selected on other cameras, restored the test-only accuracy (\MsSelHo{} compared with
+\MsFtHo{} for the model selected on the adaptation camera) at no additional cost. The apparent accuracy advantage of
+the CNN student was found to be an effect of input resolution. For the VLM operator, text in the camera view
+constitutes an attack channel, and a policy layer outside the model raised the rejection rate of unsafe requests from
+\SfGrTestRej{} to \SfPoTestRej{} without affecting legitimate requests. Future work comprises the human ground-truth
+evaluation, on-device measurements on a Jetson Orin, adaptive red-teaming of the policy layer, and evaluation on
+additional cameras, including night-time scenes. All numbers in the paper are generated from the released result
+files by \texttt{paper/make\_numbers.py}.

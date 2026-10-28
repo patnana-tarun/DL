@@ -184,8 +184,9 @@ as risky. See `vlm/README.md` (E3b, E5) for the measured effect of the redesign.
 ## Outputs
 
 - `figures/`: 01 dataset, 02 PR/F1, 03 detection metrics, 04 size and speed, 05 training curves,
-  06 qualitative, 07 tracking, 08 grid sensitivity, 09 split generalisation, 10 latency variants, 11 CIs,
-  12 crowd analytics (one per model).
+  07 tracking, 08 grid sensitivity, 09 split generalisation, 10 latency variants, 11 CIs. 06 (qualitative) and
+  12 (crowd analytics heatmaps) are drawn over video frames that show people, so they are generated locally by
+  `visualize.py` and `analytics.py` and not kept in git.
 - `metrics.json` (test), `metrics_splits.json`, `significance.json`, `latency.json`, `teacher_bias.json`,
   `crosscheck_*.json`, `model_selection.json`, `pr_data.npz`, `preds/*.json.gz` (raw detections).
 - `tracking/`: `tracking_metrics.json`, `grid_search.json`, `tracker_comparison.json`, `pseudo_gt_info.json`,

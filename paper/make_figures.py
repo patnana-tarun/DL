@@ -2,10 +2,11 @@
 
 Single column = 3.5 in wide, full width = 7.16 in; 8 pt Times-like fonts; one palette across figures
 (YOLO26n blue #2a78d6, RF-DETR orange #eb6834; pretrained = dashed / hatched, so figures stay readable in
-grayscale). A figure whose source data is missing is skipped (main.tex guards each one with \\IfFileExists),
-and a stale PDF from an earlier build is removed so the paper never shows a figure without its data.
+grayscale). A figure whose source data is missing is skipped, and a stale PDF from an earlier build is removed so
+the paper never shows a figure without its data.
 
-    env -u PYTHONPATH .venv/bin/python paper/make_figures.py
+    env -u PYTHONPATH .venv/bin/python paper/make_figures.py          # the two figures main.tex uses
+    env -u PYTHONPATH .venv/bin/python paper/make_figures.py --all    # plus the exploratory figures
 """
 import gzip  # noqa: F401  (kept for optional raw-prediction figures)
 import json
@@ -691,10 +692,14 @@ def fig_resolution():
     save(fig, "fig_resolution")
 
 
+USED = (fig_architecture, fig_tradeoff)          # the figures main.tex includes
+EXTRA = (fig_dataset, fig_pr, fig_ap, fig_latency, fig_tracking, fig_selection, fig_campus, fig_edge,
+         fig_vlm_counting, fig_heldout, fig_safety, fig_transfer, fig_resolution)
+# fig_qualitative and fig_demo copy video frames that show people; they are never written by default.
+
+
 def main():
-    for fn in (fig_architecture, fig_dataset, fig_pr, fig_ap, fig_latency, fig_tracking, fig_selection,
-               fig_qualitative, fig_campus, fig_edge, fig_vlm_counting, fig_demo, fig_heldout,
-               fig_safety, fig_tradeoff, fig_transfer, fig_resolution):
+    for fn in USED + (EXTRA if "--all" in sys.argv else ()):
         try:
             fn()
         except Exception as e:  # noqa: BLE001  (one broken figure must not stop the build)

@@ -1,45 +1,47 @@
 %=====================================================================================================
 \section{Discussion and Limitations}
 \label{sec:discussion}
-The conclusion one would draw from the adaptation camera alone, that the fine-tuned \yolo{} is the better student,
-holds for one camera, one input size and one label set. At equal input size \rfdetr{} is as accurate and transfers
-far better; against single-teacher labels the gap shrinks; and on every other camera the fine-tuned \yolo{} is worse
-than its own pretrained weights. Bootstrap intervals over the frames of one video cannot reveal this kind of
-failure. Only more cameras can. The repair we recommend needs no labels from the target camera: average the
-pretrained and fine-tuned weights, interpolate the BatchNorm statistics, and choose the coefficient on validation
-data from cameras the model was not adapted to. If a few labelled minutes from the target camera exist, multi-scene
-training followed by averaging does better still.
+Evaluated on the adaptation camera alone, the fine-tuned \yolo{} appears to be the better student. This conclusion
+holds for one camera, one input size and one label set only. At equal input size \rfdetr{} is equally accurate and
+transfers considerably better; against single-teacher labels the gap narrows; and on every other camera the
+fine-tuned \yolo{} is less accurate than its own pretrained weights. Bootstrap intervals computed over the frames of
+a single video cannot reveal this type of failure, which becomes visible only with additional cameras. The
+recommended mitigation requires no target-camera labels: the pretrained and fine-tuned weights are averaged, the
+BatchNorm statistics are interpolated, and the coefficient is selected on validation data from cameras not used for
+adaptation. When a few labelled minutes from the target camera are available, multi-scene training followed by
+averaging performs better still.
 
-For the VLM, the measurements set its role. A 2B model should not produce counts or verify alerts, and without an
-external policy it should not hold any authority, since it carried out most alert-disabling, unauthorised and
-multi-turn requests and acted on text from the camera view. What it adds is a description of the scene and a
-natural-language way to query and configure the system, and that is safe only when every action is decided outside
-the model.
+The measurements also define the role of the VLM. A 2B model should not be used to produce counts or verify alerts,
+and without an external policy it should not hold any authority, since it executed most alert-disabling,
+unauthorised and multi-turn requests and acted on text from the camera view. Its contribution is scene description
+and natural-language access to the system, which is safe only when every action is decided outside the model.
 
-Every absolute number in this paper is agreement with the teacher ensemble, and the label inspection on test1 was
-not done by independent annotators. We release a protocol and a browser tool for a human ground truth that is being
-collected: \HuFramesPlanned{} frames drawn with a fixed seed from the test portions of all four scenes and two short
-tracking clips, labelled blind and from scratch by two annotators who never see machine boxes, with a third person
-resolving only their disagreements. Identity rules follow MOT16~\cite{milan2016mot16}, and people under 20\,px,
-inseparable groups and reflections are ignore regions~\cite{dollar2012pedestrian}. Until these labels exist, we claim
-only comparisons made under the same reference.
+All absolute numbers in this paper measure agreement with the teacher ensemble, and the label inspection on test1 was
+not performed by independent annotators. A protocol and a browser-based annotation tool for a human ground truth are
+released, and annotation is in progress: \HuFramesPlanned{} frames sampled with a fixed seed from the test portions
+of all four scenes and two short tracking clips are labelled blind and from scratch by two annotators who never see
+machine boxes, and a third person resolves only their disagreements. Identity rules follow
+MOT16~\cite{milan2016mot16}, and people under 20\,px, inseparable groups and reflections are treated as ignore
+regions~\cite{dollar2012pedestrian}. Until these labels are available, only comparisons made under the same reference
+are claimed.
 
-The two students differ in architecture, input size and schedule, so only the matched-resolution comparison speaks
-to architecture. The adaptation variants share one recipe and one seed, and we do not interpret differences below
-about 0.01 \AP. The guardrails and the policy layer were designed after we had seen the cooperative tool-use
-utterances, which is why the safety suite was written before any of its cases were run. The same authors wrote the
-policy and the suite, and no adaptive attacker was tried against the final policy, so its rejection rate is an upper
-bound on what a determined attacker would face. Four scenes are still few: three are phone or handheld video from
-one campus, and none is at night, in rain or from an overhead camera. The VLM results hold for one 2B model at
-temperature 0 and one set of prompts. No number here was measured on a Jetson. Latency, power, thermal behaviour and
-the contention between detector and VLM on an 8\,GB Orin remain to be measured with TensorRT engines over long
-runs~\cite{reddi2020mlperf}.
+Several limitations apply. The two students differ in architecture, input size and schedule, so only the
+resolution-matched comparison isolates the effect of architecture. The adaptation variants share one recipe and one
+seed, and differences below about 0.01 \AP{} are not interpreted. The guardrails and the policy layer were designed
+after the cooperative tool-use utterances had been observed; the safety suite was therefore written before any of its
+cases were run. The policy and the suite were written by the same authors, and no adaptive attacker was evaluated
+against the final policy, so the reported rejection rate is an upper bound on the protection against a determined
+attacker. Four scenes remain a small sample: three are handheld or phone recordings, three were captured on
+one campus, and none covers night, rain or an overhead viewpoint. The VLM results apply to one 2B model at temperature 0 with one set of
+prompts. Finally, no measurement was made on a Jetson; latency, power, thermal behaviour and the contention between
+detector and VLM on an 8\,GB Orin remain to be measured with TensorRT engines over long runs~\cite{reddi2020mlperf}.
 
-The runtime does not identify people or infer demographic attributes. It stores boxes, counts, crossings and dwell
-times, processes frames in memory, and deletes events, series, reports and chat after a retention period (72\,h by
-default) while keeping the audit log. Access needs a per-user token with a role, and the server binds to the local
-network by default. The aa1 video is a publicly available pedestrian benchmark video distributed without an explicit
-licence; we use it for research and do not redistribute its frames. Test1 was recorded by the authors on campus for
-this study.
-% AUTHORS: add the provenance of the two campus videos (video_1.mp4, video_2.mp4 = scenes 1 and 2) here.
+The runtime neither identifies individuals nor infers demographic attributes. It stores boxes, counts, crossings and
+dwell times, processes frames in memory, and deletes events, time series, reports and chat after a retention period
+(72\,h by default) while retaining the audit log. Access requires a per-user token with an assigned role, and the
+server binds to the local network by default. The aa1 video is a publicly available pedestrian benchmark video
+distributed without an explicit licence; it is used here for research only, and its frames are not redistributed.
+Test1 was recorded by the authors on the university campus for this study, and scenes 1 and 2 are phone
+recordings from the same campus.
+% AUTHORS: state who recorded scenes 1 and 2 (video_1.mp4, video_2.mp4) and on what consent basis.
 Only code and derived data (boxes, tracks and metrics) are released.

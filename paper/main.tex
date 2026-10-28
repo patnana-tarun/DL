@@ -38,13 +38,11 @@
 \newcommand{\yolo}{YOLO26n}
 \newcommand{\rfdetr}{RF-DETR Nano}
 \newcommand{\ci}[2]{\,[#1,\,#2]}
-% include a figure only if make_figures.py produced it
-\newcommand{\figif}[2]{\IfFileExists{figures/#1}{#2}{}}
 
 \begin{document}
 
 
-\title{Fine-Tuned on One Camera, Worse on Every Other:\\ Pseudo-Label Adaptation and Policy-Gated VLM Control in Crowd Analytics}
+\title{Cross-Camera Generalization of Pseudo-Label Fine-Tuned Person Detectors and Policy-Constrained VLM Control for Edge Crowd Analytics}
 
 \author{
 \IEEEauthorblockN{Patnana Tarun}
@@ -81,22 +79,23 @@ Amrita Vishwa Vidyapeetham, India\\
 \maketitle
 
 \begin{abstract}
-A common way to adapt a crowd-analytics system to a new camera is to pseudo-label its footage with large teacher
-detectors and fine-tune a compact student on the result. Prior work reports the gain on the adapted camera. We
-measure what the adaptation costs everywhere else. Fine-tuning \yolo{} on pseudo-labels from one plaza video raises
-its \AP{} there from \MsPtAa{} to \MsFtAa{}, but lowers it on all three other cameras we tested and on human-labelled
-COCO people; on a test-only video it drops from \MsPtHo{} to \MsFtHo{}, well below its own pretrained weights. Part
-of the loss comes from the pseudo-label score threshold, which discards \LtAaA{} of the teacher boxes on people
-shorter than 32\,px and so trains the student to treat distant people as background. The rest is forgetting.
-Averaging the pretrained and fine-tuned weights, with the mixing coefficient chosen on other cameras' validation
-data, keeps most of the in-domain gain (\MsSelAa) and restores the test-only score (\MsSelHo) at no training or
-inference cost, whereas re-estimating BatchNorm statistics after averaging makes it worse. At equal input size,
-\rfdetr{} matches \yolo{} on the adapted camera and transfers far better, so the CNN's in-domain lead came from its
-larger input. The selected detector feeds a streaming runtime in which Qwen3-VL-2B answers operator questions and
-edits alert rules through tool calls. The model repeats whatever count it is given, confirms fabricated alerts, and
-follows an instruction painted on a sign in the camera view once that text enters the chat history. A deterministic
-policy layer outside the model raises the rejection of unsafe requests on a 300-case suite from \SfGrTestRej{} to
-\SfPoTestRej{} with no loss in task success. All timings were measured on a desktop GPU.
+Crowd-analytics systems are commonly adapted to a new camera by pseudo-labelling its footage with large teacher
+detectors and fine-tuning a compact student detector on the result. Prior work reports the resulting gain on the
+adapted camera only. This paper quantifies the cost of such adaptation on other cameras and proposes a mitigation
+that requires no target-camera labels. Fine-tuning \yolo{} on pseudo-labels from a single plaza video raises its
+\AP{} on that video from \MsPtAa{} to \MsFtAa{}, but lowers it on all three other cameras and on human-labelled COCO
+person images; on a test-only video it falls from \MsPtHo{} to \MsFtHo{}, below the pretrained weights. Part of this
+loss is caused by the pseudo-label score threshold, which discards \LtAaA{} of the teacher boxes on people shorter
+than 32\,px and thereby trains the student to treat distant people as background; the remainder is attributed to
+forgetting. Averaging the pretrained and fine-tuned weights, with the mixing coefficient selected on validation data
+from other cameras, retains most of the in-domain gain (\MsSelAa) and restores the test-only accuracy (\MsSelHo)
+without additional training or inference cost, whereas re-estimating the BatchNorm statistics after averaging
+degrades accuracy. A resolution-controlled comparison shows that \rfdetr{} matches \yolo{} on the adapted camera at
+equal input size and transfers considerably better. The selected detector drives a streaming runtime in which
+Qwen3-VL-2B answers operator queries and modifies alert rules through tool calls. The model reproduces any count it
+is given, confirms fabricated alerts, and executes instructions painted on a sign in the camera view once that text
+enters the chat history. A deterministic policy layer outside the model increases the rejection rate of unsafe
+requests on a 300-case adversarial suite from \SfGrTestRej{} to \SfPoTestRej{} without reducing task success.
 \end{abstract}
 
 \begin{IEEEkeywords}

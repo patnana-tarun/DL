@@ -1052,6 +1052,14 @@ def revision_selection():
     M("SrWinnerRank", i(get(S, "check_on_test1", "winner_rank_on_test1")), src)
     M("SrN", i(get(S, "check_on_test1", "n")), src)
     M("SrOrigHo", f(get(S, "check_on_test1", "original_matrix_choice_test1_AP")), src)
+    # ONNX export of the selected model, scored through the runtime's detector (export_selected.py)
+    src = f"{RV}/export_selected.json"
+    X = load(src) or {}
+    for k, nm in (("736x1280", "Hi"), ("544x960", "Mid"), ("384x640", "Lo")):
+        M(f"SxAa{nm}", f(get(X, "exports", k, "aa1_test", "AP50-95")), src)
+        M(f"SxHo{nm}", f(get(X, "exports", k, "test1", "AP50-95")), src)
+    diffs = [get(X, "parity_736x1280", s_, "abs_diff") for s_ in ("aa1_test", "test1")]
+    M("SxParity", f(max(diffs), 4) if all(_num(d) for d in diffs) else None, src)
 
 
 def revision_bench():

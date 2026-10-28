@@ -6,7 +6,7 @@
 #   MEDIAMTX=0 scripts/03_download_models.sh    # skip MediaMTX
 #
 # Files already present are skipped; interrupted downloads resume (curl -C -). The detector ONNX models
-# (models/yolo26n_person_*.onnx) are part of the folder and are not downloaded.
+# (models/yolo26n_*person_*.onnx) are part of the folder and are not downloaded.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -43,10 +43,10 @@ fi
 # ------------------------------------------------------------------------------------------- detector check
 echo "==> detector models"
 shopt -s nullglob
-ONNX=(models/yolo26n_person_*.onnx)
+ONNX=(models/yolo26n_*person_*.onnx)
 shopt -u nullglob
 if (( ${#ONNX[@]} )); then printf '  ok: %s\n' "${ONNX[@]}"
-else echo "  WARNING: no models/yolo26n_person_*.onnx found: copy them from the PC (README step 3)"; fi
+else echo "  WARNING: no models/yolo26n_*person_*.onnx found: copy them from the PC (README step 3)"; fi
 
 # ------------------------------------------------------------------------------------------- MediaMTX
 if [[ "${MEDIAMTX:-1}" == 0 ]]; then

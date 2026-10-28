@@ -7,7 +7,7 @@
 # the videos show people and their licences do not allow redistribution.
 #
 # The teammate unpacks it in the root of their clone and checks it:
-#   tar -xf MINOR_DL_data.tar && sha256sum -c --quiet MANIFEST.sha256
+#   tar -xf MINOR_DL_data.tar && sha256sum -c --quiet --ignore-missing MANIFEST.sha256
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

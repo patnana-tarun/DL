@@ -31,7 +31,7 @@ DEFAULTS = {
     },
     "detector": {
         "backend": "onnxruntime",              # onnxruntime | ultralytics
-        "weights": "models/yolo26n_person_736x1280.onnx",
+        "weights": "models/yolo26n_wise_person_736x1280.onnx",
         "providers": ["tensorrt", "cuda", "cpu"],   # onnxruntime: first available wins
         "fp16": True,
         "conf": 0.05,                          # keep low-score boxes: ByteTrack's second stage uses them

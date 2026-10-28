@@ -603,17 +603,22 @@ sudo systemctl enable --now jetson-clocks.service
 
 ### Detector input size
 
-Three exports of the same fine-tuned YOLO26n are in `models/`. Accuracy below is **measured** on the
-study's test set (`models/selected_model.json`, desktop evaluation of the ONNX files). Speed on a Jetson is
-not measured here.
+The default detector is a weight average of the pretrained and fine-tuned YOLO26n (alpha = 0.3), chosen by the
+shift-aware model selection because it holds up much better on cameras it was not adapted to. Three exports of it
+are in `models/`. Accuracy below is measured through this runtime's ONNX detector on the aa1 test split and on the
+test-only video test1 (`results/revision/export_selected.json`). Speed on a Jetson is not measured here.
 
-| File | Input | AP50-95 | AP50 | AP small | Use on |
-|---|---|---|---|---|---|
-| `yolo26n_person_736x1280.onnx` | 736x1280 | 0.827 | 0.963 | 0.552 | Orin NX 16 GB, AGX Orin (study resolution, best for small/distant people) |
-| `yolo26n_person_544x960.onnx` | 544x960 | 0.794 | 0.959 | 0.505 | **Orin Nano 8 GB (default in `configs/jetson.yaml`)** |
-| `yolo26n_person_384x640.onnx` | 384x640 | 0.682 | 0.925 | 0.295 | Orin Nano 4 GB, or when people are large / close |
+| File | Input | AP50-95 aa1 | AP50-95 test1 | Use on |
+|---|---|---|---|---|
+| `yolo26n_wise_person_736x1280.onnx` | 736x1280 | 0.806 | 0.681 | Orin NX 16 GB, AGX Orin, desktop (default in `configs/desktop.yaml`) |
+| `yolo26n_wise_person_544x960.onnx` | 544x960 | 0.770 | 0.597 | Orin Nano 8 GB (default in `configs/jetson.yaml`) |
+| `yolo26n_wise_person_384x640.onnx` | 384x640 | 0.627 | 0.406 | Orin Nano 4 GB, or when people are large and close |
 
-Switch with `detector.weights` in the config (or `--set detector.weights=models/yolo26n_person_736x1280.onnx`).
+The earlier exports of the plain fine-tuned YOLO26n (`yolo26n_person_*.onnx`) are kept because the paper's
+streamed runtime experiments used them. They score higher on aa1 (0.827, 0.794, 0.682) but fall to 0.41 AP on
+test1, so use them only for the camera they were adapted to.
+
+Switch with `detector.weights` in the config (or `--set detector.weights=models/yolo26n_wise_person_544x960.onnx`).
 Each file gets its own TensorRT engine: run `scripts/04_warmup_detector.sh` again after switching.
 
 Rule of thumb: at `source.fps: 15` the whole loop must take less than 66 ms per frame. Look at
@@ -742,7 +747,7 @@ edge_deploy/
     vlm.py               Qwen3-VL agent (observe/verify/chat)    commands.py  /commands
     server.py + ui/      web UI and JSON API on :8000            pipeline.py  main loop
   configs/               jetson.yaml (Jetson), desktop.yaml (PC)
-  models/                yolo26n_person_*.onnx, selected_model.json, vlm/*.gguf, trt_cache/ (created)
+  models/                yolo26n_wise_person_*.onnx, yolo26n_person_*.onnx, selected_model.json, vlm/*.gguf, trt_cache/ (created)
   scripts/               00..05 setup + run, start_vlm.sh, install_service.sh, systemd/ unit templates
   tools/                 stream_videos.py, chat_cli.py, mediamtx.yml, bin/mediamtx
   docs/architecture.md   threads, API, config reference, latency budget

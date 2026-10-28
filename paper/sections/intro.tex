@@ -1,43 +1,48 @@
 %=====================================================================================================
 \section{Introduction}
-Labelling footage by hand for every new camera is expensive, so crowd-analytics systems are often adapted without
-human labels. Large teacher detectors label video from the target camera, and a compact student that fits the
-deployment hardware is fine-tuned on those
+Manual annotation of footage for every new camera is costly, so crowd-analytics systems are frequently adapted
+without human labels. Large teacher detectors label video from the target camera, and a compact student suited to
+the deployment hardware is fine-tuned on the resulting
 pseudo-labels~\cite{radosavovic2018datadistill,xie2020noisystudent,zhang2023scenes100}. Scenes100 showed that this
-improves detection on each of 100 fixed cameras~\cite{zhang2023scenes100}. That study, like most work on scene
-adaptation, scores the student on the camera it was adapted to. In practice the same weights end up on a second
-camera, or the first camera is moved, and nobody re-labels anything. How much the adapted student loses on those
-cameras, and why, has not been measured for compact real-time detectors.
+procedure improves detection on each of 100 fixed cameras~\cite{zhang2023scenes100}. That study, like most work on
+scene adaptation, evaluates the student only on the camera to which it was adapted. In practice, the same weights are
+often deployed on a second camera, or the original camera is repositioned, without any re-labelling. The extent to
+which an adapted compact real-time detector degrades on such cameras, and the causes of that degradation, have not
+been quantified.
 
-A second change in recent systems is a vision-language model (VLM) that answers operator questions and can change the
-system's configuration through tool calls. Prompt injection against tool-using agents has been studied for web,
-e-mail and document workflows~\cite{debenedetti2024agentdojo,zhan2024injecagent}, and typographic images are known to
-jailbreak open VLMs~\cite{gong2025figstep}. A camera adds an input channel that has not been examined in this
-setting: anyone who walks into view with a written sign can put text in front of the model.
+A second development in recent systems is a vision-language model (VLM) that answers operator questions and may
+change the system configuration through tool calls. Prompt injection against tool-using agents has been studied for
+web, e-mail and document workflows~\cite{debenedetti2024agentdojo,zhan2024injecagent}, and typographic images are known
+to jailbreak open VLMs~\cite{gong2025figstep}. A camera, however, introduces an input channel that has not been
+examined in this setting: any person in the field of view can present written text to the model.
 
-We built a complete pipeline of this kind and tested each part on scenes it was not built for. Two teachers
-(RF-DETR Large and YOLO26x) pseudo-label a 5-minute plaza video; a CNN student (\yolo{}) and a transformer student
-(\rfdetr{}) are fine-tuned on it; the selected student runs in a streaming runtime with ByteTrack, rule-based
-analytics and a Qwen3-VL-2B operator agent. We evaluate on the adaptation video, on three other campus videos, one of
-which is never used for any decision, and on human-labelled COCO people. The findings that are new are these:
+This paper presents a complete pipeline of this kind and evaluates each component on scenes it was not designed for.
+Two teachers (RF-DETR Large and YOLO26x) pseudo-label a 5-minute plaza video; a CNN student (\yolo{}) and a
+transformer student (\rfdetr{}) are fine-tuned on it; and the selected student operates in a streaming runtime with
+ByteTrack, rule-based analytics and a Qwen3-VL-2B operator agent. Evaluation covers the adaptation video, three
+further campus videos, one of which is reserved exclusively for testing, and human-labelled COCO person images. The
+main contributions are as follows.
 \begin{enumerate}
-\item Single-camera pseudo-label fine-tuning of \yolo{} raises \AP{} on the adapted camera and lowers it on every
-other camera and on COCO people, each time to below the pretrained weights. The same holds when either of two other
-scenes is the adaptation scene. \rfdetr{}, fine-tuned the same way, improves on the other cameras and loses little on COCO.
-\item A size-blind pseudo-label threshold is one cause. It removes most teacher boxes on small people, so the student
-learns to label them background. Marking those boxes as ignore regions recovers part of the held-out loss but none of
-the COCO forgetting, which separates the two causes.
-\item Averaging pretrained and fine-tuned weights~\cite{wortsman2022wise} repairs the damage without any label from the
-target camera, provided the mixing coefficient is chosen on validation data from other cameras. For this
-BatchNorm detector, interpolating the normalisation statistics works better than re-estimating them, against the usual
-advice for merged networks.
-\item The CNN student's in-domain lead over the transformer disappears at equal input size. What the CNN offers is
-24--44$\times$ less compute at the same resolution.
-\item On a 300-case adversarial suite, the 2B VLM agent carries out more than half of the unsafe requests on its own, and text painted
-in the camera view reaches its tools through the chat history. A policy layer that keeps all authority outside the
-model, and keeps the tool-calling stage away from model-written text, stops these cases.
+\item A quantification of the cross-camera cost of single-camera pseudo-label fine-tuning. Fine-tuning \yolo{} raises
+\AP{} on the adapted camera and lowers it on every other camera and on COCO people, in each case below the
+pretrained weights. The same holds when either of two other scenes is used as the adaptation scene, whereas \rfdetr{},
+fine-tuned identically, improves on the other cameras and loses little on COCO.
+\item An identification of the size-blind pseudo-label threshold as one cause. The threshold removes most teacher
+boxes on small people, so the student learns to classify them as background. Marking these boxes as ignore regions
+recovers part of the held-out loss but none of the COCO forgetting, which separates the two causes.
+\item A label-free mitigation. Averaging pretrained and fine-tuned weights~\cite{wortsman2022wise}, with the mixing
+coefficient selected on validation data from other cameras, recovers the cross-camera accuracy. For this
+BatchNorm-based detector, interpolating the normalisation statistics outperforms re-estimating them, contrary to the
+usual recommendation for merged networks.
+\item A resolution-controlled comparison showing that the in-domain advantage of the CNN student over the
+transformer vanishes at equal input size; the CNN's benefit is a 24--44$\times$ reduction in compute at the same
+resolution.
+\item An evaluation of camera-borne prompt injection against a VLM operator agent. On a 300-case adversarial suite,
+the 2B agent executes more than half of the unsafe requests on its own, and text painted in the camera view reaches
+its tools through the chat history. A policy layer that keeps all authority outside the model, and isolates the
+tool-calling stage from model-generated text, blocks these cases.
 \end{enumerate}
-All intervals are circular-block bootstrap intervals over contiguous stretches of video, since treating frames as
-independent understates the standard error by a factor of about three here. The runtime is designed for an NVIDIA
-Jetson Orin~\cite{jetsonorin}, but every timing in this paper was measured on a desktop GPU. Code, result files,
-the evaluation scripts and a blind human-annotation protocol are released.
+All confidence intervals are circular-block bootstrap intervals over contiguous segments of video, because treating
+frames as independent underestimates the standard error by a factor of about three in these data. The runtime
+targets an NVIDIA Jetson Orin~\cite{jetsonorin}, but all timings reported here were measured on a desktop GPU. The
+code, result files, evaluation scripts and a blind human-annotation protocol are publicly released.

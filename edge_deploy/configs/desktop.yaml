@@ -10,7 +10,7 @@ source:
 
 detector:
   backend: onnxruntime                 # CPU onnxruntime here; install onnxruntime-gpu for CUDA/TensorRT
-  weights: models/yolo26n_person_736x1280.onnx
+  weights: models/yolo26n_wise_person_736x1280.onnx
   providers: [tensorrt, cuda, cpu]
 
 vlm:

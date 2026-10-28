@@ -139,10 +139,10 @@ done
 # ------------------------------------------------------------------------------------------- this folder
 hdr "EdgeVision folder ($(pwd))"
 shopt -s nullglob
-ONNX=(models/yolo26n_person_*.onnx)
+ONNX=(models/yolo26n_*person_*.onnx)
 shopt -u nullglob
 if (( ${#ONNX[@]} )); then ok "detector models: ${ONNX[*]}"
-else warn "no models/yolo26n_person_*.onnx: copy the whole edge_deploy folder (README step 3)"; fi
+else warn "no models/yolo26n_*person_*.onnx: copy the whole edge_deploy folder (README step 3)"; fi
 if [[ -x third_party/llama.cpp/build/bin/llama-server ]]; then ok "llama-server built (third_party/llama.cpp/build/bin)"
 else info "llama.cpp not built yet (scripts/02_build_llamacpp.sh)"; fi
 for s in 2B 4B; do

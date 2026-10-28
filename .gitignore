@@ -71,8 +71,19 @@ results/**/*.db
 results/logs/revision/
 results/campus/*/crops/
 
-# Images of people (privacy): annotation frames
+# Images of people (privacy): annotation frames and every figure drawn over video frames.
+# The scripts still write these locally; they are never committed.
 research/annotation/tasks/*/images/
+paper/figures/fig_demo.jpg
+paper/figures/fig_qualitative.png
+results/edge/demo/snapshot.jpg
+results/figures/06_qualitative_test.png
+results/figures/12_crowd_analytics_*.png
+results/revision/bench_desktop_vlm_frame.jpg
+results/revision/vlm_safety_frames/
+results/test1/audit/*.jpg
+results/test1/figures/01_qualitative.png
+results/test1/figures/05_analytics.png
 
 # ---------------------------------------------------------------------------
 # LaTeX build artefacts (main.pdf is kept)

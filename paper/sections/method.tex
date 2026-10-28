@@ -10,34 +10,34 @@ detector.}
 \label{fig:arch}
 \end{figure*}
 
-\subsection{Scenes and pseudo-labels}
+\subsection{Scenes and Pseudo-Labels}
 \label{sec:data}
 The adaptation scene, aa1, is a 300\,s handheld video of a city plaza ($1280{\times}720$, 59.94\,fps). We sample one
 frame every 0.25\,s between 30\,s and 300\,s, giving 1,082 frames. Each frame is labelled by RF-DETR Large and by
 YOLO26x with test-time augmentation at 1280\,px, both at score $\geq 0.15$. Their boxes are fused by weighted box
 fusion (IoU 0.55, equal weights, averaged scores), and fused boxes with score $\geq 0.40$ become labels. The splits are
 contiguous in time: train 30--210\,s (\ImgsTrain{} frames, \BoxesTrain{} boxes), validation 210--255\,s
-(\ImgsValid{} frames) and test 255--300\,s (\ImgsTest{} frames, \BoxesTest{} boxes). The first 30\,s are kept for
-tracking.
+(\ImgsValid{} frames) and test 255--300\,s (\ImgsTest{} frames, \BoxesTest{} boxes). The first 30\,s are reserved for
+tracking evaluation.
 
-Three further videos come from a university campus ($1920{\times}1080$). Scene~1 shows people walking close to the
+Three further videos were recorded on a university campus ($1920{\times}1080$). Scene~1 shows people walking close to the
 camera past a building and scene~2 a ground-level view against the light; both are about 200\,s long, are labelled
 with the same recipe on every frame and are split in time (first 60\,\% train, next 15\,\% validation, last
 25\,\% test). The test1 video (\HoDur\,s of a tree-lined road from a fixed position, variable frame rate) is used
 only for testing. Nothing is trained, tuned, thresholded or selected on it. Finally, the two halves of COCO val2017
-give a replay pool of 720 images and a disjoint validation set of 600 images with human person labels, which
-measures how much a student forgets about people in general.
+provide a replay pool of 720 images and a disjoint validation set of 600 images with human person labels; the
+latter measures how much a student forgets about people in general.
 
-\subsection{Students and adaptation variants}
+\subsection{Students and Adaptation Variants}
 \label{sec:variants}
 \yolo{} (2.5\,M parameters, COCO-pretrained) is fine-tuned for 150 epochs at 1280\,px with AdamW (learning rate
 $10^{-3}$, cosine schedule, batch 12, seed 0) and a single person class; this is the deployed student. \rfdetr{} is
 fine-tuned at 640\,px for 80 epochs (EMA, cosine schedule, effective batch 16, learning rate $10^{-4}$, encoder
-$1.5{\times}10^{-4}$). These are each model's deployment settings, so the two students also differ in input size.
+$1.5{\times}10^{-4}$). These are the deployment settings of each model, so the two students also differ in input size.
 
 The adaptation variants of \yolo{} keep the 80-class COCO head and use person as class~0, so that their weights stay
-shape-compatible with the pretrained model. The reference, FT-aa1, uses the recipe above. Each other variant changes
-one thing. Replay adds the 720 COCO images one-to-one, as in Scenes100~\cite{zhang2023scenes100}. Frozen freezes
+shape-compatible with the pretrained model. The reference, FT-aa1, uses the recipe above. Each remaining variant differs
+from the reference in a single respect. Replay adds the 720 COCO images one-to-one, as in Scenes100~\cite{zhang2023scenes100}. Frozen freezes
 the 11 backbone modules (learning rate $3{\times}10^{-4}$, 40 epochs). Ignore greys out every fused teacher box with
 score in $[0.15, 0.40)$ that overlaps no kept label, so uncertain people count neither as positives nor as
 background. Multi-scene trains on aa1, scene~1 and scene~2 together; scene-1 and scene-2 train on one campus scene
@@ -76,18 +76,18 @@ because a ground truth linked by a given tracker favours that tracker. On the ot
 stay frozen from aa1. Counting lines are drawn on one frame before any result is computed, and a predicted crossing
 matches a ground-truth crossing in the same direction within 1\,s.
 
-\subsection{Model selection}
+\subsection{Model Selection}
 \label{sec:select}
 A first decision matrix compared the two fine-tuned students on aa1 test \AP{}, the lower of the two
 single-teacher APs, aa1 tracking HOTA, latency, GFLOPs and parameter count, and kept its choice under five other
-weightings. None of these criteria says anything about a new camera. We therefore add a shift-aware matrix over all
+weightings. None of these criteria reflects accuracy on an unseen camera. A shift-aware matrix is therefore added a shift-aware matrix over all
 \SrN{} candidates (both students, all adaptation variants and all weight-space blends) with weights 0.3 for aa1 test
 \AP{}, 0.4 for the mean \AP{} on validation data the candidate was not trained on (the campus validation splits and
-COCO people), 0.2 for latency and 0.1 for GFLOPs. Test1 is not part of it and is consulted once, after the choice.
+COCO people), 0.2 for latency and 0.1 for GFLOPs. Test1 is excluded and is consulted once, after the selection.
 The chosen model is exported to ONNX at $736{\times}1280$, $544{\times}960$ and $384{\times}640$ and re-scored
 through the runtime's own detector code.
 
-\subsection{Runtime, VLM agent and policy layer}
+\subsection{Runtime, VLM Agent and Policy Layer}
 \label{sec:edge}
 An external FFmpeg or GStreamer process decodes files, network streams or cameras into fixed-size frames. For live
 sources only the newest frame is kept; files are read without dropping and stamped with their container timestamps.
@@ -106,7 +106,7 @@ The VLM can propose tool calls but never decides whether they run. Every call, w
 a rule-based fallback or from a typed command, passes a deterministic policy layer that follows the action-selector
 and dual-LLM patterns~\cite{beurerkellner2025patterns}. It enforces roles taken from the authenticated token
 (viewers read; operators change alert rules and the counting line; only administrators remove all alerts). It
-validates types, ranges and line geometry, since a threshold of a million people is a disabled alert in disguise.
+validates types, ranges and line geometry, since an alert threshold of a million people is equivalent to a disabled alert.
 An intent gate allows a state change only if the user's own words in the current turn request it, so text that
 reached the model from the frame, a scene report or a tool result cannot trigger one. Removing or weakening an alert
 from chat waits for a \texttt{/confirm} from the same user. Changes and chat requests are rate-limited per user,

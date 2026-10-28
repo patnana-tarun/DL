@@ -1,0 +1,9 @@
+{
+ "imgsz": [
+  544,
+  960
+ ],
+ "classes": "COCO-80, person = 0",
+ "head": "one-to-many + NMS",
+ "source": "runs/revision/wise/ft80_a0.3.pt"
+}

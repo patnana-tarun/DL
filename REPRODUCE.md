@@ -50,6 +50,7 @@ Inputs that are not generated: `videos/*.mp4` (see the paper's data statement fo
 | WiSE-FT blends (raw / re-estimated BN) | `python research/revision/wise.py --ft runs/revision/ft80/weights/best.pt --tag ft80` | `runs/revision/wise/` |
 | Every model on every scene | `python research/revision/multiscene_eval.py --set base|wise|variants|ressweep` | `results/revision/multiscene/*.json` |
 | Shift-aware model selection | `python research/revision/select_robust.py` | `results/revision/selection_robust.json` |
+| Export of the selected model for the runtime (ONNX, parity check on aa1 and test1) | `python research/revision/export_selected.py` | `results/revision/export_selected.json`, `edge_deploy/models/yolo26n_wise_person_*.onnx` |
 | Campus-scene tracking (frozen aa1 parameters) | `python research/heldout/heldout_track.py ... --name scene_vN --line 0.5,0.0,0.5,1.0` | `results/scene_vN/tracking.json` |
 | VLM safety suite E6 | `python research/revision/vlm_safety_eval.py` (VLM server up) | `results/revision/vlm_safety.json` |
 | Desktop contention benchmark (not reported in the paper; hardware validation is future work) | `edge_deploy/tools/bench.py` (see `run_revision.sh`) | `results/revision/bench_desktop.json` |

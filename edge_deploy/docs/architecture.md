@@ -234,7 +234,7 @@ chat(id, wall, role, text, data JSON)
 | `source.hwaccel` | `""` | ffmpeg `-hwaccel` value, e.g. `cuda` on a desktop with NVDEC-enabled ffmpeg (Jetson's apt ffmpeg has no NVDEC) |
 | `source.input_args` | `[]` | extra ffmpeg input arguments, verbatim (e.g. `["-input_format", "mjpeg"]` for USB cameras) |
 | `detector.backend` | `onnxruntime` | `onnxruntime` (ONNX, no PyTorch) or `ultralytics` (.pt/.onnx/.engine, needs PyTorch) |
-| `detector.weights` | `models/yolo26n_person_736x1280.onnx` | model file; 544x960 and 384x640 exports are also provided |
+| `detector.weights` | `models/yolo26n_wise_person_736x1280.onnx` | model file; 544x960 and 384x640 exports, and the earlier fine-tuned `yolo26n_person_*` exports, are also provided |
 | `detector.providers` | `[tensorrt, cuda, cpu]` | onnxruntime execution providers in order of preference; unavailable ones are skipped |
 | `detector.fp16` | `true` | TensorRT FP16 (and `half` for ultralytics) |
 | `detector.conf` | `0.05` | minimum detection score kept (low on purpose for ByteTrack) |

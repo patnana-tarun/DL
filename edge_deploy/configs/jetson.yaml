@@ -14,7 +14,7 @@ source:
 detector:
   backend: onnxruntime                 # onnxruntime-gpu from the Jetson AI Lab index -> TensorRT FP16
   # Orin Nano 8 GB: 544x960 (fast). Orin NX / AGX: 736x1280 (study resolution, best accuracy on small people).
-  weights: models/yolo26n_person_544x960.onnx
+  weights: models/yolo26n_wise_person_544x960.onnx
   providers: [tensorrt, cuda, cpu]     # the first run builds a TensorRT engine (a few minutes), then it is cached
   fp16: true
   trt_cache: models/trt_cache

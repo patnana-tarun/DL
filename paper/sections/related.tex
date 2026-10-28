@@ -1,21 +1,21 @@
 %=====================================================================================================
 \section{Related Work}
 \label{sec:related}
-\subsection{Detectors and trackers}
+\subsection{Detectors and Trackers}
 One-stage YOLO detectors~\cite{redmon2016yolo} are the usual choice for embedded deployment. YOLOv10~\cite{wang2024yolov10}
 introduced consistent dual assignments for NMS-free inference, and YOLO26~\cite{jocher2026yolo26,ultralytics} ships both a
 one-to-one and a one-to-many head. DETR~\cite{carion2020detr} removed hand-crafted post-processing, RT-DETR~\cite{zhao2024rtdetr}
 made it real-time, and RF-DETR~\cite{robinson2026rfdetr} adds a DINOv2 backbone~\cite{oquab2024dinov2} with a native Nano
 resolution of 384\,px. Detection is scored with COCO AP~\cite{lin2014coco} and, for pedestrians, the log-average miss
-rate~\cite{dollar2012pedestrian,zhang2017citypersons}. We use SORT-family trackers~\cite{bewley2016sort,zhang2022bytetrack,cao2023ocsort,aharon2022botsort,yang2023cbiou,stanczyk2024mcbyte}
-scored with HOTA~\cite{luiten2021hota}, CLEAR-MOT~\cite{bernardin2008clear} and IDF1~\cite{ristani2016idf1}.
+rate~\cite{dollar2012pedestrian,zhang2017citypersons}. SORT-family trackers~\cite{bewley2016sort,zhang2022bytetrack,cao2023ocsort,aharon2022botsort,yang2023cbiou,stanczyk2024mcbyte}
+are evaluated with HOTA~\cite{luiten2021hota}, CLEAR-MOT~\cite{bernardin2008clear} and IDF1~\cite{ristani2016idf1}.
 
-\subsection{Pseudo-labels, scene adaptation and robust fine-tuning}
+\subsection{Pseudo-Labels, Scene Adaptation and Robust Fine-Tuning}
 Distillation~\cite{hinton2015distilling}, data distillation~\cite{radosavovic2018datadistill} and Noisy
 Student~\cite{xie2020noisystudent} train a student on teacher labels; we fuse two teacher families with weighted box
-fusion~\cite{solovyev2021wbf}. Scenes100~\cite{zhang2023scenes100} is the closest work. It adapts a detector to each of
+fusion~\cite{solovyev2021wbf}. Scenes100~\cite{zhang2023scenes100} is the most closely related work. It adapts a detector to each of
 100 fixed cameras with self-generated pseudo-labels, mixes COCO images in one-to-one, and reports gains on the adapted
-camera. It does not report what the adapted model loses on other cameras, which is what we measure. Fine-tuning is
+camera. It does not report the accuracy of the adapted model on other cameras, which is the subject of this paper. Fine-tuning is
 known to distort pretrained features and hurt out-of-distribution accuracy in classification~\cite{kumar2022lpft} and in
 detection backbones~\cite{saito2023mindbackbone}. The remedies include regularising towards the pretrained
 weights~\cite{li2018l2sp}, linear probing before fine-tuning~\cite{kumar2022lpft} and weight-space ensembling
@@ -25,18 +25,18 @@ the fine-tuning labels are pseudo-labels from one camera, the mixing coefficient
 the target camera, and we measure how the BatchNorm statistics should be merged. Robustness is judged against the linear trend between in- and
 out-of-distribution accuracy~\cite{taori2020shift}.
 
-\subsection{Statistics on video frames}
+\subsection{Statistics on Video Frames}
 Bootstrap intervals over test images are standard in detection~\cite{everingham2015voc}, but frames from one video are
 dependent. Block bootstraps~\cite{kunsch1989,politis1992cbb} resample contiguous blocks, and the block length can be
 chosen from the data~\cite{politis2004block,patton2009correction}. Monte-Carlo $p$-values need a finite-sample
 correction~\cite{phipson2010pvalues}, and dependent test items invalidate the usual significance
-tests~\cite{dror2018hitchhiker}. We apply these tools to detection AP, which is not a per-frame mean.
+tests~\cite{dror2018hitchhiker}. Here these methods are applied to detection AP, which is not a per-frame mean.
 
-\subsection{Tool-using VLMs and prompt injection}
+\subsection{Tool-Using VLMs and Prompt Injection}
 Instruction-tuned VLMs~\cite{liu2023llava} such as Qwen2.5-VL~\cite{bai2025qwen25vl} and Qwen3-VL~\cite{bai2025qwen3vl}
 answer free-form questions about images, and language models can call tools~\cite{schick2023toolformer,yao2023react}.
 AgentDojo~\cite{debenedetti2024agentdojo} and InjecAgent~\cite{zhan2024injecagent} measure prompt injection through tool
 results, and FigStep~\cite{gong2025figstep} shows that text rendered in an image jailbreaks open VLMs. Defences that
 hold by construction separate the model that reads untrusted content from the one that acts, or let a fixed
-policy decide every action~\cite{beurerkellner2025patterns,debenedetti2025camel,owasp2025llm}. We apply these design
-patterns to an operator agent whose untrusted input is a live camera, and measure the result.
+policy decide every action~\cite{beurerkellner2025patterns,debenedetti2025camel,owasp2025llm}. This paper applies these
+patterns to an operator agent whose untrusted input is a live camera and measures their effect.

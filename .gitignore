@@ -27,7 +27,18 @@ __pycache__/
 # Large inputs (see README "Data and weights")
 # ---------------------------------------------------------------------------
 videos/
-datasets/
+# datasets: keep only the small stats files that paper/make_numbers.py reads
+datasets/*
+!datasets/stats.json
+!datasets/test1/
+datasets/test1/*
+!datasets/test1/stats.json
+!datasets/scene_v1/
+datasets/scene_v1/*
+!datasets/scene_v1/stats.json
+!datasets/scene_v2/
+datasets/scene_v2/*
+!datasets/scene_v2/stats.json
 *.mp4
 *.avi
 *.mkv

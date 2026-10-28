@@ -1,0 +1,9 @@
+{
+ "video": "videos/video_2.mp4",
+ "frames_total": 9748,
+ "duration_s": 200.01124444444446,
+ "test_images": 801,
+ "test_boxes": 6011,
+ "width": 1920,
+ "height": 1080
+}

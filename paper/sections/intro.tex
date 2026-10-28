@@ -1,43 +1,43 @@
 %=====================================================================================================
 \section{Introduction}
-Counting and tracking people in public spaces is a mature computer-vision task, yet a deployed crowd-analytics
-system fails in ways a benchmark score does not show. The detector is adapted to one camera with labels nobody
-checked by hand; the camera it is later pointed at looks different; a frame-level confidence interval is reported as
-if neighbouring frames were independent; and, increasingly, a vision-language model (VLM) is allowed to answer
-questions about the numbers and to change the system's configuration. Each of these is a reliability question, and
-each has strong components to build on---real-time
-detectors~\cite{redmon2016yolo,wang2024yolov10,jocher2026yolo26,zhao2024rtdetr,robinson2026rfdetr},
-tracking-by-detection~\cite{bewley2016sort,zhang2022bytetrack,cao2023ocsort}, open
-VLMs~\cite{bai2025qwen3vl}---but they are rarely studied together, under one protocol, on the same footage.
+Labelling footage by hand for every new camera is expensive, so crowd-analytics systems are often adapted without
+human labels. Large teacher detectors label video from the target camera, and a compact student that fits the
+deployment hardware is fine-tuned on those
+pseudo-labels~\cite{radosavovic2018datadistill,xie2020noisystudent,zhang2023scenes100}. Scenes100 showed that this
+improves detection on each of 100 fixed cameras~\cite{zhang2023scenes100}. That study, like most work on scene
+adaptation, scores the student on the camera it was adapted to. In practice the same weights end up on a second
+camera, or the first camera is moved, and nobody re-labels anything. How much the adapted student loses on those
+cameras, and why, has not been measured for compact real-time detectors.
 
-This paper studies the reliability of such a pipeline end to end. A teacher ensemble pseudo-labels an unlabelled
-5-minute plaza video (\texttt{aa1}); two compact students (CNN \yolo{} and transformer \rfdetr{}) are fine-tuned on
-it; the selected student drives an FFmpeg-based edge runtime with ByteTrack, deterministic analytics and a
-Qwen3-VL-2B agent that writes scene reports and reconfigures the analytics through tool calls. We then ask where it
-fails: under which labels a model looks better, what happens on cameras it was not adapted to, how much the
-statistics change when frames are treated as correlated, and what a small VLM does with numbers, with instructions
-it reads in the image, and with requests it should refuse. The system targets an NVIDIA Jetson
-Orin~\cite{jetsonorin}, but every measurement here is from a desktop GPU; on-device validation is left to future
-work.
+A second change in recent systems is a vision-language model (VLM) that answers operator questions and can change the
+system's configuration through tool calls. Prompt injection against tool-using agents has been studied for web,
+e-mail and document workflows~\cite{debenedetti2024agentdojo,zhan2024injecagent}, and typographic images are known to
+jailbreak open VLMs~\cite{gong2025figstep}. A camera adds an input channel that has not been examined in this
+setting: anyone who walks into view with a written sign can put text in front of the model.
 
-Most components are established; the contributions are the measurements and the design decisions they force:
-\begin{itemize}
-\item \textbf{When pseudo-label scene adaptation hurts, and a cheap fix.} Fine-tuning \yolo{} on one camera raises
-in-domain AP but lowers it on every other camera we tested and on human-labelled COCO people, below its own
-pretrained weights. A size-blind label threshold that turns small, far people into background explains part of this
-and forgetting the rest. Of five mitigations across four scenes, weight-space ensembling of pretrained and fine-tuned
-weights works best and costs nothing; chosen with a shift-aware selection that never sees the test camera, it keeps
-most of the in-domain gain and the pretrained robustness.
-\item \textbf{An evaluation protocol for correlated video} with explicit units, circular-block bootstrap intervals
-and corrected bootstrap $p$-values, label-bias and GT-linking checks, and an independent re-implementation of every
-metric; a resolution-matched comparison shows that the CNN student's in-domain lead was an input-size effect.
-\item \textbf{VLM reliability measured, then designed for.} A 2B VLM copies counts and rubber-stamps fabricated
-alerts, so counts and alert decisions stay deterministic; tool routing is separated from visual answering; and a
-300-case adversarial suite (ambiguous, conflicting, unauthorised, malformed, alert-disabling, injected in the request,
-in the frame and in tool results) compares the model alone, the original guardrails and a trusted policy layer with
-role-based access, validation, an intent gate, confirmation, rate limits and a hash-chained audit log.
-\item \textbf{A desktop-validated, Jetson-oriented runtime} that reproduces the offline tracking accuracy when
-streamed through the deployed decoder, ONNX detector and online tracker.
-\item \textbf{A reproducibility package}: pinned environment, checksums, per-table commands, and a blind
-human-annotation protocol and tool for an independent ground truth.
-\end{itemize}
+We built a complete pipeline of this kind and tested each part on scenes it was not built for. Two teachers
+(RF-DETR Large and YOLO26x) pseudo-label a 5-minute plaza video; a CNN student (\yolo{}) and a transformer student
+(\rfdetr{}) are fine-tuned on it; the selected student runs in a streaming runtime with ByteTrack, rule-based
+analytics and a Qwen3-VL-2B operator agent. We evaluate on the adaptation video, on three other campus videos, one of
+which is never used for any decision, and on human-labelled COCO people. The findings that are new are these:
+\begin{enumerate}
+\item Single-camera pseudo-label fine-tuning of \yolo{} raises \AP{} on the adapted camera and lowers it on every
+other camera and on COCO people, each time to below the pretrained weights. The same holds when either of two other
+scenes is the adaptation scene. \rfdetr{}, fine-tuned the same way, improves on the other cameras and loses little on COCO.
+\item A size-blind pseudo-label threshold is one cause. It removes most teacher boxes on small people, so the student
+learns to label them background. Marking those boxes as ignore regions recovers part of the held-out loss but none of
+the COCO forgetting, which separates the two causes.
+\item Averaging pretrained and fine-tuned weights~\cite{wortsman2022wise} repairs the damage without any label from the
+target camera, provided the mixing coefficient is chosen on validation data from other cameras. For this
+BatchNorm detector, interpolating the normalisation statistics works better than re-estimating them, against the usual
+advice for merged networks.
+\item The CNN student's in-domain lead over the transformer disappears at equal input size. What the CNN offers is
+24--44$\times$ less compute at the same resolution.
+\item On a 300-case adversarial suite, the 2B VLM agent carries out more than half of the unsafe requests on its own, and text painted
+in the camera view reaches its tools through the chat history. A policy layer that keeps all authority outside the
+model, and keeps the tool-calling stage away from model-written text, stops these cases.
+\end{enumerate}
+All intervals are circular-block bootstrap intervals over contiguous stretches of video, since treating frames as
+independent understates the standard error by a factor of about three here. The runtime is designed for an NVIDIA
+Jetson Orin~\cite{jetsonorin}, but every timing in this paper was measured on a desktop GPU. Code, result files,
+the evaluation scripts and a blind human-annotation protocol are released.

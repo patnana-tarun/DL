@@ -64,7 +64,7 @@ results/campus/*/crops/
 research/annotation/tasks/*/images/
 
 # ---------------------------------------------------------------------------
-# LaTeX build artefacts (main.pdf / supplement.pdf are kept)
+# LaTeX build artefacts (main.pdf is kept)
 # ---------------------------------------------------------------------------
 *.aux
 *.bbl
@@ -82,3 +82,6 @@ paper/build.log
 # ---------------------------------------------------------------------------
 minor_review.txt
 2609.21822.pdf
+
+# Private data archive made by scripts/pack_data.sh (share privately, never commit)
+MINOR_DL_data.tar*

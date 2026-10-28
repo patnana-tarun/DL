@@ -1,113 +1,117 @@
 %=====================================================================================================
 \section{Method}
-\figif{fig_architecture.pdf}{%
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_architecture.pdf}
-\caption{System overview. Top: the edge runtime (target: Jetson Orin; measured here on a desktop GPU); detections
-flow left to right, the VLM receives the live analytics and frame and acts back on the analytics only through tool
-calls that a deterministic policy layer decides. Bottom: the offline loop that labels, trains, evaluates, selects and
-exports the detector.}
+\caption{System overview. Top: the streaming runtime. Detections flow left to right; the VLM receives the live
+analytics and the current frame, and can change the analytics only through tool calls that a deterministic policy
+layer approves or refuses. Bottom: the offline loop that labels, trains, evaluates, selects and exports the
+detector.}
 \label{fig:arch}
-\end{figure*}}
+\end{figure*}
 
 \subsection{Scenes and pseudo-labels}
 \label{sec:data}
-\textbf{aa1 (adaptation scene).} From the 300\,s, 59.94\,fps, $1280{\times}720$ handheld plaza video we sample one
-frame every 0.25\,s between 30\,s and 300\,s (1,082 frames). Each frame is labelled by RF-DETR Large and YOLO26x
-(test-time augmentation, $1280$\,px), both at score $\geq 0.15$; their boxes are fused by WBF (IoU 0.55, equal
-weights, averaged scores) and fused boxes with score $\geq 0.40$ are kept. The splits are contiguous in time:
-train 30--210\,s (\ImgsTrain{} frames, \BoxesTrain{} boxes), valid 210--255\,s (\ImgsValid{}/\BoxesValid{}), test
-255--300\,s (\ImgsTest{}/\BoxesTest{}); the first 30\,s are reserved for tracking (Fig.~\ref{fig:data}).
+The adaptation scene, aa1, is a 300\,s handheld video of a city plaza ($1280{\times}720$, 59.94\,fps). We sample one
+frame every 0.25\,s between 30\,s and 300\,s, giving 1,082 frames. Each frame is labelled by RF-DETR Large and by
+YOLO26x with test-time augmentation at 1280\,px, both at score $\geq 0.15$. Their boxes are fused by weighted box
+fusion (IoU 0.55, equal weights, averaged scores), and fused boxes with score $\geq 0.40$ become labels. The splits are
+contiguous in time: train 30--210\,s (\ImgsTrain{} frames, \BoxesTrain{} boxes), validation 210--255\,s
+(\ImgsValid{} frames) and test 255--300\,s (\ImgsTest{} frames, \BoxesTest{} boxes). The first 30\,s are kept for
+tracking.
 
-\textbf{Three campus scenes.} Two $1920{\times}1080$ phone videos of other campus locations (\emph{scene~1}: people
-walking past a building close to the camera; \emph{scene~2}: a camera at ground level against the light; about
-200\,s each) are labelled with the same recipe on every frame and split in time (train first 60\,\%, valid 15\,\%,
-test last 25\,\%); they serve as extra adaptation scenes, validation scenes and test scenes. The held-out
-\emph{test1} video (a tree-lined road from a fixed position, 298\,s) is used \emph{only for testing}: nothing is
-trained, tuned, thresholded or selected on it.
-
-\textbf{COCO people.} The two halves of COCO val2017 (human labels; not seen by the COCO-pretrained students) give a
-replay pool (720 images, 15\,\% without people) and a disjoint 600-image person validation set used to measure
-forgetting and to choose blend weights.
-
-\figif{fig_dataset.pdf}{%
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig_dataset.pdf}
-\caption{(a) Temporal use of \texttt{aa1}: tracking hold-out (0--15\,s tuning, 15--30\,s evaluation) and the
-detection splits. (b) Pseudo-label box heights per split.}
-\label{fig:data}
-\end{figure}}
+Three further videos come from a university campus ($1920{\times}1080$). Scene~1 shows people walking close to the
+camera past a building and scene~2 a ground-level view against the light; both are about 200\,s long, are labelled
+with the same recipe on every frame and are split in time (first 60\,\% train, next 15\,\% validation, last
+25\,\% test). The test1 video (\HoDur\,s of a tree-lined road from a fixed position, variable frame rate) is used
+only for testing. Nothing is trained, tuned, thresholded or selected on it. Finally, the two halves of COCO val2017
+give a replay pool of 720 images and a disjoint validation set of 600 images with human person labels, which
+measures how much a student forgets about people in general.
 
 \subsection{Students and adaptation variants}
 \label{sec:variants}
-\yolo{} (COCO-pretrained, 2.5\,M parameters) is fine-tuned for 150 epochs at 1280\,px (AdamW set explicitly, lr
-$10^{-3}$, cosine schedule, batch 12, seed 0). \rfdetr{} is fine-tuned at 640\,px for 80 epochs (EMA, cosine,
-effective batch 16, lr $10^{-4}$, encoder $1.5{\times}10^{-4}$). These are each model's \emph{deployment}
-configurations; the architecture comparison at matched input size is in Sec.~\ref{sec:res}.
+\yolo{} (2.5\,M parameters, COCO-pretrained) is fine-tuned for 150 epochs at 1280\,px with AdamW (learning rate
+$10^{-3}$, cosine schedule, batch 12, seed 0) and a single person class; this is the deployed student. \rfdetr{} is
+fine-tuned at 640\,px for 80 epochs (EMA, cosine schedule, effective batch 16, learning rate $10^{-4}$, encoder
+$1.5{\times}10^{-4}$). These are each model's deployment settings, so the two students also differ in input size.
 
-For the adaptation study all \yolo{} variants keep the 80-class COCO head (person = class 0) so that their weights
-remain shape-compatible with the pretrained model, and differ from the reference \emph{FT-aa1} (aa1 labels, same
-recipe) in one respect each: \emph{replay} adds the 720 COCO replay images (1:1, as in
-Scenes100~\cite{zhang2023scenes100}); \emph{frozen} freezes the 11 backbone modules (lr $3{\times}10^{-4}$, 40
-epochs); \emph{ignore} greys out every fused teacher box with $0.15\le s<0.40$ that overlaps no kept label, so
-uncertain people are neither positives nor background; \emph{multi-scene} trains on aa1 + scene~1 + scene~2;
-\emph{scene~1}/\emph{scene~2} train on one campus scene; \emph{FT@640} trains at 640\,px. \textbf{WiSE.} For
-$\alpha\in\{0,0.1,\dots,1\}$ the blend $\theta(\alpha)=(1-\alpha)\,\theta_{\text{pre}}+\alpha\,\theta_{\text{FT}}$ is
-evaluated with linearly blended BatchNorm statistics and with statistics re-estimated on 192 training-time images
-(aa1 train + COCO replay)~\cite{wortsman2022wise,medeiros2026wiseod}; $\alpha$ is chosen on aa1-valid and COCO-val
-only.
+The adaptation variants of \yolo{} keep the 80-class COCO head and use person as class~0, so that their weights stay
+shape-compatible with the pretrained model. The reference, FT-aa1, uses the recipe above. Each other variant changes
+one thing. Replay adds the 720 COCO images one-to-one, as in Scenes100~\cite{zhang2023scenes100}. Frozen freezes
+the 11 backbone modules (learning rate $3{\times}10^{-4}$, 40 epochs). Ignore greys out every fused teacher box with
+score in $[0.15, 0.40)$ that overlaps no kept label, so uncertain people count neither as positives nor as
+background. Multi-scene trains on aa1, scene~1 and scene~2 together; scene-1 and scene-2 train on one campus scene
+alone; FT@640 trains at 640\,px.
 
-\subsection{Evaluation protocol}
-All models are scored with one script on every split and scene. \emph{COCO metrics}~\cite{lin2014coco}: \AP{},
-\APf{}, \APs{}, AP by size, AR@300. \emph{Operating point}: the best-F1 confidence threshold on the model's own
-training-scene validation split, frozen everywhere else; P/R/F1 at IoU 0.5, FPPI, LAMR~\cite{dollar2012pedestrian},
-per-frame counting MAE and recall by person height. \emph{Label bias}: predictions are re-scored against each
-teacher alone. \emph{Overfitting}: the train--test gap of a fine-tuned model minus that of its pretrained
-counterpart. \emph{Cross-check}: headline numbers are recomputed by code sharing nothing with the evaluator.
-\input{sections/stats.tex}
+For weight-space ensembling we evaluate
+$\theta(\alpha)=(1-\alpha)\,\theta_{\text{pre}}+\alpha\,\theta_{\text{FT}}$ for
+$\alpha\in\{0,0.1,\dots,1\}$~\cite{wortsman2022wise}. The BatchNorm running statistics are either interpolated in
+the same way or re-estimated after merging on 192 training images (aa1 train and COCO replay).
 
-\subsection{Tracking}
-Tracking is evaluated on the unseen first 30\,s of aa1 at the full frame rate (\GtFrames{} frames) and on whole
-test videos. Pseudo-GT tracks link teacher detections with ByteTrack (activation 0.40, buffer \GtBuffer{} frames,
-tracks $\geq$0.25\,s). ByteTrack parameters are grid-searched per detector on aa1 0--15\,s (\GridSize{}
-configurations) and reported on 15--30\,s; six trackers (\texttt{trackers} library~\cite{trackerslib}) are scored
-against \emph{two} pseudo-GTs linked by ByteTrack and by OC-SORT, because a GT linked by tracker $X$ favours $X$.
-On other videos every tracker parameter stays frozen from aa1; counting lines are fixed from one frame before any
-result is computed, and crossing events are matched to GT events (same direction, $|\Delta t|\le 1$\,s).
+\subsection{Evaluation}
+\label{sec:eval}
+One script scores every model on every split and scene with COCO \AP{}, \APf{}, \APs{}, AP by object
+size~\cite{lin2014coco}, and, at a fixed operating point, precision, recall, F1, false positives per frame and recall
+by person height. The operating point is the best-F1 confidence threshold on the model's own training-scene
+validation split; it is then frozen for all other scenes. To check for label bias, predictions are also scored
+against each teacher's labels alone. Headline numbers are recomputed by a second implementation that shares no code
+with the first (\XcPass{} of \XcTotal{} detection checks agree).
+
+Frames 0.25\,s apart show the same people in nearly the same places, so we treat them as observations and not as
+independent replicates. Every confidence interval comes from a paired circular block
+bootstrap~\cite{politis1992cbb} with 5\,s blocks and $B{=}\TcB$ replicates shared across models. AP is not a mean
+over frames, so each replicate re-pools the cached per-frame matches of the resampled frames and recomputes the
+101-point AP. Block lengths of 2.5 and 10\,s, the moving block bootstrap~\cite{kunsch1989} and the automatic block
+length of Politis and White~\cite{politis2004block,patton2009correction} serve as sensitivity checks. A paired
+difference is tested by inverting its bootstrap distribution with the $+1$ correction of Phipson and
+Smyth~\cite{phipson2010pvalues}, so the smallest reportable value is $p\le 2/(B{+}1)$. Wilcoxon tests are used only
+on 30\,s segments and never on individual frames~\cite{dror2018hitchhiker}. These intervals describe sampling within
+one video; differences between cameras are tested only by adding cameras.
+
+Tracking is scored on the first 30\,s of aa1 at the full frame rate (\GtFrames{} frames) and on the whole of the
+other videos. Pseudo-ground-truth tracks link teacher detections. ByteTrack parameters are grid-searched per detector
+over \GridSize{} configurations on aa1 0--15\,s and reported on 15--30\,s. Six trackers from one
+library~\cite{trackerslib} are scored against two pseudo-ground-truths, one linked by ByteTrack and one by OC-SORT,
+because a ground truth linked by a given tracker favours that tracker. On the other videos all tracker parameters
+stay frozen from aa1. Counting lines are drawn on one frame before any result is computed, and a predicted crossing
+matches a ground-truth crossing in the same direction within 1\,s.
 
 \subsection{Model selection}
-The original decision matrix scores the two fine-tuned students relative to the best on aa1 test \AP{} (weight
-\MsWAp), the lower single-teacher AP (\MsWBias), mean aa1 HOTA over 12 tracker$\times$GT runs (\MsWHota), latency
-(\MsWLat), GFLOPs (\MsWGflops) and parameters (\MsWParams), re-checked under \MsNumAlt{} alternative weightings. Its
-robustness to the weights says nothing about robustness to a new camera, so the revision adds a
-\emph{shift-aware} matrix over all candidates (students, adaptation variants and WiSE blends) with an out-of-domain
-criterion: the mean AP on the validation scenes the candidate was \emph{not} trained on (campus valid splits, COCO
-person val), never test1 (in-domain AP 0.3, OOD validation AP 0.4, latency 0.2, GFLOPs 0.1). Test1 is consulted once,
-afterwards, to check the choice. The winner is exported to ONNX at $736{\times}1280$, $544{\times}960$ and
-$384{\times}640$ and re-scored through the runtime's own detector code.
+\label{sec:select}
+A first decision matrix compared the two fine-tuned students on aa1 test \AP{}, the lower of the two
+single-teacher APs, aa1 tracking HOTA, latency, GFLOPs and parameter count, and kept its choice under five other
+weightings. None of these criteria says anything about a new camera. We therefore add a shift-aware matrix over all
+\SrN{} candidates (both students, all adaptation variants and all weight-space blends) with weights 0.3 for aa1 test
+\AP{}, 0.4 for the mean \AP{} on validation data the candidate was not trained on (the campus validation splits and
+COCO people), 0.2 for latency and 0.1 for GFLOPs. Test1 is not part of it and is consulted once, after the choice.
+The chosen model is exported to ONNX at $736{\times}1280$, $544{\times}960$ and $384{\times}640$ and re-scored
+through the runtime's own detector code.
 
-\subsection{Edge system and closed loop}
+\subsection{Runtime, VLM agent and policy layer}
 \label{sec:edge}
-\textbf{Stream ingest.} Files, RTSP/UDP/SRT/HTTP streams, V4L2 and CSI cameras are decoded by an external FFmpeg or
-GStreamer process into fixed-size BGR frames. \emph{Live} sources keep only the newest frame (stale frames are
-dropped and counted) and reconnect after a disconnection; \emph{files} are read without dropping, with container
-timestamps (Sec.~\ref{sec:heldout}).
+An external FFmpeg or GStreamer process decodes files, network streams or cameras into fixed-size frames. For live
+sources only the newest frame is kept; files are read without dropping and stamped with their container timestamps.
+The ONNX detector runs in ONNX Runtime~\cite{onnxruntime} with the TensorRT FP16 provider and falls back to CUDA or
+CPU, so the device needs no PyTorch. ByteTrack uses the aa1-tuned parameters with a lost-track buffer measured in
+seconds. Per frame the runtime updates occupancy, unique tracks, dwell time, line crossings, zones and loitering, and
+evaluates alert rules such as ``occupancy above 20 for 3\,s''. Events, one-second series, VLM reports, chat and the
+audit log go to SQLite and are served by a small web interface.
 
-\textbf{Detector, tracker, analytics.} The ONNX graph runs in ONNX Runtime with the TensorRT FP16 provider, falling
-back to CUDA and CPU; no PyTorch is needed on the device. ByteTrack uses the aa1-tuned parameters with a lost-track
-buffer in seconds and real timestamps. Per frame we update occupancy, unique people (tracks $\geq$0.25\,s; an
-upper bound), dwell, line crossings with hysteresis, zones, loitering and image-plane speed; rules such as
-\emph{occupancy $>$ 20 for 3\,s} fire alerts. Events, 1-s series, VLM reports, chat and the audit log are stored in
-SQLite (write-ahead log, one connection per thread) and served by a dependency-free web UI.
+Qwen3-VL-2B (4-bit GGUF) runs in a llama.cpp server~\cite{llamacpp} behind a priority queue, so the frame loop never
+waits for it. When the operator asks a question, a first stage sees only text and may call one of five tools: read
+the history, read recent events, set an alert, remove an alert, or move the counting line. A second stage answers with the current frame and the tool results and has no tools.
+When an alert fires, the VLM writes a scene report, but the alert itself is decided by the numbers.
 
-\textbf{VLM in the loop.} Qwen3-VL-2B (Q4\_K\_M GGUF) runs in a llama.cpp server; one worker serves jobs by
-priority, so the frame loop never waits. Its role follows the experiments of Sec.~\ref{sec:vlm}: (i)~\emph{ask} is
-two-stage: stage~1 routes the question \emph{text-only} and may call \texttt{get\_history},
-\texttt{get\_recent\_events}, \texttt{set\_alert}, \texttt{remove\_alert} or \texttt{set\_counting\_line}; stage~2
-answers with the live frame and the tool results, without tools; (ii)~\emph{on alert} the VLM writes a scene report,
-while the rule is decided by the numbers; (iii)~\emph{observe}: a periodic JSON scene report. \emph{Guardrails}: an
-intent check refuses arguments that contradict the request, a rule-based executor performs unambiguous commands, a
-system-generated footer states what actually changed, and \texttt{/}commands give a VLM-free control path.
-\input{sections/policy.tex}
+The VLM can propose tool calls but never decides whether they run. Every call, whether it comes from the model, from
+a rule-based fallback or from a typed command, passes a deterministic policy layer that follows the action-selector
+and dual-LLM patterns~\cite{beurerkellner2025patterns}. It enforces roles taken from the authenticated token
+(viewers read; operators change alert rules and the counting line; only administrators remove all alerts). It
+validates types, ranges and line geometry, since a threshold of a million people is a disabled alert in disguise.
+An intent gate allows a state change only if the user's own words in the current turn request it, so text that
+reached the model from the frame, a scene report or a tool result cannot trigger one. Removing or weakening an alert
+from chat waits for a \texttt{/confirm} from the same user. Changes and chat requests are rate-limited per user,
+and every decision is appended to a hash-chained audit log, $h_n = \mathrm{SHA256}(h_{n-1}\,\|\,r_n)$, in which an
+edited, deleted or reordered entry breaks the chain~\cite{schneier1999audit}. The first stage is also isolated from
+model-written text. It never sees scene reports, earlier VLM answers or the free-text fields of events, only the
+system-written summary of what each earlier turn changed. Words read from the camera view therefore cannot reach the
+only component that can change settings.

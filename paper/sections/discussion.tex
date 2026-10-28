@@ -1,30 +1,45 @@
 %=====================================================================================================
 \section{Discussion and Limitations}
 \label{sec:discussion}
-\textbf{What the scene study changes.} The submitted conclusion, ``fine-tuned \yolo{} is the better student'', holds
-only for one camera, one input size and one label set: at matched input size \rfdetr{} is as accurate and far more
-robust (Sec.~\ref{sec:res}); against single-teacher labels the gap shrinks (Table~\ref{tab:det}); and on every
-other camera the fine-tuned \yolo{} is worse than its own pretrained weights (Sec.~\ref{sec:adapt}). The measured
-cause is forgetting, aggravated by a label threshold that turns small people into background. Two cheap changes
-address it: a WiSE blend of pretrained and fine-tuned weights, and a selection criterion measured on validation data
-from cameras the model was not adapted to. Neither needs labels from the target camera, which is the realistic
-situation for a new installation; when a few labelled minutes from the target camera exist, multi-scene training plus
-WiSE is better still. Bootstrap intervals over the frames of one video do not cover this kind of failure; only
-additional scenes do.
+The conclusion one would draw from the adaptation camera alone, that the fine-tuned \yolo{} is the better student,
+holds for one camera, one input size and one label set. At equal input size \rfdetr{} is as accurate and transfers
+far better; against single-teacher labels the gap shrinks; and on every other camera the fine-tuned \yolo{} is worse
+than its own pretrained weights. Bootstrap intervals over the frames of one video cannot reveal this kind of
+failure. Only more cameras can. The repair we recommend needs no labels from the target camera: average the
+pretrained and fine-tuned weights, interpolate the BatchNorm statistics, and choose the coefficient on validation
+data from cameras the model was not adapted to. If a few labelled minutes from the target camera exist, multi-scene
+training followed by averaging does better still.
 
-\input{sections/human.tex}
+For the VLM, the measurements set its role. A 2B model should not produce counts or verify alerts, and without an
+external policy it should not hold any authority, since it carried out most alert-disabling, unauthorised and
+multi-turn requests and acted on text from the camera view. What it adds is a description of the scene and a
+natural-language way to query and configure the system, and that is safe only when every action is decided outside
+the model.
 
-\textbf{What a small VLM is for.} A 2B VLM must not be trusted for counts (E1) or yes/no verdicts on measured
-quantities (E5), and E6 shows it must not be trusted with authority either: without an external policy it executed
-nearly every alert-disabling, unauthorised and multi-turn request, and an instruction written on a sign reached its
-tools through the chat history. Its value is description and natural-language access, and that value is safe only
-when every action is decided outside the model: roles from authentication, validation, an intent gate on the user's
-own words, confirmation for weakening safety rules, rate limits, an audit chain, and a tool-calling stage that never
-reads model-written text. The remaining failure, silent \emph{repair} of malformed or contradictory requests into
-valid rules, calls for asking back rather than for more filtering.
+Every absolute number in this paper is agreement with the teacher ensemble, and the label inspection on test1 was
+not done by independent annotators. We release a protocol and a browser tool for a human ground truth that is being
+collected: \HuFramesPlanned{} frames drawn with a fixed seed from the test portions of all four scenes and two short
+tracking clips, labelled blind and from scratch by two annotators who never see machine boxes, with a third person
+resolving only their disagreements. Identity rules follow MOT16~\cite{milan2016mot16}, and people under 20\,px,
+inseparable groups and reflections are ignore regions~\cite{dollar2012pedestrian}. Until these labels exist, we claim
+only comparisons made under the same reference.
 
-\input{sections/jetson.tex}
+The two students differ in architecture, input size and schedule, so only the matched-resolution comparison speaks
+to architecture. The adaptation variants share one recipe and one seed, and we do not interpret differences below
+about 0.01 \AP. The guardrails and the policy layer were designed after we had seen the cooperative tool-use
+utterances, which is why the safety suite was written before any of its cases were run. The same authors wrote the
+policy and the suite, and no adaptive attacker was tried against the final policy, so its rejection rate is an upper
+bound on what a determined attacker would face. Four scenes are still few: three are phone or handheld video from
+one campus, and none is at night, in rain or from an overhead camera. The VLM results hold for one 2B model at
+temperature 0 and one set of prompts. No number here was measured on a Jetson. Latency, power, thermal behaviour and
+the contention between detector and VLM on an 8\,GB Orin remain to be measured with TensorRT engines over long
+runs~\cite{reddi2020mlperf}.
 
-\input{sections/privacy.tex}
-
-\input{sections/threats.tex}
+The runtime does not identify people or infer demographic attributes. It stores boxes, counts, crossings and dwell
+times, processes frames in memory, and deletes events, series, reports and chat after a retention period (72\,h by
+default) while keeping the audit log. Access needs a per-user token with a role, and the server binds to the local
+network by default. The aa1 video is a publicly available pedestrian benchmark video distributed without an explicit
+licence; we use it for research and do not redistribute its frames. Test1 was recorded by the authors on campus for
+this study.
+% AUTHORS: add the provenance of the two campus videos (video_1.mp4, video_2.mp4 = scenes 1 and 2) here.
+Only code and derived data (boxes, tracks and metrics) are released.

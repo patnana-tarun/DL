@@ -18,7 +18,7 @@
 
 \input{numbers.tex}
 
-% float placement: allow more and larger floats per page (many figures/tables)
+% float placement
 \renewcommand{\topfraction}{0.92}
 \renewcommand{\bottomfraction}{0.6}
 \renewcommand{\textfraction}{0.08}
@@ -44,7 +44,7 @@
 \begin{document}
 
 
-\title{Pseudo-Labels, Scene Shift and Tool-Using VLMs:\\ A Reliability Study of an Edge-Oriented Crowd-Analytics Pipeline}
+\title{Fine-Tuned on One Camera, Worse on Every Other:\\ Pseudo-Label Adaptation and Policy-Gated VLM Control in Crowd Analytics}
 
 \author{
 \IEEEauthorblockN{Patnana Tarun}
@@ -81,47 +81,35 @@ Amrita Vishwa Vidyapeetham, India\\
 \maketitle
 
 \begin{abstract}
-We study the reliability of a pipeline that turns unlabelled pedestrian video into a closed-loop crowd-analytics
-system: a teacher ensemble pseudo-labels one camera, compact students (\yolo{}, \rfdetr) are fine-tuned on it, and the
-selected detector drives a streaming runtime with ByteTrack, deterministic analytics and a Qwen3-VL-2B agent that
-reports on the scene and reconfigures the analytics through tool calls. Measured across four scenes and human-labelled
-COCO people, single-camera fine-tuning raises in-domain \AP{} (\MsPtAa{}$\rightarrow$\MsFtAa) but lowers it on every
-other camera, below the detector's own pretrained weights on a test-only video (\MsPtHo{}$\rightarrow$\MsFtHo) and
-on COCO people (\MsPtCoco{}$\rightarrow$\MsFtCoco). A size-blind label threshold that turns small people into
-background explains part of the loss and forgetting the rest. Weight-space ensembling of pretrained and fine-tuned
-weights, chosen on other cameras' validation data, keeps most of the in-domain gain (\MsSelAa) and restores the
-held-out accuracy (\MsSelHo); COCO replay and a frozen backbone help too. At matched input size the transformer
-student is as accurate and markedly more robust, so the CNN's in-domain lead was an input-size effect; its real
-advantage is cost (25--44$\times$ fewer FLOPs at equal input size). Circular-block bootstrap intervals are \TcAaRatioMin--\TcAaRatioMax$\times$ wider than
-frame-level ones; no conclusion changes. For the VLM, we show that it copies counts and accepts fabricated alerts, and
-in a 300-case adversarial suite it executes most unsafe requests, including instructions painted on a sign in the
-camera view; a deterministic policy layer (roles, validation, intent gate, confirmation, rate limits, hash-chained
-audit, isolation of tool routing from model-written text) raises unsafe-request rejection from \SfGrTestRej{} to
-\SfPoTestRej{} at unchanged task success. All timings are from a desktop GPU; on-device validation is left to future work. We release
-a blind human-annotation protocol and a reproducibility package.
+A common way to adapt a crowd-analytics system to a new camera is to pseudo-label its footage with large teacher
+detectors and fine-tune a compact student on the result. Prior work reports the gain on the adapted camera. We
+measure what the adaptation costs everywhere else. Fine-tuning \yolo{} on pseudo-labels from one plaza video raises
+its \AP{} there from \MsPtAa{} to \MsFtAa{}, but lowers it on all three other cameras we tested and on human-labelled
+COCO people; on a test-only video it drops from \MsPtHo{} to \MsFtHo{}, well below its own pretrained weights. Part
+of the loss comes from the pseudo-label score threshold, which discards \LtAaA{} of the teacher boxes on people
+shorter than 32\,px and so trains the student to treat distant people as background. The rest is forgetting.
+Averaging the pretrained and fine-tuned weights, with the mixing coefficient chosen on other cameras' validation
+data, keeps most of the in-domain gain (\MsSelAa) and restores the test-only score (\MsSelHo) at no training or
+inference cost, whereas re-estimating BatchNorm statistics after averaging makes it worse. At equal input size,
+\rfdetr{} matches \yolo{} on the adapted camera and transfers far better, so the CNN's in-domain lead came from its
+larger input. The selected detector feeds a streaming runtime in which Qwen3-VL-2B answers operator questions and
+edits alert rules through tool calls. The model repeats whatever count it is given, confirms fabricated alerts, and
+follows an instruction painted on a sign in the camera view once that text enters the chat history. A deterministic
+policy layer outside the model raises the rejection of unsafe requests on a 300-case suite from \SfGrTestRej{} to
+\SfPoTestRej{} with no loss in task success. All timings were measured on a desktop GPU.
 \end{abstract}
 
 \begin{IEEEkeywords}
-person detection, multi-object tracking, pseudo-labelling, domain shift, robust fine-tuning, block bootstrap,
-vision-language models, tool calling, prompt injection, edge AI
+person detection, pseudo-labelling, domain shift, weight averaging, block bootstrap, vision-language models,
+tool calling, prompt injection, edge AI
 \end{IEEEkeywords}
 
 \input{sections/intro.tex}
 \input{sections/related.tex}
 \input{sections/method.tex}
-\input{sections/exp_indomain.tex}
-\input{sections/exp_res.tex}
-\input{sections/exp_tracking.tex}
-\input{sections/exp_heldout.tex}
-\input{sections/exp_adapt.tex}
-\input{sections/exp_selection.tex}
-\input{sections/exp_edge.tex}
-\input{sections/exp_vlm.tex}
+\input{sections/results.tex}
 \input{sections/discussion.tex}
 \input{sections/conclusion.tex}
-
-\appendices
-\input{sections/appendix.tex}
 
 \balance
 \bibliographystyle{IEEEtran}
